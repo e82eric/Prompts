@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>Adventure Works OLAP</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>14cdd75a-7270-48ee-bcb4-a4056cf55803</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="All">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[All Promotions] ON ROWS
+FROM
+	[Adventure Works]</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[All Promotions] ON ROWS
+FROM
+	[Adventure Works]</Statement>
+              <ParameterDefinitions />
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Category">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="AllMember">
+            <Value>=Parameters!AllMember.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[Category].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@AllMember) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Promotion</DimensionName>
+                      <HierarchyName>Promotions</HierarchyName>
+                      <HierarchyUniqueName>[Promotion].[Promotions]</HierarchyUniqueName>
+                      <LevelName>Category</LevelName>
+                      <UniqueName>[Promotion].[Promotions].[Category]</UniqueName>
+                    </ID>
+                    <ItemCaption>Category</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[Category].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@AllMember) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>AllMember</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Promotion].[Promotions].[All Promotions]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>AllMember</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Category">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Promotion].[Promotions].[Category]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Type">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="Category">
+            <Value>=Parameters!Category.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[Type].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Category) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Promotion</DimensionName>
+                      <HierarchyName>Promotions</HierarchyName>
+                      <HierarchyUniqueName>[Promotion].[Promotions]</HierarchyUniqueName>
+                      <LevelName>Category</LevelName>
+                      <UniqueName>[Promotion].[Promotions].[Category]</UniqueName>
+                    </ID>
+                    <ItemCaption>Category</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Promotion</DimensionName>
+                      <HierarchyName>Promotions</HierarchyName>
+                      <HierarchyUniqueName>[Promotion].[Promotions]</HierarchyUniqueName>
+                      <LevelName>Type</LevelName>
+                      <UniqueName>[Promotion].[Promotions].[Type]</UniqueName>
+                    </ID>
+                    <ItemCaption>Type</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[Type].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Category) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>Category</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Promotion].[Promotions].[All Promotions]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>Category</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Category">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Promotion].[Promotions].[Category]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Type">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Promotion].[Promotions].[Type]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Promotion">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="TypeMember">
+            <Value>=Parameters!Type.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[Promotion].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@TypeMember) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Promotion</DimensionName>
+                      <HierarchyName>Promotions</HierarchyName>
+                      <HierarchyUniqueName>[Promotion].[Promotions]</HierarchyUniqueName>
+                      <LevelName>Category</LevelName>
+                      <UniqueName>[Promotion].[Promotions].[Category]</UniqueName>
+                    </ID>
+                    <ItemCaption>Category</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Promotion</DimensionName>
+                      <HierarchyName>Promotions</HierarchyName>
+                      <HierarchyUniqueName>[Promotion].[Promotions]</HierarchyUniqueName>
+                      <LevelName>Type</LevelName>
+                      <UniqueName>[Promotion].[Promotions].[Type]</UniqueName>
+                    </ID>
+                    <ItemCaption>Type</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Promotion</DimensionName>
+                      <HierarchyName>Promotions</HierarchyName>
+                      <HierarchyUniqueName>[Promotion].[Promotions]</HierarchyUniqueName>
+                      <LevelName>Promotion</LevelName>
+                      <UniqueName>[Promotion].[Promotions].[Promotion]</UniqueName>
+                    </ID>
+                    <ItemCaption>Promotion</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Promotion].[Promotions].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Promotion].[Promotions].[Promotion].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@TypeMember) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>TypeMember</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Promotion].[Promotions].[All Promotions]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>TypeMember</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Category">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Promotion].[Promotions].[Category]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Type">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Promotion].[Promotions].[Type]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Promotion">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Promotion].[Promotions].[Promotion]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="AllMember">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Promotion].[Promotions].[All Promotions]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AllMember</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>All</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Category">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Promotion].[Promotions].[All Promotions]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Category</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Category</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Type">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Promotion].[Promotions].[All Promotions]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Type</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Type</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Promotions">
+      <DataType>String</DataType>
+      <Prompt>Promotions</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Promotion</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>f55d54f2-6b4b-427b-b2d8-b45a36dec989</rd:ReportID>
+</Report>

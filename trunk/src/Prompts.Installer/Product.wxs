@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix 
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
+	xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	
+	<Product 
+		Id="dc5dfc0a-0848-4b2b-a7e0-f9b232a03528" 
+		Name="Prompts" 
+		Language="1033" 
+		Version="1.0.0.0" 
+		Manufacturer="Prompts" 
+		UpgradeCode="fe2c4206-7022-475d-956b-489c91bc4d16">
+
+		<Package
+			InstallerVersion="200"
+			Compressed="yes"></Package>
+
+		<Media 
+			Id="1" 
+			Cabinet="media1.cab" 
+			EmbedCab="yes" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id='PromptsDir' Name='Prompts'>
+				<Component Id='WebConfig' Guid='{5DD56554-0E56-4590-958E-865833D706FD}'>
+					<File
+						Id='WebConfig'
+						Name='Web.config'
+						KeyPath='yes'
+						Source='..\..\Binaries\Prompts.Web\Web.config'
+						Checksum='yes'
+						DiskId='1'/>
+				</Component>
+				<Component Id='SilverlightJavaScript' Guid='{EC7FEEE7-7B7F-4BED-A763-3E3F8014B395}'>
+					<File
+						Id='SilverlightJavaScript'
+						Name='Silverlight.js'
+						KeyPath='yes'
+						Source='..\..\Binaries\Prompts.Web\Silverlight.js'
+						Checksum='yes'
+						DiskId='1'/>
+				</Component>
+				<Component Id='DefaultASPX' Guid='{67173E5E-3BB6-49E9-91A6-20A0FAC4D41A}'>
+					<File
+						Id='DefaultASPX'
+						Name='Default.aspx'
+						KeyPath='yes'
+						Source='..\..\Binaries\Prompts.Web\Default.aspx'
+						Checksum='yes'
+						DiskId='1'/>
+				</Component>
+				<Directory Id='PromptsBin' Name='bin'>
+					<Component Id='PromptsWebAssembly' Guid='{E82E5A67-7049-45B7-8D1B-467D8EAF5A8F}'>
+						<File
+							Id='PromptsWebAssembly'
+							Name='Prompts.Web.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Web\bin\Prompts.Web.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+				</Directory>
+				<Directory Id='ClientBin' Name='ClientBin'>
+					<Component Id='PromptsXAP' Guid='{DFF28D46-F387-4F96-AADD-50868EF404D5}'>
+						<File
+							Id='PromptsXAP'
+							Name='Prompts.xap'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Web\ClientBin\Prompts.xap'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+				</Directory>
+			</Directory>
+			<Directory Id='PromptsServiceDir' Name='Prompts.Service'>
+				<Component Id='ServiceWebConfig' Guid='{EBB2BBA3-FA19-476C-A975-51045A75C235}'>
+					<File
+						Id='ServiceWebConfig'
+						Name='Web.config'
+						KeyPath='yes'
+						Source='..\..\Binaries\Prompts.Service\Web.config'
+						Checksum='yes'
+						DiskId='1'/>
+					<util:XmlFile
+						Id='PromptReportFolderWebConfigExecutionServiceEdit'
+						File='[#ServiceWebConfig]'
+						Action='setValue'
+						ElementPath="/configuration/applicationSettings/Prompts.Service.Properties.Settings/setting[\[]@name='Prompt_Report_Folder'[\]]/value"
+						Value='[PROMPTREPORTFOLDER]'/>
+					<util:XmlFile
+						Id='ReportWebConfigExecutionServiceEdit'
+						File='[#ServiceWebConfig]'
+						Action='setValue'
+						ElementPath="/configuration/applicationSettings/Prompts.Service.Properties.Settings/setting[\[]@name='Report_Folder'[\]]/value"
+						Value='[REPORTFOLDER]'/>
+					<util:XmlFile
+						Id='ServiceWebConfigExecutionServiceEdit'
+						File='[#ServiceWebConfig]'
+						Action='setValue'
+						ElementPath="/configuration/applicationSettings/Prompts.Service.Properties.Settings/setting[\[]@name='ReportServerUrl'[\]]/value"
+						Value='[REPORTSERVERPATH]'/>
+					<util:XmlFile
+						Id='LabelParameterPostfixWebConfigReportServiceEdit'
+						File='[#ServiceWebConfig]'
+						Action='setValue'
+						ElementPath="/configuration/applicationSettings/Prompts.Service.Properties.Settings/setting[\[]@name='Label_Parameter_Postfix'[\]]/value"
+						Value='[LABELPARAMETERPOSTFIX]'/>
+				</Component>
+				<Component Id='ReportViewerASPX' Guid='{937A5B49-EFBC-48AA-8A2D-48D1216BFC1D}'>
+					<File
+						Id='ReportViewerASPX'
+						Name='ReportViewer.aspx'
+						KeyPath='yes'
+						Source='..\..\Binaries\Prompts.Service\ReportViewer.aspx'
+						Checksum='yes'
+						DiskId='1'/>
+				</Component>
+
+				<Directory Id='PromptsServiceBin' Name='bin'>
+					<Component Id='ReportViewerCommonAssembly' Guid='{BB35C10B-5BC4-43B3-902B-1E7FD1B558D0}'>
+						<File
+							Id='ReportViewerCommonAssembly'
+							Name='Microsoft.ReportViewer.Common.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\Microsoft.ReportViewer.Common.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='ReportViewerWebAssembly' Guid='{8B9A3E3E-AA5A-4ABF-856A-CD04E2FCD978}'>
+						<File
+							Id='ReportViewerWebAssembly'
+							Name='Microsoft.ReportViewer.WebForms.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\Microsoft.ReportViewer.WebForms.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='PromptsServiceAssembly' Guid='{9C1B3E44-E7C5-43CB-AF82-1CE65ACF60F0}'>
+						<File
+							Id='PromptsServiceAssembly'
+							Name='Prompts.Service.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\Prompts.Service.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+				</Directory>
+
+				<Directory Id='PromptServiceDir' Name='PromptService'>
+					<Component Id='ChildPromptLevelService' Guid='{78BE6351-6DFC-457B-A758-41EDEC70E269}'>
+						<File
+							Id='ChildPromptLevelService'
+							Name='ChildPromptLevelService.svc'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\PromptService\ChildPromptLevelService.svc'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='PromptSelectionService' Guid='{DFD73AF8-E9EA-4852-8B0D-6A95780169E0}'>
+						<File
+							Id='PromptSelectionService'
+							Name='PromptSelectionService.svc'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\PromptService\PromptSelectionService.svc'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='PromptService' Guid='{25FA2BFA-EE0C-481D-A940-8D4BD046D4F7}'>
+						<File
+							Id='PromptService'
+							Name='PromptService.svc'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\PromptService\PromptService.svc'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+				</Directory>
+
+				<Directory Id='ReportCatalogServiceDir' Name='ReportCatalogService'>
+					<Component Id='ReportCatalogService' Guid='{7DD14516-E273-4656-803E-4633824C3E69}'>
+						<File
+							Id='ReportCatalogService'
+							Name='ReportCatalogService.svc'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\ReportCatalogService\ReportCatalogService.svc'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+				</Directory>
+
+			</Directory>
+		</Directory>
+
+		<iis:WebApplication
+			Id="PromptsWebApplication"
+			Name="Prompts" />
+
+		<iis:WebApplication
+			Id="PromptsServiceApplication"
+			Name="Prompts.Service" />
+
+		<Feature Id="ProductFeature" Title="Prompts.Installer" Level="1">
+			<ComponentRef Id="WebConfig"/>
+			<ComponentRef Id="SilverlightJavaScript"/>
+			<ComponentRef Id="PromptsWebAssembly"/>
+			<ComponentRef Id="DefaultASPX"/>
+			<ComponentRef Id="PromptsXAP"/>
+			<ComponentRef Id="ServiceWebConfig"/>
+			<ComponentRef Id="ReportViewerASPX"/>
+			<ComponentRef Id="ReportViewerCommonAssembly"/>
+			<ComponentRef Id="ReportViewerWebAssembly"/>
+			<ComponentRef Id="PromptsServiceAssembly"/>
+			<ComponentRef Id="ChildPromptLevelService"/>
+			<ComponentRef Id="PromptSelectionService"/>
+			<ComponentRef Id="PromptService"/>
+			<ComponentRef Id="ReportCatalogService"/>
+			
+
+			<Component Id="SiteInstallationComponent" Guid="{8C134E55-CE21-445D-B790-7DABCCA48943}" Directory="PromptsDir">
+				<CreateFolder />
+
+				<iis:WebVirtualDir
+					Id="PromptsVirtualDirectory"
+					Alias="Prompts"
+					Directory="PromptsDir"
+					WebApplication="PromptsWebApplication"
+					WebSite="DefaultWebSite">
+					<iis:WebDirProperties
+						Id="PromptServiceWebDirProperties"
+						AnonymousAccess="no"
+						WindowsAuthentication="yes"
+						BasicAuthentication="no"
+						DigestAuthentication="no"/>
+				</iis:WebVirtualDir>
+
+				<iis:WebVirtualDir
+					Id="PromptsServiceVirtualDirectory"
+					Alias="Prompts.Service"
+					Directory="PromptsServiceDir"
+					WebApplication="PromptsWebApplication"
+					WebSite="DefaultWebSite">
+					<iis:WebDirProperties
+						Id="PromptsWebDirProperties"
+						AnonymousAccess="no" 
+						WindowsAuthentication="yes" 
+						BasicAuthentication="no" 
+						DigestAuthentication="no"/>
+				</iis:WebVirtualDir>
+
+				<iis:WebSite
+					Id="DefaultWebSite"
+					ConfigureIfExists="yes"
+					Description="Prompts"
+					WebApplication="PromptsServiceApplication"
+					Directory="TARGETDIR">
+					<iis:WebAddress 
+						Id="Prompts" 
+						Port="8080"/>
+				</iis:WebSite>
+			</Component>
+		</Feature>
+		
+		<!-- user interface -->
+		<Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
+		<Property Id="REPORTSERVERPATH" Value="http://localhost/reportserver" />
+		<Property Id="REPORTFOLDER" Value="/Reports" />
+		<Property Id="PROMPTREPORTFOLDER" Value="/Prompt Reports" />
+		<Property Id="LABELPARAMETERPOSTFIX" Value="_Label" />
+		
+		<UI Id="WixUI_InstallDir">
+
+			<Dialog Id="SpecialDlg" Width="370" Height="270" Title="[ProductName] Setup" NoMinimize="yes">
+				<Control Id="NameLabel" Type="Text" X="45" Y="60" Width="100" Height="15" TabSkip="no" Text="&amp;Report Server URL:" />
+				<Control Id="NameEdit" Type="Edit" X="45" Y="72" Width="220" Height="18" Property="REPORTSERVERPATH" Text="{80}"/>
+
+				<Control Id="ReportLocationLabel" Type="Text" X="45" Y="100" Width="100" Height="15" TabSkip="no" Text="&amp;Report Folder:" />
+				<Control Id="ReportLocationLabelEdit" Type="Edit" X="45" Y="112" Width="220" Height="18" Property="REPORTFOLDER" Text="{80}"/>
+
+				<Control Id="PromptReportLocationLabel" Type="Text" X="45" Y="140" Width="100" Height="15" TabSkip="no" Text="&amp;Prompt Report Folder:" />
+				<Control Id="PromptReportLocationLabelEdit" Type="Edit" X="45" Y="152" Width="220" Height="18" Property="PROMPTREPORTFOLDER" Text="{80}"/>
+
+				<Control Id="LabelParameterPostFixLabel" Type="Text" X="45" Y="180" Width="100" Height="15" TabSkip="no" Text="&amp;Label Parameter Postfix:" />
+				<Control Id="LabelParameterPostFixLabelEdit" Type="Edit" X="45" Y="192" Width="220" Height="18" Property="LABELPARAMETERPOSTFIX" Text="{80}"/>
+
+				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="&amp;Back">
+				</Control>
+				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="&amp;Next">
+				</Control>
+				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="Cancel">
+					<Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+				</Control>
+				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="WixUI_Bmp_Banner" />
+
+				<Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes" Text="{\WixUI_Font_Title}Configure Web Service" />
+
+				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
+					<Text>Reporting Services Information</Text>
+				</Control>
+				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+			</Dialog>
+
+
+			<TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+			<TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+			<TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+			<Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+			<Property Id="WixUI_Mode" Value="InstallDir" />
+
+			<DialogRef Id="BrowseDlg" />
+			<DialogRef Id="DiskCostDlg" />
+			<DialogRef Id="ErrorDlg" />
+			<DialogRef Id="FatalError" />
+			<DialogRef Id="FilesInUse" />
+			<DialogRef Id="MsiRMFilesInUse" />
+			<DialogRef Id="PrepareDlg" />
+			<DialogRef Id="ProgressDlg" />
+			<DialogRef Id="ResumeDlg" />
+			<DialogRef Id="UserExit" />
+			<DialogRef Id="SpecialDlg"/>
+
+			<Publish Dialog="BrowseDlg" Control="OK" Event="DoAction" Value="WixUIValidatePath" Order="3">1</Publish>
+			<Publish Dialog="BrowseDlg" Control="OK" Event="SpawnDialog" Value="InvalidDirDlg" Order="4"><![CDATA[WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
+
+			<Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+
+			<Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="SpecialDlg">NOT Installed</Publish>
+			<Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">Installed AND PATCH</Publish>
+
+			<Publish Dialog="SpecialDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+			<Publish Dialog="SpecialDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+
+			<Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="SpecialDlg">1</Publish>
+			<Publish Dialog="InstallDirDlg" Control="Next" Event="SetTargetPath" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+			<Publish Dialog="InstallDirDlg" Control="Next" Event="DoAction" Value="WixUIValidatePath" Order="2">NOT WIXUI_DONTVALIDATEPATH</Publish>
+			<Publish Dialog="InstallDirDlg" Control="Next" Event="SpawnDialog" Value="InvalidDirDlg" Order="3"><![CDATA[NOT WIXUI_DONTVALIDATEPATH AND WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
+			<Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg" Order="4">WIXUI_DONTVALIDATEPATH OR WIXUI_INSTALLDIR_VALID="1"</Publish>
+			<Publish Dialog="InstallDirDlg" Control="ChangeFolder" Property="_BrowseProperty" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+			<Publish Dialog="InstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
+
+			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg" Order="1">NOT Installed</Publish>
+			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed AND NOT PATCH</Publish>
+			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">Installed AND PATCH</Publish>
+
+			<Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+
+			<Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+			<Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+			<Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+
+			<Property Id="ARPNOMODIFY" Value="1" />
+		</UI>
+
+		<UIRef Id="WixUI_Common" />
+		
+	</Product>
+</Wix>

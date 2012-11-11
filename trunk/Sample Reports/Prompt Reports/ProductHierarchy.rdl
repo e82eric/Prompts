@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>Adventure Works OLAP</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>52900946-2faa-40ad-902b-0605ab0f9ddd</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Category">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="AllMember">
+            <Value>=Parameters!All.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[Category].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@AllMember) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Categories</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Categories]</HierarchyUniqueName>
+                      <LevelName>Category</LevelName>
+                      <UniqueName>[Product].[Product Categories].[Category]</UniqueName>
+                    </ID>
+                    <ItemCaption>Category</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[Category].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@AllMember) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>AllMember</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Product].[Product Categories].[All]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>AllMember</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Category">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Categories].[Category]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="All">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[All] ON ROWS
+FROM
+	[Adventure Works]</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[All] ON ROWS
+FROM
+	[Adventure Works]</Statement>
+              <ParameterDefinitions />
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Subcategory">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="Category">
+            <Value>=Parameters!Category.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[Subcategory].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Category) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Categories</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Categories]</HierarchyUniqueName>
+                      <LevelName>Category</LevelName>
+                      <UniqueName>[Product].[Product Categories].[Category]</UniqueName>
+                    </ID>
+                    <ItemCaption>Category</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Categories</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Categories]</HierarchyUniqueName>
+                      <LevelName>Subcategory</LevelName>
+                      <UniqueName>[Product].[Product Categories].[Subcategory]</UniqueName>
+                    </ID>
+                    <ItemCaption>Subcategory</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[Subcategory].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Category) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>Category</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Product].[Product Categories].[All Products]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>Category</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Category">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Categories].[Category]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Subcategory">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Categories].[Subcategory]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Product">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="Subcategory">
+            <Value>=Parameters!Subcategory.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[Product].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Subcategory) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Categories</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Categories]</HierarchyUniqueName>
+                      <LevelName>Category</LevelName>
+                      <UniqueName>[Product].[Product Categories].[Category]</UniqueName>
+                    </ID>
+                    <ItemCaption>Category</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Categories</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Categories]</HierarchyUniqueName>
+                      <LevelName>Subcategory</LevelName>
+                      <UniqueName>[Product].[Product Categories].[Subcategory]</UniqueName>
+                    </ID>
+                    <ItemCaption>Subcategory</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Categories</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Categories]</HierarchyUniqueName>
+                      <LevelName>Product</LevelName>
+                      <UniqueName>[Product].[Product Categories].[Product]</UniqueName>
+                    </ID>
+                    <ItemCaption>Product</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Product].[Product Categories].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Product].[Product Categories].[Product].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Subcategory) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>Subcategory</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Product].[Product Categories].[All Products]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>Subcategory</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Category">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Categories].[Category]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Subcategory">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Categories].[Subcategory]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Product">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Categories].[Product]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="All">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Product].[Product Categories].[All]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>All</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>All</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Category">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Product].[Product Categories].[All Products]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Category</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Category</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Subcategory">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Product].[Product Categories].[All Products]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Subcategory</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Subcategory</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Product">
+      <DataType>String</DataType>
+      <Prompt>Product</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Product</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>98591dfa-b5aa-407f-a82c-8ba72e7dcdb9</rd:ReportID>
+</Report>

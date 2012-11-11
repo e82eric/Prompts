@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Prompts.MainPage.PromptsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Color x:Key="PageContainerBorderColor">LightGray</Color>
+        <Color x:Key="PageContainerInnerBorderColor">White</Color>
+
+        <SolidColorBrush x:Key="PageContainerBorderBrush" Color="{StaticResource PageContainerBorderColor}"/>
+        <SolidColorBrush x:Key="PageContainerInnerBorderBrush" Color="{StaticResource PageContainerInnerBorderColor}"/>
+
+        <Style x:Key="PanelContainerStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource PageContainerBorderBrush}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Margin" Value="10,10,5,5" />
+        </Style>
+
+        <Style x:Key="PanelInnerContainerStyleTransparent" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource PageContainerInnerBorderBrush}"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="Padding" Value="6"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Border CornerRadius="10" Style="{StaticResource PanelContainerStyle}">
+            <Grid Background="Transparent">
+                <Border Style="{StaticResource PanelInnerContainerStyleTransparent}">
+                    <Grid x:Name="PromptsContainer" />
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

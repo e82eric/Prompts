@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DE17C33-11CA-41FA-8B93-87F42934E967}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prompts</RootNamespace>
+    <AssemblyName>Prompts</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <XapOutputs>true</XapOutputs>
+    <SupportedCultures>
+    </SupportedCultures>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Prompts.App</SilverlightAppEntry>
+    <CreateTestPage>false</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <XapFilename>Prompts.xap</XapFilename>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>false</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\Library\ServiceStackSilverlight\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\Library\ServiceStackSilverlight\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\Library\ServiceStackSilverlight\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\Library\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\Library\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CasscadingSearchContainer.cs" />
+    <Compile Include="DropDownContainer.cs" />
+    <Compile Include="EmptyPromptContainer.cs" />
+    <Compile Include="Infastructure\ErrorVisibilityConverter.cs" />
+    <Compile Include="Infastructure\LoadedVisibilityConverter.cs" />
+    <Compile Include="Infastructure\LoadingVisibilityConverter.cs" />
+    <Compile Include="Infastructure\RelayCommand.cs" />
+    <Compile Include="Infastructure\StatefulViewModel.cs" />
+    <Compile Include="Infastructure\UnInitializedVisibilityConverter.cs" />
+    <Compile Include="Infastructure\ViewModelBase.cs" />
+    <Compile Include="Infastructure\ViewModelState.cs" />
+    <Compile Include="IReportRendererContainer.cs" />
+    <Compile Include="MainPage\CollapseControl.cs" />
+    <Compile Include="MainPage\CollapseConverter.cs" />
+    <Compile Include="MainPage\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage\MainPageViewModel.cs" />
+    <Compile Include="MainPage\PromptsView.xaml.cs">
+      <DependentUpon>PromptsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage\ReportCatalogView.xaml.cs">
+      <DependentUpon>ReportCatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MultiSelectTreeContainer.cs" />
+    <Compile Include="PromptContainer.cs" />
+    <Compile Include="Prompting\Construction\Implementation\AsynchronousSearchServiceBuilder.cs" />
+    <Compile Include="Prompting\Construction\IAsynchronousSearchServiceBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\CasscadingSearchProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\CasscadingSearchShoppingCartBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\DropDownBuilderException.cs" />
+    <Compile Include="Prompting\Construction\Implementation\DropDownProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\EmptyPromptBuilder.cs" />
+    <Compile Include="Prompting\Construction\IShoppingCartProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\ShoppingCartBuilder.cs" />
+    <Compile Include="Prompting\Construction\IPromptItemCollectionProvider.cs" />
+    <Compile Include="Prompting\Construction\IPromptItemProvider.cs" />
+    <Compile Include="Prompting\Construction\ISingleSelectPromptProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\MultiSelectTreeProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\RootTreeNodeProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\SearchablePromptItemProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\SearchableShoppingCartProvider.cs" />
+    <Compile Include="Prompting\Construction\Implementation\SingleSelectTreeProvider.cs" />
+    <Compile Include="Prompting\Construction\ISearchServiceBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\SearchServiceBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\SingleSelectPromptBuilder.cs" />
+    <Compile Include="Prompting\Controls\ComboBoxTreeview.cs" />
+    <Compile Include="Prompting\Controls\DoubleClickContentControl.cs" />
+    <Compile Include="Prompting\Controls\FastComboBox.cs" />
+    <Compile Include="Prompting\Controls\InverseSelector.cs" />
+    <Compile Include="Prompting\Controls\IRangeSelector.cs" />
+    <Compile Include="Prompting\Controls\ISelector.cs" />
+    <Compile Include="Prompting\Controls\ITreeItem.cs" />
+    <Compile Include="Prompting\Controls\ITreeItemHierarchyFlattener.cs" />
+    <Compile Include="Prompting\Controls\IUniformItemsControl.cs" />
+    <Compile Include="Prompting\Controls\MultiSelectListbox.cs" />
+    <Compile Include="Prompting\Controls\MultiSelector.cs" />
+    <Compile Include="Prompting\Controls\PromptTreeViewItem.cs" />
+    <Compile Include="Prompting\Controls\PromptTreeControl.cs" />
+    <Compile Include="Prompting\Controls\RangeSelector.cs" />
+    <Compile Include="Prompting\Controls\SelectedItemsControl.cs" />
+    <Compile Include="Prompting\Controls\Selector.cs" />
+    <Compile Include="Prompting\Controls\TreeItemHierarchyFlattener.cs" />
+    <Compile Include="Prompting\Controls\TreeItemHierarchyFlattener2.cs" />
+    <Compile Include="Prompting\Controls\UniformItem.cs" />
+    <Compile Include="Prompting\Controls\UniformItemsControl.cs" />
+    <Compile Include="Prompting\Controls\UniformItemsController.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\EmptyPrompt.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ErrorTreeNode.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\RecursiveChildTreeNodeService.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SearchableSingleSelectPrompt.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\AsynchronousSearchService.cs" />
+    <Compile Include="Prompting\ViewModels\Search\IAsynchronousSearchService.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\AsynchronousSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\IAsynchronousSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\ISearchStringParser.cs" />
+    <Compile Include="Prompting\Views\DelegatePromptViewProvider.cs" />
+    <Compile Include="Prompting\Views\EmptyPromptView.xaml.cs">
+      <DependentUpon>EmptyPromptView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\IPromptViewProvider.cs" />
+    <Compile Include="Prompting\Views\PromptViewProvider.cs" />
+    <Compile Include="Prompting\Views\SelectedItemsCart.xaml.cs">
+      <DependentUpon>SelectedItemsCart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PromptServiceProxy\ChildPromptItemsRequest.cs" />
+    <Compile Include="PromptServiceProxy\ChildPromptLevelServiceClient.cs" />
+    <Compile Include="PromptServiceProxy\DefaultValue.cs" />
+    <Compile Include="PromptServiceProxy\PromptSelectionInfo.cs" />
+    <Compile Include="Prompting\ViewModels\Search\ISearchProvider.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\SearchProvider.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SearchablePromptItems.cs" />
+    <Compile Include="Prompting\Construction\Implementation\AsynchronousSearchProvider.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectCasscadingSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ServiceErrorEventArgs.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\LeafTreeNode.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\PromptItem.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectPrompt.cs" />
+    <Compile Include="Prompting\ViewModels\IPromptItem.cs" />
+    <Compile Include="Prompting\ViewModels\IMultiSelectPrompt.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\LoadingTreeNode.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SingleSelectHierarchy.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectHierarchy.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\TreeNode.cs" />
+    <Compile Include="Prompting\Views\CasscadingSearchView.xaml.cs">
+      <DependentUpon>CasscadingSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\DropDownView.xaml.cs">
+      <DependentUpon>DropDownView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\PromptDataTemplateSelector.xaml.cs">
+      <DependentUpon>PromptDataTemplateSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\PromptTileDataTemplateSelector.xaml.cs">
+      <DependentUpon>PromptTileDataTemplateSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\ReadyForReportExecutionColorConverter.cs" />
+    <Compile Include="Prompting\Views\ShoppingCartControlBase.xaml.cs">
+      <DependentUpon>ShoppingCartControlBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\ShoppingCartSearchControl.xaml.cs">
+      <DependentUpon>ShoppingCartSearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\ShoppingCartView.xaml.cs">
+      <DependentUpon>ShoppingCartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\SingleSelectTreeView.xaml.cs">
+      <DependentUpon>SingleSelectTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompting\Views\ShoppingCartTreeView.xaml.cs">
+      <DependentUpon>ShoppingCartTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PromptServiceProxy\PromptSelectionServiceClient.cs" />
+    <Compile Include="PromptServiceProxy\PromptServiceClient.cs" />
+    <Compile Include="PromptServiceProxy\PromptsRequest.cs" />
+    <Compile Include="PromptServiceProxy\RecursiveChildPromptItemsRequest.cs" />
+    <Compile Include="PromptServiceProxy\SetPromptSelectionsRequest.cs" />
+    <Compile Include="PromptSystemContainer.cs" />
+    <Compile Include="RecursiveSingleSelectTreeContainer.cs" />
+    <Compile Include="RecursiveTreeContainer.cs" />
+    <Compile Include="ReportCatalogContainer.cs" />
+    <Compile Include="ReportCatalog\Model\CatalogItemInfo.cs" />
+    <Compile Include="ReportCatalog\Model\CatalogItemType.cs" />
+    <Compile Include="ReportCatalog\Model\ReportCatalogServiceClient.cs" />
+    <Compile Include="ReportCatalog\Views\FolderView.xaml.cs">
+      <DependentUpon>FolderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCatalog\Views\ReportView.xaml.cs">
+      <DependentUpon>ReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRendererContainer.cs" />
+    <Compile Include="ServiceInjector.cs" />
+    <Compile Include="PromptServiceProxy\IChildPromptLevelServiceClient.cs" />
+    <Compile Include="PromptServiceProxy\IPromptSelectionServiceClient.cs" />
+    <Compile Include="PromptServiceProxy\IPromptServiceClient.cs" />
+    <Compile Include="PromptServiceProxy\ParameterValue.cs" />
+    <Compile Include="PromptServiceProxy\PromptInfo.cs" />
+    <Compile Include="PromptServiceProxy\PromptLevel.cs" />
+    <Compile Include="PromptServiceProxy\PromptType.cs" />
+    <Compile Include="PromptServiceProxy\ValidValue.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ErrorGettingReportsArgs.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\FolderCatalogItemViewModel.cs" />
+    <Compile Include="ReportCatalog\ViewModels\ICatalogItemViewModel.cs" />
+    <Compile Include="ReportCatalog\ViewModels\IReportCatalogViewModel.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\Prompt.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SingleSelectPrompt.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ChildPromptItemsService.cs" />
+    <Compile Include="Prompting\ViewModels\IChildPromptItemsService.cs" />
+    <Compile Include="ReportCatalog\ViewModels\ICatalogItemViewModelBuilder.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\CatalogItemViewModelBuilder.cs" />
+    <Compile Include="ReportCatalog\ViewModels\IReportCatalogViewModelService.cs" />
+    <Compile Include="ReportCatalog\Model\IReportCatalogServiceClient.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ReportCatalogViewModelService.cs" />
+    <Compile Include="ReportCatalog\ViewModels\IReportCatalogItemViewModel.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ReportCatalogViewModel.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ReportCatalogItemViewModel.cs" />
+    <Compile Include="ReportCatalog\Views\ReportCatalogControl.xaml.cs">
+      <DependentUpon>ReportCatalogControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRendering\Implementation\PopupReportView.cs" />
+    <Compile Include="ReportRendering\ViewModel\IReportRenderer.cs" />
+    <Compile Include="ReportRendering\ViewModel\IPopupReportViewModel.cs" />
+    <Compile Include="ReportRendering\ViewModel\IReportViewModel.cs" />
+    <Compile Include="ReportRendering\ViewModel\IReportViewModelBuilder.cs" />
+    <Compile Include="ReportRendering\ViewModel\PopupReportViewModel.cs" />
+    <Compile Include="ReportRendering\ViewModel\ReportViewModel.cs" />
+    <Compile Include="ReportRendering\ViewModel\ReportViewModelBuilder.cs" />
+    <Compile Include="ReportRendering\Implementation\ReportExecutionService.cs" />
+    <Compile Include="ReportRendering\IReportExecutionService.cs" />
+    <Compile Include="Prompting\ViewModels\IPromptsViewModel.cs" />
+    <Compile Include="Prompting\ViewModels\IPrompt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ChildTreeNodeService.cs" />
+    <Compile Include="Prompting\ViewModels\IChildTreeNodeService.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\ContainsSearch.cs" />
+    <Compile Include="Prompting\Construction\Implementation\PromptBuilder.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\EndsWithSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\EqualsSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\ISearchService.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\SearchService.cs" />
+    <Compile Include="Prompting\ViewModels\Search\ISearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\NullSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\SearchStringParser.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\StartsWithSearch.cs" />
+    <Compile Include="Prompting\ViewModels\Search\ISearchablePromptItemCollection.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\SearchBase.cs" />
+    <Compile Include="Prompting\Construction\IPromptItemCollectionBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\PromptItemCollectionBuilder.cs" />
+    <Compile Include="Prompting\ViewModels\ISearchablePromptItem.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SearchablePromptItem.cs" />
+    <Compile Include="Prompting\ViewModels\ITreeNode.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\AsynchronousTreeNode.cs" />
+    <Compile Include="Prompting\Construction\ITreeNodeCollectionBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\TreeNodeCollectionBuilder.cs" />
+    <Compile Include="Prompting\Construction\ITreeNodeBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\TreeNodeBuilder.cs" />
+    <Compile Include="Prompting\Construction\IPromptsViewModelBuilder.cs" />
+    <Compile Include="Prompting\Construction\Implementation\PromptsViewModelBuilder.cs" />
+    <Compile Include="Prompting\Construction\IPromptBuilder.cs" />
+    <Compile Include="Prompting\ViewModels\IPromptsViewModelService.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\PromptsViewModelService.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\PromptsViewModel.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\RootAsynchronousTreeNode.cs" />
+    <Compile Include="Prompting\Views\PromptCollectionControl.xaml.cs">
+      <DependentUpon>PromptCollectionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCartContainer.cs" />
+    <Compile Include="SingleSelectTreeContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage\PromptsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage\ReportCatalogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Prompting\Views\CasscadingSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\DropDownView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\EmptyPromptView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\PromptDataTemplateSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\PromptTileDataTemplateSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\SelectedItemsCart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\ShoppingCartControlBase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\ShoppingCartSearchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\ShoppingCartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\SingleSelectTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\ShoppingCartTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportCatalog\Views\FolderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportCatalog\Views\ReportCatalogControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prompting\Views\PromptCollectionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportCatalog\Views\ReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <Resource Include="Assets\Images\Icons\document.png" />
+    <Resource Include="Assets\Images\Icons\folder.png" />
+    <Resource Include="Assets\Images\Icons\back_alt.png" />
+    <Resource Include="Assets\Images\Icons\forward_alt.png" />
+    <Resource Include="Assets\Images\Icons\promptslogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

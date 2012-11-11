@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Prompts.Service.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Label_Parameter_Postfix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">_Label</Value>
+    </Setting>
+    <Setting Name="Prompt_Report_Folder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Prompt Reports</Value>
+    </Setting>
+    <Setting Name="Report_Folder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Reports</Value>
+    </Setting>
+    <Setting Name="ReportingServicesMode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Native</Value>
+    </Setting>
+    <Setting Name="ReportServerUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/ReportServer_Reporting</Value>
+    </Setting>
+    <Setting Name="AllMemberPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">|||AllMember|||</Value>
+    </Setting>
+    <Setting Name="RecursiveTreePrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">REC</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

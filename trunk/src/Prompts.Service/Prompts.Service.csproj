@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3D90749-2494-4A90-9549-27847CA5447C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prompts.Service</RootNamespace>
+    <AssemblyName>Prompts.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack, Version=3.9.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\ServiceStack\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\Library\ServiceStack\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\Library\ServiceStack\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.ServiceInterface">
+      <HintPath>..\Library\ServiceStack\ServiceStack.ServiceInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\ServiceStack\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="ReportViewer.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PromptService\ChildPromptItemsRequest.cs" />
+    <Compile Include="PromptService\Construction\BaseParameterServiceInejctor.cs" />
+    <Compile Include="PromptService\Construction\ChildPromptLevelServiceInjector.cs" />
+    <Compile Include="PromptService\Construction\PromptReportParameterServiceInjector.cs" />
+    <Compile Include="PromptService\Construction\PromptSelectionServiceInjector.cs" />
+    <Compile Include="PromptService\Construction\PromptServiceInjector.cs" />
+    <Compile Include="PromptService\Construction\ReportExecutionServiceInjector.cs" />
+    <Compile Include="PromptService\DefaultValue.cs" />
+    <Compile Include="PromptService\GetChildrenResponse.cs" />
+    <Compile Include="PromptService\Implementation\CascadingSearchDefaultValueProvider.cs" />
+    <Compile Include="PromptService\Implementation\CasscadingSearchValidator.cs" />
+    <Compile Include="PromptService\ChildPromptLevelService.cs" />
+    <Compile Include="PromptService\Implementation\DefaultValueProvider.cs" />
+    <Compile Include="PromptService\Implementation\EmbeddedPromptInfoProvider.cs" />
+    <Compile Include="PromptService\Implementation\EmbeddedPromptParameterValueBuilder.cs" />
+    <Compile Include="PromptService\Implementation\EmbeddedPromptParameterValueProvider.cs" />
+    <Compile Include="PromptService\Implementation\EmptyPromptDefaultValueProvider.cs" />
+    <Compile Include="PromptService\Implementation\GlobalPromptParameterValueBuilder.cs" />
+    <Compile Include="PromptService\Implementation\GlobalPromptParameterValueProvider.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPrompt.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPromptProvider.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPromptService.cs" />
+    <Compile Include="PromptService\IBaseReportInterpreter.cs" />
+    <Compile Include="PromptService\ICasscadingSearchValidator.cs" />
+    <Compile Include="PromptService\Exceptions\PromptTypeProviderException.cs" />
+    <Compile Include="PromptService\Exceptions\GlobalPromptBaseReportInfoMapperException.cs" />
+    <Compile Include="PromptService\Exceptions\HierarchyPromptReportException.cs" />
+    <Compile Include="PromptService\Exceptions\HierarchyValidatorException.cs" />
+    <Compile Include="PromptService\Exceptions\PromptInfoProviderException.cs" />
+    <Compile Include="PromptService\Exceptions\PromptReportBuilderException.cs" />
+    <Compile Include="PromptService\Exceptions\ReportingServicesException.cs" />
+    <Compile Include="PromptService\Exceptions\SearchPromptReportException.cs" />
+    <Compile Include="PromptService\GlobalPromptBaseReportInfo.cs" />
+    <Compile Include="PromptService\Implementation\BaseReportParameterService.cs" />
+    <Compile Include="PromptService\Implementation\CasscadingSearchPromptTypeProvider.cs" />
+    <Compile Include="PromptService\Implementation\CascadingSearchPromptLevelProvider.cs" />
+    <Compile Include="PromptService\Implementation\GlobalPromptBaseReportInfoMapper.cs" />
+    <Compile Include="PromptService\Implementation\GlobalPromptInfoService.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPromptInfoProvider.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPromptLevelProvider.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPromptReportValidator.cs" />
+    <Compile Include="PromptService\ICasscadingPromptInfoProvider.cs" />
+    <Compile Include="PromptService\IEmbeddedPromptProvider.cs" />
+    <Compile Include="PromptService\ICascadingSearchPromptLevelProvider.cs" />
+    <Compile Include="PromptService\IGlobalPromptBaseReportInfoMapper.cs" />
+    <Compile Include="PromptService\IGlobalPromptParameterValueBuilder.cs" />
+    <Compile Include="PromptService\IGlobalPromptProvider.cs" />
+    <Compile Include="PromptService\IHierarchyPrompt.cs" />
+    <Compile Include="PromptService\IHierarchyPromptInfoProvider.cs" />
+    <Compile Include="PromptService\IHierarchyPromptProvider.cs" />
+    <Compile Include="PromptService\IHierarchyPromptService.cs" />
+    <Compile Include="PromptService\IGlobalPromptInfoProvider.cs" />
+    <Compile Include="PromptService\IEmptyPromptDefaultValueProvider.cs" />
+    <Compile Include="PromptService\ICascadingSearchDefaultValueProvider.cs" />
+    <Compile Include="PromptService\IDefaultValueProvider.cs" />
+    <Compile Include="PromptService\Implementation\IntegratedPromptReportNameParser.cs" />
+    <Compile Include="PromptService\Implementation\RecursiveHierarchyPrompt.cs" />
+    <Compile Include="PromptService\Implementation\RecursiveHierarchyPromptInfoProvider.cs" />
+    <Compile Include="PromptService\Implementation\RecursiveHierarchyPromptProvider.cs" />
+    <Compile Include="PromptService\Implementation\RecursiveHierarchyPromptTypeProvider.cs" />
+    <Compile Include="PromptService\Implementation\RecursiveHierarchyValidator.cs" />
+    <Compile Include="PromptService\IPromptReportNameParser.cs" />
+    <Compile Include="PromptService\Implementation\NativePromptReportNameParser.cs" />
+    <Compile Include="PromptService\IPromptLevelProvider.cs" />
+    <Compile Include="PromptService\IHierarchyPromptReportValidator.cs" />
+    <Compile Include="PromptService\IPromptSelectionsProvider.cs" />
+    <Compile Include="PromptService\IPromptTypeProvider.cs" />
+    <Compile Include="PromptService\ISelectionParameterValueBuilder.cs" />
+    <Compile Include="PromptService\ISingleLevelPromptInfoProvider.cs" />
+    <Compile Include="PromptService\IStrictDefaultValuesProvider.cs" />
+    <Compile Include="PromptService\Implementation\CasscadingPromptInfoProvider.cs" />
+    <Compile Include="PromptService\Implementation\GlobalPromptInfoProvider.cs" />
+    <Compile Include="PromptService\Implementation\BaseReportInterpreter.cs" />
+    <Compile Include="PromptService\Implementation\PromptInfoService.cs" />
+    <Compile Include="PromptService\Implementation\PromptSelectionsProvider.cs" />
+    <Compile Include="PromptService\Implementation\SelectionParameterValueBuilder.cs" />
+    <Compile Include="PromptService\Implementation\SingleLevelPromptInfoProvider.cs" />
+    <Compile Include="PromptService\Implementation\SingleLevelPromptLevelProvider.cs" />
+    <Compile Include="PromptService\Implementation\SingleLevelPromptTypeProvider.cs" />
+    <Compile Include="PromptService\Implementation\StrictDefaultValuesProvider.cs" />
+    <Compile Include="PromptService\Implementation\HierarchyPromptTypeProvider.cs" />
+    <Compile Include="PromptService\IPromptSelections.cs" />
+    <Compile Include="PromptService\Implementation\PromptSelections.cs" />
+    <Compile Include="PromptService\IBaseReportParameterService.cs" />
+    <Compile Include="PromptService\Infrastructure\ReportingServicesClientBase.cs" />
+    <Compile Include="PromptService\IPromptReportParameterService.cs" />
+    <Compile Include="PromptService\Implementation\PromptReportParameterService.cs" />
+    <Compile Include="PromptService\IReportServerFolder.cs" />
+    <Compile Include="PromptService\Implementation\ReportServerFolder.cs" />
+    <Compile Include="PromptService\PromptLevel.cs" />
+    <Compile Include="PromptService\PromptSelectionInfo.cs" />
+    <Compile Include="PromptService\PromptSelectionService.cs" />
+    <Compile Include="PromptService\PromptService.cs" />
+    <Compile Include="PromptService\PromptsRequest.cs" />
+    <Compile Include="PromptService\PromptValue.cs" />
+    <Compile Include="PromptService\RecursiveChildPromptItemsRequest.cs" />
+    <Compile Include="PromptService\RecursiveChildPromptLevelService.cs" />
+    <Compile Include="PromptService\SetPromptSelectionsRequest.cs" />
+    <Compile Include="PromptsServiceAppHost.cs" />
+    <Compile Include="ReportCatalogService\Construction\ReportCatalogServiceInjector.cs" />
+    <Compile Include="PromptService\PromptInfo.cs" />
+    <Compile Include="PromptService\PromptType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCatalogService\CatalogItemInfo.cs" />
+    <Compile Include="ReportCatalogService\CatalogItemType.cs" />
+    <Compile Include="PromptService\IReportExecutionService.cs" />
+    <Compile Include="ReportCatalogService\ICatalogItemInfoMapper.cs" />
+    <Compile Include="ReportCatalogService\IntegratedCatalogItemInfoMapper.cs" />
+    <Compile Include="ReportCatalogService\IReportingService2005.cs" />
+    <Compile Include="PromptService\SelectionType.cs" />
+    <Compile Include="ReportCatalogService\NativeCatalogItemInfoMapper.cs" />
+    <Compile Include="ReportCatalogService\ReportCatalogService.cs" />
+    <Compile Include="ReportExecution\DataSourcePrompt.cs" />
+    <Compile Include="ReportExecution\ExecutionInfo.cs" />
+    <Compile Include="ReportExecution\ExecutionInfo2.cs" />
+    <Compile Include="ReportExecution\PageCountMode.cs" />
+    <Compile Include="ReportExecution\PageSettings.cs" />
+    <Compile Include="ReportExecution\ParameterStateEnum.cs" />
+    <Compile Include="ReportExecution\ParameterTypeEnum.cs" />
+    <Compile Include="ReportExecution\ParameterValue.cs" />
+    <Compile Include="ReportExecution\ParameterValueOrFieldReference.cs" />
+    <Compile Include="ReportExecution\ReportExecution2005ServerInfoHeader.cs" />
+    <Compile Include="ReportExecution\ExecutionHeader.cs" />
+    <Compile Include="ReportExecution\ReportExecution2005TrustedUserHeader.cs" />
+    <Compile Include="ReportExecution\ReportExecutionService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportExecution\ReportMargins.cs" />
+    <Compile Include="ReportExecution\ReportPaperSize.cs" />
+    <Compile Include="ReportExecution\ReportParameter.cs" />
+    <Compile Include="ReportExecution\ValidValue.cs" />
+    <Compile Include="ReportService\CatalogItem.cs" />
+    <Compile Include="ReportService\ItemTypeEnum.cs" />
+    <Compile Include="ReportService\ReportingService2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportService\ReportingService2005ServerInfoHeader.cs" />
+    <Compile Include="ReportService\ReportingService2006.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportService\ReportingService2006ServerInfoHeader.cs" />
+    <Compile Include="ReportCatalogService\ReportsService.cs" />
+    <Compile Include="ReportViewer.aspx.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewer.aspx.designer.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1375</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Prompts.Service</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

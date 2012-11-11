@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>Adventure Works OLAP</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>f73d97e3-4058-499f-abd7-2cdb49107b24</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Groups">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="AllMember">
+            <Value>=Parameters!All.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[Group].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@AllMember) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Sales Territory</DimensionName>
+                      <HierarchyName>Sales Territory</HierarchyName>
+                      <HierarchyUniqueName>[Sales Territory].[Sales Territory]</HierarchyUniqueName>
+                      <LevelName>Group</LevelName>
+                      <UniqueName>[Sales Territory].[Sales Territory].[Group]</UniqueName>
+                    </ID>
+                    <ItemCaption>Group</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[Group].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@AllMember) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>AllMember</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Sales Territory].[Sales Territory].[All Sales Territories]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>AllMember</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Group">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Sales Territory].[Sales Territory].[Group]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Countries">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="GroupMember">
+            <Value>=Parameters!Groups.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[Country].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@GroupMember) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Sales Territory</DimensionName>
+                      <HierarchyName>Sales Territory</HierarchyName>
+                      <HierarchyUniqueName>[Sales Territory].[Sales Territory]</HierarchyUniqueName>
+                      <LevelName>Group</LevelName>
+                      <UniqueName>[Sales Territory].[Sales Territory].[Group]</UniqueName>
+                    </ID>
+                    <ItemCaption>Group</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Sales Territory</DimensionName>
+                      <HierarchyName>Sales Territory</HierarchyName>
+                      <HierarchyUniqueName>[Sales Territory].[Sales Territory]</HierarchyUniqueName>
+                      <LevelName>Country</LevelName>
+                      <UniqueName>[Sales Territory].[Sales Territory].[Country]</UniqueName>
+                    </ID>
+                    <ItemCaption>Country</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[Country].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@GroupMember) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>GroupMember</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Sales Territory].[Sales Territory].[All Sales Territories]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>GroupMember</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Group">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Sales Territory].[Sales Territory].[Group]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Country">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Sales Territory].[Sales Territory].[Country]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Regions">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="Country">
+            <Value>=Parameters!Countries.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[Region].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Country) ON COLUMNS
+	FROM
+		[Adventure Works])</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Sales Territory</DimensionName>
+                      <HierarchyName>Sales Territory</HierarchyName>
+                      <HierarchyUniqueName>[Sales Territory].[Sales Territory]</HierarchyUniqueName>
+                      <LevelName>Group</LevelName>
+                      <UniqueName>[Sales Territory].[Sales Territory].[Group]</UniqueName>
+                    </ID>
+                    <ItemCaption>Group</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Sales Territory</DimensionName>
+                      <HierarchyName>Sales Territory</HierarchyName>
+                      <HierarchyUniqueName>[Sales Territory].[Sales Territory]</HierarchyUniqueName>
+                      <LevelName>Country</LevelName>
+                      <UniqueName>[Sales Territory].[Sales Territory].[Country]</UniqueName>
+                    </ID>
+                    <ItemCaption>Country</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Sales Territory</DimensionName>
+                      <HierarchyName>Sales Territory</HierarchyName>
+                      <HierarchyUniqueName>[Sales Territory].[Sales Territory]</HierarchyUniqueName>
+                      <LevelName>Region</LevelName>
+                      <UniqueName>[Sales Territory].[Sales Territory].[Region]</UniqueName>
+                    </ID>
+                    <ItemCaption>Region</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[Region].MEMBERS ON ROWS
+FROM
+	(SELECT
+		STRTOMEMBER(@Country) ON COLUMNS
+	FROM
+		[Adventure Works])</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>Country</Name>
+                  <DefaultValues>
+                    <DefaultValue>[Sales Territory].[Sales Territory].[Group].&amp;[North America]</DefaultValue>
+                  </DefaultValues>
+                  <Caption>Country</Caption>
+                  <ParameterValuesQuery>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Group">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Sales Territory].[Sales Territory].[Group]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Country">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Sales Territory].[Sales Territory].[Country]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Region">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Sales Territory].[Sales Territory].[Region]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="All">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[All Sales Territories] ON ROWS
+FROM
+	[Adventure Works]</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Value</MeasureName>
+                      <UniqueName>[Measures].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Label</MeasureName>
+                      <UniqueName>[Measures].[Label]</UniqueName>
+                    </ID>
+                    <ItemCaption>Label</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>Adventure Works</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>WITH
+MEMBER
+	[Measures].[Value]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.UNIQUENAME
+MEMBER
+	[Measures].[Label]
+AS
+	[Sales Territory].[Sales Territory].CURRENTMEMBER.NAME
+SELECT
+	{[Measures].[Value]
+	, [Measures].[Label]} ON COLUMNS
+	, [Sales Territory].[Sales Territory].[All Sales Territories] ON ROWS
+FROM
+	[Adventure Works]</Statement>
+              <ParameterDefinitions />
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Value">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Value]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Label">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Label]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="All">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Sales Territory].[Sales Territory].[All Sales Territories]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>All</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>All</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Groups">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Sales Territory].[Sales Territory].[All Sales Territories]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReportParameter1</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Groups</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Countries">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>[Sales Territory].[Sales Territory].[Group].&amp;[North America]</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Countries</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Countries</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Regions">
+      <DataType>String</DataType>
+      <Prompt>Regions</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Regions</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Label</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>df8fa98a-ce0d-4a52-9167-25d1c34fda88</rd:ReportID>
+</Report>

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FABF811A-775E-4AFB-9B37-9158D6F6D7AD}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Test.Prompts</RootNamespace>
+    <AssemblyName>Test.Prompts</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures />
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Test.Prompts.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Test.Prompts.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <!--
+  //
+  // Silverlight Code Coverage Instrumentation
+  // List any libraries or assemblies that you would like to instrument during
+  // a code coverage pass. An example, for ClassLibrary1, is provided, and
+  // commented out below as a starting point:
+  //
+  -->
+  <!--
+  <ItemGroup>
+    <InstrumentSilverlightAssemblies Include="SilverlightClassLibrary1">
+      <Visible>false</Visible>
+    </InstrumentSilverlightAssemblies>
+  </ItemGroup>
+  -->
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Silverlight.Testing">
+      <HintPath>..\Library\Microsoft.Silverlight.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight">
+      <HintPath>..\Library\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq.Silverlight">
+      <HintPath>..\Library\Moq.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Builders\DefaultValueBuilder.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeAsynchronousSearch.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeAsynchronousSearchService.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeChildPromptLevelServiceClient.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeChildTreeNodeService.cs" />
+    <Compile Include="Infrastructure\Fakes\FakePromptSelectionServiceClient.cs" />
+    <Compile Include="Infrastructure\Fakes\FakePromptServiceClient.cs" />
+    <Compile Include="Infrastructure\Fakes\FakePromptsViewModelService.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeReportCatalogViewModelService.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeReportCatalogServiceClient.cs" />
+    <Compile Include="Infrastructure\Fakes\FakeReportExecutionService.cs" />
+    <Compile Include="Prompting\Construction\Implementation\CasscadingSearchShoppingCartBuilder2Test.cs" />
+    <Compile Include="Prompting\Construction\Implementation\ShoppingCartBuilder2Test.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\EmptyPromptBuilderTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\EmptyPromptTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ErrorTreeNodeTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\TreeNodeTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\AsynchronousSearchServiceTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\AsynchronousSearchTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\AsynchronousTreeNodeTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectCasscadingSearchTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ChildPromptItemServiceTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\ChildTreeNodeServiceTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\ContainsSearchTest.cs" />
+    <Compile Include="Infrastructure\CallbackInterceptor.cs" />
+    <Compile Include="MainPageViewModelTest.cs" />
+    <Compile Include="Prompting\Controls\InverseSelectorTest.cs" />
+    <Compile Include="Prompting\Controls\MultiSelectorTest.cs" />
+    <Compile Include="Prompting\Controls\RangeSelectorTest.cs" />
+    <Compile Include="Prompting\Controls\SelectorTest.cs" />
+    <Compile Include="Prompting\Controls\TreeItemHierarchyFlattnerTest.cs" />
+    <Compile Include="Prompting\Construction\Implementation\SingleSelectPromptBuilderTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\EndsWithSearchTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\EqualsSearchTest.cs" />
+    <Compile Include="Infrastructure\A.cs" />
+    <Compile Include="Infrastructure\Builders\CatalogItemInfoBuilder.cs" />
+    <Compile Include="Infrastructure\EnumerableAssert.cs" />
+    <Compile Include="Infrastructure\ExceptionAssert.cs" />
+    <Compile Include="Infrastructure\Builders\ParameterValueBuilder.cs" />
+    <Compile Include="Infrastructure\Builders\PromptBuilder.cs" />
+    <Compile Include="Infrastructure\Builders\PromptInfoBuilder.cs" />
+    <Compile Include="Infrastructure\Builders\PromptLevelBuilder.cs" />
+    <Compile Include="Infrastructure\Builders\ReportCatalogItemBuilder.cs" />
+    <Compile Include="Infrastructure\Builders\PromptSelectionInfoBuilder.cs" />
+    <Compile Include="Infrastructure\Builders\ValidValueBuilder.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\LeafTreeNodeTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\LoadingTreeNodeTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\NullSearchTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\PromptsViewModelServiceTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\PromptsViewModelTest.cs" />
+    <Compile Include="Prompting\Views\PromptViewProviderTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ReportCatalogItemViewModelTest.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ReportCatalogViewModelServiceTest.cs" />
+    <Compile Include="ReportCatalog\ViewModels\Implementation\ReportCatalogTest.cs" />
+    <Compile Include="ReportRendering\Implementation\ReportExecutionServiceTest.cs" />
+    <Compile Include="ReportRendering\ViewModels\PopupReportViewModelTest.cs" />
+    <Compile Include="ReportRendering\ViewModels\ReportViewModelTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\RootTreeNodeTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SearchablePromptItemsTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\SearchServiceTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\SearchStringParserTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectSearchTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectPromptTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SingleSelectPromptTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\SingleSelectHierarchyTest.cs" />
+    <Compile Include="Prompting\ViewModels\Search\Implementation\StartsWithSearchTest.cs" />
+    <Compile Include="Prompting\ViewModels\Implementation\MultiSelectHierarchyTest.cs" />
+    <Compile Include="Prompting\Controls\UniformItemsControlerTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prompts\Prompts.csproj">
+      <Project>{2DE17C33-11CA-41FA-8B93-87F42934E967}</Project>
+      <Name>Prompts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <Import Condition="$(SilverlightVersion)=='v4.0'" Project="..\Library\Microsoft.Silverlight.Toolkit.Build.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reports", "Reports\Reports.rptproj", "{AA7D236B-693A-4D9C-BDC6-530796761F16}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Prompt Reports", "Prompt Reports\Prompt Reports.rptproj", "{C998A350-E7C4-481D-ACF8-C2DA781B8F28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.Debug|Default.ActiveCfg = Debug
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.Debug|Default.Build.0 = DebugLocal
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.Debug|Default.Deploy.0 = DebugLocal
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.DebugLocal|Default.Build.0 = DebugLocal
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.Release|Default.ActiveCfg = Release
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.Release|Default.Build.0 = Release
+		{AA7D236B-693A-4D9C-BDC6-530796761F16}.Release|Default.Deploy.0 = Release
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.Debug|Default.ActiveCfg = DebugLocal
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.Debug|Default.Build.0 = DebugLocal
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.DebugLocal|Default.Build.0 = DebugLocal
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.Release|Default.ActiveCfg = Release
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.Release|Default.Build.0 = Release
+		{C998A350-E7C4-481D-ACF8-C2DA781B8F28}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
