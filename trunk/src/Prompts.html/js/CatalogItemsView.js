@@ -1,4 +1,4 @@
-var CatalogView = Backbone.View.extend({
+var CatalogItemsView = Backbone.View.extend({
     css: "childItems",
     tagName: "ul",
 

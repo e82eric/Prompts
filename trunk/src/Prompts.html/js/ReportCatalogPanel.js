@@ -7,7 +7,7 @@ var ReportCatalogPanel = Backbone.Model.extend({
 
 	run: function (onSuccess) {
         this.reportCatalogRepository.GetCatalog(function (catalog) {
-			var catalogView = new CatalogView({ collection: catalog.items, css: "rootItems" });
+			var catalogView = new CatalogItemsView({ collection: catalog.items, css: "rootItems" });
 			onSuccess(catalogView);
 		});
 	}

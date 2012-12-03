@@ -24,7 +24,7 @@ var CatalogItemView = Backbone.View.extend({
 		this.$el.attr("class", "ReportView");
 
         if (!(childCatalogItems instanceof Array)) {
-            var childCatalogView = new CatalogView({ collection:childCatalogItems, css:"childItems" });
+            var childCatalogView = new CatalogItemsView({ collection:childCatalogItems, css:"childItems" });
             this.$el.append(childCatalogView.el);
         }
 	},
