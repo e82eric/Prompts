@@ -1,0 +1,54 @@
+#ExpandImage {
+	width: 18px;
+}
+
+li.ReportView {
+	list-style-type: none;
+	cursor: pointer;
+}
+
+ul.childItems {
+	padding: 0;
+    margin: 0 0 0 22px;
+}
+
+ul.rootItems{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.catalogItem {
+	display: inline-block;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    vertical-align: top;
+}
+
+div.hoverGlow {
+	display: inline-block;
+    border-radius: 5px;
+	vertical-align: top;
+    background: #E8E8E8;
+    border: 1px solid #999;
+}
+
+div.selectedGlow {
+	display: inline-block;
+    border-radius: 5px;
+	vertical-align: top;
+    background: #D1D1D1;
+    border: 1px solid #999;
+}
+
+div.reportCatalogPanel{
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    height: 95%;
+    position: absolute;
+    overflow: auto;
+    overflow-x:hidden;
+}
