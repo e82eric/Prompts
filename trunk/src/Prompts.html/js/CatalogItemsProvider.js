@@ -10,6 +10,6 @@ function CatalogItemsProvider (catalogItemProvider) {
 		},
 		this);
 
-		return new CatalogItems(result);
+		return result;
 	}
 }

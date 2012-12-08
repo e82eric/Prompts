@@ -23,7 +23,7 @@ test( "It correctly sets the model for a folder", function() {
 
     var result = catalogItemProvider.GetItem({Name: "Item1", Children: []});
 
-    ok( result.get("Name") === "Item1" );
+    ok( result.model.Name === "Item1" );
 });
 
 test( "It set the children using the items provider", function() {
@@ -38,5 +38,5 @@ test( "It set the children using the items provider", function() {
 
     var result = catalogItemProvider.GetItem(item);
 
-    ok( result.get("Children") === 1 );
+    ok( result.Children === 1 );
 });

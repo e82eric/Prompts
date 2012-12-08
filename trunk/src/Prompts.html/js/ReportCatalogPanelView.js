@@ -1,19 +1,56 @@
-var ReportCatalogPanelView = Backbone.View.extend({
-	tagName: "div",
-	model: ReportCatalogPanel,
+var ReportCatalogPanelView = function(model) {
+    this.model = model;
 
-	initialize: function () {
-		this.render();
-	},
+    this.showLoading = function () {
+        this.loadingElement.show();
+    };
 
-	render: function () {
-        var panelElement = $("#reportCatalog");
+    this.hideLoading = function () {
+        this.loadingElement.hide();
+    };
 
-        panelElement.text("loading...");
-		this.model.run(function (catalogView){
-            panelElement.text("done...");
-            panelElement.html(catalogView.el);
-		});
-	}
-});
+    this.showLoaded = function (view) {
+        this.loadedElement.show();
+        this.loadedElement.html(view.render());
+    };
+
+    this.hideLoaded = function () {
+        this.loadedElement.hide();
+    };
+
+    this.showError = function () {
+        this.errorElement.show();
+    };
+
+    this.hideError = function () {
+        this.errorElement.hide();
+    };
+
+    this.setErrorMessage = function (val) {
+        this.errorElement.text(val);
+    };
+
+    this.showRetry = function () {
+        this.retryElement.show();
+    };
+
+    this.hideRetry = function () {
+        this.retryElement.hide();
+    };
+
+    this.onRetryClick = function () {
+        this.model.load();
+    };
+
+    this.render = function(){
+        this.loadingElement = $("#reportCatalog").find("#loading");
+        this.loadedElement = $("#reportCatalog").find("#loaded");
+        this.retryElement = $("#reportCatalog").find("#retry");
+        this.errorElement = $("#reportCatalog").find("#errorMessage");
+
+        this.retryElement.click($.proxy(this.onRetryClick, this));
+        this.model.setView(this);
+        this.model.load();
+    }
+}
 

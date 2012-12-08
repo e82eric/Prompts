@@ -1,11 +1,3 @@
-$(function () {
-    var reportCatalogBuilder = new ReportCatalogBuilder();
-	var catalogRepository = new CatalogRepository(reportCatalogBuilder);
-	var loadingPanel = new ReportCatalogPanel({reportCatalogRepository: catalogRepository});
-
-    new ReportCatalogPanelView({model:loadingPanel});
-});
-
 function ReportCatalog (hierarchyFlattener, singleSelector) {
     this.hierarchyFlattener = hierarchyFlattener;
     this.singleSelector = singleSelector;

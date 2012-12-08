@@ -1,7 +1,12 @@
-var EmptyFolderCatalogItem = Backbone.Model.extend({
-    Select: function () {
-    },
+var EmptyFolderCatalogItem = function(model){
+    this.model = model;
+    this.Select = function () {
+    };
 
-    UnSelect: function () {
-    }
-});
+    this.UnSelect = function () {
+    };
+
+    this.CreateView = function(){
+            return new EmptyFolderCatalogItemView(this);
+    };
+};

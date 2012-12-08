@@ -1,51 +1,51 @@
-var CatalogItemView = Backbone.View.extend({
-	tagName: "li",
-	template: $("#itemTemplate").html(),
+var CatalogItemView = function (templateName, model) {
+    this.templateName = templateName;
+    this.model = model;
 
-	events:{
-        "mouseover #hoverWrap": "onMouseOver",
-        "mouseleave #hoverWrap": "onMouseLeave",
-        "click #hoverWrap": "onClick"
-    },
+    this.onSelected = function () {
+        this.selectElement.attr('class', 'selectedGlow');
+    };
 
-	initialize: function () {
-		this.render();
-        if (this.model instanceof ReportCatalogItem){
-            this.model.setOnSelected(this.onSelected.context(this));
-            this.model.setOnUnSelected(this.onUnSelected.context(this));
+    this.onUnSelected = function () {
+        this.selectElement.attr('class', 'catalogItem');
+    };
+
+    this.render = function () {
+        this.root = $("<li></li>");
+
+        var template = $(this.templateName).html();
+
+        var t = _.template(template);
+        var h = t(this.model.model);
+        this.root.html(h);
+        this.root.attr("class", "ReportView");
+
+        this.hoverElement = this.root.find("#hoverWrap");
+        this.selectElement = this.root.find("#selectWrap:first");
+
+        this.hoverElement.mouseover($.proxy(this.onMouseOver,this));
+        this.hoverElement.mouseleave($.proxy(this.onMouseLeave,this));
+        this.hoverElement.click($.proxy(this.onClick,this));
+
+        var childCatalogItems = this.model.Children;
+
+        if (!(childCatalogItems.length == 0)) {
+            var childCatalogView = new CatalogItemsView(childCatalogItems, "childItems");
+            this.root.append(childCatalogView.render());
         }
-	},
 
-	render: function () {
-		var templ, childCatalogItems;
-		templ = _.template(this.template);
-		this.$el.html(templ({catalogItem: this.model.toJSON()}));
-		childCatalogItems = this.model.get("Children");
-		this.$el.attr("class", "ReportView");
+        return this.root;
+    };
 
-        if (!(childCatalogItems instanceof Array)) {
-            var childCatalogView = new CatalogItemsView({ collection:childCatalogItems, css:"childItems" });
-            this.$el.append(childCatalogView.el);
-        }
-	},
+    this.onMouseOver = function () {
+        this.hoverElement.attr('class', 'hoverGlow');
+    };
 
-	onMouseOver: function(){
-		this.$el.find("#hoverWrap:first").attr('class', 'hoverGlow');
-	},
+    this.onMouseLeave = function () {
+        this.hoverElement.attr('class', 'catalogItem');
+    };
 
-	onMouseLeave: function(){
-		this.$el.find("#hoverWrap:first").attr('class', 'catalogItem');
-	},
-
-	onClick: function(){
-		this.model.changeSelect(this);
-	},
-
-    onSelected: function(){
-        this.$el.find("#selectWrap:first").attr('class', 'selectedGlow');
-    },
-
-    onUnSelected: function(){
-        this.$el.find("#selectWrap:first").attr('class', 'catalogItem');
-    }
-});
+    this.onClick = function () {
+        this.model.changeSelect();
+    };
+};

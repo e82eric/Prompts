@@ -7,7 +7,7 @@ function CatalogItemProvider(folderCatalogItemProvider, reportCatalog) {
         if (catalogItem.Type === "Report") {
             model = new ReportCatalogItem(catalogItem);
             model.setReportCatalog(this.reportCatalog);
-            model.set("Children", new Backbone.Collection());
+            model.Children = new Array();
         }
         else if (catalogItem.Type === "Folder") {
             model = this.folderCatalogItemProvider.GetItem(catalogItem);

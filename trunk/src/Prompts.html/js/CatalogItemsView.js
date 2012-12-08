@@ -1,31 +1,26 @@
-var CatalogItemsView = Backbone.View.extend({
-    css: "childItems",
-    tagName: "ul",
+var CatalogItemsView = function(items, css){
+    var root = $("<ul></ul>");
 
-	initialize: function (options) {
-        this.css = options.css;
-        this.render();
-	},
+    return {
+        root: root,
+        items: items,
+        css: css,
+        tagName: "ul",
 
-	render: function () {
-        this.$el.attr("class", this.css);
+        render: function () {
+            root.attr("class", css);
 
-		this.collection.each(function (catalogItem) {
-			this.renderCatalogItem(catalogItem);
-		}, this);
-	},
+            _.each(items, function (catalogItem) {
+                this.renderCatalogItem(catalogItem);
+            }, this);
 
-	renderCatalogItem: function (catalogItem) {
-		var catalogItemView;
+            return root;
+        },
 
-		if (catalogItem instanceof  ReportCatalogItem) {
-			catalogItemView = new CatalogItemView({ model: catalogItem});
-		} else if (catalogItem instanceof FolderCatalogItem) {
-			catalogItemView = new FolderCatalogItemView({ model: catalogItem});
-		} else if (catalogItem instanceof EmptyFolderCatalogItem) {
-            catalogItemView = new EmptyFolderCatalogItemView({ model: catalogItem});
+        renderCatalogItem: function (catalogItem) {
+            var catalogItemView = catalogItem.CreateView();
+            var childRender = catalogItemView.render();
+            root.append(childRender);
         }
-
-		this.$el.append(catalogItemView.el);
-	}
-});
+    }
+};

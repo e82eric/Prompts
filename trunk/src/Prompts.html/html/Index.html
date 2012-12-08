@@ -5,7 +5,19 @@
     <link rel="stylesheet" type="text/css" href="../css/ReportCatalog.css">
   </head>
   <body>
-    <div id="reportCatalog" class="reportCatalogPanel"></div>
+    <div class="promptsHeader">
+        <img src="../images/promptslogo.png" style="display: inline-block; vertical-align: middle;">
+        <div style="display: inline-block; vertical-align: middle;">
+            <h1 style="margin: 1px;">Prompts</h1>
+            <h3 style="margin: 1px;">Prompts for Reporting Services</h3>
+        </div>
+    </div>
+    <div id="reportCatalog" class="reportCatalogPanel">
+        <div id="loaded"></div>
+        <div id="loading">loading...</div>
+        <div id="errorMessage"></div>
+        <a id="retry">Retry</a>
+    </div>
 
     <script type="text/template" id="itemTemplate">
       <div id="wrap">
@@ -13,7 +25,7 @@
         <div id="hoverWrap" class="catalogItem">
         <div id="selectWrap" class="catalogItem">
             <img src="../images/report.png" class="catalogItem" />
-            <div class="catalogItem"><%- catalogItem.Name %></div>
+            <div class="catalogItem"><%- Name %></div>
           </div>
         </div>
       </div>
@@ -25,7 +37,7 @@
             <img />
         </div>
         <img src="../images/folder.png" class="catalogItem" />
-        <div class="catalogItem"><%- catalogItem.Name %></div>
+        <div class="catalogItem"><%- Name %></div>
       </div>
     </script>
 
@@ -33,18 +45,18 @@
         <div id="wrap">
             <div id="ExpandImage" class="catalogItem" />
             <img src="../images/folder.png" class="catalogItem" />
-            <div class="catalogItem"><%- catalogItem.Name %></div>
+            <div class="catalogItem"><%- Name %></div>
         </div>
     </script>
 
     <script src="../js/jquery.js"></script>
     <script src="../js/underscore.js"></script>
-    <script src="../js/backbone.js"></script>
+
+    <script src="../js/Prompts.js"></script>
 
     <script src="../js/ReportCatalogItem.js"></script>
     <script src="../js/FolderCatalogItem.js"></script>
     <script src="../js/EmptyFolderCatalogItem.js"></script>
-    <script src="../js/CatalogItems.js"></script>
     <script src="../js/CatalogItemsView.js"></script>
     <script src="../js/CatalogItemView.js"></script>
     <script src="../js/CatalogItemProvider.js"></script>
@@ -52,7 +64,7 @@
     <script src="../js/CatalogItemsProvider.js"></script>
     <script src="../js/FolderCatalogItemView.js"></script>
     <script src="../js/EmptyFolderCatalogItemView.js"></script>
-    <script src="../js/ReportCatalogPanel.js"></script>
+    <script src="../js/LoadingPanel.js"></script>
     <script src="../js/ReportCatalogPanelView.js"></script>
     <script src="../js/ReportCatalog.js"></script>
     <script src="../js/CatalogRepository.js"></script>

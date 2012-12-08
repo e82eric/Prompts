@@ -11,7 +11,7 @@ test( "It correctly sets the model for a report", function() {
 
 	var result = catalogItemProvider.GetItem({Name: "Item1", Type: "Report"});
 
-	ok( result.get("Name") === "Item1" );
+	ok( result.model.Name === "Item1" );
 });
 
 test( "It delegates to the folder catalog item provider when the type is Folder", function() {
@@ -46,5 +46,5 @@ test( "It sets the children of a report to a empty collection", function() {
 
     var result = catalogItemProvider.GetItem({Name: "Item1", Type: "Report"});
 
-    ok( result.get("Children").length == 0 );
+    ok( result.Children.length == 0 );
 });

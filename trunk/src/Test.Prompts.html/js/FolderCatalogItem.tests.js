@@ -1,77 +1,79 @@
 test( "It calls the collapse delegate when it is called the first time", function() {
-	var numberOfNoneCalls = 0;
-	var numberOfExpandCalls = 0;
-	var numberOfCollapseCalls = 0;
+    var view = {};
+    sinon.spy(view, "renderCollapse");
 
 	var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
-	folder.changeToggle(
-		function () {numberOfExpandCalls++;},
-		function () {numberOfCollapseCalls++;});
+    folder.setView(view);
+    folder.changeToggle();
 
-	ok( numberOfCollapseCalls === 1 );
-	ok( numberOfExpandCalls === 0 );
-	ok( numberOfNoneCalls === 0 );
+    ok(view.renderCollapse.calledOnce)
 });
 
 test( "It calls the expand delegate when change toggle is called", function() {  
-	var numberOfExpandCalls = 0;
-	var numberOfCollapseCalls = 0;
+    var view = {};
+    view.renderCollapse = sinon.spy();
+    view.renderExpand = sinon.spy();
 
 	var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
-	folder.changeToggle(
-		function () {},
-		function () {});
+    folder.setView(view);
+	folder.changeToggle();
 
-	folder.changeToggle(
-		function () {numberOfExpandCalls++;},
-		function () {numberOfCollapseCalls++;});
+    ok(view.renderCollapse.calledOnce);
+    ok(view.renderExpand.called == false);
 
-	ok( numberOfCollapseCalls === 0 );
-	ok( numberOfExpandCalls === 1 );
+	folder.changeToggle();
+
+    ok(view.renderCollapse.calledOnce);
+    ok(view.renderExpand.calledOnce);
 });
 
-test( "It calls the collapse delegate when change toggle is called again", function() {  
-	var numberOfExpandCalls = 0;
-	var numberOfCollapseCalls = 0;
+test( "It calls the collapse delegate when change toggle is called again", function() {
+    var view = {};
+    view.renderCollapse = sinon.spy();
+    view.renderExpand = sinon.spy();
 
-	var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
-	folder.changeToggle(
-		function () {},
-		function () {});
+    var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
+    folder.setView(view);
+    folder.changeToggle();
 
-	folder.changeToggle(
-		function () {},
-		function () {});
+    ok(view.renderCollapse.calledOnce);
+    ok(view.renderExpand.called == false);
 
-	folder.changeToggle(
-		function () {numberOfExpandCalls++;},
-		function () {numberOfCollapseCalls++;});
+    folder.changeToggle();
 
-	ok( numberOfCollapseCalls === 1 );
-	ok( numberOfExpandCalls === 0 );
+    ok(view.renderCollapse.calledOnce);
+    ok(view.renderExpand.calledOnce);
+
+    folder.changeToggle();
+
+    ok(view.renderCollapse.calledTwice);
+    ok(view.renderExpand.calledOnce);
 });
 
-test( "It calls the expand delegate when change toggle is called for a third time", function() {  
-	var numberOfExpandCalls = 0;
-	var numberOfCollapseCalls = 0;
+test( "It calls the expand delegate when change toggle is called for a third time", function() {
+    var view = {};
+    view.renderCollapse = sinon.spy();
+    view.renderExpand = sinon.spy();
 
-	var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
-	folder.changeToggle(
-		function () {},
-		function () {});
+    var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
+    folder.setView(view);
+    folder.changeToggle();
 
-	folder.changeToggle(
-		function () {},
-		function () {});
+    ok(view.renderCollapse.calledOnce);
+    ok(view.renderExpand.called == false);
 
-	folder.changeToggle(
-		function () {},
-		function () {});
+    folder.changeToggle();
 
-	folder.changeToggle(
-		function () {numberOfExpandCalls++;},
-		function () {numberOfCollapseCalls++;});
+    ok(view.renderCollapse.calledOnce);
+    ok(view.renderExpand.calledOnce);
 
-	ok( numberOfCollapseCalls === 0 );
-	ok( numberOfExpandCalls === 1 );
+    folder.changeToggle();
+
+    ok(view.renderCollapse.calledTwice);
+    ok(view.renderExpand.calledOnce);
+
+    folder.changeToggle();
+
+    ok(view.renderCollapse.calledTwice);
+    ok(view.renderExpand.calledTwice);
 });

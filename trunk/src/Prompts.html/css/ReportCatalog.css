@@ -1,3 +1,19 @@
+body {
+    font-family: "Segoe UI";
+    font-size: 12px;
+    margin: 0;
+    border: 0;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    background: #666;
+    color: #323232;
+    background: white;
+    overflow-y: scroll;
+    position: fixed;
+}
+
 #ExpandImage {
 	width: 18px;
 }
@@ -42,13 +58,28 @@ div.selectedGlow {
     border: 1px solid #999;
 }
 
-div.reportCatalogPanel{
+div.promptsHeader {
+    height: auto;
+    width: auto;
     border: 1px solid #999;
     border-radius: 5px;
-    padding: 5px;
+    margin: 3px;
+}
+
+div.reportCatalogPanel {
+    border: 1px solid #999;
+    border-radius: 5px;
     width: auto;
-    height: 95%;
-    position: absolute;
-    overflow: auto;
-    overflow-x:hidden;
+    margin: 3px;
+    min-height:100%
+}
+
+a {
+    color:#0000ff;
+    background: #ffffff;
+    cursor: pointer;
+    text-decoration: underline
+}
+a:hover {
+    color: #FF0000
 }

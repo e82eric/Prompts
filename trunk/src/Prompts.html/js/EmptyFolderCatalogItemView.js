@@ -1,7 +1,4 @@
-var EmptyFolderCatalogItemView = CatalogItemView.extend({
-    template: $("#emptyFolderItemTemplate").html(),
-
-    render: function () {
-        CatalogItemView.prototype.render.apply(this, []);
-    }
-});
+var EmptyFolderCatalogItemView = function(model) {
+    var base = new CatalogItemView("#emptyFolderItemTemplate", model);
+    return base;
+};

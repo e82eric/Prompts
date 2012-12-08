@@ -1,29 +1,33 @@
-var FolderCatalogItem = Backbone.Model.extend({
-	toggleState: 'open',
+var FolderCatalogItem = function(model){
+    this.model = model;
+    this.toggleState = 'open';
 
-	initialize: function () {
-		if (this.get("Children").length === 0) {
-			this.toggleState = 'none';
-		}
-	},
-
-	changeToggle: function (openDelegate, closeDelegate) {
-		if (this.toggleState === 'closed') {
-			this.toggleState = 'open';
-		} else if (this.toggleState === 'open') {
-			this.toggleState = 'closed';
-		}
+    this.changeToggle= function () {
+        if (this.toggleState === 'closed') {
+            this.toggleState = 'open';
+        } else if (this.toggleState === 'open') {
+            this.toggleState = 'closed';
+        }
 
         if (this.toggleState === 'closed') {
-            closeDelegate();
+            this.view.renderCollapse();
         } else if (this.toggleState === 'open') {
-            openDelegate();
+            this.view.renderExpand();
         }
-	},
+    };
 
-    Select: function () {
-    },
+    this.Select = function () {
+    };
 
-    UnSelect: function () {
+    this.UnSelect = function () {
+    };
+
+    this.CreateView = function(){
+        this.setView( new FolderCatalogItemView(this) );
+        return this.view;
+    };
+
+    this.setView = function (val) {
+        this.view = val;
     }
-});
+};

@@ -11,8 +11,8 @@ test( "It delegates Item creation to the item provider", function() {
 	var result = itemsProvider.GetItems([item1, item2]);
 
 	ok( result.length === 2 );
-	ok( result.at(0).get("Name") === "CItem1" );
-	ok( result.at(1).get("Name") === "CItem2" );
+	ok( result[0].model.Name === "CItem1" );
+	ok( result[1].model.Name === "CItem2" );
 });
 
 test( "It returns an empty array when there are no items", function() {  

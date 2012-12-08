@@ -1,22 +1,20 @@
-function CatalogRepository(reportCatalogBuilder) {
-  this.reportCatalogBuilder = reportCatalogBuilder;
+var CatalogRepository = function (reportCatalogBuilder) {
+    this.reportCatalogBuilder = reportCatalogBuilder;
 
-  this.GetCatalog = function (successCallback){
-      var localReportCatalogBuilder;
-      localReportCatalogBuilder = this.reportCatalogBuilder;
-
-    $.ajax({
-      type: "GET",
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      url: "/prompts.service/api/reports",
-      success: function (result) {
-        var catalog = localReportCatalogBuilder.Build(result);
-        successCallback(catalog);
-      },
-        error:function () {
-            alert("AJAX Error!");
-      }
-    });
-  }
-}
+    this.GetCatalog = function (successCallback, errorCallback) {
+        $.ajax({
+            type:"GET",
+            contentType:"application/json; charset=utf-8",
+            dataType:"json",
+            url:"/prompts.service/api/reports",
+            context: this,
+            success:function (result) {
+                var catalog = this.reportCatalogBuilder.Build(result);
+                successCallback(catalog);
+            },
+            error:function (xhr, statusText, errorThrown) {
+                errorCallback(JSON.parse(xhr.responseText).ResponseStatus.Message);
+            }
+        });
+    }
+};

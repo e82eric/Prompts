@@ -1,30 +1,32 @@
-var ReportCatalogItem = Backbone.Model.extend({
-    onSelected: undefined,
-    onUnSelected: undefined,
-    selected: false,
-    reportCatalog: undefined,
+var ReportCatalogItem = function(model) {
+    this.model = model;
+    this.onSelected = undefined;
+    this.onUnSelected = undefined;
+    this.selected = false;
+    this.reportCatalog = undefined;
 
-    setReportCatalog: function(val) {
+    this.setReportCatalog = function(val) {
         this.reportCatalog = val;
-    },
+    };
 
-    setOnSelected: function (onSelected) {
-        this.onSelected = onSelected;
-    },
-
-    setOnUnSelected: function (onUnSelected) {
-        this.onUnSelected = onUnSelected;
-    },
-
-    changeSelect: function() {
+    this.changeSelect = function() {
         this.reportCatalog.Select(this);
-    },
+    };
 
-    Select: function () {
-        this.onSelected();
-    },
+    this.Select = function () {
+        this.view.onSelected();
+    };
 
-    UnSelect: function () {
-        this.onUnSelected();
+    this.UnSelect = function () {
+        this.view.onUnSelected();
+    };
+
+    this.CreateView = function() {
+        this.setView(new CatalogItemView("#itemTemplate", this));
+        return this.view;
+    };
+
+    this.setView = function (val) {
+        this.view = val;
     }
-});
+};

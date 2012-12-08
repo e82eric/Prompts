@@ -17,6 +17,6 @@ function ReportCatalogBuilder () {
 
         reportCatalog.setItems(catalogItems);
 
-        return reportCatalog;
+        return new CatalogItemsView(reportCatalog.items, "rootItems");
     }
 }
