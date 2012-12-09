@@ -1,4 +1,6 @@
-test( "It returns a report catalog item when the type is Report", function() {  
+module( "Catalog Item Provider Tests");
+
+test( "It returns a report catalog item when the type is Report", function() {
 	var catalogItemProvider = new CatalogItemProvider();
 
 	var result = catalogItemProvider.GetItem({Type: "Report"});

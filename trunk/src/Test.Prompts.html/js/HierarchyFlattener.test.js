@@ -1,3 +1,5 @@
+module( "Hierarchy Flattener Tests");
+
 test( "It returns one item where there is only one item and no children", function() {
     var flattener = new HierarchyFlattener();
 

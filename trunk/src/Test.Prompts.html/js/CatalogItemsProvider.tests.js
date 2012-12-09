@@ -1,4 +1,6 @@
-test( "It delegates Item creation to the item provider", function() {  
+module( "Catalog Items Provider Tests");
+
+test( "It delegates Item creation to the item provider", function() {
 	var item1 = {Name: "Item1"};
 	var item2 = {Name: "Item2"};
 

@@ -1,3 +1,5 @@
+module( "Folder Catalog Item Controller Tests");
+
 test( "It calls the collapse delegate when it is called the first time", function() {
     var view = {};
     view.renderCollapse = sinon.spy();

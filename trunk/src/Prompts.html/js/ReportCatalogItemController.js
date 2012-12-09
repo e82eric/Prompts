@@ -1,10 +1,7 @@
 var ReportCatalogItemController = function(model) {
     this.model = model;
-    this.onSelected = undefined;
-    this.onUnSelected = undefined;
-    this.selected = false;
 
-    this.setReportCatalog = function(val) {
+    this.setRepository = function(val) {
         this.reportCatalog = val;
     };
 

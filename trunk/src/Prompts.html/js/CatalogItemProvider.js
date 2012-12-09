@@ -6,8 +6,8 @@ function CatalogItemProvider(folderCatalogItemProvider, reportCatalog) {
         var model;
         if (catalogItem.Type === "Report") {
             model = new ReportCatalogItemController(catalogItem);
-            model.setReportCatalog(this.reportCatalog);
-            model.Children = new Array();
+            model.setRepository(this.reportCatalog);
+            model.Children = [];
         }
         else if (catalogItem.Type === "Folder") {
             model = this.folderCatalogItemProvider.GetItem(catalogItem);

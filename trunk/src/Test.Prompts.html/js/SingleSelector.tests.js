@@ -1,3 +1,5 @@
+module( "Single Selector Tests");
+
 test( "It calls select on the item and unselect on the rest", function() {
     var item1Select = sinon.spy();
     var item2Select = sinon.spy();

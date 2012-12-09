@@ -15,7 +15,7 @@ function FolderCatalogItemProvider() {
             model.Children = children;
         } else {
             model = new EmptyFolderCatalogItemController(catalogItem);
-            model.Children = new Array();
+            model.Children = [];
         }
 
         return model;

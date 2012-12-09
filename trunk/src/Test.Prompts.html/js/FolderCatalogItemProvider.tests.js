@@ -1,3 +1,5 @@
+module( "Folder Catalog Item Provider Tests");
+
 test( "It returns a empty folder catalog item where there are no children", function() {
     var catalogItemProvider = new FolderCatalogItemProvider();
 

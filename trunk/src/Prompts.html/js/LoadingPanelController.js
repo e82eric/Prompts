@@ -6,7 +6,7 @@ var LoadingPanelController = function (repository) {
 
         self.showLoading();
 
-        self.repository.GetCatalog(
+        self.repository.Get(
             function (view) {
                 self.showLoaded(view);
             },
@@ -17,25 +17,25 @@ var LoadingPanelController = function (repository) {
     };
 
     this.setView = function (val) {
-        this.parentView = val;
+        this.view = val;
     };
 
     this.showLoading = function() {
-        this.parentView.showLoading();
-        this.parentView.hideRetry();
-        this.parentView.hideError();
-        this.parentView.setErrorMessage("");
+        this.view.showLoading();
+        this.view.hideRetry();
+        this.view.hideError();
+        this.view.setErrorMessage("");
     };
 
     this.showLoaded = function (view) {
-        this.parentView.hideLoading();
-        this.parentView.showLoaded(view);
+        this.view.hideLoading();
+        this.view.showLoaded(view);
     };
 
     this.showError = function(errorMessage) {
-        this.parentView.hideLoading();
-        this.parentView.setErrorMessage(errorMessage);
-        this.parentView.showError();
-        this.parentView.showRetry();
+        this.view.hideLoading();
+        this.view.setErrorMessage(errorMessage);
+        this.view.showError();
+        this.view.showRetry();
     };
 };

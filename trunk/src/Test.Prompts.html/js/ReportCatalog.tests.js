@@ -1,3 +1,5 @@
+module( "Report Catalog Tests");
+
 test( "It flattens the items and then uses the selector to select the item", function() {
     var item1 = {Name: "Item 1"};
     var item2 = {Name: "Item 2"};
