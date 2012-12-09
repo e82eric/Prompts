@@ -1,4 +1,4 @@
 var EmptyFolderCatalogItemView = function(model) {
-    var base = new CatalogItemView("#emptyFolderItemTemplate", model);
+    var base = new CatalogItemViewBase("#emptyFolderItemTemplate", model);
     return base;
 };

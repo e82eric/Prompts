@@ -10,11 +10,11 @@ function FolderCatalogItemProvider() {
         var model;
 
         if (catalogItem.Children.length != 0) {
-            model = new FolderCatalogItem(catalogItem);
+            model = new FolderCatalogItemController(catalogItem);
             children = this.catalogItemsProvider.GetItems(catalogItem.Children);
             model.Children = children;
         } else {
-            model = new EmptyFolderCatalogItem(catalogItem);
+            model = new EmptyFolderCatalogItemController(catalogItem);
             model.Children = new Array();
         }
 

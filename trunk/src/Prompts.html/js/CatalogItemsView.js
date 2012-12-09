@@ -1,26 +1,22 @@
 var CatalogItemsView = function(items, css){
-    var root = $("<ul></ul>");
+    this.items = items;
+    this.css = css;
 
-    return {
-        root: root,
-        items: items,
-        css: css,
-        tagName: "ul",
+    this.render = function () {
+        this.root = $("<ul></ul>");
 
-        render: function () {
-            root.attr("class", css);
+        this.root.attr("class", css);
 
-            _.each(items, function (catalogItem) {
-                this.renderCatalogItem(catalogItem);
-            }, this);
+        _.each(items, function (catalogItem) {
+            this.renderCatalogItem(catalogItem);
+        }, this);
 
-            return root;
-        },
+        return this.root;
+    };
 
-        renderCatalogItem: function (catalogItem) {
-            var catalogItemView = catalogItem.CreateView();
-            var childRender = catalogItemView.render();
-            root.append(childRender);
-        }
-    }
+    this.renderCatalogItem = function (catalogItem) {
+        var catalogItemView = catalogItem.CreateView();
+        var childRender = catalogItemView.render();
+        this.root.append(childRender);
+    };
 };

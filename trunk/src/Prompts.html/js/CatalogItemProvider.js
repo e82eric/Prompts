@@ -5,7 +5,7 @@ function CatalogItemProvider(folderCatalogItemProvider, reportCatalog) {
 	this.GetItem = function (catalogItem) {
         var model;
         if (catalogItem.Type === "Report") {
-            model = new ReportCatalogItem(catalogItem);
+            model = new ReportCatalogItemController(catalogItem);
             model.setReportCatalog(this.reportCatalog);
             model.Children = new Array();
         }

@@ -1,8 +1,8 @@
 test( "It calls the collapse delegate when it is called the first time", function() {
     var view = {};
-    sinon.spy(view, "renderCollapse");
+    view.renderCollapse = sinon.spy();
 
-	var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
+	var folder = new FolderCatalogItemController({Children: [{Name: "Child"}]});
     folder.setView(view);
     folder.changeToggle();
 
@@ -14,7 +14,7 @@ test( "It calls the expand delegate when change toggle is called", function() {
     view.renderCollapse = sinon.spy();
     view.renderExpand = sinon.spy();
 
-	var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
+	var folder = new FolderCatalogItemController({Children: [{Name: "Child"}]});
     folder.setView(view);
 	folder.changeToggle();
 
@@ -32,7 +32,7 @@ test( "It calls the collapse delegate when change toggle is called again", funct
     view.renderCollapse = sinon.spy();
     view.renderExpand = sinon.spy();
 
-    var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
+    var folder = new FolderCatalogItemController({Children: [{Name: "Child"}]});
     folder.setView(view);
     folder.changeToggle();
 
@@ -55,7 +55,7 @@ test( "It calls the expand delegate when change toggle is called for a third tim
     view.renderCollapse = sinon.spy();
     view.renderExpand = sinon.spy();
 
-    var folder = new FolderCatalogItem({Children: [{Name: "Child"}]});
+    var folder = new FolderCatalogItemController({Children: [{Name: "Child"}]});
     folder.setView(view);
     folder.changeToggle();
 

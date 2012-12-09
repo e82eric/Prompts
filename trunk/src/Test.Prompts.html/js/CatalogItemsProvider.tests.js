@@ -4,8 +4,8 @@ test( "It delegates Item creation to the item provider", function() {
 
 	var catalogItemProvider = {};
 	catalogItemProvider.GetItem = sinon.stub();
-	catalogItemProvider.GetItem.withArgs(item1).returns(new ReportCatalogItem({"Name": "CItem1"}));
-	catalogItemProvider.GetItem.withArgs(item2).returns(new ReportCatalogItem({"Name": "CItem2"}));
+	catalogItemProvider.GetItem.withArgs(item1).returns(new ReportCatalogItemController({"Name": "CItem1"}));
+	catalogItemProvider.GetItem.withArgs(item2).returns(new ReportCatalogItemController({"Name": "CItem2"}));
 
 	var itemsProvider = new CatalogItemsProvider(catalogItemProvider);
 	var result = itemsProvider.GetItems([item1, item2]);

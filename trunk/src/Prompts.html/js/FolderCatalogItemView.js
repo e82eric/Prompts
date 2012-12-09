@@ -1,28 +1,36 @@
-var FolderCatalogItemView = function (model){
-    var base = new CatalogItemView("#folderItemTemplate", model);
-    var root = base.render();
-    base.render = function () {
-        root.find("div:first").click($.proxy(this.handleClick, this));
-        this.expandImage = root.find("#ExpandImage:first img");
-        this.root = root;
-        this.model.changeToggle();
-        return root;
+var FolderCatalogItemView = function (controller){
+    this.controller = controller;
+
+    this.render = function () {
+        var base = new CatalogItemViewBase("#folderItemTemplate", controller);
+        this.root = base.render();
+
+        this.root.find("div:first").click($.proxy(this.handleClick, this));
+        this.expandImage = this.root.find("#ExpandImage:first img");
+
+        var childCatalogItems = this.controller.Children;
+
+        if (!(childCatalogItems.length == 0)) {
+            var childCatalogView = new CatalogItemsView(childCatalogItems, "childItems");
+            this.root.append(childCatalogView.render());
+        }
+
+        this.controller.changeToggle();
+        return this.root;
     };
 
-    base.renderExpand = function () {
+    this.renderExpand = function () {
         this.expandImage.attr("src", "../images/tree_expand.png");
         $(this.root.children()[1]).show();
     };
 
-    base.renderCollapse = function () {
+    this.renderCollapse = function () {
         this.expandImage.attr("src", "../images/tree_collapsed.png");
         $(this.root.children()[1]).hide();
     };
 
-    base.handleClick = function (e) {
-        this.model.changeToggle();
+    this.handleClick = function (e) {
+        this.controller.changeToggle();
         e.stopPropagation();
     };
-
-    return base;
 };

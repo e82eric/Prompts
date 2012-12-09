@@ -1,5 +1,5 @@
 var ReportCatalogPanelView = function(model) {
-    this.model = model;
+    this.controller = model;
 
     this.showLoading = function () {
         this.loadingElement.show();
@@ -39,7 +39,7 @@ var ReportCatalogPanelView = function(model) {
     };
 
     this.onRetryClick = function () {
-        this.model.load();
+        this.controller.load();
     };
 
     this.render = function(){
@@ -49,8 +49,8 @@ var ReportCatalogPanelView = function(model) {
         this.errorElement = $("#reportCatalog").find("#errorMessage");
 
         this.retryElement.click($.proxy(this.onRetryClick, this));
-        this.model.setView(this);
-        this.model.load();
+        this.controller.setView(this);
+        this.controller.load();
     }
 }
 

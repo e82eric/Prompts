@@ -3,7 +3,7 @@ test( "It returns a empty folder catalog item where there are no children", func
 
     var result = catalogItemProvider.GetItem({Children: []});
 
-    ok( result instanceof EmptyFolderCatalogItem );
+    ok( result instanceof EmptyFolderCatalogItemController );
 });
 
 test( "It returns a folder catalog item where there are children", function() {
@@ -15,7 +15,7 @@ test( "It returns a folder catalog item where there are children", function() {
 
     var result = catalogItemProvider.GetItem({Children: [{Name: "Child 1"}, {Name: "Child 2"}]});
 
-    ok( result instanceof FolderCatalogItem );
+    ok( result instanceof FolderCatalogItemController );
 });
 
 test( "It correctly sets the model for a folder", function() {

@@ -1,4 +1,4 @@
-var LoadingPanel = function (repository) {
+var LoadingPanelController = function (repository) {
     this.repository = repository;
 
     this.load = function () {
@@ -11,7 +11,7 @@ var LoadingPanel = function (repository) {
                 self.showLoaded(view);
             },
             function (errorMessage) {
-                self.showError();
+                self.showError(errorMessage);
             }
         );
     };

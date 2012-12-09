@@ -1,9 +1,8 @@
-var ReportCatalogItem = function(model) {
+var ReportCatalogItemController = function(model) {
     this.model = model;
     this.onSelected = undefined;
     this.onUnSelected = undefined;
     this.selected = false;
-    this.reportCatalog = undefined;
 
     this.setReportCatalog = function(val) {
         this.reportCatalog = val;
@@ -22,7 +21,7 @@ var ReportCatalogItem = function(model) {
     };
 
     this.CreateView = function() {
-        this.setView(new CatalogItemView("#itemTemplate", this));
+        this.setView(new ReportCatalogItemView(this));
         return this.view;
     };
 

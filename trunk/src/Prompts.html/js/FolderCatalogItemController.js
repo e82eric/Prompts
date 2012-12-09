@@ -1,8 +1,8 @@
-var FolderCatalogItem = function(model){
+var FolderCatalogItemController = function(model){
     this.model = model;
     this.toggleState = 'open';
 
-    this.changeToggle= function () {
+    this.changeToggle = function () {
         if (this.toggleState === 'closed') {
             this.toggleState = 'open';
         } else if (this.toggleState === 'open') {

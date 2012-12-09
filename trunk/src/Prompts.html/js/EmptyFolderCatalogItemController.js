@@ -1,4 +1,4 @@
-var EmptyFolderCatalogItem = function(model){
+var EmptyFolderCatalogItemController = function(model){
     this.model = model;
     this.Select = function () {
     };

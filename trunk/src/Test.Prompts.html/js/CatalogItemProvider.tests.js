@@ -3,7 +3,7 @@ test( "It returns a report catalog item when the type is Report", function() {
 
 	var result = catalogItemProvider.GetItem({Type: "Report"});
 
-	ok( result instanceof  ReportCatalogItem );
+	ok( result instanceof  ReportCatalogItemController );
 });
 
 test( "It correctly sets the model for a report", function() {  
