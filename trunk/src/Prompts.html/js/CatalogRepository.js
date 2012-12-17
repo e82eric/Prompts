@@ -1,7 +1,7 @@
 var CatalogRepository = function (reportCatalogBuilder) {
     this.reportCatalogBuilder = reportCatalogBuilder;
 
-    this.Get = function (successCallback, errorCallback) {
+    this.Get = function (request, successCallback, errorCallback) {
         $.ajax({
             type:"GET",
             contentType:"application/json; charset=utf-8",

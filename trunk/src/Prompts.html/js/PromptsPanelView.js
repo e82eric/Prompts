@@ -1,4 +1,4 @@
-var ReportCatalogPanelView = function(model) {
+var PromptsPanelView = function(model) {
     this.controller = model;
 
     this.showLoading = function () {
@@ -43,12 +43,11 @@ var ReportCatalogPanelView = function(model) {
     };
 
     this.render = function(){
-        this.loadingElement = $("#reportCatalog").find("#loading");
-        this.loadedElement = $("#reportCatalog").find("#loaded");
-        this.retryElement = $("#reportCatalog").find("#retry");
-        this.errorElement = $("#reportCatalog").find("#errorMessage");
+        this.loadingElement = $("#prompts").find("#loading");
+        this.loadedElement = $("#prompts").find("#loaded");
+        this.retryElement = $("#prompts").find("#retry");
+        this.errorElement = $("#prompts").find("#errorMessage");
 
         this.retryElement.click($.proxy(this.onRetryClick, this));
     }
 }
-

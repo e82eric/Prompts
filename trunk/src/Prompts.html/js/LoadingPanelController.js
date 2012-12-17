@@ -1,12 +1,13 @@
 var LoadingPanelController = function (repository) {
     this.repository = repository;
 
-    this.load = function () {
+    this.load = function (request) {
         var self = this;
 
         self.showLoading();
 
         self.repository.Get(
+            request,
             function (view) {
                 self.showLoaded(view);
             },
@@ -18,12 +19,16 @@ var LoadingPanelController = function (repository) {
 
     this.setView = function (val) {
         this.view = val;
+
+        this.view.hideLoading();
+        this.view.hideRetry();
     };
 
     this.showLoading = function() {
         this.view.showLoading();
         this.view.hideRetry();
         this.view.hideError();
+        this.view.hideLoaded();
         this.view.setErrorMessage("");
     };
 

@@ -1,5 +1,6 @@
-var ReportCatalogItemController = function(model) {
+var ReportCatalogItemController = function(model, promptsController) {
     this.model = model;
+    this.promptsController = promptsController;
 
     this.setRepository = function(val) {
         this.reportCatalog = val;
@@ -11,6 +12,7 @@ var ReportCatalogItemController = function(model) {
 
     this.Select = function () {
         this.view.onSelected();
+        this.promptsController.load({Path: model.Path});
     };
 
     this.UnSelect = function () {

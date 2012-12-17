@@ -1,4 +1,6 @@
-function ReportCatalogBuilder () {
+function ReportCatalogBuilder (promptsController) {
+    this.promptsController = promptsController;
+
     this.Build = function(jsonItems) {
         var hierarchyFlattener = new HierarchyFlattener();
 
@@ -8,7 +10,11 @@ function ReportCatalogBuilder () {
             new HierarchyFlattener(),
             new SingleSelector());
 
-        var catalogItemProvider = new CatalogItemProvider(folderCatalogItemProvider, reportCatalog);
+        var catalogItemProvider = new CatalogItemProvider(
+            folderCatalogItemProvider,
+            reportCatalog,
+            this.promptsController);
+
         var rootCatalogItemsProvider = new CatalogItemsProvider(catalogItemProvider);
         var catalogItemsProvider = new CatalogItemsProvider(catalogItemProvider);
         folderCatalogItemProvider.setCatalogItemsProvider(catalogItemsProvider);

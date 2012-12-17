@@ -1,11 +1,12 @@
-function CatalogItemProvider(folderCatalogItemProvider, reportCatalog) {
+function CatalogItemProvider(folderCatalogItemProvider, reportCatalog, promptsController) {
     this.reportCatalog = reportCatalog;
     this.folderCatalogItemProvider = folderCatalogItemProvider;
+    this.promptsController = promptsController;
 
 	this.GetItem = function (catalogItem) {
         var model;
         if (catalogItem.Type === "Report") {
-            model = new ReportCatalogItemController(catalogItem);
+            model = new ReportCatalogItemController(catalogItem, this.promptsController);
             model.setRepository(this.reportCatalog);
             model.Children = [];
         }

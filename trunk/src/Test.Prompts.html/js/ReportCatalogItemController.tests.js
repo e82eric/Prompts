@@ -14,9 +14,14 @@ test( "It calls select on the report catalog when change select is called", func
 });
 
 test( "It calls render selected on the view when select is called", function() {
+    var model = { Path: "Path 1" };
+
+    var promptsPresenter = {};
+    promptsPresenter.load = sinon.spy();
+
     var view = {};
     view.onSelected = sinon.spy();
-    var controller = new ReportCatalogItemController();
+    var controller = new ReportCatalogItemController(model, promptsPresenter);
     controller.setView(view);
 
     ok( !(view.onSelected.called) );
@@ -26,7 +31,7 @@ test( "It calls render selected on the view when select is called", function() {
     ok ( view.onSelected.calledOnce );
 });
 
-test( "It calls render not selected on the view when select is called", function() {
+test( "It calls render not selected on the view when unselect is called", function() {
     var view = {};
     view.onUnSelected = sinon.spy();
     var controller = new ReportCatalogItemController();
@@ -37,4 +42,24 @@ test( "It calls render not selected on the view when select is called", function
     controller.UnSelect();
 
     ok ( view.onUnSelected.calledOnce );
+});
+
+test( "It calls load on the prompts controller where select is called", function() {
+    var model = { Path: "Path 1" };
+
+    var view = {};
+    view.onSelected = sinon.spy();
+
+    var promptsPresenter = {};
+    promptsPresenter.load = sinon.spy();
+
+    var controller = new ReportCatalogItemController(model, promptsPresenter);
+    controller.setView(view);
+
+    ok( !(view.onSelected.called) );
+
+    controller.Select();
+
+    ok ( view.onSelected.calledOnce );
+    ok ( promptsPresenter.load.getCall(0).args[0].Path ==  model.Path);
 });

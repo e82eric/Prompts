@@ -5,19 +5,41 @@
     <link rel="stylesheet" type="text/css" href="../css/ReportCatalog.css">
   </head>
   <body>
-    <div class="promptsHeader">
-        <img src="../images/promptslogo.png" style="display: inline-block; vertical-align: middle;">
-        <div style="display: inline-block; vertical-align: middle;">
-            <h1 style="margin: 1px;">Prompts</h1>
-            <h3 style="margin: 1px;">Prompts for Reporting Services</h3>
-        </div>
-    </div>
-    <div id="reportCatalog" class="reportCatalogPanel">
-        <div id="loaded"></div>
-        <div id="loading">loading...</div>
-        <div id="errorMessage"></div>
-        <a id="retry">Retry</a>
-    </div>
+  <table>
+      <tbody>
+        <th colspan="2">
+            <img src="../images/promptslogo.png">
+            <div class="promptsHeader">
+                <h1>Prompts</h1>
+                <h3>Prompts for Reporting Services</h3>
+            </div>
+        </th>
+        <tr>
+            <td class="hideShowRow">
+                <a >Hide</a>
+                Report Catalog
+            </td>
+        </tr>
+        <tr class="contentRow">
+            <td class="reportCatalogPanel">
+                <div id="reportCatalog">
+                    <div id="loaded"></div>
+                    <div id="loading">loading...</div>
+                    <div id="errorMessage"></div>
+                    <a id="retry">Retry</a>
+                </div>
+            </td>
+            <td class="promptsPanel2">
+                <div id="prompts" class="promptsPanel">
+                    <div id="loaded"></div>
+                    <div id="loading">loading...</div>
+                    <div id="errorMessage"></div>
+                    <a id="retry">Retry</a>
+                </div>
+            </td>
+        </tr>
+      </tbody>
+  </table>
 
     <script type="text/template" id="itemTemplate">
       <div id="wrap">
@@ -30,6 +52,14 @@
         </div>
       </div>
     </script>
+
+  <script type="text/template" id="promptItemTemplate">
+      <div id="hoverWrap" class="catalogItem" style="width:99.2%">
+          <div id="selectWrap" class="catalogItem" style="width:100%">
+              <div class="catalogItem" style='-moz-user-select: none;-webkit-user-select: none;' onselectstart='return false;'><%- Label %></div>
+          </div>
+      </div>
+  </script>
 
     <script type="text/template" id="folderItemTemplate">
       <div id="wrap">
@@ -47,6 +77,46 @@
             <img src="../images/folder.png" class="catalogItem" />
             <div class="catalogItem"><%- Name %></div>
         </div>
+    </script>
+
+    <script type="text/template" id="dropDownTemplate">
+      <div><%- Name %></div>
+        <select>
+            <% _(PromptLevelInfo.AvailableItems).each(function(item) { %>
+            <option value="<%= item.Value %>"><%= item.Label %></option>
+            <% }); %>
+        </select>
+    </script>
+
+    <script type="text/template" id="shoppingCartTemplate">
+        <table style="height:400px; width: 100%;">
+            <tr>
+                <td rowspan="2" style="width:50%">
+                    <div style="height: 400px; overflow-y: scroll">
+                        <ul id="availableItems" class="rootItems">
+                        </ul>
+                    </div>
+                </td>
+                <td style="width: 100px; vertical-align: bottom">
+                    <button id="selectButton" style="width: 100px;">Select</button>
+                </td>
+                <td rowspan="2" style="width:50%">
+                    <select multiple style="height: 100%; width: 100%;">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top">
+                    <button style="width: 100px;">De-Select</button>
+                </td>
+            </tr>
+        </table>
+    </script>
+
+    <script type="text/template" id="availableItemsTemplate">
+        <ul id="availableItems" class="rootItems">
+
+        </ul>
     </script>
 
     <script src="../js/jquery.js"></script>
@@ -72,6 +142,21 @@
     <script src="../js/SingleSelector.js"></script>
     <script src="../js/ReportCatalogBuilder.js"></script>
     <script src="../js/ReportCatalogItemView.js"></script>
+    <script src="../js/PromptsRepository.js"></script>
+    <script src="../js/PromptsPanelView.js"></script>
+    <script src="../js/PromptController.js"></script>
+    <script src="../js/PromptsProvider.js"></script>
+    <script src="../js/PromptsView.js"></script>
+    <script src="../js/PromptsViewBuilder.js"></script>
+    <script src="../js/DropDownView.js"></script>
+    <script src="../js/ShoppingCartView.js"></script>
+    <script src="../js/PromptItemController.js"></script>
+    <script src="../js/PromptItemView.js"></script>
+
+    <script src="../js/AvailableItemsController.js"></script>
+    <script src="../js/AvailableItemsView.js"></script>
+    <script src="../js/ShoppingCartBuilder.js"></script>
+    <script src="../js/ShoppingCartController.js"></script>
 
   </body>
 </html>

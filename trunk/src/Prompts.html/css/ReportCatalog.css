@@ -1,3 +1,62 @@
+td {
+    padding-right: 3px;
+    border: 2px solid #E8E8E8;
+    border-radius: 10px;
+    vertical-align: top;
+}
+
+th{
+    height: auto;
+}
+
+h1,h3 {
+    margin: 1px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.contentRow {
+    height: 100%
+}
+
+img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.promptsHeader {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.reportCatalogPanel {
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.promptsPanel2 {
+    width: 100%;
+    text-align: left;
+}
+
+.hideShowRow{
+    border: 0px;
+}
+
+th{
+    text-align: left;
+}
+
 body {
     font-family: "Segoe UI";
     font-size: 12px;
@@ -12,6 +71,13 @@ body {
     background: white;
     overflow-y: scroll;
     position: fixed;
+}
+
+table {
+    height: 100%;
+    width: 100%;
+    border: 1px;
+    border-spacing: 7px;
 }
 
 #ExpandImage {
@@ -56,22 +122,6 @@ div.selectedGlow {
 	vertical-align: top;
     background: #D1D1D1;
     border: 1px solid #999;
-}
-
-div.promptsHeader {
-    height: auto;
-    width: auto;
-    border: 1px solid #999;
-    border-radius: 5px;
-    margin: 3px;
-}
-
-div.reportCatalogPanel {
-    border: 1px solid #999;
-    border-radius: 5px;
-    width: auto;
-    margin: 3px;
-    min-height:100%
 }
 
 a {
