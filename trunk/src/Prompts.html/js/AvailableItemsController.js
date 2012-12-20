@@ -5,8 +5,8 @@ function AvailableItemsController (selector) {
         return new AvailableItemsView(this);
     }
 
-    this.select = function (item) {
-        this.selector.Select(this.items, item);
+    this.select = function (shiftKeyPressed, controlKeyPressed, item) {
+        this.selector.select(shiftKeyPressed, controlKeyPressed, this.items, item);
     }
 
     this.setItems = function (val) {

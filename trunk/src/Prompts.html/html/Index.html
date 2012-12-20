@@ -21,7 +21,7 @@
             </td>
         </tr>
         <tr class="contentRow">
-            <td class="reportCatalogPanel">
+            <td class="reportCatalogPanel panel">
                 <div id="reportCatalog">
                     <div id="loaded"></div>
                     <div id="loading">loading...</div>
@@ -29,7 +29,7 @@
                     <a id="retry">Retry</a>
                 </div>
             </td>
-            <td class="promptsPanel2">
+            <td class="promptsPanel2 panel">
                 <div id="prompts" class="promptsPanel">
                     <div id="loaded"></div>
                     <div id="loading">loading...</div>
@@ -54,9 +54,9 @@
     </script>
 
   <script type="text/template" id="promptItemTemplate">
-      <div id="hoverWrap" class="catalogItem" style="width:99.2%">
-          <div id="selectWrap" class="catalogItem" style="width:100%">
-              <div class="catalogItem" style='-moz-user-select: none;-webkit-user-select: none;' onselectstart='return false;'><%- Label %></div>
+      <div unselectable="on" id="hoverWrap" class="catalogItem" style="width:99.2%">
+          <div unselectable="on" id="selectWrap" class="catalogItem" style="width:100%">
+              <div unselectable="on" class="catalogItem" style='-moz-user-select: none;-webkit-user-select: none;' onselectstart='return false;'><%- Label %></div>
           </div>
       </div>
   </script>
@@ -73,8 +73,8 @@
 
     <script type="text/template" id="emptyFolderItemTemplate">
         <div id="wrap">
-            <div id="ExpandImage" class="catalogItem" />
-            <img src="../images/folder.png" class="catalogItem" />
+            <div id="ExpandImage" class="catalogItem"></div>
+            <img src="../images/folder.png" class="catalogItem"
             <div class="catalogItem"><%- Name %></div>
         </div>
     </script>
@@ -91,7 +91,7 @@
     <script type="text/template" id="shoppingCartTemplate">
         <table style="height:400px; width: 100%;">
             <tr>
-                <td rowspan="2" style="width:50%">
+                <td rowspan="2" class="listBox" style="width:50%">
                     <div style="height: 400px; overflow-y: scroll">
                         <ul id="availableItems" class="rootItems">
                         </ul>
@@ -100,9 +100,11 @@
                 <td style="width: 100px; vertical-align: bottom">
                     <button id="selectButton" style="width: 100px;">Select</button>
                 </td>
-                <td rowspan="2" style="width:50%">
-                    <select multiple style="height: 100%; width: 100%;">
-                    </select>
+                <td rowspan="2" class="listBox">
+                    <div style="height: 400px; overflow-y: scroll">
+                        <ul id="selectedItems" class="rootItems">
+                        </ul>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -157,6 +159,11 @@
     <script src="../js/AvailableItemsView.js"></script>
     <script src="../js/ShoppingCartBuilder.js"></script>
     <script src="../js/ShoppingCartController.js"></script>
+
+    <script src="../js/RangeSelector.js"></script>
+    <script src="../js/InverseSelector.js"></script>
+    <script src="../js/MultiSelector.js"></script>
+
 
   </body>
 </html>

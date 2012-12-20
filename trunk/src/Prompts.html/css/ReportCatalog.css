@@ -1,8 +1,13 @@
-td {
+.panel {
     padding-right: 3px;
     border: 2px solid #E8E8E8;
     border-radius: 10px;
     vertical-align: top;
+}
+
+.listBox {
+    border: 1px solid black;
+    width:50%;
 }
 
 th{

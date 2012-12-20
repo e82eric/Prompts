@@ -2,7 +2,7 @@ function PromptItemView (controller) {
     this.controller = controller;
 
     this.render = function () {
-        this.root = $("<li></li>");
+        this.root = $("<li unselectable='on'></li>");
         var template = $("#promptItemTemplate").html();
 
         var templateFunction  = _.template(template);
@@ -29,8 +29,8 @@ function PromptItemView (controller) {
         this.hoverElement.attr('class', 'catalogItem');
     };
 
-    this.onClick = function () {
-        this.controller.clicked();
+    this.onClick = function (e) {
+        this.controller.clicked(e.shiftKey, e.ctrlKey);
     };
 
     this.onSelected = function () {

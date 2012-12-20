@@ -4,7 +4,9 @@ function SingleSelector () {
             if(item == itemToSelect) {
                 item.Select();
             } else{
-                item.UnSelect();
+                if(item.isSelected) {
+                    item.UnSelect();
+                }
             }
         },
         this);
