@@ -10,7 +10,15 @@ function ShoppingCartBuilder () {
             inverseSelector
         );
 
-        var availableItemsController = new AvailableItemsController(multiSelector);
+        var promptItemControllersProvider = new PromptItemControllersProvider();
+        var selectedItemsController = new SelectedItemsController(multiSelector);
+        var availableItemsController = new AvailableItemsController(
+            multiSelector,
+            promptItemControllersProvider);
+
+        promptItemControllersProvider.setAvailableItemsController(selectedItemsController);
+
+
 
         _.each(
             model.PromptLevelInfo.AvailableItems,
@@ -23,6 +31,6 @@ function ShoppingCartBuilder () {
 
         availableItemsController.setItems(availableItemControllers);
 
-        return new ShoppingCartController(availableItemsController);
+        return new ShoppingCartController(availableItemsController, selectedItemsController);
     }
 }

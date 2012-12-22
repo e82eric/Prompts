@@ -40,4 +40,8 @@ function PromptItemView (controller) {
     this.onUnSelected = function () {
         this.selectElement.attr('class', 'catalogItem');
     };
+
+    this.deleteItem = function () {
+        this.root.remove();
+    }
 }

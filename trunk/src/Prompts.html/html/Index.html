@@ -91,13 +91,17 @@
     <script type="text/template" id="shoppingCartTemplate">
         <table style="height:400px; width: 100%;">
             <tr>
+                <td><input id="searchString"></td>
+                <td><button id="searchButton">Search</button></td>
+            </tr>
+            <tr>
                 <td rowspan="2" class="listBox" style="width:50%">
                     <div style="height: 400px; overflow-y: scroll">
                         <ul id="availableItems" class="rootItems">
                         </ul>
                     </div>
                 </td>
-                <td style="width: 100px; vertical-align: bottom">
+                <td style="width: 100px; vertical-align: bottom; height: 200px">
                     <button id="selectButton" style="width: 100px;">Select</button>
                 </td>
                 <td rowspan="2" class="listBox">
@@ -109,7 +113,7 @@
             </tr>
             <tr>
                 <td style="vertical-align: top">
-                    <button style="width: 100px;">De-Select</button>
+                    <button id="unSelectButton" style="width: 100px;">De-Select</button>
                 </td>
             </tr>
         </table>
@@ -163,6 +167,18 @@
     <script src="../js/RangeSelector.js"></script>
     <script src="../js/InverseSelector.js"></script>
     <script src="../js/MultiSelector.js"></script>
+
+    <script src="../js/SelectedItemsController.js"></script>
+    <script src="../js/SelectedItemsView.js"></script>
+    <script src="../js/PromptItemControllersProvider.js"></script>
+
+      <script src="../js/ContainsSearch.js"></script>
+      <script src="../js/StartsWithSearch.js"></script>
+      <script src="../js/EndsWithSearch.js"></script>
+      <script src="../js/NullSearch.js"></script>
+      <script src="../js/EqualsSearch.js"></script>
+      <script src="../js/SearchStringParser.js"></script>
+      <script src="../js/Search.js"></script>
 
 
   </body>
