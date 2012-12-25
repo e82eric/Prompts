@@ -10,7 +10,7 @@ function MultiSelector (singleSelector, rangeSelector, inverseSelector) {
             this.inverseSelector.select(items, item);
             this.previousSelection = item;
         } else {
-            this.singleSelector.Select(items, item);
+            this.singleSelector.select(items, item);
             this.previousSelection = item;
         }
     }

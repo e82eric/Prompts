@@ -1,3 +1,5 @@
+module("Inverse Selector");
+
 function newItem(name, isSelected) {
     var item = {Name: name};
     item.Select = sinon.spy();

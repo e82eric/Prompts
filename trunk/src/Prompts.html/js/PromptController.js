@@ -8,6 +8,8 @@ function PromptController (model) {
             return shoppingCart.createView();
         }
 
-        return new DropDownView(this);
+        var dropDownBuilder = new DropDownBuilder();
+        var dropDown = dropDownBuilder.build(model);
+        return dropDown.createView();
     }
 }

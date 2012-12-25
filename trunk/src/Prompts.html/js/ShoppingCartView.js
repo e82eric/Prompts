@@ -13,7 +13,7 @@ function ShoppingCartView (controller){
         this.selectElement = this.root.find("#selectButton:first");
         this.selectElement.click($.proxy(this.onSelect,this));
 
-        this.availableItems = this.root.find("#availableItems:first");
+        this.availableItems = this.root.find("#availableItems");
         this.selectedItems = this.root.find("#selectedItems:first");
         this.selectButton = this.root.find("#selectButton:first");
         this.selectButton.click($.proxy(this.onSelectButtonClick, this));

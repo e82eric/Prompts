@@ -2,11 +2,9 @@ function AvailableItemsView (controller) {
     this.controller = controller;
 
     this.render = function () {
-        var template = $("#availableItemsTemplate").html();
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller);
-        this.root = $(templateHtml);
+        this.root = $("<ul class='rootItems'></ul>");
 
+        var result = [];
         _.each(
             this.controller.items,
             function (controller) {

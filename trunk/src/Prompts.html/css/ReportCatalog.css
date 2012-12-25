@@ -106,22 +106,53 @@ ul.rootItems{
 }
 
 .catalogItem {
-	display: inline-block;
+    display: inline-block;
     border-radius: 5px;
     background-color: transparent;
     border: 1px solid transparent;
     vertical-align: top;
 }
 
-div.hoverGlow {
-	display: inline-block;
+.promptItem {
     border-radius: 5px;
-	vertical-align: top;
+    background-color: transparent;
+    border: 1px solid transparent;
+    vertical-align: top;
+    width:100%;
+}
+
+.promptItemHover {
+    background: #E8E8E8;
+}
+
+.itemTest {
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.itemTest:hover {
     background: #E8E8E8;
     border: 1px solid #999;
 }
 
-div.selectedGlow {
+.itemTestNotSelected {
+    border: 1px solid transparent;
+}
+
+.itemTestSelect {
+    background: #D1D1D1;
+    border: 1px solid black;
+}
+
+.hoverGlow {
+    display: inline-block;
+    border-radius: 5px;
+    vertical-align: top;
+    background: #E8E8E8;
+    border: 1px solid #999;
+}
+
+.selectedGlow {
 	display: inline-block;
     border-radius: 5px;
 	vertical-align: top;
@@ -137,4 +168,38 @@ a {
 }
 a:hover {
     color: #FF0000
+}
+
+.dropDown {
+    width: 400px;
+    position:relative;
+    padding: 5px;
+}
+
+.dropDownToggle {
+    border: 1px solid #D4D4D4;
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 2px 0px 2px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 2px 2px 1px #888888;
+}
+
+.dropDownToggle:hover {
+    border: 1px solid #B2B2B4;
+}
+
+.dropDownToggleImage {
+    float: right;
+}
+
+.dropDownPopup {
+    margin: 3px 0px 0px 0px;
+    position:absolute;
+    background: white;
+    border: 1px solid #D4D4D4;
+    width:398px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 1px #888888;
 }

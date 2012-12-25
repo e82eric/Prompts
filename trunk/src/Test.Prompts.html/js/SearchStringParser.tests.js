@@ -18,12 +18,12 @@ test("It returns a null search when the search string is a blank", function () {
     ok(result.searchString == "");
 });
 
-test("It returns a starts with search when the first character is *", function () {
+test("It returns a ends with search when the first character is *", function () {
     var parser = new SearchStringParser();
 
     var result = parser.parse("*SearchString1");
 
-    ok(result instanceof StartsWithSearch);
+    ok(result instanceof EndsWithSearch);
     ok(result.searchString == "SearchString1");
 });
 
@@ -36,12 +36,12 @@ test("It returns a contains with search when the first and last character is *",
     ok(result.searchString == "SearchString1");
 });
 
-test("It returns a ends with search when the last character is *", function () {
+test("It returns a starts with search when the last character is *", function () {
     var parser = new SearchStringParser();
 
     var result = parser.parse("SearchString1*");
 
-    ok(result instanceof EndsWithSearch);
+    ok(result instanceof StartsWithSearch);
     ok(result.searchString == "SearchString1");
 });
 

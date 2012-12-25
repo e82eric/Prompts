@@ -10,7 +10,7 @@ test( "It flattens the items and then uses the selector to select the item", fun
     flattener.Flatten = sinon.stub();
 
     var selector = {};
-    selector.Select = sinon.spy();
+    selector.select = sinon.spy();
 
     var items = [item1, item2];
     var flattenedItems = [item1, item2, item3, item4];
@@ -22,6 +22,6 @@ test( "It flattens the items and then uses the selector to select the item", fun
 
     reportCatalog.Select(item2);
 
-    ok(selector.Select.calledWith(flattenedItems, item2));
-    ok(selector.Select.calledOnce);
+    ok(selector.select.calledWith(flattenedItems, item2));
+    ok(selector.select.calledOnce);
 });

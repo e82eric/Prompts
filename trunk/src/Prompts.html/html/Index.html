@@ -53,14 +53,6 @@
       </div>
     </script>
 
-  <script type="text/template" id="promptItemTemplate">
-      <div unselectable="on" id="hoverWrap" class="catalogItem" style="width:99.2%">
-          <div unselectable="on" id="selectWrap" class="catalogItem" style="width:100%">
-              <div unselectable="on" class="catalogItem" style='-moz-user-select: none;-webkit-user-select: none;' onselectstart='return false;'><%- Label %></div>
-          </div>
-      </div>
-  </script>
-
     <script type="text/template" id="folderItemTemplate">
       <div id="wrap">
         <div id="ExpandImage" class="catalogItem">
@@ -80,25 +72,29 @@
     </script>
 
     <script type="text/template" id="dropDownTemplate">
-      <div><%- Name %></div>
-        <select>
-            <% _(PromptLevelInfo.AvailableItems).each(function(item) { %>
-            <option value="<%= item.Value %>"><%= item.Label %></option>
-            <% }); %>
-        </select>
+        <div class="dropDown" >
+            <div class="dropDownToggle" id="toggle" >
+                <span id="selectedItemText"></span>
+                <span><img class="dropDownToggleImage" src="../images/tree_expand.png"></span>
+            </div>
+            <div id="popup" class="dropDownPopup" >
+                <button id="searchButton" style="float:right">Search</button>
+                <div style="padding: 0 5px 0 2px; overflow: hidden;" >
+                    <input id="searchString" type="text" title="Search" style="width: 100%" />
+                </div>
+            </div>
+        </div>
     </script>
 
     <script type="text/template" id="shoppingCartTemplate">
         <table style="height:400px; width: 100%;">
             <tr>
-                <td><input id="searchString"></td>
-                <td><button id="searchButton">Search</button></td>
+                <td><input id="searchString" style="width:100%"></td>
+                <td><button id="searchButton" style="width:100%">Search</button></td>
             </tr>
             <tr>
                 <td rowspan="2" class="listBox" style="width:50%">
-                    <div style="height: 400px; overflow-y: scroll">
-                        <ul id="availableItems" class="rootItems">
-                        </ul>
+                    <div id="availableItems" style="height: 400px; overflow-y: scroll">
                     </div>
                 </td>
                 <td style="width: 100px; vertical-align: bottom; height: 200px">
@@ -180,6 +176,9 @@
       <script src="../js/SearchStringParser.js"></script>
       <script src="../js/Search.js"></script>
 
+      <script src="../js/DropDownController.js"></script>
+      <script src="../js/DropDownBuilder.js"></script>
+    <script src="../js/DropDownSelector.js"></script>
 
   </body>
 </html>

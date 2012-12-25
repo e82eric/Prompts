@@ -9,10 +9,10 @@ function SearchStringParser () {
             return new ContainsSearch(parsed);
         } else if(searchString.substring(0, 1) == "*") {
             var parsed = searchString.substring(1, searchString.length)
-            return new StartsWithSearch(parsed);
+            return new EndsWithSearch(parsed);
         } else if(searchString.substring(searchString.length - 1, searchString.length) == "*") {
             var parsed = searchString.substring(0, searchString.length - 1)
-            return new EndsWithSearch(parsed);
+            return new StartsWithSearch(parsed);
         }
         return new EqualsSearch(searchString);
     }

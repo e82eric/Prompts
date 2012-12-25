@@ -17,7 +17,7 @@ test( "It calls select on the item and un select on the rest", function() {
 
     var selector = new SingleSelector();
 
-    selector.Select(items, item2);
+    selector.select(items, item2);
 
     ok(item1.Select.callCount == 0);
     ok(item2.Select.calledOnce);
@@ -35,7 +35,7 @@ test( "It calls un select on the other items where is selected is true", functio
 
     var selector = new SingleSelector();
 
-    selector.Select(items, item2);
+    selector.select(items, item2);
 
     ok(item1.UnSelect.callCount == 1);
     ok(item2.UnSelect.callCount == 0);
@@ -56,7 +56,7 @@ test( "It does not call un select on the item to select if it is already selecte
 
     var selector = new SingleSelector();
 
-    selector.Select(items, item2);
+    selector.select(items, item2);
 
 
     ok(item2.UnSelect.callCount == 0);

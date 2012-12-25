@@ -2,12 +2,7 @@ function SelectedItemsView (controller) {
     this.controller = controller;
 
     this.render = function () {
-        var template = $("#availableItemsTemplate").html();
-
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller);
-        this.root = $(templateHtml);
-
+        this.root = $("<ul class='rootItems'></ul>")
         return this.root;
     }
 

@@ -1,5 +1,5 @@
 function SingleSelector () {
-    this.Select = function (items, itemToSelect) {
+    this.select = function (items, itemToSelect) {
         _.each(items, function (item){
             if(item == itemToSelect) {
                 item.Select();
@@ -10,5 +10,5 @@ function SingleSelector () {
             }
         },
         this);
-    }
+    };
 }

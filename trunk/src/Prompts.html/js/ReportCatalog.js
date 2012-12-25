@@ -8,7 +8,7 @@ function ReportCatalog (hierarchyFlattener, singleSelector) {
 
     this.Select = function (item) {
         var flattenedItems = this.hierarchyFlattener.Flatten(this.items);
-        this.singleSelector.Select(flattenedItems, item);
+        this.singleSelector.select(flattenedItems, item);
     }
 }
 
