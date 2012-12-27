@@ -8,6 +8,12 @@ function PromptController (model) {
             return shoppingCart.createView();
         }
 
+        if (this.model.PromptType == "SingleSelectTree") {
+            var builder = new TreeDropDownBuilder();
+            var treeDropDown = builder.build(model);
+            return treeDropDown.createView();
+        }
+
         var dropDownBuilder = new DropDownBuilder();
         var dropDown = dropDownBuilder.build(model);
         return dropDown.createView();

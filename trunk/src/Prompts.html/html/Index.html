@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
   <head>
     <title>Prompts for Reporting Services</title>
     <link rel="stylesheet" type="text/css" href="../css/ReportCatalog.css">
@@ -41,6 +41,21 @@
       </tbody>
   </table>
 
+  <script type="text/template" id="childPromptItemsLoadingPanelTemplate">
+      <div>
+          <ul id="loading">
+              <li>loading...</li>
+          </ul>
+          <div id="loaded">
+          </div>
+          <ul id="errorMessage">
+          </ul>
+          <ul id="retry">
+              <a>Retry</a>
+          </ul>
+      </div>
+  </script>
+
     <script type="text/template" id="itemTemplate">
       <div id="wrap">
         <div id="ExpandImage" class="catalogItem"/>
@@ -51,6 +66,19 @@
           </div>
         </div>
       </div>
+    </script>
+
+  <script type="text/template" id="leafTreePromptItemTemplate">
+        <span id="selectWrap">
+            <span class='itemTest'><%- Label %></span>
+        </span>
+  </script>
+
+    <script type="text/template" id="treePromptItemTemplate">
+        <img id="expandImage" src="../images/tree_collapsed.png">
+        <span id="selectWrap">
+            <span class='itemTest'><%- Label %></span>
+        </span>
     </script>
 
     <script type="text/template" id="folderItemTemplate">
@@ -70,6 +98,17 @@
             <div class="catalogItem"><%- Name %></div>
         </div>
     </script>
+
+  <script type="text/template" id="treeDropDownTemplate">
+      <div class="dropDown" >
+          <div class="dropDownToggle" id="toggle" >
+              <span id="selectedItemText"></span>
+              <span><img class="dropDownToggleImage" src="../images/tree_expand.png"></span>
+          </div>
+            <div id="popup" class="dropDownPopup" >
+          </div>
+      </div>
+  </script>
 
     <script type="text/template" id="dropDownTemplate">
         <div class="dropDown" >
@@ -123,6 +162,7 @@
 
     <script src="../js/jquery.js"></script>
     <script src="../js/underscore.js"></script>
+    <script src="../js/Class.js"></script>
 
     <script src="../js/Prompts.js"></script>
 
@@ -155,8 +195,13 @@
     <script src="../js/PromptItemController.js"></script>
     <script src="../js/PromptItemView.js"></script>
 
+    <script src="../js/AvailableItemsControllerBase.js"></script>
+    <script src="../js/ChildAvailableItemsController.js"></script>
+    <script src="../js/ChildPromptItemsLoadingPanelController.js"></script>
     <script src="../js/AvailableItemsController.js"></script>
+    <script src="../js/AvailableItemsViewBase.js"></script>
     <script src="../js/AvailableItemsView.js"></script>
+    <script src="../js/ChildAvailableItemsView.js"></script>
     <script src="../js/ShoppingCartBuilder.js"></script>
     <script src="../js/ShoppingCartController.js"></script>
 
@@ -168,17 +213,32 @@
     <script src="../js/SelectedItemsView.js"></script>
     <script src="../js/PromptItemControllersProvider.js"></script>
 
-      <script src="../js/ContainsSearch.js"></script>
-      <script src="../js/StartsWithSearch.js"></script>
-      <script src="../js/EndsWithSearch.js"></script>
-      <script src="../js/NullSearch.js"></script>
-      <script src="../js/EqualsSearch.js"></script>
-      <script src="../js/SearchStringParser.js"></script>
-      <script src="../js/Search.js"></script>
+    <script src="../js/ContainsSearch.js"></script>
+    <script src="../js/StartsWithSearch.js"></script>
+    <script src="../js/EndsWithSearch.js"></script>
+    <script src="../js/NullSearch.js"></script>
+    <script src="../js/EqualsSearch.js"></script>
+    <script src="../js/SearchStringParser.js"></script>
+    <script src="../js/Search.js"></script>
 
-      <script src="../js/DropDownController.js"></script>
-      <script src="../js/DropDownBuilder.js"></script>
+    <script src="../js/DropDownController.js"></script>
+    <script src="../js/DropDownBuilder.js"></script>
     <script src="../js/DropDownSelector.js"></script>
+
+    <script src="../js/TreeDropDownBuilder.js"></script>
+    <script src="../js/TreeDropDownController.js"></script>
+    <script src="../js/TreeDropDownSelector.js"></script>
+    <script src="../js/RootTreePromptItemController.js"></script>
+    <script src="../js/TreeDropDownView.js"></script>
+    <script src="../js/TreePromptItemController.js"></script>
+    <script src="../js/TreePromptItemView.js"></script>
+    <script src="../js/LeafTreePromptItemView.js"></script>
+    <script src="../js/LeafTreePromptItemController.js"></script>
+    <script src="../js/TreePromptItemControllersBuilder.js"></script>
+    <script src="../js/RootTreePromptItemControllersBuilder.js"></script>
+
+    <script src="../js/ChildPromptItemsLoadingPanelView.js"></script>
+    <script src="../js/ChildPromptItemsRepository.js"></script>
 
   </body>
 </html>

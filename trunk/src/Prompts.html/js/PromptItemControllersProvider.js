@@ -9,12 +9,12 @@ function PromptItemControllersProvider () {
                 result.push(controller);
             },
             this
-        )
+        );
 
         return result;
-    }
+    };
 
     this.setAvailableItemsController = function (val) {
         this.availableItemsController = val;
-    }
+    };
 }

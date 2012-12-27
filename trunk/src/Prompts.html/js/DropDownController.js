@@ -1,37 +1,37 @@
 function DropDownController (availableItemsController) {
     this.availableItemsController = availableItemsController;
 
-    this.close = function () {
+    this.closePopup = function () {
         this.view.close();
         this.open = false;
-    }
+    };
 
-    this.open = function () {
+    this.openPopup = function () {
         this.view.open();
         this.open = true;
-    }
+    };
 
     this.onOutsideClick = function () {
-        this.close();
-    }
+        this.closePopup();
+    };
 
     this.onToggleClick = function () {
         if(this.open) {
-            this.close();
+            this.closePopup();
         } else {
-            this.open();
+            this.openPopup();
         }
     };
 
     this.onSelection = function(item) {
         this.view.setSelectedItemText(item.model.Label);
-        this.close();
-    }
+        this.closePopup();
+    };
 
     this.setView = function (val) {
         this.view = val;
-        this.close();
-    }
+        this.closePopup();
+    };
 
     this.createView = function () {
         this.setView(new DropDownView(this));

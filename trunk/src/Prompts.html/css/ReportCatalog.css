@@ -97,6 +97,7 @@ li.ReportView {
 ul.childItems {
 	padding: 0;
     margin: 0 0 0 22px;
+    list-style-type: none;
 }
 
 ul.rootItems{
@@ -202,4 +203,7 @@ a:hover {
     width:398px;
     border-radius: 3px;
     box-shadow: 2px 2px 1px #888888;
+    max-height: 400px;
+    overflow: auto;
+    padding: 5px;
 }
