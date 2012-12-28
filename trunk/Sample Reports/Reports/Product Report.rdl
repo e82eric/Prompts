@@ -368,6 +368,14 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="REC_Calendar">
+      <DataType>String</DataType>
+      <Prompt>REC_Calendar</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="REC_Calendar_Label">
+      <DataType>String</DataType>
+      <Prompt>REC_Calendar_Label</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>7e60adb9-50a5-407c-9a8a-95cde30a6b1f</rd:ReportID>

@@ -14,6 +14,12 @@ function PromptController (model) {
             return treeDropDown.createView();
         }
 
+        if (this.model.PromptType == "RecursiveSingleSelectTree") {
+            var builder = new RecursiveTreeDropDownBuilder();
+            var treeDropDown = builder.build(model);
+            return treeDropDown.createView();
+        }
+
         if (this.model.PromptType == "Tree") {
             var builder = new TreeShoppingCartBuilder();
             var treeShoppingCart = builder.build(model);

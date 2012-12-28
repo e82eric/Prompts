@@ -34,10 +34,6 @@
       <FullPath>Product.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>SalesTerritory.rdl</Name>
-      <FullPath>SalesTerritory.rdl</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>ProductHierarchy.rdl</Name>
       <FullPath>ProductHierarchy.rdl</FullPath>
     </ProjectItem>
@@ -46,12 +42,20 @@
       <FullPath>Promotions.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Reseller.rdl</Name>
+      <FullPath>Reseller.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>SalesChannel.rdl</Name>
       <FullPath>SalesChannel.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Reseller.rdl</Name>
-      <FullPath>Reseller.rdl</FullPath>
+      <Name>SalesTerritory.rdl</Name>
+      <FullPath>SalesTerritory.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Rec_Calendar.rdl</Name>
+      <FullPath>Rec_Calendar.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
