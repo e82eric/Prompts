@@ -13,5 +13,7 @@ function MultiSelector (singleSelector, rangeSelector, inverseSelector) {
             this.singleSelector.select(items, item);
             this.previousSelection = item;
         }
+
+        return _.pluck(_.filter(items, function(item) {return item.isSelected}), 'model');
     }
 }

@@ -1,7 +1,6 @@
 var AvailableItemsController = AvailableItemsControllerBase.extend({
-    init: function(selector, promptItemControllersProvider) {
+    init: function(selector) {
         this.selector = selector;
-        this.promptItemControllersProvider = promptItemControllersProvider;
     },
 
     createView: function () {
@@ -10,23 +9,11 @@ var AvailableItemsController = AvailableItemsControllerBase.extend({
     },
 
     select: function (shiftKeyPressed, controlKeyPressed, item) {
-        this.selector.select(shiftKeyPressed, controlKeyPressed, this.items, item);
+        this.selectedItems = this.selector.select(shiftKeyPressed, controlKeyPressed, this.items, item);
     },
 
     getSelectedItems: function () {
-        var models = [];
-
-        _.each(
-            this.items,
-            function (item) {
-                if(item.isSelected) {
-                    models.push(item.model);
-                }
-            },
-            this
-        );
-
-        return this.promptItemControllersProvider.get(models);
+        return this.selectedItems;
     },
 
     search: function (searchString) {

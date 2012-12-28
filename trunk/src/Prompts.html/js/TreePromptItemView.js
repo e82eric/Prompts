@@ -2,7 +2,7 @@ var TreePromptItemView = Class.extend({
     init: function (controller) {
         this.controller = controller;
 
-        this.root = $("<li unselectable='on'></li>");
+        this.root = $("<li class='treeItem' unselectable='on'></li>");
         var template = $("#treePromptItemTemplate").html();
 
         var templateFunction  = _.template(template);

@@ -7,7 +7,9 @@ var RootTreePromptItemControllersBuilder = Class.extend({
     build: function (promptLevelInfo) {
         var result = [];
 
-        var availableItemsController = new AvailableItemsController(this.selector);
+        var availableItemsController = new AvailableItemsController(
+            this.selector,
+            new PromptItemControllersProvider());
 
         _.each(
             promptLevelInfo.AvailableItems,

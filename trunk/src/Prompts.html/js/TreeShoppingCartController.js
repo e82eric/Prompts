@@ -1,11 +1,11 @@
-var ShoppingCartController = Class.extend({
+var TreeShoppingCartController = Class.extend({
     init: function (availableItemsController, selectedItemsController) {
         this.availableItemsController = availableItemsController;
         this.selectedItemsController = selectedItemsController;
     },
 
     createView: function () {
-        return new ShoppingCartView(this);
+        return new TreeShoppingCartView(this);
     },
 
     onSelect: function () {

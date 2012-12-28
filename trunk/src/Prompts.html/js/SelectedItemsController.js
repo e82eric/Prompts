@@ -1,26 +1,36 @@
-function SelectedItemsController (selector) {
+function SelectedItemsController (selector, promptItemsControllersProvider) {
     this.selector = selector;
+    this.promptItemControllersProvider = promptItemsControllersProvider;
     this.items = [];
 
-    this.addItems = function (items) {
+    this.addItems = function (models) {
         var itemsToAdd = [];
 
         _.each(
-            items,
-            function (item) {
+            models,
+            function (model) {
                 var existingItem = _.find(this.items, function (thisItem){
-                    return thisItem.model == item.model;
+                    return thisItem.model == model;
                 },
                 this);
                 if(existingItem == undefined) {
-                    itemsToAdd.push(item);
-                    this.items.push(item);
+                    itemsToAdd.push(model);
                 }
             },
             this
         );
 
-        this.view.addItems(itemsToAdd);
+        var controllers = this.promptItemControllersProvider.get(itemsToAdd);
+
+        _.each(
+            controllers,
+            function(controller) {
+                this.items.push(controller);
+            },
+            this
+        );
+
+        this.view.addItems(controllers);
     };
 
     this.select = function (shiftKeyPressed, controlKeyPressed, item) {

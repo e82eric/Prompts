@@ -154,6 +154,31 @@
         </table>
     </script>
 
+  <script type="text/template" id="treeShoppingCartTemplate">
+      <table style="height:400px; width: 100%;">
+          <tr>
+              <td rowspan="2" class="listBox" style="width:50%">
+                  <div id="availableItems" style="height: 400px; overflow-y: scroll">
+                  </div>
+              </td>
+              <td style="width: 100px; vertical-align: bottom; height: 200px">
+                  <button id="selectButton" style="width: 100px;">Select</button>
+              </td>
+              <td rowspan="2" class="listBox">
+                  <div style="height: 400px; overflow-y: scroll">
+                      <ul id="selectedItems" class="rootItems">
+                      </ul>
+                  </div>
+              </td>
+          </tr>
+          <tr>
+              <td style="vertical-align: top">
+                  <button id="unSelectButton" style="width: 100px;">De-Select</button>
+              </td>
+          </tr>
+      </table>
+  </script>
+
     <script type="text/template" id="availableItemsTemplate">
         <ul id="availableItems" class="rootItems">
 
@@ -232,6 +257,10 @@
     <script src="../js/TreeDropDownView.js"></script>
     <script src="../js/TreePromptItemController.js"></script>
     <script src="../js/TreePromptItemView.js"></script>
+    <script src="../js/TreeShoppingCartBuilder.js"></script>
+    <script src="../js/TreeShoppingCartController.js"></script>
+    <script src="../js/TreeShoppingCartView.js"></script>
+    <script src="../js/TreeShoppingCartSelector.js"></script>
     <script src="../js/LeafTreePromptItemView.js"></script>
     <script src="../js/LeafTreePromptItemController.js"></script>
     <script src="../js/TreePromptItemControllersBuilder.js"></script>

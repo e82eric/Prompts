@@ -49,9 +49,17 @@ img {
     text-align: left;
 }
 
+.promptsPanel {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
 .promptsPanel2 {
     width: 100%;
+    height: 100%;
     text-align: left;
+    overflow: auto;
 }
 
 .hideShowRow{
@@ -206,4 +214,9 @@ a:hover {
     max-height: 400px;
     overflow: auto;
     padding: 5px;
+    z-index: 9001;
+}
+
+.treeItem {
+    padding: 2px;
 }

@@ -14,6 +14,12 @@ function PromptController (model) {
             return treeDropDown.createView();
         }
 
+        if (this.model.PromptType == "Tree") {
+            var builder = new TreeShoppingCartBuilder();
+            var treeShoppingCart = builder.build(model);
+            return treeShoppingCart.createView();
+        }
+
         var dropDownBuilder = new DropDownBuilder();
         var dropDown = dropDownBuilder.build(model);
         return dropDown.createView();
