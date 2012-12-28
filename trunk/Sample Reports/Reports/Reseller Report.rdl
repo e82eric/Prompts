@@ -230,6 +230,16 @@
       <Prompt>ReportParameter1</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
+    <ReportParameter Name="REC_Calendar">
+      <DataType>String</DataType>
+      <Prompt>REC_Calendar</Prompt>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="REC_Calendar_Label">
+      <DataType>String</DataType>
+      <Prompt>REC_Calendar_Label</Prompt>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>3701c746-035b-44b0-ba57-f5be9dc73c9f</rd:ReportID>

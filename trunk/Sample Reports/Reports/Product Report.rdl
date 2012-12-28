@@ -376,6 +376,16 @@
       <DataType>String</DataType>
       <Prompt>REC_Calendar_Label</Prompt>
     </ReportParameter>
+    <ReportParameter Name="A_Calendar2_ShoppingCart">
+      <DataType>String</DataType>
+      <Prompt>A_Calendar2_ShoppingCart</Prompt>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="A_Calendar2_ShoppingCart_Label">
+      <DataType>String</DataType>
+      <Prompt>A_REC_Calendar_ShoppingCart_Label</Prompt>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>7e60adb9-50a5-407c-9a8a-95cde30a6b1f</rd:ReportID>
