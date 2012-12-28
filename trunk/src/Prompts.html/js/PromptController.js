@@ -32,6 +32,11 @@ function PromptController (model) {
             return treeShoppingCart.createView();
         }
 
+        if (this.model.PromptType == "Empty") {
+            var controller = new EmptyPromptController(model);
+            return controller.createView();
+        }
+
         var dropDownBuilder = new DropDownBuilder();
         var dropDown = dropDownBuilder.build(model);
         return dropDown.createView();

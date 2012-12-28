@@ -240,6 +240,10 @@
       <Prompt>REC_Calendar_Label</Prompt>
       <MultiValue>true</MultiValue>
     </ReportParameter>
+    <ReportParameter Name="EmptyPrompt">
+      <DataType>String</DataType>
+      <Prompt>EmptyPrompt</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>3701c746-035b-44b0-ba57-f5be9dc73c9f</rd:ReportID>
