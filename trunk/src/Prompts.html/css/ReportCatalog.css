@@ -220,3 +220,7 @@ a:hover {
 .treeItem {
     padding: 2px;
 }
+
+.treeNodeLoading {
+    color: gray;
+}

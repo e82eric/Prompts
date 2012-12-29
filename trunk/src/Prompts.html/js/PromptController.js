@@ -37,6 +37,12 @@ function PromptController (model) {
             return controller.createView();
         }
 
+        if (this.model.PromptType == "CasscadingSearch") {
+            var builder = new AsynchronousSearchShoppingCartBuilder();
+            var controller = builder.build(model);
+            return controller.createView();
+        }
+
         var dropDownBuilder = new DropDownBuilder();
         var dropDown = dropDownBuilder.build(model);
         return dropDown.createView();

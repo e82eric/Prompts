@@ -15,7 +15,7 @@
             </div>
         </th>
         <tr>
-            <td class="hideShowRow">
+            <td colspan="2" class="hideShowRow">
                 <a >Hide</a>
                 Report Catalog
             </td>
@@ -43,8 +43,8 @@
 
   <script type="text/template" id="childPromptItemsLoadingPanelTemplate">
       <div>
-          <ul id="loading">
-              <li>loading...</li>
+          <ul class="childItems" id="loading">
+              <li class="treeNodeLoading">loading...</li>
           </ul>
           <div id="loaded">
           </div>
@@ -157,6 +157,43 @@
             </tr>
         </table>
     </script>
+
+  <script type="text/template" id="asynchronousSearchShoppingCartTemplate">
+      <table id="content" style="height:400px; width: 100%;">
+          <tr style="vertical-align: top; height: 25px">
+              <td><input id="searchString" style="width:100%"></td>
+              <td><button id="searchButton" style="width:100%">Search</button></td>
+          </tr>
+      </table>
+  </script>
+
+  <script type="text/template" id="asynchronousSearchLoadingPanelTemplate">
+      <tr style="vertical-align: top" id="loading"><td >loading...</td></tr>
+      <tr id="errorMessage">
+      </tr>
+      <tr id="retry">
+      </tr>
+      <tr id="loaded">
+          <td rowspan="2" class="listBox" style="width:50%">
+              <div id="availableItems" style="height: 400px; overflow-y: scroll">
+              </div>
+          </td>
+          <td style="width: 100px; vertical-align: bottom; height: 200px">
+              <button id="selectButton" style="width: 100px;">Select</button>
+          </td>
+          <td rowspan="2" class="listBox">
+              <div style="height: 400px; overflow-y: scroll">
+                  <ul id="selectedItems" class="rootItems">
+                  </ul>
+              </div>
+          </td>
+      </tr>
+      <tr id="loaded">
+          <td style="vertical-align: top">
+              <button id="unSelectButton" style="width: 100px;">De-Select</button>
+          </td>
+      </tr>
+  </script>
 
   <script type="text/template" id="treeShoppingCartTemplate">
       <table style="height:400px; width: 100%;">
@@ -281,6 +318,17 @@
 
     <script src="../js/EmptyPromptController.js"></script>
     <script src="../js/EmptyPromptView.js"></script>
+
+    <script src="../js/AsynchronousSearch.js"></script>
+    <script src="../js/AsynchronousSearchStringParser.js"></script>
+    <script src="../js/AsynchronousSearchAvailableItemsController.js"></script>
+    <script src="../js/AsynchronousSearchLoadingPanelController.js"></script>
+    <script src="../js/AsynchronousSearchLoadingPanelView.js"></script>
+    <script src="../js/AsynchronousSearchShoppingCartBuilder.js"></script>
+    <script src="../js/AsynchronousSearchShoppingCartController.js"></script>
+    <script src="../js/AsynchronousSearchShoppingCartView.js"></script>
+
+    <script src="../js/Repository2.js"></script>
 
   </body>
 </html>
