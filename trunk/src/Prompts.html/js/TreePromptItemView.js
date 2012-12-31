@@ -1,5 +1,5 @@
 var TreePromptItemView = Class.extend({
-    init: function (controller) {
+    init: function (controller, childItemsLoadingPanelView) {
         this.controller = controller;
 
         this.root = $("<li class='treeItem' unselectable='on'></li>");
@@ -9,7 +9,7 @@ var TreePromptItemView = Class.extend({
         var templateHtml = templateFunction(this.controller.model);
         this.root.html(templateHtml);
 
-        this.childrenPanel = this.controller.childPromptItemsLoadingPanel.createView().render();
+        this.childrenPanel = childItemsLoadingPanelView.render();
 
         this.root.append(this.childrenPanel);
 
@@ -53,5 +53,9 @@ var TreePromptItemView = Class.extend({
     renderCollapse: function () {
         this.expandImage.attr("src", "../images/tree_collapsed.png");
         this.childrenPanel.hide();
+    },
+
+    hideExpander: function () {
+        this.expandImage.hide();
     }
 });

@@ -23,10 +23,6 @@
         <tr class="contentRow">
             <td class="reportCatalogPanel panel">
                 <div id="reportCatalog">
-                    <div id="loaded"></div>
-                    <div id="loading">loading...</div>
-                    <div id="errorMessage"></div>
-                    <a id="retry">Retry</a>
                 </div>
             </td>
             <td class="promptsPanel2 panel">
@@ -40,6 +36,13 @@
         </tr>
       </tbody>
   </table>
+
+  <script type="text/template" id="reportCatalogLoadingPanelTemplate">
+      <div id="loaded"></div>
+      <div id="loading">loading...</div>
+      <div id="errorMessage"></div>
+      <a id="retry">Retry</a>
+  </script>
 
   <script type="text/template" id="childPromptItemsLoadingPanelTemplate">
       <div>
@@ -75,7 +78,10 @@
   </script>
 
     <script type="text/template" id="treePromptItemTemplate">
-        <img id="expandImage" src="../images/tree_collapsed.png">
+        <div class="catalogItem" style="width:16px">
+            <img id="expandImage" src="../images/tree_collapsed.png">
+        </div>
+
         <span id="selectWrap">
             <span class='itemTest'><%- Label %></span>
         </span>
@@ -230,29 +236,43 @@
     <script src="../js/underscore.js"></script>
     <script src="../js/Class.js"></script>
 
-    <script src="../js/Prompts.js"></script>
+    <script src="../js/AsynchronousItemsController.js"></script>
 
-    <script src="../js/ReportCatalogItemController.js"></script>
+    <script src="../js/Prompts.js"></script>
+    <script src="../js/SelectableItemController.js"></script>
+    <script src="../js/ExpandableItemController.js"></script>
+
+    <script src="../js/LoadingPanelControllerBase.js"></script>
+
     <script src="../js/FolderCatalogItemController.js"></script>
     <script src="../js/EmptyFolderCatalogItemController.js"></script>
-    <script src="../js/CatalogItemsView.js"></script>
-    <script src="../js/CatalogItemViewBase.js"></script>
-    <script src="../js/CatalogItemProvider.js"></script>
-    <script src="../js/FolderCatalogItemProvider.js"></script>
-    <script src="../js/CatalogItemsProvider.js"></script>
+    <script src="../js/FolderCatalogItemBuilder.js"></script>
     <script src="../js/FolderCatalogItemView.js"></script>
     <script src="../js/EmptyFolderCatalogItemView.js"></script>
+
+    <script src="../js/ReportCatalogBuilder.js"></script>
+    <script src="../js/ReportCatalogController.js"></script>
+    <script src="../js/ReportCatalogItemBuilder.js"></script>
+    <script src="../js/ReportCatalogItemController.js"></script>
+    <script src="../js/ReportCatalogItemsBuilder.js"></script>
+    <script src="../js/ReportCatalogItemsController.js"></script>
+    <script src="../js/RootReportCatalogItemsController.js"></script>
+    <script src="../js/ReportCatalogItemView.js"></script>
+    <script src="../js/ReportCatalogItemViewBase.js"></script>
+    <script src="../js/ReportCatalogLoadingPanelController.js"></script>
+    <script src="../js/ReportCatalogLoadingPanelView.js"></script>
+    <script src="../js/ReportCatalogRequester.js"></script>
+    <script src="../js/ReportCatalogView.js"></script>
+
+    <script src="../js/TreeSingleSelector.js"></script>
+
     <script src="../js/LoadingPanelController.js"></script>
-    <script src="../js/ReportCatalogPanelView.js"></script>
-    <script src="../js/ReportCatalog.js"></script>
-    <script src="../js/CatalogRepository.js"></script>
+
     <script src="../js/HierarchyFlattener.js"></script>
     <script src="../js/SingleSelector.js"></script>
-    <script src="../js/ReportCatalogBuilder.js"></script>
-    <script src="../js/ReportCatalogItemView.js"></script>
     <script src="../js/PromptsRepository.js"></script>
     <script src="../js/PromptsPanelView.js"></script>
-    <script src="../js/PromptController.js"></script>
+    <script src="../js/PromptControllerBuilder.js"></script>
     <script src="../js/PromptsProvider.js"></script>
     <script src="../js/PromptsView.js"></script>
     <script src="../js/PromptsViewBuilder.js"></script>
@@ -261,12 +281,13 @@
     <script src="../js/PromptItemController.js"></script>
     <script src="../js/PromptItemView.js"></script>
 
-    <script src="../js/AvailableItemsControllerBase.js"></script>
     <script src="../js/ChildAvailableItemsController.js"></script>
     <script src="../js/ChildPromptItemsLoadingPanelController.js"></script>
+    <script src="../js/ChildItemsRequester.js"></script>
     <script src="../js/AvailableItemsController.js"></script>
-    <script src="../js/AvailableItemsViewBase.js"></script>
-    <script src="../js/AvailableItemsView.js"></script>
+    <script src="../js/ItemsView.js"></script>
+    <script src="../js/RootItemsView.js"></script>
+    <script src="../js/ChildItemsView.js"></script>
     <script src="../js/ChildAvailableItemsView.js"></script>
     <script src="../js/ShoppingCartBuilder.js"></script>
     <script src="../js/ShoppingCartController.js"></script>
@@ -276,7 +297,6 @@
     <script src="../js/MultiSelector.js"></script>
 
     <script src="../js/SelectedItemsController.js"></script>
-    <script src="../js/SelectedItemsView.js"></script>
     <script src="../js/PromptItemControllersProvider.js"></script>
 
     <script src="../js/ContainsSearch.js"></script>
@@ -291,10 +311,10 @@
     <script src="../js/DropDownBuilder.js"></script>
     <script src="../js/DropDownSelector.js"></script>
 
+    <script src="../js/TreePromptItemControllerBuilder.js"></script>
     <script src="../js/TreeDropDownBuilder.js"></script>
     <script src="../js/TreeDropDownController.js"></script>
     <script src="../js/TreeDropDownSelector.js"></script>
-    <script src="../js/RootTreePromptItemController.js"></script>
     <script src="../js/TreeDropDownView.js"></script>
     <script src="../js/TreePromptItemController.js"></script>
     <script src="../js/TreePromptItemView.js"></script>
@@ -305,21 +325,18 @@
     <script src="../js/LeafTreePromptItemView.js"></script>
     <script src="../js/LeafTreePromptItemController.js"></script>
     <script src="../js/TreePromptItemControllersBuilder.js"></script>
-    <script src="../js/RootTreePromptItemControllersBuilder.js"></script>
 
     <script src="../js/RecursiveTreeDropDownBuilder.js"></script>
     <script src="../js/RecursiveTreeShoppingCartBuilder.js"></script>
     <script src="../js/RecursiveTreePromptItemControllersBuilder.js"></script>
-    <script src="../js/RootRecursiveTreePromptItemControllersBuilder.js"></script>
-    <script src="../js/Repository.js"></script>
+    <script src="../js/RecursiveTreePromptItemControllerBuilder.js"></script>
 
     <script src="../js/ChildPromptItemsLoadingPanelView.js"></script>
-    <script src="../js/ChildPromptItemsRepository.js"></script>
 
     <script src="../js/EmptyPromptController.js"></script>
     <script src="../js/EmptyPromptView.js"></script>
 
-    <script src="../js/AsynchronousSearch.js"></script>
+    <script src="../js/AsynchronousSearchRequester.js"></script>
     <script src="../js/AsynchronousSearchStringParser.js"></script>
     <script src="../js/AsynchronousSearchAvailableItemsController.js"></script>
     <script src="../js/AsynchronousSearchLoadingPanelController.js"></script>
@@ -328,7 +345,9 @@
     <script src="../js/AsynchronousSearchShoppingCartController.js"></script>
     <script src="../js/AsynchronousSearchShoppingCartView.js"></script>
 
-    <script src="../js/Repository2.js"></script>
+    <script src="../js/LoadingPanelController.js"></script>
+
+    <script src="../js/Repository.js"></script>
 
   </body>
 </html>

@@ -1,4 +1,4 @@
-var AvailableItemsView = AvailableItemsViewBase.extend({
+var RootItemsView = ItemsView.extend({
     init: function (controller) {
         this._super(controller, "rootItems");
     }

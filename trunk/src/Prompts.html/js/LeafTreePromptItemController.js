@@ -1,21 +1,9 @@
-var LeafTreePromptItemController = Class.extend ({
-    init: function (model, availableItemsController, childPromptItemsLoadingPanel, childPromptItemsRequest ) {
+var LeafTreePromptItemController = SelectableItemController.extend ({
+    init: function (model, availableItemsController ) {
         this.model = model;
         this.availableItemsController = availableItemsController;
         this.isSelected = false;
-        this.childPromptItemsRequest = childPromptItemsRequest;
-        this.childPromptItemsLoadingPanel = childPromptItemsLoadingPanel;
         this.Children = [];
-    },
-
-    Select: function () {
-        this.view.onSelected();
-        this.isSelected = true;
-    },
-
-    UnSelect: function () {
-        this.view.onUnSelected();
-        this.isSelected = false;
     },
 
     clicked: function (shiftKeyPressed, controlKeyPressed) {
@@ -30,9 +18,5 @@ var LeafTreePromptItemController = Class.extend ({
 
     setView: function (val) {
         this.view = val;
-    },
-
-    deleteItem: function () {
-        this.view.deleteItem();
     }
 });

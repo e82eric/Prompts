@@ -1,6 +1,5 @@
 var AsynchronousSearchShoppingCartBuilder = Class.extend({
    build: function (model) {
-       var availableItemControllers = [];
        var singleSelector = new SingleSelector();
        var rangeSelector = new RangeSelector();
        var inverseSelector = new InverseSelector();
@@ -14,30 +13,18 @@ var AsynchronousSearchShoppingCartBuilder = Class.extend({
        var selectedItemsController = new SelectedItemsController(multiSelector, promptItemControllersProvider);
        var availableItemsController = new AsynchronousSearchAvailableItemsController(multiSelector);
        promptItemControllersProvider.setAvailableItemsController(selectedItemsController);
-
        var searchStringParser = new AsynchronousSearchStringParser(
            new SearchStringParser(),
            model.Name,
            model.PromptLevelInfo.ParameterName);
 
        var loadingPanel = new AsynchronousSearchLoadingPanelController();
-
-       var repository = new Repository2("/Prompts.Service/api/prompts/child_items", loadingPanel);
-
-       var search = new AsynchronousSearch(searchStringParser, repository);
-
-       _.each(
-           model.PromptLevelInfo.AvailableItems,
-           function (availableItem) {
-               var controller = new PromptItemController(availableItem, availableItemsController);
-               availableItemControllers.push(controller);
-           },
-           this
-       );
+       var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
+       var searchRequester = new AsynchronousSearchRequester(searchStringParser, repository);
 
        return new AsynchronousSearchShoppingCartController(
            model,
-           search,
+           searchRequester,
            availableItemsController,
            selectedItemsController,
            loadingPanel);

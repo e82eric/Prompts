@@ -5,7 +5,7 @@ function PromptsProvider () {
         _.each(
             models,
             function (model) {
-                var controller = new PromptController(model);
+                var controller = new PromptControllerBuilder(model);
                 result.push(controller)
             },
             this);

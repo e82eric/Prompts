@@ -16,13 +16,7 @@ namespace Prompts.Service.PromptService
             var hierarhcy = _recursiveHierarchyPromptService.GetHierarchyPrompt(
                 request.PromptName, 
                 new[] { request.ParameterValue });
-            var promptLevel = hierarhcy.GetChildOf(request.ParameterName);
-            return new GetChildrenResponse
-                {
-                    ErrorMessage = string.Empty, 
-                    ErrorOccured = false, PromptLevel = 
-                    promptLevel
-                };
+            return hierarhcy.GetChildOf(request.ParameterName);
         }
     }
 }

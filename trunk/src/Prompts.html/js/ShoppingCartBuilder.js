@@ -13,10 +13,7 @@ function ShoppingCartBuilder () {
         var promptItemControllersProvider = new PromptItemControllersProvider();
         var selectedItemsController = new SelectedItemsController(multiSelector, promptItemControllersProvider);
         var availableItemsController = new AvailableItemsController(multiSelector);
-
         promptItemControllersProvider.setAvailableItemsController(selectedItemsController);
-
-
 
         _.each(
             model.PromptLevelInfo.AvailableItems,

@@ -1,7 +1,4 @@
-var ChildAvailableItemsController = AvailableItemsControllerBase.extend({
-    init: function() {
-    },
-
+var ChildAvailableItemsController = AsynchronousItemsController.extend({
     createView: function () {
         this.view = new ChildAvailableItemsView(this);
         return this.view;

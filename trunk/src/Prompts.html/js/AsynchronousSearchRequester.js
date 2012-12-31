@@ -1,4 +1,4 @@
-var AsynchronousSearch = Class.extend({
+var AsynchronousSearchRequester = Class.extend({
     init: function (searchStringParser, repository) {
         this.searchStringParser = searchStringParser;
         this.repository = repository;

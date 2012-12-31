@@ -1,23 +1,25 @@
 var Repository = Class.extend({
-    init: function (builder, url) {
-        this.builder = builder;
+    init: function (url, loadingPanel, method) {
         this.url = url;
+        this.loadingPanel = loadingPanel;
+        this.method = method;
     },
 
-    Get: function (request, successCallback, errorCallback) {
+    get: function (request, successCallback) {
+        this.loadingPanel.showLoading();
         $.ajax({
-            type:"POST",
+            type:this.method,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify(request),
             url:this.url,
             context: this,
             success:function (result) {
-                var controller = this.builder.build(result);
-                successCallback(controller);
+                successCallback(result);
+                this.loadingPanel.showLoaded();
             },
             error:function (xhr, statusText, errorThrown) {
-                errorCallback(JSON.parse(xhr.responseText).ResponseStatus.Message);
+                this.loadingPanel.showError(JSON.parse(xhr.responseText).ResponseStatus.Message);
             }
         });
     }

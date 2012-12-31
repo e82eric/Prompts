@@ -1,30 +1,26 @@
-var ReportCatalogItemController = function(model, promptsController) {
-    this.model = model;
-    this.promptsController = promptsController;
+var ReportCatalogItemController = SelectableItemController.extend({
+    init: function(model, promptsController, rootItemsController) {
+        this.model = model;
+        this.promptsController = promptsController;
+        this.rootItemsController = rootItemsController;
+        this.Children = [];
+    },
 
-    this.setRepository = function(val) {
-        this.reportCatalog = val;
-    };
+    select: function () {
+        this._super();
+        this.promptsController.load({Path: this.model.Path});
+    },
 
-    this.changeSelect = function() {
-        this.reportCatalog.Select(this);
-    };
+    changeSelect: function() {
+        this.rootItemsController.select(this);
+    },
 
-    this.Select = function () {
-        this.view.onSelected();
-        this.promptsController.load({Path: model.Path});
-    };
-
-    this.UnSelect = function () {
-        this.view.onUnSelected();
-    };
-
-    this.CreateView = function() {
+    createView: function() {
         this.setView(new ReportCatalogItemView(this));
         return this.view;
-    };
+    },
 
-    this.setView = function (val) {
+    setView: function (val) {
         this.view = val;
     }
-};
+});

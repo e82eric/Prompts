@@ -1,16 +1,23 @@
-var ChildPromptItemsLoadingPanelView = Class.extend({
-    init: function (controller, availableItemsView) {
+var ReportCatalogLoadingPanelView = Class.extend({
+    init: function(controller, itemsControllerView) {
         this.controller = controller;
 
-        var template = $("#childPromptItemsLoadingPanelTemplate").html();
+        var template = $("#reportCatalogLoadingPanelTemplate").html();
         var templateFunction  = _.template(template);
         var templateHtml = templateFunction(this.controller.model);
         this.root = $(templateHtml);
-        this.loadingElement = this.root.find("#loading");
-        this.loadedElement = this.root.find("#loaded");
-        this.retryElement = this.root.find("#retry");
-        this.errorElement = this.root.find("#errorMessage");
-        this.loadedElement.html(availableItemsView.render());
+
+        this.loadingElement = this.root.filter("#loading");
+        this.loadedElement = this.root.filter("#loaded");
+        this.retryElement = this.root.filter("#retry");
+        this.errorElement = this.root.filter("#errorMessage");
+
+        this.loadedElement.append(itemsControllerView.render());
+    },
+
+    render: function(){
+        this.retryElement.click($.proxy(this.onRetryClick, this));
+        return this.root;
     },
 
     showLoading: function () {
@@ -21,7 +28,7 @@ var ChildPromptItemsLoadingPanelView = Class.extend({
         this.loadingElement.hide();
     },
 
-    showLoaded: function (controller) {
+    showLoaded: function () {
         this.loadedElement.show();
     },
 
@@ -51,10 +58,6 @@ var ChildPromptItemsLoadingPanelView = Class.extend({
 
     onRetryClick: function () {
         this.controller.load();
-    },
-
-    render: function(){
-        this.retryElement.click($.proxy(this.onRetryClick, this));
-        return this.root;
     }
 });
+

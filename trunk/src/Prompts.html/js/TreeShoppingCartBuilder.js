@@ -11,13 +11,19 @@ function TreeShoppingCartBuilder () {
         var hierarhcyFlattener = new HierarchyFlattener();
         var treeShoppingCartSelector = new TreeShoppingCartSelector(multiSelector, hierarhcyFlattener);
 
-        var promptItemControllersProvider = new RootTreePromptItemControllersBuilder(model.Name, treeShoppingCartSelector);
+        var availableItemsController = new AvailableItemsController(treeShoppingCartSelector);
+
+        var itemBuilder = new TreePromptItemControllerBuilder(model.Name, availableItemsController, []);
+        var promptItemControllersProvider = new TreePromptItemControllersBuilder(itemBuilder);
+        var items = promptItemControllersProvider.build(model.PromptLevelInfo);
+
+        availableItemsController.setItems(items);
+
         var selectedItemControllersProvider = new PromptItemControllersProvider();
 
         var selectedItemsController = new SelectedItemsController(multiSelector, selectedItemControllersProvider);
 
         selectedItemControllersProvider.setAvailableItemsController(selectedItemsController);
-        var availableItemsController = promptItemControllersProvider.build(model.PromptLevelInfo);
 
         return new TreeShoppingCartController(availableItemsController, selectedItemsController);
     }

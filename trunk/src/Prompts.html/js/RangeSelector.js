@@ -21,10 +21,10 @@ function RangeSelector () {
                 }
 
                 if(inRange) {
-                    item.Select();
+                    item.select();
                 } else {
                     if(item.isSelected){
-                        item.UnSelect();
+                        item.unSelect();
                     }
                 }
 

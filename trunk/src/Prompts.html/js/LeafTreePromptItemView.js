@@ -9,13 +9,10 @@ var LeafTreePromptItemView = Class.extend({
         var templateHtml = templateFunction(this.controller.model);
         this.root.html(templateHtml);
 
-        this.childrenPanel = this.controller.childPromptItemsLoadingPanel.createView().render();
-
-        this.root.append(this.childrenPanel);
-
         this.selectWrap = this.root.find("#selectWrap");
         this.selectWrap.addClass('itemTestNotSelected');
     },
+
     render: function () {
         this.selectWrap.click($.proxy(this.onClick,this));
         return this.root;
@@ -33,9 +30,5 @@ var LeafTreePromptItemView = Class.extend({
     onUnSelected: function () {
         this.selectWrap.removeClass('itemTestSelect');
         this.selectWrap.addClass('itemTestNotSelected');
-    },
-
-    deleteItem: function () {
-        this.root.remove();
     }
 });

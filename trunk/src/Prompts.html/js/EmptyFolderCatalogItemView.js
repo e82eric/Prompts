@@ -1,3 +1,3 @@
-var EmptyFolderCatalogItemView = function(model) {
-    return new CatalogItemViewBase("#emptyFolderItemTemplate", model);
+var EmptyFolderCatalogItemView = function(controller) {
+    return new ReportCatalogItemViewBase("#emptyFolderItemTemplate", controller);
 };

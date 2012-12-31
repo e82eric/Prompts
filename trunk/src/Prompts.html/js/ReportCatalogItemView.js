@@ -1,37 +1,38 @@
-var ReportCatalogItemView = function (controller){
-    this.controller = controller;
-
-    this.render = function () {
-        var base = new CatalogItemViewBase("#itemTemplate", this.controller);
+var ReportCatalogItemView = Class.extend({
+    init: function (controller){
+        this.controller = controller;
+        var base = new ReportCatalogItemViewBase("#itemTemplate", this.controller);
         this.root = base.render();
 
         this.hoverElement = this.root.find("#hoverWrap");
         this.selectElement = this.root.find("#selectWrap:first");
+    },
 
+    render: function () {
         this.hoverElement.mouseover($.proxy(this.onMouseOver,this));
         this.hoverElement.mouseleave($.proxy(this.onMouseLeave,this));
         this.hoverElement.click($.proxy(this.onClick,this));
 
         return this.root;
-    };
+    },
 
-    this.onMouseOver = function () {
+    onMouseOver: function () {
         this.hoverElement.attr('class', 'hoverGlow');
-    };
+    },
 
-    this.onMouseLeave = function () {
+    onMouseLeave: function () {
         this.hoverElement.attr('class', 'catalogItem');
-    };
+    },
 
-    this.onClick = function () {
+    onClick: function () {
         this.controller.changeSelect();
-    };
+    },
 
-    this.onSelected = function () {
+    onSelected: function () {
         this.selectElement.attr('class', 'selectedGlow');
-    };
+    },
 
-    this.onUnSelected = function () {
+    onUnSelected: function () {
         this.selectElement.attr('class', 'catalogItem');
-    };
-};
+    }
+});

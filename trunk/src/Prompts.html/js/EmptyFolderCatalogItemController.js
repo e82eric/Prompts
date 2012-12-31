@@ -1,12 +1,14 @@
-var EmptyFolderCatalogItemController = function(model){
-    this.model = model;
-    this.Select = function () {
-    };
+var EmptyFolderCatalogItemController = SelectableItemController.extend({
+    init: function(model){
+        this.model = model;
+        this.Children = [];
+    },
 
-    this.UnSelect = function () {
-    };
+    createView: function(){
+        return new EmptyFolderCatalogItemView(this);
+    },
 
-    this.CreateView = function(){
-            return new EmptyFolderCatalogItemView(this);
-    };
-};
+    select: function () {},
+
+    unSelect: function () {}
+});

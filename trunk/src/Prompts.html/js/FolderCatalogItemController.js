@@ -1,33 +1,17 @@
-var FolderCatalogItemController = function(model){
-    this.model = model;
-    this.toggleState = 'open';
+var FolderCatalogItemController = ExpandableItemController.extend({
+    init: function(model, childItemsController){
+        this.model = model;
+        this.childItemsController = childItemsController;
+        this.isSelected = false;
+    },
 
-    this.changeToggle = function () {
-        if (this.toggleState === 'closed') {
-            this.toggleState = 'open';
-        } else if (this.toggleState === 'open') {
-            this.toggleState = 'closed';
-        }
+    select: function () {},
 
-        if (this.toggleState === 'closed') {
-            this.view.renderCollapse();
-        } else if (this.toggleState === 'open') {
-            this.view.renderExpand();
-        }
-    };
+    unSelect: function () {},
 
-    this.Select = function () {
-    };
-
-    this.UnSelect = function () {
-    };
-
-    this.CreateView = function(){
-        this.setView( new FolderCatalogItemView(this) );
+    createView: function(){
+        var childItemsView = this.childItemsController.createView();
+        this.setView(new FolderCatalogItemView(this, childItemsView));
         return this.view;
-    };
-
-    this.setView = function (val) {
-        this.view = val;
     }
-};
+});

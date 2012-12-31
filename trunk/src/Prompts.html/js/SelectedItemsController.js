@@ -30,7 +30,7 @@ function SelectedItemsController (selector, promptItemsControllersProvider) {
             this
         );
 
-        this.view.addItems(controllers);
+        this.view.renderItems(controllers);
     };
 
     this.select = function (shiftKeyPressed, controlKeyPressed, item) {
@@ -38,7 +38,7 @@ function SelectedItemsController (selector, promptItemsControllersProvider) {
     };
 
     this.createView = function () {
-        var view = new SelectedItemsView(this);
+        var view = new RootItemsView(this);
         this.setView(view);
         return view;
     };

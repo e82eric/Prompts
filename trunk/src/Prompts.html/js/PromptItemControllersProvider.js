@@ -1,5 +1,5 @@
-function PromptItemControllersProvider () {
-    this.get = function (models) {
+var PromptItemControllersProvider = Class.extend ({
+    get: function (models) {
         var result = [];
 
         _.each(
@@ -12,9 +12,9 @@ function PromptItemControllersProvider () {
         );
 
         return result;
-    };
+    },
 
-    this.setAvailableItemsController = function (val) {
+    setAvailableItemsController: function (val) {
         this.availableItemsController = val;
-    };
-}
+    }
+});

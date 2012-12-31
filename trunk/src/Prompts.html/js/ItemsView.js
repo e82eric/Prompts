@@ -1,4 +1,4 @@
-var AvailableItemsViewBase = Class.extend({
+var ItemsView = Class.extend({
     init: function(controller, listClass){
         this.controller = controller;
         this.listClass = listClass;

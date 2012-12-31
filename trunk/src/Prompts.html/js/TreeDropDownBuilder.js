@@ -2,8 +2,13 @@ function TreeDropDownBuilder () {
     this.build = function (model) {
         var singleSelector = new SingleSelector();
         var dropDownSelector = new TreeDropDownSelector(singleSelector, new HierarchyFlattener());
-        var itemsBuilder = new RootTreePromptItemControllersBuilder(model.Name, dropDownSelector);
-        var availableItemsController = itemsBuilder.build(model.PromptLevelInfo);
+
+        var availableItemsController = new AvailableItemsController(dropDownSelector);
+        var itemBuilder = new TreePromptItemControllerBuilder(model.Name, availableItemsController, []);
+        var itemsBuilder = new TreePromptItemControllersBuilder(itemBuilder);
+        var items = itemsBuilder.build(model.PromptLevelInfo);
+        availableItemsController.setItems(items);
+
         var dropDownController = new TreeDropDownController(availableItemsController);
         dropDownSelector.setPromptController(dropDownController);
         return dropDownController;

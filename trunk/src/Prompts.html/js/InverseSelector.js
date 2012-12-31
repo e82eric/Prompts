@@ -1,9 +1,9 @@
 function InverseSelector () {
     this.select = function(items, item) {
         if(item.isSelected) {
-            item.UnSelect();
+            item.unSelect();
         } else {
-            item.Select();
+            item.select();
         }
     }
 }

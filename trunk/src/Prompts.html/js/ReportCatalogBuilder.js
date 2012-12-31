@@ -1,28 +1,27 @@
-function ReportCatalogBuilder (promptsController) {
-    this.promptsController = promptsController;
+var ReportCatalogBuilder = Class.extend({
+    init: function(promptsController) {
+        this.promptsController = promptsController;
+    },
 
-    this.Build = function(jsonItems) {
-        var hierarchyFlattener = new HierarchyFlattener();
+    build: function() {
+        var selector = new TreeSingleSelector(new SingleSelector(), new HierarchyFlattener());
+        var rootItemsController = new RootReportCatalogItemsController(selector);
 
-        var folderCatalogItemProvider = new FolderCatalogItemProvider();
+        var folderCatalogItemBuilder = new FolderCatalogItemBuilder();
+        var catalogItemBuilder = new ReportCatalogItemBuilder(
+            folderCatalogItemBuilder,
+            this.promptsController,
+            rootItemsController);
 
-        var reportCatalog = new ReportCatalog(
-            new HierarchyFlattener(),
-            new SingleSelector());
+        var catalogItemsBuilder = new ReportCatalogItemsBuilder(catalogItemBuilder);
+        folderCatalogItemBuilder.setChildItemsBuilder(catalogItemsBuilder);
 
-        var catalogItemProvider = new CatalogItemProvider(
-            folderCatalogItemProvider,
-            reportCatalog,
-            this.promptsController);
+        var loadingPanel = new ReportCatalogLoadingPanelController();
 
-        var rootCatalogItemsProvider = new CatalogItemsProvider(catalogItemProvider);
-        var catalogItemsProvider = new CatalogItemsProvider(catalogItemProvider);
-        folderCatalogItemProvider.setCatalogItemsProvider(catalogItemsProvider);
+        var repository = new Repository("/Prompts.Service/api/reports", loadingPanel, "GET");
 
-        var catalogItems = catalogItemsProvider.GetItems(jsonItems);
+        var reportCatalogRequester = new ReportCatalogRequester(repository, catalogItemsBuilder);
 
-        reportCatalog.setItems(catalogItems);
-
-        return new CatalogItemsView(reportCatalog.items, "rootItems");
+        return new ReportCatalogController(reportCatalogRequester, rootItemsController, loadingPanel);
     }
-}
+});

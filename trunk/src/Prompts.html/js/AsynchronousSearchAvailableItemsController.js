@@ -1,10 +1,10 @@
-var AsynchronousSearchAvailableItemsController = AvailableItemsControllerBase.extend({
+var AsynchronousSearchAvailableItemsController = AsynchronousItemsController.extend({
     init: function(selector) {
         this.selector = selector;
     },
 
     createView: function () {
-        this.view = new AvailableItemsView(this);
+        this.view = new RootItemsView(this);
         return this.view;
     },
 
@@ -25,8 +25,6 @@ var AsynchronousSearchAvailableItemsController = AvailableItemsControllerBase.ex
             this
         );
 
-        this.items = items;
-
-        this.view.renderItems(this.items);
+        this._super(items);
     }
 });

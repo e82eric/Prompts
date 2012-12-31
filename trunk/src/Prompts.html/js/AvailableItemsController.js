@@ -1,10 +1,10 @@
-var AvailableItemsController = AvailableItemsControllerBase.extend({
+var AvailableItemsController = Class.extend({
     init: function(selector) {
         this.selector = selector;
     },
 
     createView: function () {
-        this.view = new AvailableItemsView(this);
+        this.view = new RootItemsView(this);
         return this.view;
     },
 
@@ -32,5 +32,9 @@ var AvailableItemsController = AvailableItemsControllerBase.extend({
         var searchResults = itemsSearch.execute(this.items);
 
         this.view.renderItems(searchResults);
+    },
+
+    setItems: function (val) {
+        this.items = val;
     }
 });

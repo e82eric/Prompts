@@ -1,24 +1,19 @@
-var PromptsView = function(items, css){
-    this.items = items;
-    this.css = css;
-
-    this.render = function () {
+var PromptsView = Class.extend({
+    init: function() {
         this.root = $("<ul class='rootItems'></ul>");
+    },
 
-        this.root.attr("class", css);
+    render: function () {
+        return this.root;
+    },
 
+    renderItems: function(items) {
         _.each(
-            this.items,
+            items,
             function (item) {
-                this.renderItem(item);
+                var itemView = item.createView();
+                this.root.append(itemView.render());
             },
             this);
-
-        return this.root;
-    };
-
-    this.renderItem = function (item) {
-        var itemView = item.createView();
-        this.root.append(itemView.render());
-    };
-};
+    }
+});
