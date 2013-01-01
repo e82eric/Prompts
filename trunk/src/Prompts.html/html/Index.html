@@ -27,17 +27,13 @@
             </td>
             <td class="promptsPanel2 panel">
                 <div id="prompts" class="promptsPanel">
-                    <div id="loaded"></div>
-                    <div id="loading">loading...</div>
-                    <div id="errorMessage"></div>
-                    <a id="retry">Retry</a>
                 </div>
             </td>
         </tr>
       </tbody>
   </table>
 
-  <script type="text/template" id="reportCatalogLoadingPanelTemplate">
+  <script type="text/template" id="promptingLoadingPanelTemplate">
       <div id="loaded"></div>
       <div id="loading">loading...</div>
       <div id="errorMessage"></div>
@@ -238,7 +234,7 @@
 
     <script src="../js/AsynchronousItemsController.js"></script>
 
-    <script src="../js/Prompts.js"></script>
+    <script src="../js/Application.js"></script>
     <script src="../js/SelectableItemController.js"></script>
     <script src="../js/ExpandableItemController.js"></script>
 
@@ -259,8 +255,10 @@
     <script src="../js/RootReportCatalogItemsController.js"></script>
     <script src="../js/ReportCatalogItemView.js"></script>
     <script src="../js/ReportCatalogItemViewBase.js"></script>
-    <script src="../js/ReportCatalogLoadingPanelController.js"></script>
-    <script src="../js/ReportCatalogLoadingPanelView.js"></script>
+    <script src="../js/PromptingLoadingPanelController.js"></script>
+    <script src="../js/PromptingLoadingPanelView.js"></script>
+    <script src="../js/PromptingController.js"></script>
+    <script src="../js/PromptingView.js"></script>
     <script src="../js/ReportCatalogRequester.js"></script>
     <script src="../js/ReportCatalogView.js"></script>
 
@@ -270,12 +268,11 @@
 
     <script src="../js/HierarchyFlattener.js"></script>
     <script src="../js/SingleSelector.js"></script>
-    <script src="../js/PromptsRepository.js"></script>
-    <script src="../js/PromptsPanelView.js"></script>
     <script src="../js/PromptControllerBuilder.js"></script>
-    <script src="../js/PromptsProvider.js"></script>
+    <script src="../js/ControllersBuilder.js"></script>
+    <script src="../js/PromptsController.js"></script>
+    <script src="../js/PromptsRequester.js"></script>
     <script src="../js/PromptsView.js"></script>
-    <script src="../js/PromptsViewBuilder.js"></script>
     <script src="../js/DropDownView.js"></script>
     <script src="../js/ShoppingCartView.js"></script>
     <script src="../js/PromptItemController.js"></script>

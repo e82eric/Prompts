@@ -1,40 +1,43 @@
 var PromptControllerBuilder = Class.extend({
+    init: function () {
+        this.shoppingCartBuilder = new ShoppingCartBuilder();
+        this.treeDropDownBuilder = new TreeDropDownBuilder();
+        this.recursiveTreeDropDownBuilder = new RecursiveTreeDropDownBuilder();
+        this.recursiveTreeShoppingCartBuilder = new RecursiveTreeShoppingCartBuilder();
+        this.treeShoppingCartBuilder = new TreeShoppingCartBuilder();
+        this.asynchronousSearchShoppingCartBuilder = new AsynchronousSearchShoppingCartBuilder();
+        this.dropDownBuilder = new DropDownBuilder();
+    },
+
     build: function (model) {
-        if (this.model.PromptType == "ShoppingCart") {
-            var shoppingCartBuilder = new ShoppingCartBuilder();
-            return shoppingCartBuilder.build(model);
+        if (model.PromptType == "ShoppingCart") {
+            return this.shoppingCartBuilder.build(model);
         }
 
-        if (this.model.PromptType == "SingleSelectTree") {
-            var builder = new TreeDropDownBuilder();
-            return builder.build(model);
+        if (model.PromptType == "SingleSelectTree") {
+            return this.treeDropDownBuilder.build(model);
         }
 
-        if (this.model.PromptType == "RecursiveSingleSelectTree") {
-            var builder = new RecursiveTreeDropDownBuilder();
-            return builder.build(model);
+        if (model.PromptType == "RecursiveSingleSelectTree") {
+            return this.recursiveTreeDropDownBuilder.build(model);
         }
 
-        if (this.model.PromptType == "RecursiveTree") {
-            var builder = new RecursiveTreeShoppingCartBuilder();
-            return builder.build(model);
+        if (model.PromptType == "RecursiveTree") {
+            return this.recursiveTreeShoppingCartBuilder.build(model);
         }
 
-        if (this.model.PromptType == "Tree") {
-            var builder = new TreeShoppingCartBuilder();
-            return builder.build(model);
+        if (model.PromptType == "Tree") {
+            return this.treeShoppingCartBuilder.build(model);
         }
 
-        if (this.model.PromptType == "Empty") {
+        if (model.PromptType == "Empty") {
             return new EmptyPromptController(model);
         }
 
-        if (this.model.PromptType == "CasscadingSearch") {
-            var builder = new AsynchronousSearchShoppingCartBuilder();
-            return builder.build(model);
+        if (model.PromptType == "CasscadingSearch") {
+            return this.asynchronousSearchShoppingCartBuilder.build(model);
         }
 
-        var dropDownBuilder = new DropDownBuilder();
-        return dropDownBuilder.build(model);
+        return this.dropDownBuilder.build(model);
     }
 });

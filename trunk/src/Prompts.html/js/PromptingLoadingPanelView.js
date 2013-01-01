@@ -1,8 +1,8 @@
-var ReportCatalogLoadingPanelView = Class.extend({
+var PromptingLoadingPanelView = Class.extend({
     init: function(controller, itemsControllerView) {
         this.controller = controller;
 
-        var template = $("#reportCatalogLoadingPanelTemplate").html();
+        var template = $("#promptingLoadingPanelTemplate").html();
         var templateFunction  = _.template(template);
         var templateHtml = templateFunction(this.controller.model);
         this.root = $(templateHtml);

@@ -5,13 +5,13 @@ var PromptingController = Class.extend({
         this.loadingPanelController = loadingPanelController;
     },
 
-    show: function(path) {
+    show: function (path) {
         this.requester.execute({Path: path}, this.itemsController);
     },
 
     createView: function () {
         var itemsView = this.itemsController.createView();
-        var loadingPanelView = this.loadingPanelController.createView(itemsView);
+        var loadingPanelView = this.loadingPanelController.createView(itemsView, "");
         this.view = new PromptingView(this, loadingPanelView);
         return this.view;
     }

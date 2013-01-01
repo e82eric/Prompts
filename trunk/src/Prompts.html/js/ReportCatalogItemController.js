@@ -8,7 +8,7 @@ var ReportCatalogItemController = SelectableItemController.extend({
 
     select: function () {
         this._super();
-        this.promptsController.load({Path: this.model.Path});
+        this.promptsController.show(this.model.Path);
     },
 
     changeSelect: function() {
