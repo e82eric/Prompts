@@ -1,40 +1,43 @@
-function DropDownController (availableItemsController) {
-    this.availableItemsController = availableItemsController;
+var DropDownController = PromptController.extend({
 
-    this.closePopup = function () {
+    init: function (availableItemsController) {
+        this.availableItemsController = availableItemsController;
+    },
+
+    closePopup: function () {
         this.view.close();
         this.open = false;
-    };
+    },
 
-    this.openPopup = function () {
+    openPopup: function () {
         this.view.open();
         this.open = true;
-    };
+    },
 
-    this.onOutsideClick = function () {
+    onOutsideClick: function () {
         this.closePopup();
-    };
+    },
 
-    this.onToggleClick = function () {
+    onToggleClick: function () {
         if(this.open) {
             this.closePopup();
         } else {
             this.openPopup();
         }
-    };
+    },
 
-    this.onSelection = function(item) {
+    onSelection: function(item) {
         this.view.setSelectedItemText(item.model.Label);
         this.closePopup();
-    };
+    },
 
-    this.setView = function (val) {
+    setView: function (val) {
         this.view = val;
         this.closePopup();
-    };
+    },
 
-    this.createView = function () {
+    createView: function () {
         this.setView(new DropDownView(this));
         return this.view;
     }
-}
+});

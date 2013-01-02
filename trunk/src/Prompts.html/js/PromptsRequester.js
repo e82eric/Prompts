@@ -5,6 +5,8 @@ var PromptsRequester = Class.extend({
     },
 
     execute: function (request, itemsController) {
+        this.lastRequest = request;
+
         this.repository.get(
             request,
             $.proxy(
@@ -14,6 +16,19 @@ var PromptsRequester = Class.extend({
                 },
                 this
             )
-        )
+        );
+    },
+
+    executeLastRequest: function (itemsController) {
+        this.repository.get(
+            this.lastRequest,
+            $.proxy(
+                function(result) {
+                    var controllers = this.builder.build(result);
+                    itemsController.setItems(controllers);
+                },
+                this
+            )
+        );
     }
 });

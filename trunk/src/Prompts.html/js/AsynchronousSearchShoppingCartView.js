@@ -1,7 +1,7 @@
-var AsynchronousSearchShoppingCartView = Class.extend({
+var AsynchronousSearchShoppingCartView = PromptView.extend({
     init: function (controller, loadingPanelView) {
         this.controller = controller;
-
+        this.loadingPanelView = loadingPanelView;
         this.root = $("<li></li>");
         var template = $("#asynchronousSearchShoppingCartTemplate").html();
 
@@ -9,8 +9,8 @@ var AsynchronousSearchShoppingCartView = Class.extend({
         var templateHtml = templateFunction(this.controller.model);
         this.root.html(templateHtml);
 
-        this.selectButton = loadingPanelView.root.find("#selectButton");
-        this.unSelectButton = loadingPanelView.root.find("#unSelectButton");
+        this.selectButton = this.loadingPanelView.root.find("#selectButton");
+        this.unSelectButton = this.loadingPanelView.root.find("#unSelectButton");
         this.searchStringInput = this.root.find("#searchString");
         this.searchButton = this.root.find("#searchButton");
         this.content = this.root.find("#content");
@@ -23,6 +23,7 @@ var AsynchronousSearchShoppingCartView = Class.extend({
         this.unSelectButton.click($.proxy(this.onUnSelectButtonClick, this));
         this.searchButton.click($.proxy(this.onSearch, this));
         this.searchStringInput.change($.proxy(this.onSearchStringChange, this));
+        this.loadingPanelView.root.filter("#retry").click($.proxy(this.onRetryClick, this));
 
         return this.root;
     },
@@ -41,5 +42,9 @@ var AsynchronousSearchShoppingCartView = Class.extend({
 
     onSearchStringChange: function () {
         this.controller.onSearchStringSet(this.searchStringInput.val());
+    },
+
+    onRetryClick: function () {
+        this.controller.onRetryClick();
     }
 });

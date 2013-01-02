@@ -53,12 +53,7 @@ var AsynchronousSearchLoadingPanelView = Class.extend({
         this.retryElement.hide();
     },
 
-    onRetryClick: function () {
-        this.controller.load();
-    },
-
     render: function(){
-        this.retryElement.click($.proxy(this.onRetryClick, this));
         return this.root;
     }
 });

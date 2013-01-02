@@ -1,4 +1,4 @@
-var TreeDropDownController = Class.extend({
+var TreeDropDownController = PromptController.extend({
     init: function (availableItemsController) {
         this.availableItemsController = availableItemsController;
     },

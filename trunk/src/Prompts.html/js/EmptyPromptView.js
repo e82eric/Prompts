@@ -1,4 +1,4 @@
-var EmptyPromptView = Class.extend({
+var EmptyPromptView = PromptView.extend({
     init: function (controller) {
         this.controller = controller;
 

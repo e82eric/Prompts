@@ -1,4 +1,4 @@
-var EmptyPromptController = Class.extend({
+var EmptyPromptController = PromptController.extend({
     init: function (model) {
         this.model = model;
     },

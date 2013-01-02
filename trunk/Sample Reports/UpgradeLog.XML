@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Sample Reports">
+</Property><Property Name="Solution File" Value="C:\prompts\trunk\Sample Reports\Sample Reports.sln">
+</Property><Property Name="Date" Value="Tuesday, January 01, 2013">
+</Property><Property Name="Time" Value="1:33 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Sample Reports.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Sample Reports.sln" Description="Converted">
+</Event></UpgradeLog>

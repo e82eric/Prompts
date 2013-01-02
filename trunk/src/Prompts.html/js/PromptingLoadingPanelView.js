@@ -7,9 +7,9 @@ var PromptingLoadingPanelView = Class.extend({
         var templateHtml = templateFunction(this.controller.model);
         this.root = $(templateHtml);
 
+        this.retryElement = this.root.filter("#retry");
         this.loadingElement = this.root.filter("#loading");
         this.loadedElement = this.root.filter("#loaded");
-        this.retryElement = this.root.filter("#retry");
         this.errorElement = this.root.filter("#errorMessage");
 
         this.loadedElement.append(itemsControllerView.render());
@@ -54,10 +54,6 @@ var PromptingLoadingPanelView = Class.extend({
 
     hideRetry: function () {
         this.retryElement.hide();
-    },
-
-    onRetryClick: function () {
-        this.controller.load();
     }
 });
 

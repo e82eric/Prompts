@@ -5,6 +5,7 @@ var TreePromptItemController = ExpandableItemController.extend({
         this.childItemsRequester = childItemsRequester;
         this.childAvailableItemsController = childAvailableItemsController;
         this.childItemsLoadingPanelController = childItemsLoadingPanelController;
+        this.childrenSet = false;
         this._super();
     },
 
@@ -27,15 +28,21 @@ var TreePromptItemController = ExpandableItemController.extend({
 
     expand: function() {
         this._super();
-        if(this.childAvailableItemsController.items == undefined) {
+        if(this.childrenSet == false) {
             this.childItemsRequester.execute(this.childAvailableItemsController, this);
         }
     },
 
     setChildren: function(val) {
+        this.childrenSet = true;
+
         if(val.length == 0) {
             this.view.hideExpander();
         }
         this._super(val);
+    },
+
+    onRetryClick: function () {
+        this.childItemsRequester.execute(this.childAvailableItemsController, this);
     }
 });

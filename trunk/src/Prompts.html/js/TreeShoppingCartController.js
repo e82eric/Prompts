@@ -1,15 +1,16 @@
-var TreeShoppingCartController = Class.extend({
+var TreeShoppingCartController = PromptController.extend({
     init: function (availableItemsController, selectedItemsController) {
         this.availableItemsController = availableItemsController;
         this.selectedItemsController = selectedItemsController;
     },
 
     createView: function () {
-        return new TreeShoppingCartView(this);
+        this.view = new TreeShoppingCartView(this);
+        return this.view;
     },
 
     onSelect: function () {
-        var selectedAvailableItems = this.availableItemsController.getSelectedItems();
+        selectedAvailableItems = this.availableItemsController.getSelectedItems();
         this.selectedItemsController.addItems(selectedAvailableItems);
     },
 

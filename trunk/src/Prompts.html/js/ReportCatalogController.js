@@ -10,6 +10,10 @@ var ReportCatalogController = Class.extend({
         this.reportCatalogRequester.execute(this.itemsController);
     },
 
+    onRetryClick: function () {
+        this.reportCatalogRequester.execute(this.itemsController);
+    },
+
     createView: function () {
         var itemsView = this.itemsController.createView();
         var loadingPanelView = this.loadingPanelController.createView(itemsView);

@@ -1,6 +1,7 @@
 var AsynchronousSearchAvailableItemsController = AsynchronousItemsController.extend({
     init: function(selector) {
         this.selector = selector;
+        this._super();
     },
 
     createView: function () {

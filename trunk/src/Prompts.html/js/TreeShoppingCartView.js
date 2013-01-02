@@ -1,4 +1,4 @@
-var TreeShoppingCartView = Class.extend({
+var TreeShoppingCartView = PromptView.extend({
     init: function (controller){
         this.controller = controller;
 

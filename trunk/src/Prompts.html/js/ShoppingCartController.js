@@ -1,4 +1,4 @@
-var ShoppingCartController = Class.extend({
+var ShoppingCartController = PromptController.extend({
     init: function (availableItemsController, selectedItemsController) {
         this.availableItemsController = availableItemsController;
         this.selectedItemsController = selectedItemsController;

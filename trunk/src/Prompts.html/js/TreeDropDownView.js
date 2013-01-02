@@ -1,4 +1,4 @@
-var TreeDropDownView = Class.extend({
+var TreeDropDownView = PromptView.extend({
 
     init: function (controller) {
         this.controller = controller;

@@ -9,6 +9,10 @@ var PromptingController = Class.extend({
         this.requester.execute({Path: path}, this.itemsController);
     },
 
+    onRetryClick: function () {
+        this.requester.executeLastRequest(this.itemsController);
+    },
+
     createView: function () {
         var itemsView = this.itemsController.createView();
         var loadingPanelView = this.loadingPanelController.createView(itemsView, "");

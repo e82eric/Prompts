@@ -1,4 +1,4 @@
-var AsynchronousSearchShoppingCartController = Class.extend({
+var AsynchronousSearchShoppingCartController = PromptController.extend({
     init: function (model, asynchronousSearch, availableItemsController, selectedItemsController, loadingPanel) {
         this.model = model;
         this.asynchronousSearch = asynchronousSearch;
@@ -22,6 +22,10 @@ var AsynchronousSearchShoppingCartController = Class.extend({
 
     onUnSelect: function () {
         this.selectedItemsController.removeSelected();
+    },
+
+    onRetryClick: function () {
+        this.asynchronousSearch.executeLastRequest(this.availableItemsController);
     },
 
     createView: function () {
