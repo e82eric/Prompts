@@ -175,7 +175,7 @@ function InstallVisualStudio {
    <BundleCustomizations TargetDir="default" NoWeb="default"/>
 
    <SelectableItemCustomizations>
-     <SelectableItemCustomization Id="WebTools" Hidden="no" Selected="no"/>
+     <SelectableItemCustomization Id="WebTools" Hidden="no" Selected="yes"/>
      <SelectableItemCustomization Id="OfficeTools" Hidden="no" Selected="no"/>
      <SelectableItemCustomization Id="SharepointTools" Hidden="no" Selected="no"/>
      <SelectableItemCustomization Id="LightSwitch" Hidden="no" Selected="no"/>
