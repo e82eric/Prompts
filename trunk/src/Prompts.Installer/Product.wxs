@@ -145,50 +145,53 @@
 							Checksum='yes'
 							DiskId='1'/>
 					</Component>
+					<Component Id='ServiceStackAssembly' Guid='{1997FD9A-6CF7-4A27-A0BC-AF3E937BF855}'>
+						<File
+							Id='ServiceStackAssembly'
+							Name='ServiceStack.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\ServiceStack.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='SeviceStackCommonAssembly' Guid='{A305BFFC-83BA-42A9-9CC7-280F378D8A48}'>
+						<File
+							Id='SeviceStackCommonAssembly'
+							Name='ServiceStack.Common.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\ServiceStack.Common.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='ServiceStackServiceInterfaceAssembly' Guid='{10347C74-B1F7-4F01-BEF5-AC4973CBD659}'>
+						<File
+							Id='ServiceStackServiceInterfaceAssembly'
+							Name='ServiceStack.ServiceInterface.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\ServiceStack.ServiceInterface.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='ServiceStackInterfacesAssembly' Guid='{BE7729D0-FDBD-4E65-9AD0-5232C402BEDC}'>
+						<File
+							Id='ServiceStackInterfacesAssembly'
+							Name='ServiceStack.Interfaces.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\ServiceStack.Interfaces.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					<Component Id='ServiceStackTextAssembly' Guid='{083AE2DA-5577-44C3-AD17-27EFBAA88FF6}'>
+						<File
+							Id='ServiceStackTextAssembly'
+							Name='ServiceStack.Text.dll'
+							KeyPath='yes'
+							Source='..\..\Binaries\Prompts.Service\bin\ServiceStack.Text.dll'
+							Checksum='yes'
+							DiskId='1'/>
+					</Component>
+					
 				</Directory>
-
-				<Directory Id='PromptServiceDir' Name='PromptService'>
-					<Component Id='ChildPromptLevelService' Guid='{78BE6351-6DFC-457B-A758-41EDEC70E269}'>
-						<File
-							Id='ChildPromptLevelService'
-							Name='ChildPromptLevelService.svc'
-							KeyPath='yes'
-							Source='..\..\Binaries\Prompts.Service\PromptService\ChildPromptLevelService.svc'
-							Checksum='yes'
-							DiskId='1'/>
-					</Component>
-					<Component Id='PromptSelectionService' Guid='{DFD73AF8-E9EA-4852-8B0D-6A95780169E0}'>
-						<File
-							Id='PromptSelectionService'
-							Name='PromptSelectionService.svc'
-							KeyPath='yes'
-							Source='..\..\Binaries\Prompts.Service\PromptService\PromptSelectionService.svc'
-							Checksum='yes'
-							DiskId='1'/>
-					</Component>
-					<Component Id='PromptService' Guid='{25FA2BFA-EE0C-481D-A940-8D4BD046D4F7}'>
-						<File
-							Id='PromptService'
-							Name='PromptService.svc'
-							KeyPath='yes'
-							Source='..\..\Binaries\Prompts.Service\PromptService\PromptService.svc'
-							Checksum='yes'
-							DiskId='1'/>
-					</Component>
-				</Directory>
-
-				<Directory Id='ReportCatalogServiceDir' Name='ReportCatalogService'>
-					<Component Id='ReportCatalogService' Guid='{7DD14516-E273-4656-803E-4633824C3E69}'>
-						<File
-							Id='ReportCatalogService'
-							Name='ReportCatalogService.svc'
-							KeyPath='yes'
-							Source='..\..\Binaries\Prompts.Service\ReportCatalogService\ReportCatalogService.svc'
-							Checksum='yes'
-							DiskId='1'/>
-					</Component>
-				</Directory>
-
 			</Directory>
 		</Directory>
 
@@ -211,12 +214,12 @@
 			<ComponentRef Id="ReportViewerCommonAssembly"/>
 			<ComponentRef Id="ReportViewerWebAssembly"/>
 			<ComponentRef Id="PromptsServiceAssembly"/>
-			<ComponentRef Id="ChildPromptLevelService"/>
-			<ComponentRef Id="PromptSelectionService"/>
-			<ComponentRef Id="PromptService"/>
-			<ComponentRef Id="ReportCatalogService"/>
+			<ComponentRef Id="ServiceStackAssembly"/>
+			<ComponentRef Id="SeviceStackCommonAssembly"/>
+			<ComponentRef Id="ServiceStackServiceInterfaceAssembly"/>
+			<ComponentRef Id="ServiceStackInterfacesAssembly"/>
+			<ComponentRef Id="ServiceStackTextAssembly"/>
 			
-
 			<Component Id="SiteInstallationComponent" Guid="{8C134E55-CE21-445D-B790-7DABCCA48943}" Directory="PromptsDir">
 				<CreateFolder />
 
