@@ -299,3 +299,7 @@ function InstallKDiff {
 	RunCMD "git" "config","--global","merge.tool","kdiff3" 0
 	RunCMD "git" "config","--global","mergetool.kdiff3.path","`"C:\Program Files (x86)\KDiff3\kdiff3.exe`"" 0
 }
+
+function InstallWIX {
+	RunCMD $script:installers.get_item("WIX") "/Silent" 0
+}

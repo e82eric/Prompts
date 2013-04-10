@@ -20,6 +20,7 @@ $script:installers = @{
 	"AdventureWorksSSASDirectory" = "$installersDirectory\AdventureWorks_SSAS_2012";
 	"Ruby" = "$installersDirectory\rubyinstaller-2.0.0-p0-x64.exe";
 	"KDiff3" = "$installersDirectory\KDiff3-32bit-Setup_0.9.97.exe";
+	"WIX" = "$installersDirectory\wix37.exe";
 }
 
 function ValidateInstallers() {
