@@ -151,7 +151,7 @@ end
 def publish_web_project(projectDirectory, projectName, buildDirectory)
 	build_project("#{projectDirectory}/#{projectName}.csproj") 
 
-	Dir.glob "#{projectDirectory}/{**/*.svc,bin/*.dll,**/*.aspx,/**/*.xap,Silverlight.js,web.config}" do |path|
+	Dir.glob "#{projectDirectory}/{**/*.svc,bin/*.dll,**/*.aspx,/**/*.xap,Silverlight.js,web.config,*.asax}" do |path|
 		newPath = path.gsub(projectDirectory, buildDirectory)
 		FileUtils.mkdir_p File.dirname(newPath)
 		copy path, newPath
