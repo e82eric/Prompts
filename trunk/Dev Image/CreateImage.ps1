@@ -31,13 +31,21 @@ Step 3 {
 
 Step 4 {
 	InstallVisualStudio
-	InstallGit
-	GetSource
 }
 
 Step 5 {
+	InstallVisualStudioWebTools
+	InstallGit
+	InstallRuby
+	InstallKDiff
+	InstallWIX
 	AttachAdventureWorksDW
 	DeployAdventureWorksCube
+	GetSource
+}
+
+Step 6 {
+	InstallWebServer
 }
 
 function MountISO($isoName) {
@@ -175,6 +183,64 @@ function InstallVisualStudio {
    <BundleCustomizations TargetDir="default" NoWeb="default"/>
 
    <SelectableItemCustomizations>
+     <SelectableItemCustomization Id="WebTools" Hidden="no" Selected="no"/>
+     <SelectableItemCustomization Id="OfficeTools" Hidden="no" Selected="no"/>
+     <SelectableItemCustomization Id="SharepointTools" Hidden="no" Selected="no"/>
+     <SelectableItemCustomization Id="LightSwitch" Hidden="no" Selected="no"/>
+     <SelectableItemCustomization Id="SilverLight_Developer_Kit" Hidden="no" Selected="yes" />
+     <SelectableItemCustomization Id="SQL" Hidden="no" Selected="yes" />
+     <SelectableItemCustomization Id="VC_MFC_Libraries" Hidden="no" Selected="no" />
+     <SelectableItemCustomization Id="Blend" Hidden="no" Selected="no" />
+
+     <SelectableItemCustomization Id="BlissHidden" Selected="yes" />
+     <SelectableItemCustomization Id="HelpHidden" Selected="yes" />
+     <SelectableItemCustomization Id="IntelliTraceUltimateHidden" Selected="yes" />
+     <SelectableItemCustomization Id="LocalDBHidden" Selected="yes" />
+     <SelectableItemCustomization Id="NetFX4Hidden" Selected="yes" />
+     <SelectableItemCustomization Id="NetFX45Hidden" Selected="yes" />
+     <SelectableItemCustomization Id="PortableDTPHidden" Selected="yes" />
+     <SelectableItemCustomization Id="PreEmptiveDotfuscatorHidden" Selected="yes" />
+     <SelectableItemCustomization Id="PreEmptiveAnalyticsHidden" Selected="yes" />
+     <SelectableItemCustomization Id="ProfilerHidden" Selected="yes" />
+     <SelectableItemCustomization Id="ReportingHidden" Selected="yes" />
+     <SelectableItemCustomization Id="RIAHidden" Selected="no" />
+     <SelectableItemCustomization Id="SDKTools3Hidden" Selected="yes" />
+     <SelectableItemCustomization Id="SDKTools4Hidden" Selected="yes" />
+     <SelectableItemCustomization Id="Silverlight5DRTHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLCEHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLCEToolsHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLCLRTypesHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLDACHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLDbProviderHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLDOMHidden" Selected="yes" />
+     <SelectableItemCustomization Id="SQLSharedManagementObjectsHidden" Selected="yes" />
+     <SelectableItemCustomization Id="StoryboardingHidden" Selected="yes" />
+     <SelectableItemCustomization Id="TSQLHidden" Selected="yes" />
+     <SelectableItemCustomization Id="VCCompilerHidden" Selected="yes" />
+     <SelectableItemCustomization Id="VCCoreHidden" Selected="yes" />
+     <SelectableItemCustomization Id="VCDebugHidden" Selected="yes" />
+     <SelectableItemCustomization Id="VCDesigntimeHidden" Selected="yes" />
+     <SelectableItemCustomization Id="VCExtendedHidden" Selected="yes" />
+     <SelectableItemCustomization Id="WCFDataServicesHidden" Selected="yes" />
+     <SelectableItemCustomization Id="WinJSHidden" Selected="yes" />
+     <SelectableItemCustomization Id="WinSDKHidden" Selected="yes" />
+  </SelectableItemCustomizations>
+
+</AdminDeploymentCustomizations>' | Out-File -Encoding "UTF8" $adminFilePath
+
+	MountISO $global:installers.get_item("VisualStudio")
+	RunISOCMD "vs_ultimate.exe" @("/passive", "/norestart", "/AdminFile $adminFilePath", "/Log C:\vs.log") 0
+	RunCMD "MSIExec" @("/i", $global:installers.get_item("Resharper"), "/passive", "/norestart") 0
+}
+
+function InstallVisualStudioWebTools {
+	$adminFilePath = "c:\VisualStudioAdminFile.xml"
+
+'<?xml version="1.0" encoding="utf-8"?>
+<AdminDeploymentCustomizations xmlns="http://schemas.microsoft.com/wix/2011/AdminDeployment">
+   <BundleCustomizations TargetDir="default" NoWeb="default"/>
+
+   <SelectableItemCustomizations>
      <SelectableItemCustomization Id="WebTools" Hidden="no" Selected="yes"/>
      <SelectableItemCustomization Id="OfficeTools" Hidden="no" Selected="no"/>
      <SelectableItemCustomization Id="SharepointTools" Hidden="no" Selected="no"/>
@@ -221,8 +287,7 @@ function InstallVisualStudio {
 </AdminDeploymentCustomizations>' | Out-File -Encoding "UTF8" $adminFilePath
 
 	MountISO $global:installers.get_item("VisualStudio")
-	RunISOCMD "vs_ultimate.exe" @("/Passive", "/NoRestart", "/AdminFile $adminFilePath", "/Log C:\vs.log") 0
-	RunCMD "MSIExec" @("/i", $global:installers.get_item("Resharper"), "/passive", "/norestart") 0
+	RunISOCMD "vs_ultimate.exe" @("/passive", "/norestart", "/AdminFile $adminFilePath", "/Log C:\vs.log") 3010
 }
 
 function InstallGit {
@@ -302,4 +367,43 @@ function InstallKDiff {
 
 function InstallWIX {
 	RunCMD $script:installers.get_item("WIX") "/Silent" 0
+}
+
+function InstallWebServer {
+	Import-Module ServerManager
+	Add-WindowsFeature Web-Server
+	Add-WindowsFeature Web-Asp-Net
+	Add-WindowsFeature Web-Windows-Auth
+	Add-WindowsFeature Web-Metabase
+	Add-WindowsFeature Web-Common-Http
+	Add-WindowsFeature Web-Static-Content
+	Add-WindowsFeature Web-Default-Doc
+	Add-WindowsFeature Web-Dir-Browsing
+	Add-WindowsFeature Web-Http-Errors
+	Add-WindowsFeature Web-Http-Redirect
+	Add-WindowsFeature Web-App-Dev
+	Add-WindowsFeature Web-Net-Ext
+	Add-WindowsFeature Web-ISAPI-Ext
+	Add-WindowsFeature Web-ISAPI-Filter
+	Add-WindowsFeature Web-Health
+	Add-WindowsFeature Web-Http-Logging
+	Add-WindowsFeature Web-Security
+	Add-WindowsFeature Web-Basic-Auth
+	Add-WindowsFeature Web-Digest-Auth
+	Add-WindowsFeature Web-Client-Auth
+	Add-WindowsFeature Web-Cert-Auth
+	Add-WindowsFeature Web-Url-Auth
+	Add-WindowsFeature Web-Filtering
+	Add-WindowsFeature Web-IP-Security
+	Add-WindowsFeature Web-Performance
+	Add-WindowsFeature Web-Stat-Compression
+	Add-WindowsFeature Web-Dyn-Compression
+	Add-WindowsFeature Web-Mgmt-Tools
+	Add-WindowsFeature Web-Mgmt-Console
+	Add-WindowsFeature Web-Scripting-Tools
+	Add-WindowsFeature Web-Mgmt-Service
+	Add-WindowsFeature Web-Mgmt-Compat
+	Add-WindowsFeature Web-WMI
+	Add-WindowsFeature Web-Lgcy-Scripting
+	Add-WindowsFeature Web-Lgcy-Mgmt-Console
 }

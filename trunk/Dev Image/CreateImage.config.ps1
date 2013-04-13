@@ -3,7 +3,7 @@ $script:computerName = "promptsdev"
 $script:installersDirectory = "Z:\Downloads"
 $script:sqlServiceAccount = "SqlService"
 $script:adminAccount = "Administrator"
-$script:isoDrive = "G:"
+$script:isoDrive = "E:"
 $script:dataPath = "C:\Data"
 
 $script:password = "pass@word1"
