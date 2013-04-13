@@ -116,7 +116,15 @@
 						Checksum='yes'
 						DiskId='1'/>
 				</Component>
-
+				<Component Id='GlobalASAX' Guid='{50AEA693-856A-4699-82F5-B1A97BF4B2D8}'>
+					<File
+						Id='GlobalASAX'
+						Name='Global.asax'
+						KeyPath='yes'
+						Source='..\..\Binaries\Prompts.Service\Global.asax'
+						Checksum='yes'
+						DiskId='1'/>
+				</Component>
 				<Directory Id='PromptsServiceBin' Name='bin'>
 					<Component Id='ReportViewerCommonAssembly' Guid='{BB35C10B-5BC4-43B3-902B-1E7FD1B558D0}'>
 						<File
@@ -219,8 +227,9 @@
 			<ComponentRef Id="ServiceStackServiceInterfaceAssembly"/>
 			<ComponentRef Id="ServiceStackInterfacesAssembly"/>
 			<ComponentRef Id="ServiceStackTextAssembly"/>
-			
-			<Component Id="SiteInstallationComponent" Guid="{8C134E55-CE21-445D-B790-7DABCCA48943}" Directory="PromptsDir">
+      <ComponentRef Id="GlobalASAX"/>
+
+      <Component Id="SiteInstallationComponent" Guid="{8C134E55-CE21-445D-B790-7DABCCA48943}" Directory="PromptsDir">
 				<CreateFolder />
 
 				<iis:WebVirtualDir

@@ -3,8 +3,8 @@ require 'albacore'
 versionNumber = "1.0.0"
 buildNumber = ENV['buildNumber'] || "0"
 
-rootDirectory="../.."
-trunkDirectory = "#{rootDirectory}/trunk"
+rootDirectory=".."
+trunkDirectory = "#{rootDirectory}"
 rootBuildDirectory = "#{trunkDirectory}/Binaries"
 solutionRoot = "#{trunkDirectory}/src"
 
