@@ -8,7 +8,7 @@ var ReportCatalogItemsController = Class.extend({
     },
 
     createView: function () {
-        this.setView(new ChildItemsView(this));
+        this.setView(new ItemsView(this, "childItems"));
         return this.view;
     }
 });
