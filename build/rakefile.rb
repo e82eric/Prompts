@@ -5,7 +5,7 @@ buildNumber = ENV['buildNumber'] || "0"
 
 rootDirectory=".."
 trunkDirectory = "#{rootDirectory}"
-rootBuildDirectory = "#{trunkDirectory}/Binaries"
+rootBuildDirectory = "#{trunkDirectory}/binaries"
 solutionRoot = "#{trunkDirectory}/src"
 
 task :default => [
@@ -145,6 +145,42 @@ task :add_documentation do
 	Dir.glob "#{docsDirectory}/*" do |path|
 		newPath = path.gsub(docsDirectory, rootBuildDirectory)
 		copy path, newPath
+	end
+end
+
+task :build_javascript => ['Clean'] do
+	clientSource = "#{solutionRoot}/Prompts.html"
+
+	outDir = "#{rootBuildDirectory}/html_client"
+	jsSource = "#{clientSource}/js"
+	jsOutDir = "#{outDir}/js"
+
+	FileUtils.mkdir_p jsOutDir
+	FileUtils.mkdir_p "#{outDir}/js"
+	outFile = File.new("#{jsOutDir}/prompts.js", "w+")
+	
+	jsFiles = [
+		"AsynchronousItemsController.js", 
+		"LoadingPanelControllerBase.js", 
+		"PromptController.js", 
+		"PromptView.js", 
+		"ItemsView.js", 
+		"SelectableItemController.js",
+		"ExpandableItemController.js"].map { |name| "#{jsSource}/#{name}" }
+	
+	Dir.glob "#{jsSource}/*.js" do |filePath|
+		if !jsFiles.include? filePath
+			jsFiles.push filePath
+		end
+	end
+	
+	jsFiles.each { |filePath| outFile.puts File.read(filePath) }
+	
+	FileUtils.cp_r "#{clientSource}/css", "#{outDir}/css"
+	FileUtils.cp_r "#{clientSource}/images", "#{outDir}/images"
+	FileUtils.cp_r "#{clientSource}/html", "#{outDir}/html"
+	Dir.glob "#{jsSource}/external/{*}" do |path|
+		copy path, jsOutDir
 	end
 end
 
