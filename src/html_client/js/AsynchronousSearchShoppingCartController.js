@@ -29,10 +29,7 @@ var AsynchronousSearchShoppingCartController = PromptController.extend({
     },
 
     createView: function () {
-        var loadingPanelView = this.loadingPanel.createView(
-            this.availableItemsController.createView(),
-            this.selectedItemsController.createView()
-        );
+        var loadingPanelView = this.loadingPanel.createView();
 
         this.view = new AsynchronousSearchShoppingCartView(this, loadingPanelView);
         return this.view;

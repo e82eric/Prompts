@@ -1,5 +1,6 @@
 var LoadingPanelControllerBase = Class.extend({
-    init: function () {
+    init: function (createViewFunc) {
+        this.createViewFunc = createViewFunc;
     },
 
     showLoading: function() {
@@ -27,5 +28,11 @@ var LoadingPanelControllerBase = Class.extend({
         this.view.hideLoaded();
         this.view.hideLoading();
         this.view.hideRetry();
+    },
+
+    createView: function () {
+        var view = this.createViewFunc(this);
+        this.setView(view);
+        return view;
     }
 });
