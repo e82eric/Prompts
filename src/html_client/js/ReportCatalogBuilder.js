@@ -16,7 +16,9 @@ var ReportCatalogBuilder = Class.extend({
         var catalogItemsBuilder = new ReportCatalogItemsBuilder(catalogItemBuilder);
         folderCatalogItemBuilder.setChildItemsBuilder(catalogItemsBuilder);
 
-        var loadingPanel = new PromptingLoadingPanelController();
+        var loadingPanel = new LoadingPanelControllerBase(function (controller) {
+            return new PromptingLoadingPanelView(loadingPanel, rootItemsController.createView())
+        });
 
         var repository = new Repository("/Prompts.Service/api/reports", loadingPanel, "GET");
 
