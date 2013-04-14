@@ -4,7 +4,7 @@ var AvailableItemsController = Class.extend({
     },
 
     createView: function () {
-        this.view = new RootItemsView(this);
+        this.view = new ItemsView(this, "rootItems");
         return this.view;
     },
 

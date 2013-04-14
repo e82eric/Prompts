@@ -12,7 +12,7 @@ var RootReportCatalogItemsController = AsynchronousItemsController.extend({
     },
 
     createView: function () {
-        this.setView(new RootItemsView(this));
+        this.setView(new ItemsView(this, "rootItems"));
         return this.view;
     }
 });

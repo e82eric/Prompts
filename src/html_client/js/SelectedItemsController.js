@@ -38,7 +38,7 @@ function SelectedItemsController (selector, promptItemsControllersProvider) {
     };
 
     this.createView = function () {
-        var view = new RootItemsView(this);
+        var view = new ItemsView(this, "rootItems");
         this.setView(view);
         return view;
     };
