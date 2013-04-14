@@ -149,7 +149,7 @@ task :add_documentation do
 end
 
 task :build_javascript => ['Clean'] do
-	clientSource = "#{solutionRoot}/Prompts.html"
+	clientSource = "#{solutionRoot}/html_client"
 
 	outDir = "#{rootBuildDirectory}/html_client"
 	jsSource = "#{clientSource}/js"

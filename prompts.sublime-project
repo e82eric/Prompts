@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/Sources"
+		}
+	],
+	"build_systems":
+    [
+        {
+        	"name": "html",
+		    "cmd": ["rake.bat", "build_javascript"],
+		    "working_dir": "${project_path:${folder}}\\build"
+        }
+    ]
+}
