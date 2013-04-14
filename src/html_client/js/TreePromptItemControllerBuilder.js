@@ -40,7 +40,7 @@ var TreePromptItemControllerBuilder = Class.extend({
 
         var childItemsRequester = new ChildItemsRequester(repository, childItemsBuilder, childItemsRequest);
         var childAvailableItemsController = new AsynchronousItemsController(function () {
-          return new ChildAvailableItemsView(childAvailableItemsController)
+          return new ItemsView(childAvailableItemsController, "childItems")
         });
         var controller = undefined;
 
