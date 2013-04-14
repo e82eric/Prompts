@@ -26,7 +26,10 @@ var TreePromptItemControllerBuilder = Class.extend({
 
         var childItemsBuilder = new TreePromptItemControllersBuilder(childItemBuilder);
 
-        var loadingPanel = new ChildPromptItemsLoadingPanelController();
+        var loadingPanel = new LoadingPanelControllerBase(function (controller) {
+          return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
+        });
+
         var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
 
         var childItemsRequest = {
