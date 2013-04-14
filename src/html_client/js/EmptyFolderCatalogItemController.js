@@ -5,7 +5,7 @@ var EmptyFolderCatalogItemController = SelectableItemController.extend({
     },
 
     createView: function(){
-        return new EmptyFolderCatalogItemView(this);
+        return new ReportCatalogItemViewBase("#emptyFolderItemTemplate", this);
     },
 
     select: function () {},
