@@ -6,7 +6,9 @@ var RecursiveTreePromptItemControllerBuilder = Class.extend({
     },
 
     build: function (model) {
-        var childAvailableItemsController = new ChildAvailableItemsController();
+        var childAvailableItemsController = new AsynchronousItemsController(function () {
+            return new ChildAvailableItemsView(childAvailableItemsController);
+        });
 
         var loadingPanel = new LoadingPanelControllerBase(function (controller) {
             return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
