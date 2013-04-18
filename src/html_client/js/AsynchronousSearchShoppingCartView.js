@@ -1,14 +1,7 @@
 var AsynchronousSearchShoppingCartView = PromptView.extend({
     init: function (controller, loadingPanelView) {
-        this.controller = controller;
+        this._super(controller, "asynchronousSearchShoppingCartTemplate");
         this.loadingPanelView = loadingPanelView;
-        this.root = $("<li></li>");
-        var template = $("#asynchronousSearchShoppingCartTemplate").html();
-
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root.html(templateHtml);
-
         this.selectButton = this.loadingPanelView.root.find("#selectButton");
         this.unSelectButton = this.loadingPanelView.root.find("#unSelectButton");
         this.searchStringInput = this.root.find("#searchString");

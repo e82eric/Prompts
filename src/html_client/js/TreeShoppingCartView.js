@@ -1,14 +1,6 @@
 var TreeShoppingCartView = PromptView.extend({
     init: function (controller){
-        this.controller = controller;
-
-        this.root = $("<li></li>");
-
-        var template = $("#treeShoppingCartTemplate").html();
-
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root.html(templateHtml);
+        this._super(controller, "treeShoppingCartTemplate");
 
         this.selectElement = this.root.find("#selectButton:first");
         this.selectElement.click($.proxy(this.onSelect,this));

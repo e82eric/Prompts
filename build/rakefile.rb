@@ -160,6 +160,8 @@ task :build_javascript => ['Clean'] do
 	outFile = File.new("#{jsOutDir}/prompts.js", "w+")
 	
 	jsFiles = [
+		"Templates.js",
+		"TemplateView.js",
 		"AsynchronousItemsController.js", 
 		"LoadingPanelControllerBase.js", 
 		"PromptController.js", 

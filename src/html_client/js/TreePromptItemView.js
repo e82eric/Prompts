@@ -1,17 +1,9 @@
-var TreePromptItemView = Class.extend({
+var TreePromptItemView = TemplateView.extend({
     init: function (controller, childItemsLoadingPanelView) {
-        this.controller = controller;
+        this._super(controller, "treePromptItemTemplate");
+
         this.childItemsLoadingPanelView = childItemsLoadingPanelView;
-
-        this.root = $("<li class='treeItem' unselectable='on'></li>");
-        var template = $("#treePromptItemTemplate").html();
-
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root.html(templateHtml);
-
         this.root.append(this.childItemsLoadingPanelView.render());
-
         this.expandImage = this.root.find("#expandImage");
         this.selectWrap = this.root.find("#selectWrap");
         this.selectWrap.addClass('itemTestNotSelected');

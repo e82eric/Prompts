@@ -1,11 +1,7 @@
-var AsynchronousSearchLoadingPanelView = Class.extend({
+var AsynchronousSearchLoadingPanelView = TemplateView.extend({
     init: function (controller, availableItemsView, selectedItemsView) {
-        this.controller = controller;
+        this._super(controller, "asynchronousSearchLoadingPanelTemplate");
 
-        var template = $("#asynchronousSearchLoadingPanelTemplate").html();
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root = $(templateHtml);
         this.loadingElement = this.root.filter("#loading");
         this.loadedElement = this.root.filter("#loaded");
         this.retryElement = this.root.filter("#retry");

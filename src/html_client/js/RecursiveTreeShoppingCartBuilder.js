@@ -17,7 +17,7 @@ function RecursiveTreeShoppingCartBuilder () {
 
         var itemBuilder = new RecursiveTreePromptItemControllerBuilder(
             model.Name,
-            rootAvailableItemsController,
+            availableItemsController,
             filterParameterName);
 
         var promptItemControllersProvider = new RecursiveTreePromptItemControllersBuilder(itemBuilder);

@@ -1,10 +1,7 @@
-var FolderCatalogItemView = Class.extend({
+var FolderCatalogItemView = TemplateView.extend({
     init: function (controller, childItemsView){
-        this.controller = controller;
+        this._super(controller, "folderItemTemplate");
         this.childItemsView = childItemsView;
-
-        var base = new ReportCatalogItemViewBase("#folderItemTemplate", controller);
-        this.root = base.render();
 
         this.expandImage = this.root.find("#ExpandImage:first img");
 

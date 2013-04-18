@@ -1,12 +1,8 @@
 var TreeDropDownView = PromptView.extend({
 
     init: function (controller) {
-        this.controller = controller;
-        this.root = $("<li></li>");
-        var template = $("#treeDropDownTemplate").html();
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root.html(templateHtml);
+        this._super(controller, "treeDropDownTemplate")
+
         this.availableItemsUl = this.root.find("#availableItems");
         this.popup = this.root.find("#popup");
         this.toggle = this.root.find("#toggle");

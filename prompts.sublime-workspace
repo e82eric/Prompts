@@ -3,12 +3,48 @@
 	{
 		"selected_items":
 		[
+			[
+				"ch",
+				"childAvailableItemsController"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"creat",
+				"createViewFunc"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "src/html_client/js/TreePromptItemView.js",
+			"settings":
+			{
+				"buffer_size": 2061,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/js/Templates.js",
+			"settings":
+			{
+				"buffer_size": 7330,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/js/EmptyPromptView.js",
+			"settings":
+			{
+				"buffer_size": 438,
+				"line_ending": "Windows"
+			}
+		}
 	],
-	"build_system": "Packages/User/prompts_javascript.sublime-build",
+	"build_system": "html",
 	"command_palette":
 	{
 		"height": 392.0,
@@ -32,9 +68,45 @@
 	},
 	"file_history":
 	[
+		"/C/Sources/src/html_client/js/PromptingLoadingPanelView.js",
+		"/C/Sources/src/html_client/js/TreePromptItemView.js",
+		"/C/Sources/src/html_client/js/FolderCatalogItemView.js",
+		"/C/Sources/src/html_client/js/TreePromptItemControllerBuilder.js",
+		"/C/Sources/src/html_client/js/RecursiveTreePromptItemControllerBuilder.js",
+		"/C/Sources/src/html_client/js/Templates.js",
+		"/C/Sources/src/html_client/js/TemplateView.js",
+		"/C/Sources/binaries/html_client/html/index.html",
+		"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelView.js",
 		"/C/Sources/build/rakefile.rb",
-		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/prompts_javascript.sublime-build",
+		"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelView.js",
+		"/C/Sources/src/html_client/js/LeafTreePromptItemView.js",
+		"/C/Sources/src/html_client/js/RecursiveTreeShoppingCartBuilder.js",
+		"/C/Sources/src/html_client/js/ShoppingCartController.js",
+		"/C/Sources/src/html_client/js/ShoppingCartView.js",
+		"/C/Sources/src/html_client/js/EmptyPromptController.js",
+		"/C/Sources/src/html_client/js/EmptyPromptView.js",
+		"/C/Sources/binaries/html_client/js/prompts.js",
+		"/C/Sources/src/html_client/js/ReportCatalogItemsController.js",
+		"/C/Sources/src/html_client/js/AsynchronousItemsController.js",
+		"/C/Sources/src/html_client/js/SelectedItemsController.js",
+		"/C/Sources/src/html_client/js/RootReportCatalogItemsController.js",
+		"/C/Sources/src/html_client/js/RootItemsView.js",
+		"/C/Sources/src/html_client/js/AvailableItemsController.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchAvailableItemsController.js",
+		"/C/Sources/src/html_client/js/EmptyFolderCatalogItemController.js",
+		"/C/Sources/src/html_client/js/ChildAvailableItemsController.js",
+		"/C/Sources/src/html_client/js/Search.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartBuilder.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartController.js",
+		"/C/Sources/src/html_client/js/PromptingLoadingPanelController.js",
+		"/C/Sources/src/html_client/js/ReportCatalogBuilder.js",
+		"/C/Sources/src/html_client/js/LoadingPanelControllerBase.js",
+		"/C/Sources/src/html_client/js/Application.js",
+		"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelController.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelController.js",
 		"/C/Sources/prompts.sublime-project",
+		"/C/Sources/prompts.sublime-workspace",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/prompts_javascript.sublime-build",
 		"/C/Sources/src/Prompts.html/js/external/Class.js",
 		"/C/Sources/src/Prompts.html/html/Index.html",
 		"/C/Sources/src/Prompts.html/js/underscore.js",
@@ -44,13 +116,16 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"<open folders>,-prompts.js",
+			"<open folders>",
+			""
 		]
 	},
 	"find_state":
@@ -58,6 +133,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ChildAvailableItemsView",
+			"RootItemsView",
+			"EmptyFolderCatalogItemView",
+			"ChildItemsView",
+			"ChildAvailableItemsController",
+			"new LoadingPanelController",
+			"LoadingPanelController",
+			"PromptingLoadingPanelController",
+			"PromptingController",
+			"PromptingLoadingPanelController",
+			"PromptingLoadingPanelView",
+			"PromptingLoadingPanelController",
+			"LoadingPanelControllerBase",
+			"ChildPromptItemsLoadingPanelController",
+			"LoadingPanelControllerBase",
+			"LoadingPanelControllerBase\n",
+			"},\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -75,8 +167,93 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/html_client/js/TreePromptItemView.js",
+					"settings":
+					{
+						"buffer_size": 2061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								139,
+								139
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/html_client/js/Templates.js",
+					"settings":
+					{
+						"buffer_size": 7330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1887,
+								1887
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 675.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/html_client/js/EmptyPromptView.js",
+					"settings":
+					{
+						"buffer_size": 438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								151,
+								151
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -126,6 +303,34 @@
 		"selected_items":
 		[
 			[
+				"inde",
+				"binaries/html_client/html/index.html"
+			],
+			[
+				"root",
+				"src/html_client/js/RootItemsView.js"
+			],
+			[
+				"applic",
+				"src/html_client/js/Application.js"
+			],
+			[
+				"applica",
+				"src/html_client/js/Application.js"
+			],
+			[
+				"asy",
+				"src/html_client/js/AsynchronousSearchLoadingPanelController.js"
+			],
+			[
+				"loadin",
+				"src/html_client/js/LoadingPanelControllerBase.js"
+			],
+			[
+				"loadingpa",
+				"src/html_client/js/LoadingPanelControllerBase.js"
+			],
+			[
 				"prompts",
 				"js/PromptsController.js"
 			]
@@ -144,6 +349,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 317.0,
+	"side_bar_width": 386.0,
 	"status_bar_visible": true
 }

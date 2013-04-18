@@ -4,6 +4,7 @@ var EmptyPromptController = PromptController.extend({
     },
 
     createView: function () {
-        return new EmptyPromptView(this);
+    	this.view = new EmptyPromptView(this);
+        return this.view;
     }
 });

@@ -1,11 +1,6 @@
-var ChildPromptItemsLoadingPanelView = Class.extend({
+var ChildPromptItemsLoadingPanelView = TemplateView.extend({
     init: function (controller, availableItemsView) {
-        this.controller = controller;
-
-        var template = $("#childPromptItemsLoadingPanelTemplate").html();
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root = $(templateHtml);
+        this._super(controller, "childPromptItemsLoadingPanelTemplate");
         this.loadingElement = this.root.find("#loading");
         this.loadedElement = this.root.find("#loaded");
         this.retryElement = this.root.find("#retry");

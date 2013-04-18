@@ -5,7 +5,8 @@ var ShoppingCartController = PromptController.extend({
     },
 
     createView: function () {
-        return new ShoppingCartView(this);
+        this.view = new ShoppingCartView(this);
+        return this.view;
     },
 
     onSelect: function () {

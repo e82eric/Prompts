@@ -1,9 +1,6 @@
-var ReportCatalogItemView = Class.extend({
+var ReportCatalogItemView = TemplateView.extend({
     init: function (controller){
-        this.controller = controller;
-        var base = new ReportCatalogItemViewBase("#itemTemplate", this.controller);
-        this.root = base.render();
-
+        this._super(controller, "itemTemplate");
         this.hoverElement = this.root.find("#hoverWrap");
         this.selectElement = this.root.find("#selectWrap:first");
     },

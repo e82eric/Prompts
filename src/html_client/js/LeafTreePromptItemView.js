@@ -1,14 +1,6 @@
-var LeafTreePromptItemView = Class.extend({
+var LeafTreePromptItemView = TemplateView.extend({
     init: function (controller) {
-        this.controller = controller;
-
-        this.root = $("<li class='treeItem' unselectable='on'></li>");
-        var template = $("#leafTreePromptItemTemplate").html();
-
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root.html(templateHtml);
-
+        this._super(controller, "leafTreePromptItemTemplate");
         this.selectWrap = this.root.find("#selectWrap");
         this.selectWrap.addClass('itemTestNotSelected');
     },

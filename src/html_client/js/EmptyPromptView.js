@@ -1,13 +1,6 @@
 var EmptyPromptView = PromptView.extend({
     init: function (controller) {
-        this.controller = controller;
-
-        this.root = $("<div></div>");
-        var template = $("#emptyPromptTemplate").html();
-
-        var templateFunction  = _.template(template);
-        var templateHtml = templateFunction(this.controller.model);
-        this.root.html(templateHtml);
+        this._super(controller, "emptyPromptTemplate");
     },
     render: function () {
         return this.root;

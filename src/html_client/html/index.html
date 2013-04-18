@@ -3,235 +3,38 @@
   <head>
     <title>Prompts for Reporting Services</title>
     <link rel="stylesheet" type="text/css" href="../css/prompts.css">
-  </head>
-  <body>
-  <table>
-      <tbody>
-        <th colspan="2">
-            <img src="../images/promptslogo.png">
-            <div class="promptsHeader">
-                <h1>Prompts</h1>
-                <h3>Prompts for Reporting Services</h3>
-            </div>
-        </th>
-        <tr>
-            <td colspan="2" class="hideShowRow">
-                <a >Hide</a>
-                Report Catalog
-            </td>
-        </tr>
-        <tr class="contentRow">
-            <td class="reportCatalogPanel panel">
-                <div id="reportCatalog">
-                </div>
-            </td>
-            <td class="promptsPanel2 panel">
-                <div id="prompts" class="promptsPanel">
-                </div>
-            </td>
-        </tr>
-      </tbody>
-  </table>
-
-  <script type="text/template" id="promptingLoadingPanelTemplate">
-      <div id="loaded"></div>
-      <div id="loading">loading...</div>
-      <div id="errorMessage"></div>
-      <a id="retry">Retry</a>
-  </script>
-
-  <script type="text/template" id="childPromptItemsLoadingPanelTemplate">
-      <div>
-          <ul class="childItems" id="loading">
-              <li class="treeNodeLoading">loading...</li>
-          </ul>
-          <div id="loaded">
-          </div>
-          <ul id="errorMessage">
-          </ul>
-          <ul id="retry">
-              <a>Retry</a>
-          </ul>
-      </div>
-  </script>
-
-    <script type="text/template" id="itemTemplate">
-      <div id="wrap">
-        <div id="ExpandImage" class="catalogItem"/>
-        <div id="hoverWrap" class="catalogItem">
-        <div id="selectWrap" class="catalogItem">
-            <img src="../images/report.png" class="catalogItem" />
-            <div class="catalogItem"><%- Name %></div>
-          </div>
-        </div>
-      </div>
-    </script>
-
-  <script type="text/template" id="leafTreePromptItemTemplate">
-        <span id="selectWrap">
-            <span class='itemTest'><%- Label %></span>
-        </span>
-  </script>
-
-    <script type="text/template" id="treePromptItemTemplate">
-        <div class="catalogItem" style="width:16px">
-            <img id="expandImage" src="../images/tree_collapsed.png">
-        </div>
-
-        <span id="selectWrap">
-            <span class='itemTest'><%- Label %></span>
-        </span>
-    </script>
-
-    <script type="text/template" id="folderItemTemplate">
-      <div id="wrap">
-        <div id="ExpandImage" class="catalogItem">
-            <img />
-        </div>
-        <img src="../images/folder.png" class="catalogItem" />
-        <div class="catalogItem"><%- Name %></div>
-      </div>
-    </script>
-
-    <script type="text/template" id="emptyFolderItemTemplate">
-        <div id="wrap">
-            <div id="ExpandImage" class="catalogItem"></div>
-            <img src="../images/folder.png" class="catalogItem"
-            <div class="catalogItem"><%- Name %></div>
-        </div>
-    </script>
-
-  <script type="text/template" id="emptyPromptTemplate">
-      <input style="width:100%; height: 25px;">
-  </script>
-
-  <script type="text/template" id="treeDropDownTemplate">
-      <div class="dropDown" >
-          <div class="dropDownToggle" id="toggle" >
-              <span id="selectedItemText"></span>
-              <span><img class="dropDownToggleImage" src="../images/tree_expand.png"></span>
-          </div>
-            <div id="popup" class="dropDownPopup" >
-          </div>
-      </div>
-  </script>
-
-    <script type="text/template" id="dropDownTemplate">
-        <div class="dropDown" >
-            <div class="dropDownToggle" id="toggle" >
-                <span id="selectedItemText"></span>
-                <span><img class="dropDownToggleImage" src="../images/tree_expand.png"></span>
-            </div>
-            <div id="popup" class="dropDownPopup" >
-                <button id="searchButton" style="float:right">Search</button>
-                <div style="padding: 0 5px 0 2px; overflow: hidden;" >
-                    <input id="searchString" type="text" title="Search" style="width: 100%" />
-                </div>
-            </div>
-        </div>
-    </script>
-
-    <script type="text/template" id="shoppingCartTemplate">
-        <table style="height:400px; width: 100%;">
-            <tr>
-                <td><input id="searchString" style="width:100%"></td>
-                <td><button id="searchButton" style="width:100%">Search</button></td>
-            </tr>
-            <tr>
-                <td rowspan="2" class="listBox" style="width:50%">
-                    <div id="availableItems" style="height: 400px; overflow-y: scroll">
-                    </div>
-                </td>
-                <td style="width: 100px; vertical-align: bottom; height: 200px">
-                    <button id="selectButton" style="width: 100px;">Select</button>
-                </td>
-                <td rowspan="2" class="listBox">
-                    <div style="height: 400px; overflow-y: scroll">
-                        <ul id="selectedItems" class="rootItems">
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="vertical-align: top">
-                    <button id="unSelectButton" style="width: 100px;">De-Select</button>
-                </td>
-            </tr>
-        </table>
-    </script>
-
-  <script type="text/template" id="asynchronousSearchShoppingCartTemplate">
-      <table id="content" style="height:400px; width: 100%;">
-          <tr style="vertical-align: top; height: 25px">
-              <td><input id="searchString" style="width:100%"></td>
-              <td><button id="searchButton" style="width:100%">Search</button></td>
-          </tr>
-      </table>
-  </script>
-
-  <script type="text/template" id="asynchronousSearchLoadingPanelTemplate">
-      <tr style="vertical-align: top" id="loading"><td >loading...</td></tr>
-      <tr id="errorMessage">
-      </tr>
-      <tr style="vertical-align: top" id="retry">
-        <td><a>Retry</a></td>
-      </tr>
-      <tr id="loaded">
-          <td rowspan="2" class="listBox" style="width:50%">
-              <div id="availableItems" style="height: 400px; overflow-y: scroll">
-              </div>
-          </td>
-          <td style="width: 100px; vertical-align: bottom; height: 200px">
-              <button id="selectButton" style="width: 100px;">Select</button>
-          </td>
-          <td rowspan="2" class="listBox">
-              <div style="height: 400px; overflow-y: scroll">
-                  <ul id="selectedItems" class="rootItems">
-                  </ul>
-              </div>
-          </td>
-      </tr>
-      <tr id="loaded">
-          <td style="vertical-align: top">
-              <button id="unSelectButton" style="width: 100px;">De-Select</button>
-          </td>
-      </tr>
-  </script>
-
-  <script type="text/template" id="treeShoppingCartTemplate">
-      <table style="height:400px; width: 100%;">
-          <tr>
-              <td rowspan="2" class="listBox" style="width:50%">
-                  <div id="availableItems" style="height: 400px; overflow-y: scroll">
-                  </div>
-              </td>
-              <td style="width: 100px; vertical-align: bottom; height: 200px">
-                  <button id="selectButton" style="width: 100px;">Select</button>
-              </td>
-              <td rowspan="2" class="listBox">
-                  <div style="height: 400px; overflow-y: scroll">
-                      <ul id="selectedItems" class="rootItems">
-                      </ul>
-                  </div>
-              </td>
-          </tr>
-          <tr>
-              <td style="vertical-align: top">
-                  <button id="unSelectButton" style="width: 100px;">De-Select</button>
-              </td>
-          </tr>
-      </table>
-  </script>
-
-    <script type="text/template" id="availableItemsTemplate">
-        <ul id="availableItems" class="rootItems">
-
-        </ul>
-    </script>
-
     <script src="../js/jquery.js"></script>
     <script src="../js/underscore.js"></script>
     <script src="../js/Class.js"></script>
     <script src="../js/prompts.js"></script>
+  </head>
+  <body>
+    <table>
+        <tbody>
+          <th colspan="2">
+              <img src="../images/promptslogo.png">
+              <div class="promptsHeader">
+                  <h1>Prompts</h1>
+                  <h3>Prompts for Reporting Services</h3>
+              </div>
+          </th>
+          <tr>
+              <td colspan="2" class="hideShowRow">
+                  <a >Hide</a>
+                  Report Catalog
+              </td>
+          </tr>
+          <tr class="contentRow">
+              <td class="reportCatalogPanel panel">
+                  <div id="reportCatalog">
+                  </div>
+              </td>
+              <td class="promptsPanel2 panel">
+                  <div id="prompts" class="promptsPanel">
+                  </div>
+              </td>
+          </tr>
+        </tbody>
+    </table>
   </body>
 </html>
