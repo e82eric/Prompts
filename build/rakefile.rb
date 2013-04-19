@@ -1,4 +1,6 @@
 require 'albacore'
+require 'erb'
+include ERB::Util
 
 versionNumber = "1.0.0"
 buildNumber = ENV['buildNumber'] || "0"
@@ -148,42 +150,11 @@ task :add_documentation do
 	end
 end
 
-task :build_javascript => ['Clean'] do
-	clientSource = "#{solutionRoot}/html_client"
-
-	outDir = "#{rootBuildDirectory}/html_client"
-	jsSource = "#{clientSource}/js"
-	jsOutDir = "#{outDir}/js"
-
-	FileUtils.mkdir_p jsOutDir
-	FileUtils.mkdir_p "#{outDir}/js"
-	outFile = File.new("#{jsOutDir}/prompts.js", "w+")
-	
-	jsFiles = [
-		"Templates.js",
-		"TemplateView.js",
-		"AsynchronousItemsController.js", 
-		"LoadingPanelControllerBase.js", 
-		"PromptController.js", 
-		"PromptView.js", 
-		"ItemsView.js", 
-		"SelectableItemController.js",
-		"ExpandableItemController.js"].map { |name| "#{jsSource}/#{name}" }
-	
-	Dir.glob "#{jsSource}/*.js" do |filePath|
-		if !jsFiles.include? filePath
-			jsFiles.push filePath
-		end
-	end
-	
-	jsFiles.each { |filePath| outFile.puts File.read(filePath) }
-	
-	FileUtils.cp_r "#{clientSource}/css", "#{outDir}/css"
-	FileUtils.cp_r "#{clientSource}/images", "#{outDir}/images"
-	FileUtils.cp_r "#{clientSource}/html", "#{outDir}/html"
-	Dir.glob "#{jsSource}/external/{*}" do |path|
-		copy path, jsOutDir
-	end
+desc "Build Html Clients"
+task :build_html_clients => ['Clean'] do
+	builder = Html_Client_Builder.new "#{solutionRoot}/html_client", rootBuildDirectory
+	builder.build_concatenated
+	builder.build_debug
 end
 
 def publish_web_project(projectDirectory, projectName, buildDirectory)
@@ -203,3 +174,78 @@ def build_project(projectFile)
 	msbuild.build_solution(projectFile)
 end
 
+class Html_Client_Builder
+	def initialize(sourceDirectory, binariesDirectory)
+		@sourceDirectory = sourceDirectory
+		@binariesDirectory = binariesDirectory
+		@jsSourceDirectory = "#{@sourceDirectory}/js"
+		@htmlSourceDirectory = "#{@sourceDirectory}/html"
+
+		init_jsFiles
+	end
+
+	def build_concatenated
+		build_html_client false
+	end
+
+	def build_debug
+		build_html_client true
+	end
+
+	private
+
+	def init_jsFiles
+		@jsFiles = [
+			"Templates.js",
+			"TemplateView.js",
+			"AsynchronousItemsController.js", 
+			"LoadingPanelControllerBase.js", 
+			"PromptController.js", 
+			"PromptView.js", 
+			"ItemsView.js", 
+			"SelectableItemController.js",
+			"ExpandableItemController.js"]
+		
+		Dir.chdir(@jsSourceDirectory) do
+			Dir.glob "*.js" do |fileName|
+				if !@jsFiles.include? fileName
+					@jsFiles.push fileName
+				end
+			end
+		end
+	end
+
+	def build_html_client(is_Debug)
+		is_Debug ? outDir = "#{@binariesDirectory}/html_client_debug" : outDir = "#{@binariesDirectory}/html_client"
+
+		jsOutDir = "#{outDir}/js"
+
+		FileUtils.mkdir_p jsOutDir
+		
+		if is_Debug
+			Dir.glob "#{@jsSourceDirectory}/{*.js}" do |path|
+				copy path, jsOutDir
+			end
+			create_index_html "#{outDir}/html", @jsFiles
+		else
+			outFile = File.new("#{jsOutDir}/prompts.js", "w+")
+			@jsFiles.each { |filePath| outFile.puts File.read("#{@jsSourceDirectory}/#{filePath}") }
+			create_index_html "#{outDir}/html", ["prompts.js"]
+		end
+		
+		FileUtils.cp_r "#{@sourceDirectory}/css", "#{outDir}/css"
+		FileUtils.cp_r "#{@sourceDirectory}/images", "#{outDir}/images"
+		Dir.glob "#{@jsSourceDirectory}/external/{*}" do |path|
+			copy path, jsOutDir
+		end
+	end
+
+	def create_index_html(outputDirectory, jsFiles)
+		FileUtils.mkdir_p outputDirectory
+		template = ERB.new File.new("#{@htmlSourceDirectory}/index.html.erb").read, 0, ">"
+
+		File.open("#{outputDirectory}/index.html", "w+") do |file|
+		  file.puts template.result(binding)
+		end
+	end
+end

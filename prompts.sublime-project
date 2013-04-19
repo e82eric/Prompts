@@ -9,7 +9,7 @@
     [
         {
         	"name": "html",
-		    "cmd": ["rake.bat", "build_javascript"],
+		    "cmd": ["rake.bat", "build_html_clients"],
 		    "working_dir": "${project_path:${folder}}\\build"
         }
     ]
