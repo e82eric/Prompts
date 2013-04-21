@@ -1,8 +1,7 @@
 var LeafTreePromptItemView = TemplateView.extend({
     init: function (controller) {
         this._super(controller, "leafTreePromptItemTemplate");
-        this.selectWrap = this.root.find("#selectWrap");
-        this.selectWrap.addClass('itemTestNotSelected');
+        this.selectWrap = this.root.find(".item");
     },
 
     render: function () {
@@ -15,12 +14,10 @@ var LeafTreePromptItemView = TemplateView.extend({
     },
 
     onSelected: function () {
-        this.selectWrap.addClass('itemTestSelect');
-        this.selectWrap.removeClass('itemTestNotSelected');
+        this.selectWrap.attr('class', 'item-selected');
     },
 
     onUnSelected: function () {
-        this.selectWrap.removeClass('itemTestSelect');
-        this.selectWrap.addClass('itemTestNotSelected');
+        this.selectWrap.attr('class', 'item');
     }
 });

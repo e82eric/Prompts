@@ -122,35 +122,51 @@ ul.rootItems{
     vertical-align: top;
 }
 
-.promptItem {
-    border-radius: 5px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    vertical-align: top;
-    width:100%;
-}
-
-.promptItemHover {
-    background: #E8E8E8;
-}
-
-.itemTest {
-    border: 1px solid transparent;
+.item, .item-selected {
     cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 16px;
+    padding: 0px 2px 0px 2px
 }
 
-.itemTest:hover {
+.item {
+    border: 1px solid transparent;
+}
+
+.item:hover {
     background: #E8E8E8;
     border: 1px solid #999;
 }
 
-.itemTestNotSelected {
-    border: 1px solid transparent;
+.item-selected {
+    background: #D1D1D1;
+    border: 1px solid #999;
 }
 
-.itemTestSelect {
-    background: #D1D1D1;
+.item-selected:hover {
     border: 1px solid black;
+}
+
+.expandImage {
+    margin-top: 0px;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: top;
+    padding:1px;
+}
+
+.collapsed-image {
+    background-image: url("../images/tree_collapsed.png");
+}
+
+.expanded-image {
+    background-image: url("../images/tree_expand.png");
 }
 
 .hoverGlow {
@@ -217,10 +233,31 @@ a:hover {
     z-index: 9001;
 }
 
-.treeItem {
-    padding: 2px;
+.treeItem > div, .promptItem > div {
+    margin-bottom: 1px;
+}
+
+.treeItem .loading {
+    margin-left: 18px;
+}
+
+.treeItem .item, .treeItem .item-selected {
+    display: inline-block;
 }
 
 .treeNodeLoading {
     color: gray;
+}
+
+.shoppingcart-button {
+    width: 100px;
+    height: 200px; 
+}
+
+.select-button {
+    vertical-align: bottom;
+}
+
+.unselect-button {
+    vertical-align: top;
 }

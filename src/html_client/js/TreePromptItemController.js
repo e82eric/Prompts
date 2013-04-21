@@ -30,7 +30,14 @@ var TreePromptItemController = ExpandableItemController.extend({
         this._super();
         if(this.childrenSet == false) {
             this.childItemsRequester.execute(this.childAvailableItemsController, this);
+        } else {
+            this.childItemsLoadingPanelController.showLoaded();
         }
+    },
+
+    collapse: function () {
+        this._super();
+        this.childItemsLoadingPanelController.hideAll();
     },
 
     setChildren: function(val) {

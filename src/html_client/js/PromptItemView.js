@@ -2,11 +2,10 @@ function PromptItemView (controller) {
     this.controller = controller;
 
     this.render = function () {
-        this.root = $("<li class='itemTest' unselectable='on'><div unselectable='on' id='selectWrap'>" + this.controller.model.Label + "</div></li>");
+        this.root = $("<li class='promptItem'><div class='item' onselectstart='return false;'>" + this.controller.model.Label + "</div></li>");
         this.root.click($.proxy(this.onClick,this));
 
-        this.selectWrap = this.root.find("#selectWrap");
-        this.selectWrap.addClass('itemTestNotSelected');
+        this.selectWrap = this.root.find(".item");
 
         return this.root;
     }
@@ -17,13 +16,11 @@ function PromptItemView (controller) {
     };
 
     this.onSelected = function () {
-        this.selectWrap.addClass('itemTestSelect');
-        this.selectWrap.removeClass('itemTestNotSelected');
+        this.selectWrap.attr('class', 'item-selected');
     };
 
     this.onUnSelected = function () {
-        this.selectWrap.removeClass('itemTestSelect');
-        this.selectWrap.addClass('itemTestNotSelected');
+        this.selectWrap.attr('class', 'item');
     };
 
     this.deleteItem = function () {

@@ -1,10 +1,10 @@
 var ChildPromptItemsLoadingPanelView = TemplateView.extend({
     init: function (controller, availableItemsView) {
         this._super(controller, "childPromptItemsLoadingPanelTemplate");
-        this.loadingElement = this.root.find("#loading");
-        this.loadedElement = this.root.find("#loaded");
-        this.retryElement = this.root.find("#retry");
-        this.errorElement = this.root.find("#errorMessage");
+        this.loadingElement = this.root.filter("#loading");
+        this.loadedElement = this.root.filter("#loaded");
+        this.retryElement = this.root.filter("#retry");
+        this.errorElement = this.root.filter("#errorMessage");
         this.loadedElement.html(availableItemsView.render());
     },
 

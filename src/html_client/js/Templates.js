@@ -9,18 +9,10 @@ Prompts.Templates["promptingLoadingPanelTemplate"] = _.template([
 ].join(''));
 
 Prompts.Templates["childPromptItemsLoadingPanelTemplate"] = _.template([
-	'<div>',
-	  '<ul class="childItems" id="loading">',
-	      '<li class="treeNodeLoading">loading...</li>',
-	  '</ul>',
-	  '<div id="loaded">',
-	  '</div>',
-	  '<ul id="errorMessage">',
-	  '</ul>',
-	  '<ul id="retry">',
-	      '<a>Retry</a>',
-	  '</ul>',
-	'</div>'
+	  '<div id="loading" class="loading">loading...</div>',
+	  '<div id="errorMessage"></div>',
+	  '<div id="retry"><a>Retry</a></div>',
+    '<div id="loaded"></div>'
 ].join(''));
 
 Prompts.Templates["itemTemplate"] = _.template([
@@ -37,20 +29,16 @@ Prompts.Templates["itemTemplate"] = _.template([
 
 Prompts.Templates["leafTreePromptItemTemplate"] = _.template([
   '<li class="treeItem" unselectable="on">',
-  	'<span id="selectWrap">',
-      	'<span class="itemTest"><%- Label %></span>',
-  	'</span>',
+  	'<span class="item"><%- Label %></span><',
   '</li>'
 ].join(''));
 
 Prompts.Templates["treePromptItemTemplate"] = _.template([
   '<li class="treeItem" unselectable="on">',
-  	'<div class="catalogItem" style="width:16px">',
-          '<img id="expandImage" src="../images/tree_collapsed.png">',
+      '<div>',
+        '<span class="expandImage"></span>',
+        '<div class="item" onselectstart="return false;"><%- model.Label %></div>',
       '</div>',
-      '<span id="selectWrap">',
-          '<span class="itemTest"><%- model.Label %></span>',
-      '</span>',
     '</li>'
 ].join(''));
 
@@ -67,9 +55,12 @@ Prompts.Templates["folderItemTemplate"] = _.template([
 ].join(''));
 
 Prompts.Templates["leafTreePromptItemTemplate"] = _.template([
-	'<span id="selectWrap">',
-    	'<span class="itemTest"><%- model.Label %></span>',
-	'</span>'
+  '<li class="treeItem" unselectable="on">',
+    '<div style="padding-bottom: 1px">',
+      '<span style="width: 8px; display: inline-block"></span>',
+    	'<span class="item" onselectstart="return false;"><%- model.Label %></span>',
+    '</div>',
+  '</li>'
 ].join(''));
 
 Prompts.Templates["emptyFolderItemTemplate"] = _.template([
@@ -126,7 +117,7 @@ Prompts.Templates["shoppingCartTemplate"] = _.template([
                 '<div id="availableItems" style="height: 400px; overflow-y: scroll">',
                 '</div>',
             '</td>',
-            '<td style="width: 100px; vertical-align: bottom; height: 200px">',
+            '<td class="shoppingcart-button select-button">',
                ' <button id="selectButton" style="width: 100px;">Select</button>',
             '</td>',
             '<td rowspan="2" class="listBox">',
@@ -137,7 +128,7 @@ Prompts.Templates["shoppingCartTemplate"] = _.template([
             '</td>',
         '</tr>',
         '<tr>',
-            '<td style="vertical-align: top">',
+            '<td class="shoppingcart-button unselect-button">',
                 '<button id="unSelectButton" style="width: 100px;">De-Select</button>',
             '</td>',
         '</tr>',
@@ -168,7 +159,7 @@ Prompts.Templates["asynchronousSearchLoadingPanelTemplate"] = _.template([
           '<div id="availableItems" style="height: 400px; overflow-y: scroll">',
           '</div>',
       '</td>',
-      '<td style="width: 100px; vertical-align: bottom; height: 200px">',
+      '<td class="shoppingcart-button select-button">',
           '<button id="selectButton" style="width: 100px;">Select</button>',
       '</td>',
       '<td rowspan="2" class="listBox">',
@@ -179,7 +170,7 @@ Prompts.Templates["asynchronousSearchLoadingPanelTemplate"] = _.template([
       '</td>',
   '</tr>',
   '<tr id="loaded">',
-      '<td style="vertical-align: top">',
+      '<td class="shoppingcart-button unselect-button">',
           '<button id="unSelectButton" style="width: 100px;">De-Select</button>',
       '</td>',
   '</tr>'
@@ -193,7 +184,7 @@ Prompts.Templates["treeShoppingCartTemplate"] = _.template([
                 '<div id="availableItems" style="height: 400px; overflow-y: scroll">',
                 '</div>',
             '</td>',
-            '<td style="width: 100px; vertical-align: bottom; height: 200px">',
+            '<td class="shoppingcart-button select-button">',
                 '<button id="selectButton" style="width: 100px;">Select</button>',
             '</td>',
             '<td rowspan="2" class="listBox">',
@@ -204,7 +195,7 @@ Prompts.Templates["treeShoppingCartTemplate"] = _.template([
             '</td>',
         '</tr>',
         '<tr>',
-            '<td style="vertical-align: top">',
+            '<td class="shoppingcart-button unselect-button">',
                 '<button id="unSelectButton" style="width: 100px;">De-Select</button>',
             '</td>',
         '</tr>',

@@ -34,5 +34,11 @@ var LoadingPanelControllerBase = Class.extend({
         var view = this.createViewFunc(this);
         this.setView(view);
         return view;
-    }
+    },
+
+    hideAll: function () {
+        this.view.hideLoaded();
+        this.view.hideLoading();
+        this.view.hideRetry();
+    },
 });
