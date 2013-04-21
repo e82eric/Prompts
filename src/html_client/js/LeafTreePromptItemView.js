@@ -1,6 +1,6 @@
 var LeafTreePromptItemView = TemplateView.extend({
     init: function (controller) {
-        this._super(controller, "leafTreePromptItemTemplate");
+        this._super(controller, "treePromptItemTemplate");
         this.selectWrap = this.root.find(".item");
     },
 

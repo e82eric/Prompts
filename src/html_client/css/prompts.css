@@ -1,3 +1,4 @@
+
 .panel {
     padding-right: 3px;
     border: 2px solid #E8E8E8;
@@ -90,7 +91,6 @@ table {
     height: 100%;
     width: 100%;
     border: 1px;
-    border-spacing: 7px;
 }
 
 #ExpandImage {
@@ -198,7 +198,6 @@ a:hover {
 .dropDown {
     width: 400px;
     position:relative;
-    padding: 5px;
 }
 
 .dropDownToggle {
@@ -233,6 +232,10 @@ a:hover {
     z-index: 9001;
 }
 
+.dropDownPopup > button {
+    float: right;
+}
+
 .treeItem > div, .promptItem > div {
     margin-bottom: 1px;
 }
@@ -250,11 +253,11 @@ a:hover {
 }
 
 .shoppingcart-listbox {
-    height: 400px; 
+    height: 400px;
     overflow-y: scroll
 }
 
-.shoppingcart-button > button {
+button {
     width: 100px;
 }
 
@@ -272,4 +275,13 @@ a:hover {
 
 .search-input {
     width: 100%;
+}
+
+.prompt {
+    padding: 7px;
+}
+
+.dropdown-search {
+    padding: 0 5px 0 2px; 
+    overflow: hidden;"
 }
