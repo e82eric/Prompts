@@ -2,7 +2,7 @@ var TemplateView = Class.extend({
     init: function (controller, templateId) {
         this.controller = controller;
 
-        var template = Prompts.Templates[templateId];
+        var template = _.template($("#" + templateId).text());
         var templateHtml = template(this.controller);
         this.root = $(templateHtml);
     }, 

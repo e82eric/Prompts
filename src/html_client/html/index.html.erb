@@ -7,10 +7,17 @@
     <script src="../js/underscore.js"></script>
     <script src="../js/Class.js"></script>
     <% for @jsFile in @jsFiles %>
-<script src="../js/<%= html_escape(@jsFile) %>"></script>
+      <script src="../js/<%= html_escape(@jsFile) %>"></script>
     <% end %>
   </head>
   <body>
+
+    <% for @template in @templates %>
+      <script id="<%= html_escape(@template.name) %>" type="text/template">
+        <%= @template.text %>
+      </script>
+    <% end %>
+
     <table>
         <tbody>
           <th colspan="2">

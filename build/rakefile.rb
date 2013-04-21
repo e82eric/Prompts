@@ -182,6 +182,7 @@ class Html_Client_Builder
 		@htmlSourceDirectory = "#{@sourceDirectory}/html"
 
 		init_jsFiles
+		init_templates
 	end
 
 	def build_concatenated
@@ -196,7 +197,6 @@ class Html_Client_Builder
 
 	def init_jsFiles
 		@jsFiles = [
-			"Templates.js",
 			"TemplateView.js",
 			"AsynchronousItemsController.js", 
 			"LoadingPanelControllerBase.js", 
@@ -211,6 +211,19 @@ class Html_Client_Builder
 				if !@jsFiles.include? fileName
 					@jsFiles.push fileName
 				end
+			end
+		end
+	end
+
+	def init_templates
+		@templates = []
+		
+		Dir.chdir("#{@sourceDirectory}/templates") do
+			Dir.glob "*.html" do |fileName|
+				file = File.open(fileName)
+				text = file.read
+				obj = OpenStruct.new(:name => File.basename(fileName, ".*"), :text => text)
+				@templates.push obj
 			end
 		end
 	end
