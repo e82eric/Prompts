@@ -254,8 +254,11 @@ a:hover {
     overflow-y: scroll
 }
 
-.shoppingcart-button {
+.shoppingcart-button > button {
     width: 100px;
+}
+
+.select-button, .unselect-button{
     height: 200px; 
 }
 
@@ -265,4 +268,8 @@ a:hover {
 
 .unselect-button {
     vertical-align: top;
+}
+
+.search-input {
+    width: 100%;
 }
