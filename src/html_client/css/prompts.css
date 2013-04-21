@@ -249,6 +249,11 @@ a:hover {
     color: gray;
 }
 
+.shoppingcart-listbox {
+    height: 400px; 
+    overflow-y: scroll
+}
+
 .shoppingcart-button {
     width: 100px;
     height: 200px; 
