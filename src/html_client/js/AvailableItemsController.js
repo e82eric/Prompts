@@ -9,7 +9,7 @@ var AvailableItemsController = Class.extend({
     },
 
     select: function (shiftKeyPressed, controlKeyPressed, item) {
-        this.selectedItems = this.selector.select(shiftKeyPressed, controlKeyPressed, this.items, item);
+        this.selectedItems = this.selector.select(shiftKeyPressed, controlKeyPressed, this.displayItems, item);
     },
 
     getSelectedItems: function () {
@@ -32,9 +32,11 @@ var AvailableItemsController = Class.extend({
         var searchResults = itemsSearch.execute(this.items);
 
         this.view.renderItems(searchResults);
+        this.displayItems = searchResults;
     },
 
     setItems: function (val) {
         this.items = val;
+        this.displayItems = this.items;
     }
 });
