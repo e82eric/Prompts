@@ -1,24 +1,13 @@
 var ReportCatalogItemView = TemplateView.extend({
     init: function (controller){
         this._super(controller, "itemTemplate");
-        this.hoverElement = this.root.find("#hoverWrap");
-        this.selectElement = this.root.find("#selectWrap:first");
+        this.selectElement = this.root.find(".selectable");
     },
 
     render: function () {
-        this.hoverElement.mouseover($.proxy(this.onMouseOver,this));
-        this.hoverElement.mouseleave($.proxy(this.onMouseLeave,this));
-        this.hoverElement.click($.proxy(this.onClick,this));
+        this.selectElement.click($.proxy(this.onClick,this));
 
         return this.root;
-    },
-
-    onMouseOver: function () {
-        this.hoverElement.attr('class', 'hoverGlow');
-    },
-
-    onMouseLeave: function () {
-        this.hoverElement.attr('class', 'catalogItem');
     },
 
     onClick: function () {
@@ -26,10 +15,10 @@ var ReportCatalogItemView = TemplateView.extend({
     },
 
     onSelected: function () {
-        this.selectElement.attr('class', 'selectedGlow');
+        this.selectElement.attr('class', 'item selectable-selected');
     },
 
     onUnSelected: function () {
-        this.selectElement.attr('class', 'catalogItem');
+        this.selectElement.attr('class', 'item selectable');
     }
 });

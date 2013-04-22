@@ -5,7 +5,7 @@ var TreePromptItemView = TemplateView.extend({
         this.childItemsLoadingPanelView = childItemsLoadingPanelView;
         this.root.append(this.childItemsLoadingPanelView.render());
         this.expandImage = this.root.find(".expandImage");
-        this.selectWrap = this.root.find(".item");
+        this.selectWrap = this.root.find(".selectable");
     },
     render: function () {
         this.expandImage.click($.proxy(this.onExpandClick,this));
@@ -24,11 +24,11 @@ var TreePromptItemView = TemplateView.extend({
     },
 
     onSelected: function () {
-        this.selectWrap.attr('class', 'item-selected');
+        this.selectWrap.attr('class', 'item selectable-selected');
     },
 
     onUnSelected: function () {
-        this.selectWrap.attr('class', 'item');
+        this.selectWrap.attr('class', 'item selectable');
     },
 
     deleteItem: function () {

@@ -8,7 +8,8 @@
 
 .listBox {
     border: 1px solid black;
-    width:50%;
+    width:45%;
+    vertical-align: top;
 }
 
 th{
@@ -93,15 +94,6 @@ table {
     border: 1px;
 }
 
-#ExpandImage {
-	width: 18px;
-}
-
-li.ReportView {
-	list-style-type: none;
-	cursor: pointer;
-}
-
 ul.childItems {
 	padding: 0;
     margin: 0 0 0 22px;
@@ -112,14 +104,7 @@ ul.rootItems{
     padding: 0;
     margin: 0;
     list-style: none;
-}
-
-.catalogItem {
-    display: inline-block;
-    border-radius: 5px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    vertical-align: top;
+    height: 400px;
 }
 
 .item, .item-selected {
@@ -131,25 +116,34 @@ ul.rootItems{
     -ms-user-select: none;
     user-select: none;
     height: 16px;
-    padding: 0px 2px 0px 2px
+    padding: 0px 2px 0px 2px;
 }
 
-.item {
+.selectable {
     border: 1px solid transparent;
 }
 
-.item:hover {
+.selectable:hover {
     background: #E8E8E8;
     border: 1px solid #999;
 }
 
-.item-selected {
+.selectable-selected {
     background: #D1D1D1;
     border: 1px solid #999;
 }
 
-.item-selected:hover {
+.selectable-selected:hover {
     border: 1px solid black;
+}
+
+.image {
+    margin-top: 0px;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: top;
+    padding:1px;
 }
 
 .expandImage {
@@ -169,20 +163,12 @@ ul.rootItems{
     background-image: url("../images/tree_expand.png");
 }
 
-.hoverGlow {
-    display: inline-block;
-    border-radius: 5px;
-    vertical-align: top;
-    background: #E8E8E8;
-    border: 1px solid #999;
+.report-image {
+    background-image: url("../images/report.png");
 }
 
-.selectedGlow {
-	display: inline-block;
-    border-radius: 5px;
-	vertical-align: top;
-    background: #D1D1D1;
-    border: 1px solid #999;
+.folder-image {
+    background-image: url("../images/folder.png");
 }
 
 a {
