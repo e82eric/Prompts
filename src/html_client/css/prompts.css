@@ -100,11 +100,14 @@ ul.childItems {
     list-style-type: none;
 }
 
+.listBox > .rootItems {
+    height: 400px;
+}
+
 ul.rootItems{
     padding: 0;
     margin: 0;
     list-style: none;
-    height: 400px;
 }
 
 .item, .item-selected {
