@@ -6,11 +6,7 @@
     vertical-align: top;
 }
 
-.listBox {
-    border: 1px solid black;
-    width:45%;
-    vertical-align: top;
-}
+
 
 th{
     height: auto;
@@ -100,10 +96,6 @@ ul.childItems {
     list-style-type: none;
 }
 
-.listBox > .rootItems {
-    height: 400px;
-}
-
 ul.rootItems{
     padding: 0;
     margin: 0;
@@ -156,6 +148,10 @@ ul.rootItems{
     width: 16px;
     vertical-align: top;
     padding:1px;
+}
+
+.collapsed-image, .expanded-image {
+    cursor: pointer;
 }
 
 .collapsed-image {
@@ -243,7 +239,14 @@ a:hover {
 
 .shoppingcart-listbox {
     height: 400px;
-    overflow-y: scroll
+    overflow-y: scroll;
+    border: 1px solid black;
+    width:45%;
+    vertical-align: top;
+}
+
+.shoppingcart-listbox > .rootItems {
+    height: 400px;
 }
 
 button {
