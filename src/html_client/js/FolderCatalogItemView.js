@@ -3,7 +3,7 @@ var FolderCatalogItemView = TemplateView.extend({
         this._super(controller, "folderItemTemplate");
         this.childItemsView = childItemsView;
 
-        this.expandImage = this.root.find(".expandImage");
+        this.expandImage = this.root.find(".expander");
 
         this.root.append(this.childItemsView.render());
     },
@@ -14,12 +14,12 @@ var FolderCatalogItemView = TemplateView.extend({
     },
 
     renderExpand: function () {
-        this.expandImage.attr("class", "expandImage expanded-image");
+        this.expandImage.attr("class", "expander image expanded-image");
         $(this.root.children()[1]).show();
     },
 
     renderCollapse: function () {
-        this.expandImage.attr("class", "expandImage collapsed-image");
+        this.expandImage.attr("class", "expander image collapsed-image");
         $(this.root.children()[1]).hide();
     },
 

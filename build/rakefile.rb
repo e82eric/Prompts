@@ -246,7 +246,9 @@ class Html_Client_Builder
 			create_index_html "#{outDir}/html", ["prompts.js"]
 		end
 		
-		FileUtils.cp_r "#{@sourceDirectory}/css", "#{outDir}/css"
+		cssOutDir = "#{outDir}/css"
+		FileUtils.mkdir_p cssOutDir
+		system("sass '#{@sourceDirectory}/css/prompts.scss':'#{cssOutDir}/prompts.css' --no-cache")
 		FileUtils.cp_r "#{@sourceDirectory}/images", "#{outDir}/images"
 		Dir.glob "#{@jsSourceDirectory}/external/{*}" do |path|
 			copy path, jsOutDir

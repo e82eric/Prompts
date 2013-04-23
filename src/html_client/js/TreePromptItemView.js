@@ -4,12 +4,12 @@ var TreePromptItemView = TemplateView.extend({
 
         this.childItemsLoadingPanelView = childItemsLoadingPanelView;
         this.root.append(this.childItemsLoadingPanelView.render());
-        this.expandImage = this.root.find(".expandImage");
-        this.selectWrap = this.root.find(".selectable");
+        this.expandImage = this.root.find(".expander");
+        this.selectElement = this.root.find(".selectable");
     },
     render: function () {
         this.expandImage.click($.proxy(this.onExpandClick,this));
-        this.selectWrap.click($.proxy(this.onClick,this));
+        this.selectElement.click($.proxy(this.onClick,this));
         this.childItemsLoadingPanelView.root.find("#retry").click($.proxy(this.onRetryClick, this));
 
         return this.root;
@@ -24,11 +24,11 @@ var TreePromptItemView = TemplateView.extend({
     },
 
     onSelected: function () {
-        this.selectWrap.attr('class', 'item selectable-selected');
+        this.selectElement.attr('class', 'item selectable-selected');
     },
 
     onUnSelected: function () {
-        this.selectWrap.attr('class', 'item selectable');
+        this.selectElement.attr('class', 'item selectable');
     },
 
     deleteItem: function () {
@@ -36,15 +36,15 @@ var TreePromptItemView = TemplateView.extend({
     },
 
     renderExpand: function () {
-        this.expandImage.attr("class", "expandImage expanded-image");
+        this.expandImage.attr("class", "expander image expanded-image");
     },
 
     renderCollapse: function () {
-        this.expandImage.attr("class", "expandImage collapsed-image");
+        this.expandImage.attr("class", "expander image collapsed-image");
     },
 
     hideExpander: function () {
-        this.expandImage.attr("class", "expandImage");
+        this.expandImage.attr("class", "expander");
     },
 
     onRetryClick: function () {
