@@ -26,6 +26,6 @@ function ShoppingCartBuilder () {
 
         availableItemsController.setItems(availableItemControllers);
 
-        return new ShoppingCartController(availableItemsController, selectedItemsController);
+        return new ShoppingCartController(model, availableItemsController, selectedItemsController);
     }
 }

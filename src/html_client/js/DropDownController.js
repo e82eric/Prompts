@@ -1,6 +1,7 @@
 var DropDownController = PromptController.extend({
 
-    init: function (availableItemsController) {
+    init: function (model, availableItemsController) {
+        this.model = model;
         this.availableItemsController = availableItemsController;
     },
 

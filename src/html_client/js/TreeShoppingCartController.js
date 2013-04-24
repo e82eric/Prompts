@@ -1,5 +1,6 @@
 var TreeShoppingCartController = PromptController.extend({
-    init: function (availableItemsController, selectedItemsController) {
+    init: function (model, availableItemsController, selectedItemsController) {
+        this.model = model;
         this.availableItemsController = availableItemsController;
         this.selectedItemsController = selectedItemsController;
     },

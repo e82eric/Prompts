@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/html">
   <head>
     <title>Prompts for Reporting Services</title>
-    <link rel="stylesheet" type="text/css" href="../css/prompts.css">
-    <script src="../js/jquery.js"></script>
-    <script src="../js/underscore.js"></script>
-    <script src="../js/Class.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/prompts.css"></link>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/underscore.js"></script>
+    <script type="text/javascript" src="../js/Class.js"></script>
     <% for @jsFile in @jsFiles %>
-      <script src="../js/<%= html_escape(@jsFile) %>"></script>
+      <script type="text/javascript" src="../js/<%= html_escape(@jsFile) %>"></script>
     <% end %>
   </head>
   <body>

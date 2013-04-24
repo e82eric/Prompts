@@ -16,7 +16,7 @@ function RecursiveTreeDropDownBuilder () {
         var items = itemsBuilder.build(model.PromptLevelInfo);
         rootAvailableItemsController.setItems(items);
 
-        var dropDownController = new TreeDropDownController(rootAvailableItemsController);
+        var dropDownController = new TreeDropDownController(model, rootAvailableItemsController);
         dropDownSelector.setPromptController(dropDownController);
         return dropDownController;
     }

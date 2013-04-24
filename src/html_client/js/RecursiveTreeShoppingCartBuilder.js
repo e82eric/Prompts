@@ -31,6 +31,6 @@ function RecursiveTreeShoppingCartBuilder () {
 
         selectedItemControllersProvider.setAvailableItemsController(selectedItemsController);
 
-        return new TreeShoppingCartController(availableItemsController, selectedItemsController);
+        return new TreeShoppingCartController(model, availableItemsController, selectedItemsController);
     }
 }
