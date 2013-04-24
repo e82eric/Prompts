@@ -17,34 +17,29 @@
         <%= @template.text %>
       </script>
     <% end %>
+    
+    <div id="header">
+      <span class="prompts-image"></span>
+      <span>
+          <h1>Prompts</h1>
+          <h3>Prompts for Reporting Services</h3>
+      </span>
+    </div>
 
-    <table>
-        <tbody>
-          <th class="header" colspan="2">
-              <span class="prompts-image"></span>
-              <span>
-                  <h1>Prompts</h1>
-                  <h3>Prompts for Reporting Services</h3>
-              </span>
-          </th>
-          <tr>
-              <td colspan="2" class="hideShowRow">
-                  <a >Hide</a>
-                  Report Catalog
-              </td>
-          </tr>
-          <tr class="contentRow">
-              <td class="reportCatalogPanel panel">
-                  <div id="reportCatalog">
-                  </div>
-              </td>
-              <td class="promptsPanel2 panel">
-                  <div id="prompts" class="promptsPanel">
-                  </div>
-              </td>
-          </tr>
-        </tbody>
-    </table>
+    <div id="show-hide">
+      <a>Hide</a>
+      Report Catalog
+    </div>
+
+    <div id="report-catalog">
+    </div>
+
+    <div id="prompts">
+    </div>
+
+    <div id="execute-report">
+      <button>Execute</button>
+    </div>
   </body>
 </html>
 

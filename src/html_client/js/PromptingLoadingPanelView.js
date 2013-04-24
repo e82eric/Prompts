@@ -2,10 +2,10 @@ var PromptingLoadingPanelView = TemplateView.extend({
     init: function(controller, itemsControllerView) {
         this._super(controller, "promptingLoadingPanelTemplate");
 
-        this.retryElement = this.root.filter("#retry");
-        this.loadingElement = this.root.filter("#loading");
-        this.loadedElement = this.root.filter("#loaded");
-        this.errorElement = this.root.filter("#errorMessage");
+        this.retryElement = this.root.filter(".retry");
+        this.loadingElement = this.root.filter(".loading");
+        this.loadedElement = this.root.filter(".loaded");
+        this.errorElement = this.root.filter(".errorMessage");
 
         this.loadedElement.append(itemsControllerView.render());
     },

@@ -10,7 +10,7 @@ var TreePromptItemView = TemplateView.extend({
     render: function () {
         this.expandImage.click($.proxy(this.onExpandClick,this));
         this.selectElement.click($.proxy(this.onClick,this));
-        this.childItemsLoadingPanelView.root.find("#retry").click($.proxy(this.onRetryClick, this));
+        this.childItemsLoadingPanelView.root.find(".retry").click($.proxy(this.onRetryClick, this));
 
         return this.root;
     },
@@ -36,11 +36,11 @@ var TreePromptItemView = TemplateView.extend({
     },
 
     renderExpand: function () {
-        this.expandImage.attr("class", "expander image expanded-image");
+        this.expandImage.attr("class", "expander expanded-image");
     },
 
     renderCollapse: function () {
-        this.expandImage.attr("class", "expander image collapsed-image");
+        this.expandImage.attr("class", "expander collapsed-image");
     },
 
     hideExpander: function () {

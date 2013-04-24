@@ -2,12 +2,11 @@ var DropDownView = PromptView.extend({
 
     init: function (controller) {
         this._super(controller, "dropDownTemplate");
-        this.availableItemsUl = this.root.find("#availableItems");
-        this.popup = this.root.find("#popup");
-        this.toggle = this.root.find("#toggle");
-        this.selectedItemText = this.root.find("#selectedItemText");
-        this.searchInput = this.root.find("#searchString");
-        this.searchButton = this.root.find("#searchButton");
+        this.popup = this.root.find(".popup");
+        this.toggle = this.root.find(".toggle");
+        this.selectedItemText = this.root.find(".selection");
+        this.searchInput = this.root.find(".search-input");
+        this.searchButton = this.root.find(".search-button");
         this.popup.prepend(this.controller.availableItemsController.createView().render());
     },
 

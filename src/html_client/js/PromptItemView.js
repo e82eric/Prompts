@@ -1,28 +1,28 @@
-function PromptItemView (controller) {
-    this.controller = controller;
-
-    this.render = function () {
-        this.root = $("<li class='promptItem'><div class='item selectable' onselectstart='return false;'>" + this.controller.model.Label + "</div></li>");
-        this.root.click($.proxy(this.onClick,this));
-
+var PromptItemView = TemplateView.extend({
+    init: function (controller) {
+        this.controller = controller;
+        this._super(controller, "promptItemTemplate");
         this.selectElement = this.root.find(".selectable");
-
+    },
+    
+    render: function () {
+        this.root.click($.proxy(this.onClick,this));
         return this.root;
-    }
+    },
 
-    this.onClick = function (e) {
+    onClick: function (e) {
         this.controller.clicked(e.shiftKey, e.ctrlKey);
-    };
+    },
 
-    this.onSelected = function () {
+    onSelected: function () {
         this.selectElement.attr('class', 'item selectable-selected');
-    };
+    },
 
-    this.onUnSelected = function () {
+    onUnSelected: function () {
         this.selectElement.attr('class', 'item selectable');
-    };
+    },
 
-    this.deleteItem = function () {
+    deleteItem: function () {
         this.root.remove();
     }
-}
+});

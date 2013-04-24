@@ -2,13 +2,10 @@ var TreeShoppingCartView = PromptView.extend({
     init: function (controller){
         this._super(controller, "treeShoppingCartTemplate");
 
-        this.selectElement = this.root.find("#selectButton:first");
-        this.selectElement.click($.proxy(this.onSelect,this));
-
-        this.availableItems = this.root.find("#availableItems");
-        this.selectedItems = this.root.find("#selectedItems:first");
-        this.selectButton = this.root.find("#selectButton:first");
-        this.unSelectButton = this.root.find("#unSelectButton:first");
+        this.availableItems = this.root.find(".available-items");
+        this.selectedItems = this.root.find(".selected-items:first");
+        this.selectButton = this.root.find(".select-button:first");
+        this.unSelectButton = this.root.find(".unselect-button:first");
         this.availableItems.append(this.controller.availableItemsController.createView().render());
         this.selectedItems.append(this.controller.selectedItemsController.createView().render());
     },

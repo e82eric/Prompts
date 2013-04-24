@@ -5,7 +5,7 @@ var ItemsView = Class.extend({
     },
 
     render: function () {
-        this.root = $("<ul class='" + this.listClass + "'></ul>");
+        this.root = $("<ul></ul>");
 
         _.each(
             this.controller.items,

@@ -1,20 +1,47 @@
-
-body {
+body { 
+    margin: 0px;
     font-family: "Segoe UI";
-    font-size: 12px;
-    margin: 0;
-    border: 0;
-    height: 100%;
-    max-height: 100%;
-    width: 100%;
-    max-width: 100%;
-    background: white;
-    position: fixed;
+    font-size: 12px; 
 }
 
-.header {
+ul { 
+    list-style: none;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+a {
+    color:#0000ff;
+    background: #ffffff;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {color: #FF0000;}
+}
+
+button {
+    width: 100px;
+}
+
+@mixin panel-border {
+    border: 1px solid #000000;
+}
+
+$panel-spacing: 5px;
+$header-height: 50px;
+$header-top: $panel-spacing;
+$left-panel-start: $panel-spacing;
+
+#header {
     text-align: left;
-    span { display: inline-block; } 
+    height: $header-height;
+    top: $header-top;
+    right: $panel-spacing;
+    left: $left-panel-start;
+    position: absolute;
+    span { 
+        display: inline-block;
+        vertical-align: top; 
+    } 
     h1 {
         font-size: 20px;
         font-weight: bold;
@@ -29,65 +56,58 @@ body {
     }
     .prompts-image {
         background-image: url("../images/promptslogo.png");
-        height: 48px;
-        width: 48px;
+        height: $header-height;
+        width: $header-height;
     }
 }
 
-.panel {
-    padding-right: 3px;
-    border: 2px solid black;
-    border-radius: 10px;
-    vertical-align: top;
-    height: 80%;
-}
+$show-hide-top: $header-top + $header-height + $panel-spacing;
+$show-hide-height: 25px;
 
-.contentRow {
-    height: 100%
-}
-
-.reportCatalogPanel {
-    width: auto;
-    white-space: nowrap;
+#show-hide {
+    top: $show-hide-top;
+    right: $panel-spacing;
+    left: $left-panel-start;
+    height: $show-hide-height;
+    position: absolute;
     text-align: left;
 }
 
-.promptsPanel {
-    width: 100%;
-    overflow: auto;
-    height: 80%
+$content-top: $show-hide-top + $show-hide-height + $panel-spacing;
+$report-catalog-width: 250px;
+$right-panel-start: $left-panel-start + $report-catalog-width + $panel-spacing;
+
+#report-catalog {
+    top: $content-top;
+    width: $report-catalog-width;
+    bottom: $panel-spacing;
+    position: absolute;
+    left: $left-panel-start;
+    @include panel-border
 }
 
-.promptsPanel2 {
-    width: 100%;
-    text-align: left;
-    overflow: auto;
+$execute-report-height: 25px;
+
+#prompts {
+    top: $content-top;
+    left: $right-panel-start;
+    right: $panel-spacing;
+    position: absolute;
+    overflow-y: auto;
+    bottom: $execute-report-height + $panel-spacing + $panel-spacing;
+    @include panel-border
 }
 
-.hideShowRow{
-    border: 0px;
+#execute-report {
+    left: $right-panel-start;
+    right: $panel-spacing;
+    bottom: $panel-spacing;
+    height: $execute-report-height;
+    position: absolute;
+    @include panel-border
 }
 
-table {
-    height: 100%;
-    width: 100%;
-    border: 1px;
-}
-
-ul.childItems, ul.rootItems {
-    padding: 0;
-    list-style: none;
-}
-
-ul.childItems {
-    margin: 0 0 0 22px;
-}
-
-ul.rootItems{
-    margin: 0;
-}
-
-.item, .item-selected {
+.item {
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -113,77 +133,68 @@ ul.rootItems{
     &:hover { border: 1px solid black; }
 }
 
-.image {
+@mixin small-image($url) {
     margin-top: 0px;
     display: inline-block;
     height: 16px;
     width: 16px;
     vertical-align: top;
     padding:1px;
+    background-image: url($url);
 }
 
-.collapsed-image, .expanded-image {
+@mixin small-action-image($url) {
+    @include small-image($url);
     cursor: pointer;
 }
 
-.collapsed-image {
-    background-image: url("../images/tree_collapsed.png");
-}
+.spacer-image { @include small-image("") }
 
-.expanded-image {
-    background-image: url("../images/tree_expand.png");
-}
+.collapsed-image { @include small-action-image("../images/tree_collapsed.png") }
 
-.report-image {
-    background-image: url("../images/report.png");
-}
+.expanded-image { @include small-action-image("../images/tree_expand.png") }
 
-.folder-image {
-    background-image: url("../images/folder.png");
-}
+.report-image { @include small-image("../images/report.png") }
 
-a {
-    color:#0000ff;
-    background: #ffffff;
-    cursor: pointer;
-    text-decoration: underline;
-    &:hover {color: #FF0000;}
-}
+.folder-image { @include small-image("../images/folder.png") }
 
-.dropDown {
+.dropdown {
     width: 400px;
     position:relative;
-}
-
-.dropDownToggle {
-    border: 1px solid #D4D4D4;
-    height: 20px;
-    line-height: 20px;
-    padding: 0px 2px 0px 2px;
-    background: white;
-    border-radius: 3px;
-    box-shadow: 2px 2px 1px #888888;
-    &:hover { border: 1px solid #B2B2B4; }
-}
-
-.dropDownToggleImage {
-    float: right;
-}
-
-.dropDownPopup {
-    margin: 3px 0px 0px 0px;
-    position:absolute;
-    background: white;
-    border: 1px solid #D4D4D4;
-    width:398px;
-    border-radius: 3px;
-    box-shadow: 2px 2px 1px #888888;
-    max-height: 400px;
-    overflow: auto;
-    padding: 5px;
-    z-index: 9001;
-    > button {
+    .toggle {
+        border: 1px solid #D4D4D4;
+        height: 20px;
+        line-height: 20px;
+        padding: 0px 2px 0px 2px;
+        background: white;
+        border-radius: 3px;
+        box-shadow: 2px 2px 1px #888888;
+        &:hover { border: 1px solid #B2B2B4; }
+        cursor: pointer;
+    }
+    .toggle-image { 
+        @include small-image("../images/tree_expand.png");
         float: right;
+    }
+    .popup {
+        margin: 3px 0px 0px 0px;
+        position:absolute;
+        background: white;
+        border: 1px solid #D4D4D4;
+        width:398px;
+        border-radius: 3px;
+        box-shadow: 2px 2px 1px #888888;
+        max-height: 400px;
+        overflow: auto;
+        padding: 0px;
+        z-index: 9001;
+        > button {
+            float: right;
+        }
+    }
+    .search {
+        padding: 0 5px 0 2px; 
+        overflow: hidden;
     }
 }
 
@@ -192,51 +203,31 @@ a {
 }
 
 .treeItem {
-    .item, .item-selected {
+    .item {
         display: inline-block;
     }
     .loading {
         margin-left: 18px;
     }
+    ul{ margin: 0 0 0 22px; }
+    div:first-child {height: 18px;}
 }
 
-.shoppingcart-listbox {
-    height: 400px;
-    overflow-y: scroll;
-    border: 1px solid black;
-    width:45%;
-    vertical-align: top;
+.shoppingcart {
+    .listbox {
+        height: 400px;
+        overflow-y: scroll;
+        border: 1px solid black;
+        width:45%;
+        vertical-align: top;
+        > ul { height: 400px; }
+    }
+    .shoppingcart-button { height:200px; }
+    .select-button { vertical-align: bottom; }
+    .unselect-button { vertical-align: top; }
 }
 
-.shoppingcart-listbox > .rootItems {
-    height: 400px;
-}
+.search-input { width: 100%; }
 
-button {
-    width: 100px;
-}
+.prompt { padding: 7px; }
 
-.select-button, .unselect-button{
-    height: 200px; 
-}
-
-.select-button {
-    vertical-align: bottom;
-}
-
-.unselect-button {
-    vertical-align: top;
-}
-
-.search-input {
-    width: 100%;
-}
-
-.prompt {
-    padding: 7px;
-}
-
-.dropdown-search {
-    padding: 0 5px 0 2px; 
-    overflow: hidden;
-}

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"over",
+				"overflow-y"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
 				"sea",
 				"searchResults"
 			],
@@ -18,10 +26,6 @@
 			[
 				"te",
 				"templates"
-			],
-			[
-				"mar",
-				"margin-left"
 			],
 			[
 				"item",
@@ -92,20 +96,10 @@
 	"buffers":
 	[
 		{
-			"contents": "Searching 860 files for \"panel\"\n\nC:\\Sources\\prompts.sublime-workspace:\n   69  	\"file_history\":\n   70  	[\n   71: 		\"/C/Sources/src/html_client/js/PromptingLoadingPanelView.js\",\n   72  		\"/C/Sources/src/html_client/js/TreePromptItemView.js\",\n   73  		\"/C/Sources/src/html_client/js/FolderCatalogItemView.js\",\n   ..\n   77  		\"/C/Sources/src/html_client/js/TemplateView.js\",\n   78  		\"/C/Sources/binaries/html_client/html/index.html\",\n   79: 		\"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelView.js\",\n   80  		\"/C/Sources/build/rakefile.rb\",\n   81: 		\"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelView.js\",\n   82  		\"/C/Sources/src/html_client/js/LeafTreePromptItemView.js\",\n   83  		\"/C/Sources/src/html_client/js/RecursiveTreeShoppingCartBuilder.js\",\n   ..\n   99  		\"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartBuilder.js\",\n  100  		\"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartController.js\",\n  101: 		\"/C/Sources/src/html_client/js/PromptingLoadingPanelController.js\",\n  102  		\"/C/Sources/src/html_client/js/ReportCatalogBuilder.js\",\n  103: 		\"/C/Sources/src/html_client/js/LoadingPanelControllerBase.js\",\n  104  		\"/C/Sources/src/html_client/js/Application.js\",\n  105: 		\"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelController.js\",\n  106: 		\"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelController.js\",\n  107  		\"/C/Sources/prompts.sublime-project\",\n  108  		\"/C/Sources/prompts.sublime-workspace\",\n  ...\n  139  			\"ChildItemsView\",\n  140  			\"ChildAvailableItemsController\",\n  141: 			\"new LoadingPanelController\",\n  142: 			\"LoadingPanelController\",\n  143: 			\"PromptingLoadingPanelController\",\n  144  			\"PromptingController\",\n  145: 			\"PromptingLoadingPanelController\",\n  146: 			\"PromptingLoadingPanelView\",\n  147: 			\"PromptingLoadingPanelController\",\n  148: 			\"LoadingPanelControllerBase\",\n  149: 			\"ChildPromptItemsLoadingPanelController\",\n  150: 			\"LoadingPanelControllerBase\",\n  151: 			\"LoadingPanelControllerBase\\n\",\n  152  			\"},\\n\"\n  153  		],\n  ...\n  321  			[\n  322  				\"asy\",\n  323: 				\"src/html_client/js/AsynchronousSearchLoadingPanelController.js\"\n  324  			],\n  325  			[\n  326  				\"loadin\",\n  327: 				\"src/html_client/js/LoadingPanelControllerBase.js\"\n  328  			],\n  329  			[\n  330  				\"loadingpa\",\n  331: 				\"src/html_client/js/LoadingPanelControllerBase.js\"\n  332  			],\n  333  			[\n\nC:\\Sources\\binaries\\html_client\\css\\prompts.css:\n   15  }\n   16  \n   17: .panel {\n   18      padding-right: 3px;\n   19      border: 2px solid #E8E8E8;\n   ..\n   42  }\n   43  \n   44: .reportCatalogPanel {\n   45      width: auto;\n   46      white-space: nowrap;\n   ..\n   48  }\n   49  \n   50: .promptsPanel {\n   51      width: 100%;\n   52      height: 100%;\n   ..\n   54  }\n   55  \n   56: .promptsPanel2 {\n   57      width: 100%;\n   58      height: 100%;\n\nC:\\Sources\\binaries\\html_client\\html\\index.html:\n    9            <script src=\"../js/TemplateView.js\"></script>\n   10            <script src=\"../js/AsynchronousItemsController.js\"></script>\n   11:           <script src=\"../js/LoadingPanelControllerBase.js\"></script>\n   12            <script src=\"../js/PromptController.js\"></script>\n   13            <script src=\"../js/PromptView.js\"></script>\n   ..\n   17            <script src=\"../js/Application.js\"></script>\n   18            <script src=\"../js/AsynchronousSearchAvailableItemsController.js\"></script>\n   19:           <script src=\"../js/AsynchronousSearchLoadingPanelView.js\"></script>\n   20            <script src=\"../js/AsynchronousSearchRequester.js\"></script>\n   21            <script src=\"../js/AsynchronousSearchShoppingCartBuilder.js\"></script>\n   ..\n   25            <script src=\"../js/AvailableItemsController.js\"></script>\n   26            <script src=\"../js/ChildItemsRequester.js\"></script>\n   27:           <script src=\"../js/ChildPromptItemsLoadingPanelView.js\"></script>\n   28            <script src=\"../js/ContainsSearch.js\"></script>\n   29            <script src=\"../js/ControllersBuilder.js\"></script>\n   ..\n   48            <script src=\"../js/PromptControllerBuilder.js\"></script>\n   49            <script src=\"../js/PromptingController.js\"></script>\n   50:           <script src=\"../js/PromptingLoadingPanelView.js\"></script>\n   51            <script src=\"../js/PromptingView.js\"></script>\n   52            <script src=\"../js/PromptItemController.js\"></script>\n   ..\n   97    <body>\n   98  \n   99:           <script id=\"asynchronousSearchLoadingPanelTemplate\" type=\"text/template\">\n  100          <tr style=\"vertical-align: top\" id=\"loading\"><td >loading...</td></tr>\n  101  <tr id=\"errorMessage\">\n  ...\n  128  </li>\n  129        </script>\n  130:           <script id=\"childPromptItemsLoadingPanelTemplate\" type=\"text/template\">\n  131          <div id=\"loading\" class=\"loading\">loading...</div>\n  132  <div id=\"errorMessage\"></div>\n  ...\n  176    </div>\n  177  </li>      </script>\n  178:           <script id=\"promptingLoadingPanelTemplate\" type=\"text/template\">\n  179          <div id=\"loaded\"></div>\n  180  <div id=\"loading\">loading...</div>\n  ...\n  258            </tr>\n  259            <tr class=\"contentRow\">\n  260:               <td class=\"reportCatalogPanel panel\">\n  261                    <div id=\"reportCatalog\">\n  262                    </div>\n  263                </td>\n  264:               <td class=\"promptsPanel2 panel\">\n  265:                   <div id=\"prompts\" class=\"promptsPanel\">\n  266                    </div>\n  267                </td>\n\nC:\\Sources\\binaries\\html_client_debug\\js\\Application.js:\n    3      var promptsBuilder = new ControllersBuilder(promptBuilder);\n    4      var promptsController = new PromptsController();\n    5:     var promptingLoadingPanel = new LoadingPanelControllerBase(function (controller){\n    6:         return new PromptingLoadingPanelView(promptingLoadingPanel, promptsController.createView())\n    7      });\n    8:     var promptsRepository = new Repository(\"/prompts.service/api/prompts\", promptingLoadingPanel, \"POST\");\n    9      var promptsRequester = new PromptsRequester(promptsRepository, promptsBuilder);\n   10:     var promptingController = new PromptingController(promptsRequester, promptsController, promptingLoadingPanel);\n   11      var promptingView = promptingController.createView();\n   12      promptingView.render();\n\nC:\\Sources\\binaries\\html_client_debug\\js\\AsynchronousSearchLoadingPanelView.js:\n    1: var AsynchronousSearchLoadingPanelView = TemplateView.extend({\n    2      init: function (controller, availableItemsView, selectedItemsView) {\n    3:         this._super(controller, \"asynchronousSearchLoadingPanelTemplate\");\n    4  \n    5          this.loadingElement = this.root.filter(\"#loading\");\n\nC:\\Sources\\binaries\\html_client_debug\\js\\AsynchronousSearchShoppingCartBuilder.js:\n   19    model.PromptLevelInfo.ParameterName);\n   20  \n   21:   var loadingPanel = new LoadingPanelControllerBase(function (controller) { \n   22:     return new AsynchronousSearchLoadingPanelView(\n   23        controller, \n   24        availableItemsController.createView(), \n   ..\n   26    });\n   27    \n   28:   var repository = new Repository(\"/Prompts.Service/api/prompts/child_items\", loadingPanel, \"POST\");\n   29    var searchRequester = new AsynchronousSearchRequester(searchStringParser, repository);\n   30  \n   ..\n   34      availableItemsController,\n   35      selectedItemsController,\n   36:     loadingPanel);\n   37    }\n   38  });\n\nC:\\Sources\\binaries\\html_client_debug\\js\\AsynchronousSearchShoppingCartController.js:\n    1  var AsynchronousSearchShoppingCartController = PromptController.extend({\n    2:     init: function (model, asynchronousSearch, availableItemsController, selectedItemsController, loadingPanel) {\n    3          this.model = model;\n    4          this.asynchronousSearch = asynchronousSearch;\n    5          this.availableItemsController = availableItemsController;\n    6          this.selectedItemsController = selectedItemsController;\n    7:         this.loadingPanel = loadingPanel;\n    8      },\n    9  \n   ..\n   30  \n   31      createView: function () {\n   32:         var loadingPanelView = this.loadingPanel.createView();\n   33  \n   34:         this.view = new AsynchronousSearchShoppingCartView(this, loadingPanelView);\n   35          return this.view;\n   36      }\n\nC:\\Sources\\binaries\\html_client_debug\\js\\AsynchronousSearchShoppingCartView.js:\n    1  var AsynchronousSearchShoppingCartView = PromptView.extend({\n    2:     init: function (controller, loadingPanelView) {\n    3          this._super(controller, \"asynchronousSearchShoppingCartTemplate\");\n    4:         this.loadingPanelView = loadingPanelView;\n    5:         this.selectButton = this.loadingPanelView.root.find(\"#selectButton\");\n    6:         this.unSelectButton = this.loadingPanelView.root.find(\"#unSelectButton\");\n    7          this.searchStringInput = this.root.find(\"#searchString\");\n    8          this.searchButton = this.root.find(\"#searchButton\");\n    9          this.content = this.root.find(\"#content\");\n   10  \n   11:         this.content.append(loadingPanelView.render());\n   12      },\n   13  \n   ..\n   17          this.searchButton.click($.proxy(this.onSearch, this));\n   18          this.searchStringInput.change($.proxy(this.onSearchStringChange, this));\n   19:         this.loadingPanelView.root.filter(\"#retry\").click($.proxy(this.onRetryClick, this));\n   20  \n   21          return this.root;\n\nC:\\Sources\\binaries\\html_client_debug\\js\\ChildPromptItemsLoadingPanelView.js:\n    1: var ChildPromptItemsLoadingPanelView = TemplateView.extend({\n    2      init: function (controller, availableItemsView) {\n    3:         this._super(controller, \"childPromptItemsLoadingPanelTemplate\");\n    4          this.loadingElement = this.root.filter(\"#loading\");\n    5          this.loadedElement = this.root.filter(\"#loaded\");\n\nC:\\Sources\\build\\rakefile.rb:\n  200  			\"TemplateView.js\",\n  201  			\"AsynchronousItemsController.js\", \n  202: 			\"LoadingPanelControllerBase.js\", \n  203  			\"PromptController.js\", \n  204  			\"PromptView.js\", \n\nC:\\Sources\\Sample Reports\\Reports\\Sales Rep Report.rdl:\n  554                      <TablixCell>\n  555                        <CellContents>\n  556:                         <GaugePanel Name=\"GaugePanel3\">\n  557                            <StateIndicators>\n  558                              <StateIndicator Name=\"Indicator1\">\n  ...\n  671                              <BackgroundColor>White</BackgroundColor>\n  672                            </Style>\n  673:                         </GaugePanel>\n  674                        </CellContents>\n  675                      </TablixCell>\n  ...\n  758                      <TablixCell>\n  759                        <CellContents>\n  760:                         <GaugePanel Name=\"GaugePanel2\">\n  761                            <StateIndicators>\n  762                              <StateIndicator Name=\"Indicator1\">\n  ...\n  870                              <BackgroundColor>White</BackgroundColor>\n  871                            </Style>\n  872:                         </GaugePanel>\n  873                        </CellContents>\n  874                      </TablixCell>\n\nC:\\Sources\\src\\html_client\\css\\prompts.css:\n   19  }\n   20  \n   21: .panel {\n   22      padding-right: 3px;\n   23      border: 2px solid #E8E8E8;\n   ..\n   42  }\n   43  \n   44: .reportCatalogPanel {\n   45      width: auto;\n   46      white-space: nowrap;\n   ..\n   48  }\n   49  \n   50: .promptsPanel {\n   51      width: 100%;\n   52      height: 100%;\n   ..\n   54  }\n   55  \n   56: .promptsPanel2 {\n   57      width: 100%;\n   58      height: 100%;\n\nC:\\Sources\\src\\html_client\\html\\index.html.erb:\n   35            </tr>\n   36            <tr class=\"contentRow\">\n   37:               <td class=\"reportCatalogPanel panel\">\n   38                    <div id=\"reportCatalog\">\n   39                    </div>\n   40                </td>\n   41:               <td class=\"promptsPanel2 panel\">\n   42:                   <div id=\"prompts\" class=\"promptsPanel\">\n   43                    </div>\n   44                </td>\n\nC:\\Sources\\src\\html_client\\js\\Application.js:\n    3      var promptsBuilder = new ControllersBuilder(promptBuilder);\n    4      var promptsController = new PromptsController();\n    5:     var promptingLoadingPanel = new LoadingPanelControllerBase(function (controller){\n    6:         return new PromptingLoadingPanelView(promptingLoadingPanel, promptsController.createView())\n    7      });\n    8:     var promptsRepository = new Repository(\"/prompts.service/api/prompts\", promptingLoadingPanel, \"POST\");\n    9      var promptsRequester = new PromptsRequester(promptsRepository, promptsBuilder);\n   10:     var promptingController = new PromptingController(promptsRequester, promptsController, promptingLoadingPanel);\n   11      var promptingView = promptingController.createView();\n   12      promptingView.render();\n\nC:\\Sources\\src\\html_client\\js\\AsynchronousSearchLoadingPanelView.js:\n    1: var AsynchronousSearchLoadingPanelView = TemplateView.extend({\n    2      init: function (controller, availableItemsView, selectedItemsView) {\n    3:         this._super(controller, \"asynchronousSearchLoadingPanelTemplate\");\n    4  \n    5          this.loadingElement = this.root.filter(\"#loading\");\n\nC:\\Sources\\src\\html_client\\js\\AsynchronousSearchShoppingCartBuilder.js:\n   19    model.PromptLevelInfo.ParameterName);\n   20  \n   21:   var loadingPanel = new LoadingPanelControllerBase(function (controller) { \n   22:     return new AsynchronousSearchLoadingPanelView(\n   23        controller, \n   24        availableItemsController.createView(), \n   ..\n   26    });\n   27    \n   28:   var repository = new Repository(\"/Prompts.Service/api/prompts/child_items\", loadingPanel, \"POST\");\n   29    var searchRequester = new AsynchronousSearchRequester(searchStringParser, repository);\n   30  \n   ..\n   34      availableItemsController,\n   35      selectedItemsController,\n   36:     loadingPanel);\n   37    }\n   38  });\n\nC:\\Sources\\src\\html_client\\js\\AsynchronousSearchShoppingCartController.js:\n    1  var AsynchronousSearchShoppingCartController = PromptController.extend({\n    2:     init: function (model, asynchronousSearch, availableItemsController, selectedItemsController, loadingPanel) {\n    3          this.model = model;\n    4          this.asynchronousSearch = asynchronousSearch;\n    5          this.availableItemsController = availableItemsController;\n    6          this.selectedItemsController = selectedItemsController;\n    7:         this.loadingPanel = loadingPanel;\n    8      },\n    9  \n   ..\n   30  \n   31      createView: function () {\n   32:         var loadingPanelView = this.loadingPanel.createView();\n   33  \n   34:         this.view = new AsynchronousSearchShoppingCartView(this, loadingPanelView);\n   35          return this.view;\n   36      }\n\nC:\\Sources\\src\\html_client\\js\\AsynchronousSearchShoppingCartView.js:\n    1  var AsynchronousSearchShoppingCartView = PromptView.extend({\n    2:     init: function (controller, loadingPanelView) {\n    3          this._super(controller, \"asynchronousSearchShoppingCartTemplate\");\n    4:         this.loadingPanelView = loadingPanelView;\n    5:         this.selectButton = this.loadingPanelView.root.find(\"#selectButton\");\n    6:         this.unSelectButton = this.loadingPanelView.root.find(\"#unSelectButton\");\n    7          this.searchStringInput = this.root.find(\"#searchString\");\n    8          this.searchButton = this.root.find(\"#searchButton\");\n    9          this.content = this.root.find(\"#content\");\n   10  \n   11:         this.content.append(loadingPanelView.render());\n   12      },\n   13  \n   ..\n   17          this.searchButton.click($.proxy(this.onSearch, this));\n   18          this.searchStringInput.change($.proxy(this.onSearchStringChange, this));\n   19:         this.loadingPanelView.root.filter(\"#retry\").click($.proxy(this.onRetryClick, this));\n   20  \n   21          return this.root;\n\nC:\\Sources\\src\\html_client\\js\\ChildPromptItemsLoadingPanelView.js:\n    1: var ChildPromptItemsLoadingPanelView = TemplateView.extend({\n    2      init: function (controller, availableItemsView) {\n    3:         this._super(controller, \"childPromptItemsLoadingPanelTemplate\");\n    4          this.loadingElement = this.root.filter(\"#loading\");\n    5          this.loadedElement = this.root.filter(\"#loaded\");\n\nC:\\Sources\\src\\html_client\\js\\LoadingPanelControllerBase.js:\n    1: var LoadingPanelControllerBase = Class.extend({\n    2      init: function (createViewFunc) {\n    3          this.createViewFunc = createViewFunc;\n\nC:\\Sources\\src\\html_client\\js\\PromptingController.js:\n    1  var PromptingController = Class.extend({\n    2:     init: function (requester, itemsController, loadingPanelController) {\n    3          this.requester = requester;\n    4          this.itemsController = itemsController;\n    5:         this.loadingPanelController = loadingPanelController;\n    6      },\n    7  \n    .\n   16      createView: function () {\n   17          var itemsView = this.itemsController.createView();\n   18:         var loadingPanelView = this.loadingPanelController.createView(itemsView, \"\");\n   19:         this.view = new PromptingView(this, loadingPanelView);\n   20          return this.view;\n   21      }\n\nC:\\Sources\\src\\html_client\\js\\PromptingLoadingPanelView.js:\n    1: var PromptingLoadingPanelView = TemplateView.extend({\n    2      init: function(controller, itemsControllerView) {\n    3:         this._super(controller, \"promptingLoadingPanelTemplate\");\n    4  \n    5          this.retryElement = this.root.filter(\"#retry\");\n\nC:\\Sources\\src\\html_client\\js\\PromptingView.js:\n    1  var PromptingView = Class.extend({\n    2:     init: function (controller, loadingPanelView) {\n    3      	this.controller = controller;\n    4:     	this.loadingPanelView = loadingPanelView;\n    5  \n    6          this.root = $(\"#prompts\");\n    7:         this.root.append(loadingPanelView.render());\n    8      },\n    9  \n   ..\n   13  \n   14      render: function () {\n   15:     	this.loadingPanelView.root.filter(\"#retry\").click($.proxy(this.onRetryClick, this));\n   16          return this.root;\n   17      }\n\nC:\\Sources\\src\\html_client\\js\\RecursiveTreePromptItemControllerBuilder.js:\n   11          });\n   12  \n   13:         var loadingPanel = new LoadingPanelControllerBase(function (controller) {\n   14:             return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());\n   15          });\n   16          \n   17          var childItemsBuilder = new RecursiveTreePromptItemControllersBuilder(this);\n   18          \n   19:         var repository = new Repository(\"/Prompts.Service/api/prompts/child_items/recursive\", loadingPanel, \"POST\");\n   20  \n   21          var parameterValue = {Name: this.filterParameterName, Value: model.Value};\n   ..\n   37              childItemsRequester,\n   38              childAvailableItemsController,\n   39:             loadingPanel);\n   40  \n   41          return controller;\n\nC:\\Sources\\src\\html_client\\js\\ReportCatalogBuilder.js:\n   17          folderCatalogItemBuilder.setChildItemsBuilder(catalogItemsBuilder);\n   18  \n   19:         var loadingPanel = new LoadingPanelControllerBase(function (controller) {\n   20:             return new PromptingLoadingPanelView(loadingPanel, rootItemsController.createView())\n   21          });\n   22  \n   23:         var repository = new Repository(\"/Prompts.Service/api/reports\", loadingPanel, \"GET\");\n   24  \n   25          var reportCatalogRequester = new ReportCatalogRequester(repository, catalogItemsBuilder);\n   26  \n   27:         return new ReportCatalogController(reportCatalogRequester, rootItemsController, loadingPanel);\n   28      }\n   29  });\n\nC:\\Sources\\src\\html_client\\js\\ReportCatalogController.js:\n    1  var ReportCatalogController = Class.extend({\n    2:     init: function (reportCatalogRequester, itemsController, loadingPanelController) {\n    3          this.reportCatalogRequester = reportCatalogRequester;\n    4          this.itemsController = itemsController;\n    5:         this.loadingPanelController = loadingPanelController;\n    6      },\n    7  \n    .\n   17      createView: function () {\n   18          var itemsView = this.itemsController.createView();\n   19:         var loadingPanelView = this.loadingPanelController.createView(itemsView);\n   20:         this.setView(new ReportCatalogView(this, loadingPanelView));\n   21          return this.view;\n   22      }\n\nC:\\Sources\\src\\html_client\\js\\ReportCatalogView.js:\n    1  var ReportCatalogView = Class.extend({\n    2: 	init: function(controller, loadingPanelView) {\n    3  		this.controller = controller;\n    4: 		this.loadingPanelView = loadingPanelView;\n    5  		this.root = $(\"#reportCatalog\");\n    6: 		this.root.append(loadingPanelView.render());\n    7  	},\n    8  \n    9  	render: function () {\n   10: 		this.loadingPanelView.root.filter(\"#retry\").click($.proxy(this.onRetry, this));\n   11  		return this.root;\n   12  	},\n\nC:\\Sources\\src\\html_client\\js\\Repository.js:\n    1  var Repository = Class.extend({\n    2:     init: function (url, loadingPanel, method) {\n    3          this.url = url;\n    4:         this.loadingPanel = loadingPanel;\n    5          this.method = method;\n    6      },\n    7  \n    8      get: function (request, successCallback) {\n    9:         this.loadingPanel.showLoading();\n   10          $.ajax({\n   11              type:this.method,\n   ..\n   17              success:function (result) {\n   18                  successCallback(result);\n   19:                 this.loadingPanel.showLoaded();\n   20              },\n   21              error:function (xhr, statusText, errorThrown) {\n   22:                 this.loadingPanel.showError(JSON.parse(xhr.responseText).ResponseStatus.Message);\n   23              }\n   24          });\n\nC:\\Sources\\src\\html_client\\js\\TreePromptItemController.js:\n    1  var TreePromptItemController = ExpandableItemController.extend({\n    2:     init: function (model, availableItemsController, childItemsRequester, childAvailableItemsController, childItemsLoadingPanelController) {\n    3          this.model = model;\n    4          this.availableItemsController = availableItemsController;\n    5          this.childItemsRequester = childItemsRequester;\n    6          this.childAvailableItemsController = childAvailableItemsController;\n    7:         this.childItemsLoadingPanelController = childItemsLoadingPanelController;\n    8          this.childrenSet = false;\n    9          this._super();\n   ..\n   16      createView: function () {\n   17          var childAvailableItemsView = this.childAvailableItemsController.createView();\n   18:         var childItemsLoadingPanelController = this.childItemsLoadingPanelController.createView(childAvailableItemsView);\n   19  \n   20:         var view = new TreePromptItemView(this, childItemsLoadingPanelController);\n   21          this.setView(view);\n   22          return this.view;\n   ..\n   32              this.childItemsRequester.execute(this.childAvailableItemsController, this);\n   33          } else {\n   34:             this.childItemsLoadingPanelController.showLoaded();\n   35          }\n   36      },\n   ..\n   38      collapse: function () {\n   39          this._super();\n   40:         this.childItemsLoadingPanelController.hideAll();\n   41      },\n   42  \n\nC:\\Sources\\src\\html_client\\js\\TreePromptItemControllerBuilder.js:\n   27          var childItemsBuilder = new TreePromptItemControllersBuilder(childItemBuilder);\n   28  \n   29:         var loadingPanel = new LoadingPanelControllerBase(function (controller) {\n   30:           return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());\n   31          });\n   32  \n   33:         var repository = new Repository(\"/Prompts.Service/api/prompts/child_items\", loadingPanel, \"POST\");\n   34  \n   35          var childItemsRequest = {\n   ..\n   51                 childItemsRequester,\n   52                 childAvailableItemsController,\n   53:                loadingPanel);\n   54          } else {\n   55             controller = new LeafTreePromptItemController(\n\nC:\\Sources\\src\\html_client\\js\\TreePromptItemView.js:\n    1  var TreePromptItemView = TemplateView.extend({\n    2:     init: function (controller, childItemsLoadingPanelView) {\n    3          this._super(controller, \"treePromptItemTemplate\");\n    4  \n    5:         this.childItemsLoadingPanelView = childItemsLoadingPanelView;\n    6:         this.root.append(this.childItemsLoadingPanelView.render());\n    7          this.expandImage = this.root.find(\".expandImage\");\n    8          this.selectWrap = this.root.find(\".selectable\");\n    .\n   11          this.expandImage.click($.proxy(this.onExpandClick,this));\n   12          this.selectWrap.click($.proxy(this.onClick,this));\n   13:         this.childItemsLoadingPanelView.root.find(\"#retry\").click($.proxy(this.onRetryClick, this));\n   14  \n   15          return this.root;\n\nC:\\Sources\\src\\Prompts\\Bin\\Debug\\System.Windows.Controls.xml:\n 1707        <summary>Indentifies the <see cref=\"P:System.Windows.Controls.Primitives.DatePickerTextBox.Watermark\" /> dependency property.</summary>\n 1708      </member>\n 1709:     <member name=\"T:System.Windows.Controls.Primitives.TabPanel\">\n 1710        <summary>Handles the layout of <see cref=\"T:System.Windows.Controls.TabItem\" /> objects on a <see cref=\"T:System.Windows.Controls.TabControl\" />.</summary>\n 1711      </member>\n 1712:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.#ctor\">\n 1713:       <summary>Initializes a new instance of the <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> class. </summary>\n 1714      </member>\n 1715:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.ArrangeOverride(System.Windows.Size)\">\n 1716:       <summary>Arranges and sizes the content of a <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> object.</summary>\n 1717        <returns>The size of the arranged control.</returns>\n 1718:       <param name=\"finalSize\">The size that a tab panel uses to position child elements.</param>\n 1719      </member>\n 1720:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.MeasureOverride(System.Windows.Size)\">\n 1721        <summary>Called when remeasuring the control is required.</summary>\n 1722        <returns>The measured size of the control.</returns>\n\nC:\\Sources\\src\\Prompts\\Bin\\Release\\System.Windows.Controls.xml:\n 1707        <summary>Indentifies the <see cref=\"P:System.Windows.Controls.Primitives.DatePickerTextBox.Watermark\" /> dependency property.</summary>\n 1708      </member>\n 1709:     <member name=\"T:System.Windows.Controls.Primitives.TabPanel\">\n 1710        <summary>Handles the layout of <see cref=\"T:System.Windows.Controls.TabItem\" /> objects on a <see cref=\"T:System.Windows.Controls.TabControl\" />.</summary>\n 1711      </member>\n 1712:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.#ctor\">\n 1713:       <summary>Initializes a new instance of the <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> class. </summary>\n 1714      </member>\n 1715:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.ArrangeOverride(System.Windows.Size)\">\n 1716:       <summary>Arranges and sizes the content of a <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> object.</summary>\n 1717        <returns>The size of the arranged control.</returns>\n 1718:       <param name=\"finalSize\">The size that a tab panel uses to position child elements.</param>\n 1719      </member>\n 1720:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.MeasureOverride(System.Windows.Size)\">\n 1721        <summary>Called when remeasuring the control is required.</summary>\n 1722        <returns>The measured size of the control.</returns>\n\nC:\\Sources\\src\\Prompts\\MainPage\\MainPage.xaml:\n  110  \n  111          <Grid Background=\"Transparent\" Height=\"60\" Grid.Column=\"0\" Margin=\"10, 0, 0, 0\">\n  112:             <StackPanel HorizontalAlignment=\"Left\" Orientation=\"Horizontal\">\n  113                  <Image Source=\"/Prompts;component/Assets/Images/Icons/promptslogo.png\" Margin=\"0,0,7,0\" />\n  114:                 <StackPanel Orientation=\"Vertical\">\n  115                      <TextBlock Text=\"prompts\" FontSize=\"20\" FontWeight=\"Bold\"/>\n  116                      <TextBlock Text=\"Prompts for Reporting Services\" FontStyle=\"Italic\" FontSize=\"16\"/>\n  117:                 </StackPanel>\n  118:             </StackPanel>\n  119          </Grid>\n  120  \n  121:         <StackPanel Orientation=\"Horizontal\" Grid.Row=\"1\">\n  122              <HyperlinkButton \n  123                  x:Name=\"ShowHideLink\" \n  ...\n  128                  Style=\"{StaticResource ShowHideStyle}\"/>\n  129              <TextBlock Text=\"Report Catalog\"/>\n  130:         </StackPanel>\n  131  \n  132          <MainPage:CollapseControl \n\nC:\\Sources\\src\\Prompts\\MainPage\\PromptsView.xaml:\n   14          <SolidColorBrush x:Key=\"PageContainerInnerBorderBrush\" Color=\"{StaticResource PageContainerInnerBorderColor}\"/>\n   15  \n   16:         <Style x:Key=\"PanelContainerStyle\" TargetType=\"Border\">\n   17              <Setter Property=\"BorderBrush\" Value=\"{StaticResource PageContainerBorderBrush}\"/>\n   18              <Setter Property=\"HorizontalAlignment\" Value=\"Stretch\"/>\n   ..\n   23          </Style>\n   24  \n   25:         <Style x:Key=\"PanelInnerContainerStyleTransparent\" TargetType=\"Border\">\n   26              <Setter Property=\"BorderBrush\" Value=\"{StaticResource PageContainerInnerBorderBrush}\"/>\n   27              <Setter Property=\"Background\" Value=\"White\"/>\n   ..\n   36  \n   37      <Grid x:Name=\"LayoutRoot\">\n   38:         <Border CornerRadius=\"10\" Style=\"{StaticResource PanelContainerStyle}\">\n   39              <Grid Background=\"Transparent\">\n   40:                 <Border Style=\"{StaticResource PanelInnerContainerStyleTransparent}\">\n   41                      <Grid x:Name=\"PromptsContainer\" />\n   42                  </Border>\n\nC:\\Sources\\src\\Prompts\\MainPage\\ReportCatalogView.xaml:\n   14          <SolidColorBrush x:Key=\"PageContainerInnerBorderBrush\" Color=\"{StaticResource PageContainerInnerBorderColor}\"/>\n   15  \n   16:         <Style x:Key=\"PanelContainerStyle\" TargetType=\"Border\">\n   17              <Setter Property=\"BorderBrush\" Value=\"{StaticResource PageContainerBorderBrush}\"/>\n   18              <Setter Property=\"HorizontalAlignment\" Value=\"Stretch\"/>\n   ..\n   23          </Style>\n   24  \n   25:         <Style x:Key=\"PanelInnerContainerStyleTransparent\" TargetType=\"Border\">\n   26              <Setter Property=\"BorderBrush\" Value=\"{StaticResource PageContainerInnerBorderBrush}\"/>\n   27              <Setter Property=\"Background\" Value=\"White\"/>\n   ..\n   36  \n   37      <Grid x:Name=\"LayoutRoot\">\n   38:         <Border CornerRadius=\"10\" Style=\"{StaticResource PanelContainerStyle}\">\n   39              <Grid Background=\"Transparent\">\n   40:                 <Border Style=\"{StaticResource PanelInnerContainerStyleTransparent}\">\n   41                      <Grid x:Name=\"ReportCatalogContainer\" />\n   42                  </Border>\n\nC:\\Sources\\src\\Prompts\\Prompting\\Views\\PromptCollectionControl.xaml:\n  114                      </Controls:SelectedItemsControl>\n  115                  </Border>\n  116:                 <StackPanel \n  117                      Orientation=\"Horizontal\" \n  118                      Grid.Row=\"1\" \n  ...\n  137                          Content=\"Execute Report\" \n  138                          Command=\"{Binding ExecuteReport}\"/>\n  139:                 </StackPanel>\n  140              </Grid>\n  141  \n\nC:\\Sources\\src\\Prompts\\Prompting\\Views\\SingleSelectTreeView.xaml:\n   15              VerticalAlignment=\"Top\">\n   16  \n   17:             <ItemsPanelTemplate>\n   18:                 <VirtualizingStackPanel />\n   19:             </ItemsPanelTemplate>\n   20  \n   21              <Controls:TreeComboBox.ItemTemplate>\n\nC:\\Sources\\src\\Prompts\\ReportCatalog\\Views\\FolderView.xaml:\n    8      \n    9      <Grid x:Name=\"LayoutRoot\">\n   10:         <StackPanel Orientation=\"Horizontal\">\n   11              <Image Source=\"/Prompts;component/Assets/Images/Icons/folder.png\" />\n   12              <TextBlock Text=\"{Binding Label}\" x:Name=\"FolderLabel\"/>\n   13:         </StackPanel>\n   14      </Grid>\n   15  </UserControl>\n\nC:\\Sources\\src\\Prompts\\ReportCatalog\\Views\\ReportCatalogControl.xaml:\n  429          x:Name=\"LayoutRoot\" \n  430          Background=\"Transparent\">\n  431: 		<StackPanel >\n  432:             <StackPanel \n  433                  Visibility=\"{Binding State, Converter={StaticResource ErrorConverter}}\" \n  434                  Orientation=\"Horizontal\">\n  ...\n  441                      Command=\"{Binding Reconnect}\"\n  442                      Style=\"{StaticResource ShowHideStyle}\"/>\n  443:             </StackPanel>\n  444  \n  445  			<TextBlock \n  ...\n  456                  Background=\"Transparent\">\n  457              </sdk:TreeView>\n  458:         </StackPanel>\n  459  	</Grid>\n  460  \n\nC:\\Sources\\src\\Prompts\\ReportCatalog\\Views\\ReportView.xaml:\n   30          <Button Command=\"{Binding ShowPromptCollection}\" Style=\"{StaticResource ReportButton}\">\n   31              <Button.Content>\n   32:                 <StackPanel Orientation=\"Horizontal\" Background=\"Transparent\">\n   33                      <Image Source=\"/Prompts;component/Assets/Images/Icons/document.png\" />\n   34                      <TextBlock \n   ..\n   36                          x:Name=\"Label\" \n   37                          Padding=\"5\"/>\n   38:                 </StackPanel>\n   39              </Button.Content>\n   40          </Button>\n\nC:\\Sources\\src\\Prompts\\Themes\\generic.xaml:\n  304                                  </Border.Background>\n  305                                  <ScrollViewer x:Name=\"ScrollViewer\" BorderThickness=\"0\" Padding=\"1\">\n  306:                                     <StackPanel>\n  307                                          <Controls:PromptTreeControl \n  308                                              x:Name=\"InnerTreeView\"\n  ...\n  311                                              BorderThickness=\"0\">\n  312                                          </Controls:PromptTreeControl>\n  313:                                     </StackPanel>\n  314                                  </ScrollViewer>\n  315                              </Border>\n\nC:\\Sources\\src\\Test.Prompts\\Bin\\Debug\\System.Windows.Controls.xml:\n 1707        <summary>Indentifies the <see cref=\"P:System.Windows.Controls.Primitives.DatePickerTextBox.Watermark\" /> dependency property.</summary>\n 1708      </member>\n 1709:     <member name=\"T:System.Windows.Controls.Primitives.TabPanel\">\n 1710        <summary>Handles the layout of <see cref=\"T:System.Windows.Controls.TabItem\" /> objects on a <see cref=\"T:System.Windows.Controls.TabControl\" />.</summary>\n 1711      </member>\n 1712:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.#ctor\">\n 1713:       <summary>Initializes a new instance of the <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> class. </summary>\n 1714      </member>\n 1715:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.ArrangeOverride(System.Windows.Size)\">\n 1716:       <summary>Arranges and sizes the content of a <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> object.</summary>\n 1717        <returns>The size of the arranged control.</returns>\n 1718:       <param name=\"finalSize\">The size that a tab panel uses to position child elements.</param>\n 1719      </member>\n 1720:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.MeasureOverride(System.Windows.Size)\">\n 1721        <summary>Called when remeasuring the control is required.</summary>\n 1722        <returns>The measured size of the control.</returns>\n\nC:\\Sources\\src\\Test.Prompts\\Bin\\Release\\System.Windows.Controls.xml:\n 1707        <summary>Indentifies the <see cref=\"P:System.Windows.Controls.Primitives.DatePickerTextBox.Watermark\" /> dependency property.</summary>\n 1708      </member>\n 1709:     <member name=\"T:System.Windows.Controls.Primitives.TabPanel\">\n 1710        <summary>Handles the layout of <see cref=\"T:System.Windows.Controls.TabItem\" /> objects on a <see cref=\"T:System.Windows.Controls.TabControl\" />.</summary>\n 1711      </member>\n 1712:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.#ctor\">\n 1713:       <summary>Initializes a new instance of the <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> class. </summary>\n 1714      </member>\n 1715:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.ArrangeOverride(System.Windows.Size)\">\n 1716:       <summary>Arranges and sizes the content of a <see cref=\"T:System.Windows.Controls.Primitives.TabPanel\" /> object.</summary>\n 1717        <returns>The size of the arranged control.</returns>\n 1718:       <param name=\"finalSize\">The size that a tab panel uses to position child elements.</param>\n 1719      </member>\n 1720:     <member name=\"M:System.Windows.Controls.Primitives.TabPanel.MeasureOverride(System.Windows.Size)\">\n 1721        <summary>Called when remeasuring the control is required.</summary>\n 1722        <returns>The measured size of the control.</returns>\n\nC:\\Sources\\src\\Test.Prompts.html\\html\\Test.Prompts.html:\n   23  		<script src=\"../../Prompts.html/js/ReportCatalogItemsBuilder.js\"></script>\n   24  		<script src=\"../js/CatalogItemsProvider.tests.js\"></script>\n   25: 		<script src=\"../../Prompts.html/js/LoadingPanelController.js\"></script>\n   26          <script src=\"../../Prompts.html/js/HierarchyFlattener.js\"></script>\n   27          <script src=\"../js/HierarchyFlattener.test.js\" class=\"\"></script>\n   ..\n   34          <script src=\"../js/ReportCatalogItemController.tests.js\"></script>\n   35  \n   36:         <script src=\"../../Prompts.html/js/LoadingPanelController.js\"></script>\n   37:         <script src=\"../js/LoadingPanelController.tests.js\"></script>\n   38  \n   39          <script src=\"../../Prompts.html/js/RangeSelector.js\"></script>\n\nC:\\Sources\\src\\Test.Prompts.html\\js\\LoadingPanelController.tests.js:\n    1: module( \"Loading Panel Tests\", {\n    2      setup: function () {\n    3          this.view = {};\n    .\n   15          this.catalog.Get = sinon.spy();\n   16  \n   17:         this.controller = new LoadingPanelController(this.catalog);\n   18          this.controller.setView(this.view);\n   19      }\n\n230 matches across 46 files\n",
+			"file": "src/html_client/js/PromptItemView.js",
 			"settings":
 			{
-				"buffer_size": 38406,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "src/html_client/js/AvailableItemsController.js",
-			"settings":
-			{
-				"buffer_size": 1105,
+				"buffer_size": 799,
 				"line_ending": "Windows"
 			}
 		},
@@ -113,7 +107,7 @@
 			"file": "src/html_client/html/index.html.erb",
 			"settings":
 			{
-				"buffer_size": 1457,
+				"buffer_size": 985,
 				"line_ending": "Windows"
 			}
 		},
@@ -121,15 +115,15 @@
 			"file": "src/html_client/css/prompts.scss",
 			"settings":
 			{
-				"buffer_size": 4020,
+				"buffer_size": 4127,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "build/rakefile.rb",
+			"file": "src/html_client/js/ReportCatalogView.js",
 			"settings":
 			{
-				"buffer_size": 7679,
+				"buffer_size": 445,
 				"line_ending": "Windows"
 			}
 		}
@@ -162,6 +156,16 @@
 	},
 	"file_history":
 	[
+		"/C/Sources/src/html_client/js/TreePromptItemView.js",
+		"/C/Sources/src/html_client/css/prompts.scss",
+		"/C/Sources/src/html_client/js/AvailableItemsController.js",
+		"/C/Sources/src/html_client/html/index.html.erb",
+		"/C/Sources/build/rakefile.rb",
+		"/C/Sources/src/html_client/templates/folderItemTemplate.html",
+		"/C/Sources/src/html_client/templates/emptyFolderItemTemplate.html",
+		"/C/Sources/src/html_client/js/FolderCatalogItemView.js",
+		"/C/Sources/src/html_client/templates/treePromptItemTemplate.html",
+		"/C/Sources/src/html_client/templates/itemTemplate.html",
 		"/C/Sources/src/html_client/css/test.css",
 		"/C/Sources/src/html_client/css/prompts.css",
 		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/Plain text.sublime-settings",
@@ -171,15 +175,9 @@
 		"/C/Sources/src/html_client/js/ReportCatalogItemView.js",
 		"/C/Sources/src/html_client/js/PromptItemView.js",
 		"/C/Sources/src/html_client/js/LeafTreePromptItemView.js",
-		"/C/Sources/src/html_client/js/TreePromptItemView.js",
 		"/C/Sources/binaries/html_client_debug/js/PromptItemView.js",
 		"/C/Sources/binaries/html_client_debug/js/LeafTreePromptItemView.js",
-		"/C/Sources/src/html_client/templates/treePromptItemTemplate.html",
-		"/C/Sources/src/html_client/templates/itemTemplate.html",
-		"/C/Sources/src/html_client/templates/folderItemTemplate.html",
-		"/C/Sources/src/html_client/templates/emptyFolderItemTemplate.html",
 		"/C/Sources/binaries/html_client_debug/js/TreePromptItemView.js",
-		"/C/Sources/src/html_client/js/FolderCatalogItemView.js",
 		"/C/Sources/binaries/html_client_debug/js/FolderCatalogItemView.js",
 		"/C/Sources/src/html_client/templates/emptyPromptTemplate.html",
 		"/C/Sources/src/html_client/templates/leafTreePromptItemTemplate.html",
@@ -190,7 +188,6 @@
 		"/C/Sources/src/html_client/templates/availableItemsTemplate.html",
 		"/C/Sources/src/html_client/js/Templates.js",
 		"/C/Sources/src/html_client/js/TemplateView.js",
-		"/C/Sources/build/rakefile.rb",
 		"/C/Sources/src/html_client/js/emptyFolderItem.html",
 		"/C/Sources/src/html_client/templates/folderItem.html",
 		"/C/Sources/src/html_client/templates/item.html",
@@ -201,7 +198,6 @@
 		"/C/Sources/src/html_client/js/../templates/leafTreePromptItem.template",
 		"/C/Sources/src/html_client/templates/item.template",
 		"/C/Sources/src/html_client/templates/childPromptItemsLoadingPanel.template",
-		"/C/Sources/src/html_client/html/index.html.erb",
 		"/C/temp/CreateDebug.rb",
 		"/C/temp/index.erb",
 		"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelView.js",
@@ -236,7 +232,6 @@
 		"/C/Sources/src/html_client/js/AsynchronousItemsController.js",
 		"/C/Sources/src/html_client/js/RootReportCatalogItemsController.js",
 		"/C/Sources/src/html_client/js/RootItemsView.js",
-		"/C/Sources/src/html_client/js/AvailableItemsController.js",
 		"/C/Sources/src/html_client/js/AsynchronousSearchAvailableItemsController.js",
 		"/C/Sources/src/html_client/js/ChildAvailableItemsController.js",
 		"/C/Sources/src/html_client/js/Search.js",
@@ -274,6 +269,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"#prompts",
 			"panel",
 			"class=\"panel",
 			"image",
@@ -341,982 +337,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "src/html_client/js/PromptItemView.js",
 					"settings":
 					{
-						"buffer_size": 38406,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										161,
-										166
-									],
-									[
-										496,
-										501
-									],
-									[
-										615,
-										620
-									],
-									[
-										1007,
-										1012
-									],
-									[
-										1141,
-										1146
-									],
-									[
-										1286,
-										1291
-									],
-									[
-										1372,
-										1377
-									],
-									[
-										1588,
-										1593
-									],
-									[
-										1624,
-										1629
-									],
-									[
-										1669,
-										1674
-									],
-									[
-										1747,
-										1752
-									],
-									[
-										1792,
-										1797
-									],
-									[
-										1831,
-										1836
-									],
-									[
-										1867,
-										1872
-									],
-									[
-										1923,
-										1928
-									],
-									[
-										1959,
-										1964
-									],
-									[
-										1999,
-										2004
-									],
-									[
-										2144,
-										2149
-									],
-									[
-										2248,
-										2253
-									],
-									[
-										2359,
-										2364
-									],
-									[
-										2483,
-										2488
-									],
-									[
-										2604,
-										2609
-									],
-									[
-										2706,
-										2711
-									],
-									[
-										2801,
-										2806
-									],
-									[
-										3093,
-										3098
-									],
-									[
-										3477,
-										3482
-									],
-									[
-										3877,
-										3882
-									],
-									[
-										4237,
-										4242
-									],
-									[
-										4480,
-										4485
-									],
-									[
-										4727,
-										4732
-									],
-									[
-										4962,
-										4967
-									],
-									[
-										5195,
-										5200
-									],
-									[
-										5201,
-										5206
-									],
-									[
-										5357,
-										5362
-									],
-									[
-										5364,
-										5369
-									],
-									[
-										5429,
-										5434
-									],
-									[
-										5716,
-										5721
-									],
-									[
-										5735,
-										5740
-									],
-									[
-										5820,
-										5825
-									],
-									[
-										5846,
-										5851
-									],
-									[
-										5998,
-										6003
-									],
-									[
-										6219,
-										6224
-									],
-									[
-										6444,
-										6449
-									],
-									[
-										6623,
-										6628
-									],
-									[
-										6874,
-										6879
-									],
-									[
-										6893,
-										6898
-									],
-									[
-										6985,
-										6990
-									],
-									[
-										7196,
-										7201
-									],
-									[
-										7413,
-										7418
-									],
-									[
-										7722,
-										7727
-									],
-									[
-										7998,
-										8003
-									],
-									[
-										8013,
-										8018
-									],
-									[
-										8119,
-										8124
-									],
-									[
-										8143,
-										8148
-									],
-									[
-										8250,
-										8255
-									],
-									[
-										8503,
-										8508
-									],
-									[
-										8625,
-										8630
-									],
-									[
-										8644,
-										8649
-									],
-									[
-										8702,
-										8707
-									],
-									[
-										8789,
-										8794
-									],
-									[
-										9078,
-										9083
-									],
-									[
-										9312,
-										9317
-									],
-									[
-										9539,
-										9544
-									],
-									[
-										9697,
-										9702
-									],
-									[
-										9969,
-										9974
-									],
-									[
-										10235,
-										10240
-									],
-									[
-										10252,
-										10257
-									],
-									[
-										10544,
-										10549
-									],
-									[
-										10764,
-										10769
-									],
-									[
-										10781,
-										10786
-									],
-									[
-										11073,
-										11078
-									],
-									[
-										11236,
-										11241
-									],
-									[
-										11357,
-										11362
-									],
-									[
-										11459,
-										11464
-									],
-									[
-										11554,
-										11559
-									],
-									[
-										11770,
-										11775
-									],
-									[
-										11776,
-										11781
-									],
-									[
-										11932,
-										11937
-									],
-									[
-										11939,
-										11944
-									],
-									[
-										12004,
-										12009
-									],
-									[
-										12280,
-										12285
-									],
-									[
-										12299,
-										12304
-									],
-									[
-										12384,
-										12389
-									],
-									[
-										12410,
-										12415
-									],
-									[
-										12562,
-										12567
-									],
-									[
-										12783,
-										12788
-									],
-									[
-										12997,
-										13002
-									],
-									[
-										13176,
-										13181
-									],
-									[
-										13416,
-										13421
-									],
-									[
-										13435,
-										13440
-									],
-									[
-										13527,
-										13532
-									],
-									[
-										13738,
-										13743
-									],
-									[
-										13955,
-										13960
-									],
-									[
-										14253,
-										14258
-									],
-									[
-										14529,
-										14534
-									],
-									[
-										14544,
-										14549
-									],
-									[
-										14650,
-										14655
-									],
-									[
-										14674,
-										14679
-									],
-									[
-										14781,
-										14786
-									],
-									[
-										15023,
-										15028
-									],
-									[
-										15145,
-										15150
-									],
-									[
-										15164,
-										15169
-									],
-									[
-										15222,
-										15227
-									],
-									[
-										15309,
-										15314
-									],
-									[
-										15598,
-										15603
-									],
-									[
-										15832,
-										15837
-									],
-									[
-										16048,
-										16053
-									],
-									[
-										16206,
-										16211
-									],
-									[
-										16435,
-										16440
-									],
-									[
-										16735,
-										16740
-									],
-									[
-										16879,
-										16884
-									],
-									[
-										16904,
-										16909
-									],
-									[
-										17078,
-										17083
-									],
-									[
-										17102,
-										17107
-									],
-									[
-										17203,
-										17208
-									],
-									[
-										17349,
-										17354
-									],
-									[
-										17500,
-										17505
-									],
-									[
-										17725,
-										17730
-									],
-									[
-										17804,
-										17809
-									],
-									[
-										17823,
-										17828
-									],
-									[
-										17923,
-										17928
-									],
-									[
-										18037,
-										18042
-									],
-									[
-										18285,
-										18290
-									],
-									[
-										18304,
-										18309
-									],
-									[
-										18401,
-										18406
-									],
-									[
-										18719,
-										18724
-									],
-									[
-										18955,
-										18960
-									],
-									[
-										19178,
-										19183
-									],
-									[
-										19197,
-										19202
-									],
-									[
-										19287,
-										19292
-									],
-									[
-										19304,
-										19309
-									],
-									[
-										19458,
-										19463
-									],
-									[
-										19696,
-										19701
-									],
-									[
-										19914,
-										19919
-									],
-									[
-										20084,
-										20089
-									],
-									[
-										20109,
-										20114
-									],
-									[
-										20283,
-										20288
-									],
-									[
-										20307,
-										20312
-									],
-									[
-										20409,
-										20414
-									],
-									[
-										20609,
-										20614
-									],
-									[
-										20682,
-										20687
-									],
-									[
-										20701,
-										20706
-									],
-									[
-										20787,
-										20792
-									],
-									[
-										20878,
-										20883
-									],
-									[
-										21108,
-										21113
-									],
-									[
-										21183,
-										21188
-									],
-									[
-										21198,
-										21203
-									],
-									[
-										21345,
-										21350
-									],
-									[
-										21563,
-										21568
-									],
-									[
-										21707,
-										21712
-									],
-									[
-										22078,
-										22083
-									],
-									[
-										22388,
-										22393
-									],
-									[
-										22423,
-										22428
-									],
-									[
-										22684,
-										22689
-									],
-									[
-										22724,
-										22729
-									],
-									[
-										22857,
-										22862
-									],
-									[
-										23109,
-										23114
-									],
-									[
-										23278,
-										23283
-									],
-									[
-										23523,
-										23528
-									],
-									[
-										23542,
-										23547
-									],
-									[
-										23637,
-										23642
-									],
-									[
-										23829,
-										23834
-									],
-									[
-										24025,
-										24030
-									],
-									[
-										24286,
-										24291
-									],
-									[
-										24410,
-										24415
-									],
-									[
-										24439,
-										24444
-									],
-									[
-										24504,
-										24509
-									],
-									[
-										24837,
-										24842
-									],
-									[
-										25247,
-										25252
-									],
-									[
-										25510,
-										25515
-									],
-									[
-										25631,
-										25636
-									],
-									[
-										25745,
-										25750
-									],
-									[
-										25899,
-										25904
-									],
-									[
-										26050,
-										26055
-									],
-									[
-										26183,
-										26188
-									],
-									[
-										26675,
-										26680
-									],
-									[
-										26938,
-										26943
-									],
-									[
-										27059,
-										27064
-									],
-									[
-										27173,
-										27178
-									],
-									[
-										27327,
-										27332
-									],
-									[
-										27478,
-										27483
-									],
-									[
-										27611,
-										27616
-									],
-									[
-										27980,
-										27985
-									],
-									[
-										28182,
-										28187
-									],
-									[
-										28440,
-										28445
-									],
-									[
-										28473,
-										28478
-									],
-									[
-										28532,
-										28537
-									],
-									[
-										28806,
-										28811
-									],
-									[
-										29078,
-										29083
-									],
-									[
-										29365,
-										29370
-									],
-									[
-										29711,
-										29716
-									],
-									[
-										29839,
-										29844
-									],
-									[
-										30194,
-										30199
-									],
-									[
-										30481,
-										30486
-									],
-									[
-										30827,
-										30832
-									],
-									[
-										30955,
-										30960
-									],
-									[
-										31287,
-										31292
-									],
-									[
-										31548,
-										31553
-									],
-									[
-										31734,
-										31739
-									],
-									[
-										31790,
-										31795
-									],
-									[
-										31825,
-										31830
-									],
-									[
-										32036,
-										32041
-									],
-									[
-										32254,
-										32259
-									],
-									[
-										32465,
-										32470
-									],
-									[
-										32498,
-										32503
-									],
-									[
-										32807,
-										32812
-									],
-									[
-										32956,
-										32961
-									],
-									[
-										33216,
-										33221
-									],
-									[
-										33538,
-										33543
-									],
-									[
-										33869,
-										33874
-									],
-									[
-										34231,
-										34236
-									],
-									[
-										34641,
-										34646
-									],
-									[
-										34904,
-										34909
-									],
-									[
-										35025,
-										35030
-									],
-									[
-										35139,
-										35144
-									],
-									[
-										35293,
-										35298
-									],
-									[
-										35444,
-										35449
-									],
-									[
-										35577,
-										35582
-									],
-									[
-										36074,
-										36079
-									],
-									[
-										36337,
-										36342
-									],
-									[
-										36458,
-										36463
-									],
-									[
-										36572,
-										36577
-									],
-									[
-										36726,
-										36731
-									],
-									[
-										36877,
-										36882
-									],
-									[
-										37010,
-										37015
-									],
-									[
-										37464,
-										37469
-									],
-									[
-										37811,
-										37816
-									],
-									[
-										37882,
-										37887
-									],
-									[
-										38098,
-										38103
-									],
-									[
-										38282,
-										38287
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2100.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/html_client/js/AvailableItemsController.js",
-					"settings":
-					{
-						"buffer_size": 1105,
+						"buffer_size": 799,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								520,
-								520
+								639,
+								639
 							]
 						],
 						"settings":
@@ -1332,19 +369,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "src/html_client/html/index.html.erb",
 					"settings":
 					{
-						"buffer_size": 1457,
+						"buffer_size": 985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1259,
-								1259
+								645,
+								645
 							]
 						],
 						"settings":
@@ -1354,25 +391,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 84.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "src/html_client/css/prompts.scss",
 					"settings":
 					{
-						"buffer_size": 4020,
+						"buffer_size": 4127,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								445,
-								445
+								920,
+								920
 							]
 						],
 						"settings":
@@ -1382,34 +419,34 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 168.0,
+						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "build/rakefile.rb",
+					"buffer": 3,
+					"file": "src/html_client/js/ReportCatalogView.js",
 					"settings":
 					{
-						"buffer_size": 7679,
+						"buffer_size": 445,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7679,
-								7679
+								189,
+								189
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3150.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1462,7 +499,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 356.0
+		"height": 201.0
 	},
 	"replace":
 	{
@@ -1475,11 +512,11 @@
 		"selected_items":
 		[
 			[
-				"",
-				"src/html_client/css/prompts.css"
+				"prompts.css",
+				"src/html_client/css/prompts.scss"
 			],
 			[
-				"prompts.css",
+				"",
 				"src/html_client/css/prompts.css"
 			],
 			[
@@ -1649,6 +686,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 176.0,
+	"side_bar_width": 393.0,
 	"status_bar_visible": false
 }

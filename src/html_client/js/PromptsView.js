@@ -1,6 +1,6 @@
 var PromptsView = Class.extend({
     init: function() {
-        this.root = $("<ul class='rootItems'></ul>");
+        this.root = $("<ul></ul>");
     },
 
     render: function () {

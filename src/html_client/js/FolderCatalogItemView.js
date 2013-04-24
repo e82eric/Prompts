@@ -14,12 +14,12 @@ var FolderCatalogItemView = TemplateView.extend({
     },
 
     renderExpand: function () {
-        this.expandImage.attr("class", "expander image expanded-image");
+        this.expandImage.attr("class", "expander expanded-image");
         $(this.root.children()[1]).show();
     },
 
     renderCollapse: function () {
-        this.expandImage.attr("class", "expander image collapsed-image");
+        this.expandImage.attr("class", "expander collapsed-image");
         $(this.root.children()[1]).hide();
     },
 

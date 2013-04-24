@@ -2,7 +2,7 @@ var ReportCatalogView = Class.extend({
 	init: function(controller, loadingPanelView) {
 		this.controller = controller;
 		this.loadingPanelView = loadingPanelView;
-		this.root = $("#reportCatalog");
+		this.root = $("#report-catalog");
 		this.root.append(loadingPanelView.render());
 	},
 
