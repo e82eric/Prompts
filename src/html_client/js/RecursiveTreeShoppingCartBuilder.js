@@ -31,6 +31,10 @@ function RecursiveTreeShoppingCartBuilder () {
 
         selectedItemControllersProvider.setAvailableItemsController(selectedItemsController);
 
-        return new TreeShoppingCartController(model, availableItemsController, selectedItemsController);
+        var shoppingCartController = new MultiSelectPromptController(model, availableItemsController, selectedItemsController, function () {
+            return new ShoppingCartView(shoppingCartController, "treeShoppingCartTemplate");
+        });
+
+        return shoppingCartController;
     }
 }

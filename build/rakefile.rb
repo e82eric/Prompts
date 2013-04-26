@@ -204,7 +204,11 @@ class Html_Client_Builder
 			"PromptView.js", 
 			"ItemsView.js", 
 			"SelectableItemController.js",
-			"ExpandableItemController.js"]
+			"ExpandableItemController.js",
+			"MultiSelectPromptController.js",
+			"SingleSelectPromptController.js",
+			"DropDownView.js",
+			"ShoppingCartView.js"]
 		
 		Dir.chdir(@jsSourceDirectory) do
 			Dir.glob "*.js" do |fileName|

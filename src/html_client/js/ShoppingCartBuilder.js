@@ -26,6 +26,10 @@ function ShoppingCartBuilder () {
 
         availableItemsController.setItems(availableItemControllers);
 
-        return new ShoppingCartController(model, availableItemsController, selectedItemsController);
+        var shoppingCartController = new MultiSelectPromptController(model, availableItemsController, selectedItemsController, function () {
+            return new SearchableShoppingCartView(shoppingCartController);
+        });
+
+        return shoppingCartController;
     }
 }

@@ -31,7 +31,11 @@ var PromptControllerBuilder = Class.extend({
         }
 
         if (model.PromptType == "Empty") {
-            return new EmptyPromptController(model);
+            var controller = new EmptyPromptController(model, function () {
+                return new EmptyPromptView(controller);
+            });
+
+            return controller;
         }
 
         if (model.PromptType == "CasscadingSearch") {

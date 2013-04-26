@@ -28,9 +28,6 @@ var RecursiveTreePromptItemControllerBuilder = Class.extend({
 
         var childItemsRequester = new ChildItemsRequester(repository, childItemsBuilder, childItemsRequest);
         
-
-
-
         var controller = new TreePromptItemController(
             model,
             this.rootAvailableItemsController,

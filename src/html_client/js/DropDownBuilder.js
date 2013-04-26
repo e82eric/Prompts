@@ -10,7 +10,9 @@ function DropDownBuilder () {
 
         availableItemsController.setItems(availableItemControllers);
 
-        var dropDownController = new DropDownController(model, availableItemsController);
+        var dropDownController = new SingleSelectPromptController(model, availableItemsController, function () {
+            return new SearchableDropDownView(dropDownController);
+        });
         selector.setPromptController(dropDownController);
 
         return dropDownController;

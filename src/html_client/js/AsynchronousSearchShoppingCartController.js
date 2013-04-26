@@ -1,9 +1,7 @@
-var AsynchronousSearchShoppingCartController = PromptController.extend({
+var AsynchronousSearchShoppingCartController = MultiSelectPromptController.extend({
     init: function (model, asynchronousSearch, availableItemsController, selectedItemsController, loadingPanel) {
-        this.model = model;
+        this._super(model, availableItemsController, selectedItemsController);
         this.asynchronousSearch = asynchronousSearch;
-        this.availableItemsController = availableItemsController;
-        this.selectedItemsController = selectedItemsController;
         this.loadingPanel = loadingPanel;
     },
 
@@ -15,15 +13,6 @@ var AsynchronousSearchShoppingCartController = PromptController.extend({
         this.asynchronousSearch.execute(this.searchString, this.availableItemsController);
     },
 
-    onSelect: function () {
-        var selectedAvailableItems = this.availableItemsController.getSelectedItems();
-        this.selectedItemsController.addItems(selectedAvailableItems);
-    },
-
-    onUnSelect: function () {
-        this.selectedItemsController.removeSelected();
-    },
-
     onRetryClick: function () {
         this.asynchronousSearch.executeLastRequest(this.availableItemsController);
     },
@@ -31,7 +20,7 @@ var AsynchronousSearchShoppingCartController = PromptController.extend({
     createView: function () {
         var loadingPanelView = this.loadingPanel.createView();
 
-        this.view = new AsynchronousSearchShoppingCartView(this, loadingPanelView);
+        this.setView(new AsynchronousSearchShoppingCartView(this, loadingPanelView));
         return this.view;
     }
 });

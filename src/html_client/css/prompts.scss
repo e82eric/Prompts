@@ -216,11 +216,13 @@ $execute-report-height: 25px;
 .shoppingcart {
     .listbox {
         height: 400px;
-        overflow-y: scroll;
         border: 1px solid black;
         width:45%;
         vertical-align: top;
-        > ul { height: 400px; }
+        > ul {
+            height: 400px;
+            overflow-y: scroll; 
+        }
     }
     .shoppingcart-button { height:200px; }
     .select-button { vertical-align: bottom; }

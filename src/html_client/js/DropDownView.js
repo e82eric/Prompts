@@ -1,18 +1,17 @@
 var DropDownView = PromptView.extend({
 
-    init: function (controller) {
-        this._super(controller, "dropDownTemplate");
+    init: function (controller, templateName) {
+        this._super(controller, templateName)
+
+        this.availableItemsUl = this.root.find(".available-items");
         this.popup = this.root.find(".popup");
         this.toggle = this.root.find(".toggle");
         this.selectedItemText = this.root.find(".selection");
-        this.searchInput = this.root.find(".search-input");
-        this.searchButton = this.root.find(".search-button");
         this.popup.prepend(this.controller.availableItemsController.createView().render());
     },
 
     render: function (){
         this.toggle.click($.proxy(this.onToggleClick, this));
-        this.searchButton.click($.proxy(this.onSearch, this));
         return this.root;
     },
 
@@ -38,9 +37,5 @@ var DropDownView = PromptView.extend({
 
     setSelectedItemText: function (text) {
         this.selectedItemText.text(text);
-    },
-
-    onSearch: function () {
-        this.controller.availableItemsController.search(this.searchInput.val());
     }
 });

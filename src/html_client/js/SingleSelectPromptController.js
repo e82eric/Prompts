@@ -1,8 +1,8 @@
-var TreeDropDownController = PromptController.extend({
-    init: function (model, availableItemsController) {
-        this.model = model;
+var SingleSelectPromptController = PromptController.extend({
+	init: function (model, availableItemsController, createViewFunc) {
+        this._super(model, createViewFunc);
         this.availableItemsController = availableItemsController;
-    },
+	},
 
     closePopup: function () {
         this.view.close();
@@ -26,18 +26,24 @@ var TreeDropDownController = PromptController.extend({
         }
     },
 
+	evaluateReadyForExecution: function () {
+        if(this.selectedItem != null) {
+            this.view.setExecutionIndicatorReady();
+        } else {
+            this.view.setExecutionIndicatorNotReady();
+        }
+    },
+
     onSelection: function(item) {
+        this.selectedItem = item;
         this.view.setSelectedItemText(item.model.Label);
         this.closePopup();
+
+        this.evaluateReadyForExecution();
     },
 
     setView: function (val) {
-        this.view = val;
+    	this._super(val);
         this.closePopup();
-    },
-
-    createView: function () {
-        this.setView(new TreeDropDownView(this));
-        return this.view;
     }
 });
