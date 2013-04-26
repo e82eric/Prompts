@@ -1,6 +1,12 @@
 var AsynchronousSearchShoppingCartController = MultiSelectPromptController.extend({
-    init: function (model, asynchronousSearch, availableItemsController, selectedItemsController, loadingPanel) {
-        this._super(model, availableItemsController, selectedItemsController);
+    init: function (
+        model, 
+        asynchronousSearch, 
+        availableItemsController, 
+        selectedItemsController, 
+        loadingPanel,
+        promptsController) {
+        this._super(model, availableItemsController, selectedItemsController, promptsController);
         this.asynchronousSearch = asynchronousSearch;
         this.loadingPanel = loadingPanel;
     },

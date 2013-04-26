@@ -1,9 +1,12 @@
 var PromptsView = Class.extend({
-    init: function() {
+    init: function(controller) {
+        this.controller = controller;
+        this.executeReportButton = $("#execute-report button");
         this.root = $("<ul></ul>");
     },
 
     render: function () {
+        this.executeReportButton.click($.proxy(this.controller.onExecuteClick, this.controller));
         return this.root;
     },
 
@@ -15,5 +18,13 @@ var PromptsView = Class.extend({
                 this.root.append(itemView.render());
             },
             this);
+    },
+
+    setExecutionIndicatorReady: function () {
+        this.executeReportButton.removeAttr('disabled');
+    },
+
+    setExecutionIndicatorNotReady: function () {
+        this.executeReportButton.attr('disabled','disabled');
     }
 });

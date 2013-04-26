@@ -1,5 +1,5 @@
 var AsynchronousSearchShoppingCartBuilder = Class.extend({
-  build: function (model) {
+  build: function (model, promptsController) {
     var singleSelector = new SingleSelector();
     var rangeSelector = new RangeSelector();
     var inverseSelector = new InverseSelector();
@@ -33,6 +33,7 @@ var AsynchronousSearchShoppingCartBuilder = Class.extend({
     searchRequester,
     availableItemsController,
     selectedItemsController,
-    loadingPanel);
+    loadingPanel,
+    promptsController);
   }
 });

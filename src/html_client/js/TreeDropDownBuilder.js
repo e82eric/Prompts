@@ -1,5 +1,5 @@
 function TreeDropDownBuilder () {
-    this.build = function (model) {
+    this.build = function (model, promptsController) {
         var singleSelector = new SingleSelector();
         var dropDownSelector = new TreeDropDownSelector(singleSelector, new HierarchyFlattener());
 
@@ -9,9 +9,15 @@ function TreeDropDownBuilder () {
         var items = itemsBuilder.build(model.PromptLevelInfo);
         availableItemsController.setItems(items);
 
-        var dropDownController = new SingleSelectPromptController(model, availableItemsController, function () {
-            return new DropDownView(dropDownController, "treeDropDownTemplate");
-        });
+        var dropDownController = new SingleSelectPromptController(
+            model, 
+            availableItemsController, 
+            promptsController,
+            function () {
+                return new DropDownView(dropDownController, "treeDropDownTemplate");
+            }
+        );
+        
         dropDownSelector.setPromptController(dropDownController);
         return dropDownController;
     }

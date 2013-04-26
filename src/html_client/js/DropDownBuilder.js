@@ -1,5 +1,5 @@
 function DropDownBuilder () {
-    this.build = function (model) {
+    this.build = function (model, promptsController) {
         var singleSelector = new SingleSelector();
         var selector = new DropDownSelector(singleSelector );
 
@@ -10,9 +10,14 @@ function DropDownBuilder () {
 
         availableItemsController.setItems(availableItemControllers);
 
-        var dropDownController = new SingleSelectPromptController(model, availableItemsController, function () {
-            return new SearchableDropDownView(dropDownController);
-        });
+        var dropDownController = new SingleSelectPromptController(
+            model, 
+            availableItemsController, 
+            promptsController, 
+            function () {
+                return new SearchableDropDownView(dropDownController);
+            }
+        );
         selector.setPromptController(dropDownController);
 
         return dropDownController;

@@ -104,9 +104,13 @@ $execute-report-height: 25px;
     bottom: $panel-spacing;
     height: $execute-report-height;
     position: absolute;
+    .ready{ color: green; }
+    .not-ready{ color: red; }
     @include panel-border
 }
 
+.ready{ color: green; }
+.not-ready{ color: red; }
 .item {
     cursor: pointer;
     -webkit-touch-callout: none;

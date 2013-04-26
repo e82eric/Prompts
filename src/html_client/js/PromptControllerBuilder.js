@@ -1,5 +1,7 @@
 var PromptControllerBuilder = Class.extend({
-    init: function () {
+    init: function (promptsController) {
+        this.promptsController = promptsController;
+
         this.shoppingCartBuilder = new ShoppingCartBuilder();
         this.treeDropDownBuilder = new TreeDropDownBuilder();
         this.recursiveTreeDropDownBuilder = new RecursiveTreeDropDownBuilder();
@@ -11,27 +13,27 @@ var PromptControllerBuilder = Class.extend({
 
     build: function (model) {
         if (model.PromptType == "ShoppingCart") {
-            return this.shoppingCartBuilder.build(model);
+            return this.shoppingCartBuilder.build(model, this.promptsController);
         }
 
         if (model.PromptType == "SingleSelectTree") {
-            return this.treeDropDownBuilder.build(model);
+            return this.treeDropDownBuilder.build(model, this.promptsController);
         }
 
         if (model.PromptType == "RecursiveSingleSelectTree") {
-            return this.recursiveTreeDropDownBuilder.build(model);
+            return this.recursiveTreeDropDownBuilder.build(model, this.promptsController);
         }
 
         if (model.PromptType == "RecursiveTree") {
-            return this.recursiveTreeShoppingCartBuilder.build(model);
+            return this.recursiveTreeShoppingCartBuilder.build(model, this.promptsController);
         }
 
         if (model.PromptType == "Tree") {
-            return this.treeShoppingCartBuilder.build(model);
+            return this.treeShoppingCartBuilder.build(model, this.promptsController);
         }
 
         if (model.PromptType == "Empty") {
-            var controller = new EmptyPromptController(model, function () {
+            var controller = new EmptyPromptController(model, this.promptsController, function () {
                 return new EmptyPromptView(controller);
             });
 
@@ -39,9 +41,9 @@ var PromptControllerBuilder = Class.extend({
         }
 
         if (model.PromptType == "CasscadingSearch") {
-            return this.asynchronousSearchShoppingCartBuilder.build(model);
+            return this.asynchronousSearchShoppingCartBuilder.build(model, this.promptsController);
         }
 
-        return this.dropDownBuilder.build(model);
+        return this.dropDownBuilder.build(model, this.promptsController);
     }
 });

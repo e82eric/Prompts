@@ -1,7 +1,7 @@
 $(function () {
-    var promptBuilder = new PromptControllerBuilder();
-    var promptsBuilder = new ControllersBuilder(promptBuilder);
     var promptsController = new PromptsController();
+    var promptBuilder = new PromptControllerBuilder(promptsController);
+    var promptsBuilder = new ControllersBuilder(promptBuilder);
     var promptingLoadingPanel = new LoadingPanelControllerBase(function (controller){
         return new PromptingLoadingPanelView(promptingLoadingPanel, promptsController.createView())
     });

@@ -1,5 +1,5 @@
 function RecursiveTreeDropDownBuilder () {
-    this.build = function (model) {
+    this.build = function (model, promptsController) {
         var singleSelector = new SingleSelector();
         var dropDownSelector = new TreeDropDownSelector(singleSelector, new HierarchyFlattener());
 
@@ -16,9 +16,15 @@ function RecursiveTreeDropDownBuilder () {
         var items = itemsBuilder.build(model.PromptLevelInfo);
         rootAvailableItemsController.setItems(items);
 
-        var dropDownController = new SingleSelectPromptController(model, rootAvailableItemsController, function () {
-            return new DropDownView(dropDownController, "treeDropDownTemplate");
-        });
+        var dropDownController = new SingleSelectPromptController(
+            model, 
+            rootAvailableItemsController,
+            promptsController,
+            function () {
+                return new DropDownView(dropDownController, "treeDropDownTemplate");
+            }
+        );
+        
         dropDownSelector.setPromptController(dropDownController);
         return dropDownController;
     }

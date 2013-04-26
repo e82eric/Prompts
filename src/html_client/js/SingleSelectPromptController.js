@@ -1,6 +1,6 @@
 var SingleSelectPromptController = PromptController.extend({
-	init: function (model, availableItemsController, createViewFunc) {
-        this._super(model, createViewFunc);
+	init: function (model, availableItemsController, promptsController, createViewFunc) {
+        this._super(model, promptsController, createViewFunc);
         this.availableItemsController = availableItemsController;
 	},
 
@@ -27,11 +27,7 @@ var SingleSelectPromptController = PromptController.extend({
     },
 
 	evaluateReadyForExecution: function () {
-        if(this.selectedItem != null) {
-            this.view.setExecutionIndicatorReady();
-        } else {
-            this.view.setExecutionIndicatorNotReady();
-        }
+        return this.selectedItem != null;
     },
 
     onSelection: function(item) {
@@ -39,7 +35,11 @@ var SingleSelectPromptController = PromptController.extend({
         this.view.setSelectedItemText(item.model.Label);
         this.closePopup();
 
-        this.evaluateReadyForExecution();
+        this.setReadyForExecution();
+    },
+
+    selections: function () {
+        return [this.selectedItem.model];
     },
 
     setView: function (val) {

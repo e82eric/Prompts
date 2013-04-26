@@ -1,26 +1,26 @@
 var MultiSelectPromptController = PromptController.extend({
-    init: function (model, availableItemsController, selectedItemsController, createViewFunc) {
-        this._super(model, createViewFunc);
+    init: function (model, availableItemsController, selectedItemsController, promptsController, createViewFunc) {
+        this._super(model, promptsController, createViewFunc);
         this.selectedItemsController = selectedItemsController;
         this.availableItemsController = availableItemsController;
     },
 
     evaluateReadyForExecution: function () {
-        if(this.selectedItemsController.items.length > 0) {
-            this.view.setExecutionIndicatorReady();
-        } else {
-            this.view.setExecutionIndicatorNotReady();
-        }
+        return this.selectedItemsController.items.length > 0;
     },
 
     onSelect: function () {
         selectedAvailableItems = this.availableItemsController.getSelectedItems();
         this.selectedItemsController.addItems(selectedAvailableItems);
-        this.evaluateReadyForExecution();
+        this.setReadyForExecution();
     },
 
     onUnSelect: function () {
         this.selectedItemsController.removeSelected();
-        this.evaluateReadyForExecution();
-    }
+        this.setReadyForExecution();
+    },
+
+    selections: function () {
+        return _.map(this.selectedItemsController.items, function (item) { return item.model; });
+    },
 });

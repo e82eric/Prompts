@@ -1,5 +1,5 @@
 function ShoppingCartBuilder () {
-    this.build = function (model) {
+    this.build = function (model, promptsController) {
         var availableItemControllers = [];
         var singleSelector = new SingleSelector();
         var rangeSelector = new RangeSelector();
@@ -26,9 +26,15 @@ function ShoppingCartBuilder () {
 
         availableItemsController.setItems(availableItemControllers);
 
-        var shoppingCartController = new MultiSelectPromptController(model, availableItemsController, selectedItemsController, function () {
-            return new SearchableShoppingCartView(shoppingCartController);
-        });
+        var shoppingCartController = new MultiSelectPromptController(
+            model, 
+            availableItemsController, 
+            selectedItemsController, 
+            promptsController,
+            function () {
+                return new SearchableShoppingCartView(shoppingCartController);
+            }
+        );
 
         return shoppingCartController;
     }

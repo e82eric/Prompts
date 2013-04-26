@@ -1,5 +1,5 @@
 function TreeShoppingCartBuilder () {
-    this.build = function (model) {
+    this.build = function (model, promptsController) {
         var singleSelector = new SingleSelector();
         var rangeSelector = new RangeSelector();
         var inverseSelector = new InverseSelector();
@@ -25,9 +25,15 @@ function TreeShoppingCartBuilder () {
 
         selectedItemControllersProvider.setAvailableItemsController(selectedItemsController);
 
-        var shoppingCartController = new MultiSelectPromptController(model, availableItemsController, selectedItemsController, function () {
-            return new ShoppingCartView(shoppingCartController, "treeShoppingCartTemplate");
-        });
+        var shoppingCartController = new MultiSelectPromptController(
+            model, 
+            availableItemsController, 
+            selectedItemsController,
+            promptsController, 
+            function () {
+                return new ShoppingCartView(shoppingCartController, "treeShoppingCartTemplate");
+            }
+        );
 
         return shoppingCartController;
     }
