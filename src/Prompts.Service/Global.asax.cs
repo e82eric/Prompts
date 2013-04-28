@@ -9,15 +9,6 @@ namespace Prompts.Service
         protected void Application_Start(object sender, EventArgs e)
         {
             (new PromptsServiceAppHost()).Init();
-            RegisterRoutes(RouteTable.Routes);
-        }
-
-        void RegisterRoutes(RouteCollection routes)
-        {
-            routes.Add(
-
-            new Route("{resource}.axd/{*pathInfo}", new StopRoutingHandler()));  
-            routes.MapPageRoute("", "{data}", "~/WELCOME.aspx");
         }
     }
 }
