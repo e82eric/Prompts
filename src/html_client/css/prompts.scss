@@ -128,7 +128,6 @@ $execute-report-height: 25px;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: 16px;
     padding: 0px 2px 0px 2px;
 }
 
@@ -146,13 +145,14 @@ $execute-report-height: 25px;
     &:hover { border: 1px solid black; }
 }
 
+$itemHeight: 18px;
+
 @mixin small-image($url) {
     margin-top: 0px;
     display: inline-block;
-    height: 16px;
-    width: 16px;
+    height: $itemHeight;
+    width: $itemHeight;
     vertical-align: top;
-    padding:1px;
     background-image: url($url);
 }
 
@@ -169,15 +169,6 @@ $execute-report-height: 25px;
     width: 25px;
     vertical-align: middle;
     background-image: url("../images/loading.gif");
-    background-repeat: no-repeat;
-}
-
-.not-loading-image {
-    margin-top: 0px;
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    vertical-align: center;
     background-repeat: no-repeat;
 }
 
@@ -231,8 +222,8 @@ $execute-report-height: 25px;
     }
 }
 
-.treeItem, .promptItem {
-    > div { margin-bottom: 1px; }
+.promptItem {
+    div:first-child { margin-bottom: 1px; }
 }
 
 .treeItem {
