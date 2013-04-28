@@ -1,8 +1,14 @@
 var Repository = Class.extend({
-    init: function (url, loadingPanel, method) {
+    init: function (url, loadingPanel, method, dataType) {
         this.url = url;
         this.loadingPanel = loadingPanel;
         this.method = method;
+
+        this._dataType = dataType;
+
+        if(this._dataType == undefined) {
+            this._dataType = "json";
+        }
     },
 
     get: function (request, successCallback) {
@@ -10,7 +16,7 @@ var Repository = Class.extend({
         $.ajax({
             type:this.method,
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
+            dataType: this._dataType,
             data: JSON.stringify(request),
             url:this.url,
             context: this,

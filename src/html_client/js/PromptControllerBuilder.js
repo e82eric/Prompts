@@ -1,7 +1,5 @@
 var PromptControllerBuilder = Class.extend({
-    init: function (promptsController) {
-        this.promptsController = promptsController;
-
+    init: function () {
         this.shoppingCartBuilder = new ShoppingCartBuilder();
         this.treeDropDownBuilder = new TreeDropDownBuilder();
         this.recursiveTreeDropDownBuilder = new RecursiveTreeDropDownBuilder();
@@ -45,5 +43,9 @@ var PromptControllerBuilder = Class.extend({
         }
 
         return this.dropDownBuilder.build(model, this.promptsController);
+    },
+
+    setPromptingController: function(val) {
+        this.promptsController = val;
     }
 });

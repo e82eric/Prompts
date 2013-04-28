@@ -22,7 +22,7 @@ var PromptController = Class.extend({
     },
 
     selectionInfo: function () {
-        return { Name: this.model.Name, Selections: this.selections() };
+        return { PromptName: this.model.Name, Selections: this.selections() };
     },
 
 	setView: function(val) {

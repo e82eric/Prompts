@@ -1,3 +1,4 @@
+
 body { 
     margin: 0px;
     font-family: "Segoe UI";
@@ -93,20 +94,28 @@ $execute-report-height: 25px;
     left: $right-panel-start;
     right: $panel-spacing;
     position: absolute;
-    overflow-y: auto;
-    bottom: $execute-report-height + $panel-spacing + $panel-spacing;
+    bottom: $panel-spacing;
     @include panel-border
 }
 
+#prompts-list {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    overflow-y: auto;
+    bottom: $execute-report-height;
+    border-bottom: 1px solid #000000;
+}
+
 #execute-report {
-    left: $right-panel-start;
-    right: $panel-spacing;
-    bottom: $panel-spacing;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: $execute-report-height;
     position: absolute;
     .ready{ color: green; }
     .not-ready{ color: red; }
-    @include panel-border
 }
 
 .ready{ color: green; }
@@ -150,6 +159,26 @@ $execute-report-height: 25px;
 @mixin small-action-image($url) {
     @include small-image($url);
     cursor: pointer;
+}
+
+.loading-image {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    vertical-align: middle;
+    background-image: url("../images/loading.gif");
+    background-repeat: no-repeat;
+}
+
+.not-loading-image {
+    margin-top: 0px;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    vertical-align: center;
+    background-repeat: no-repeat;
 }
 
 .spacer-image { @include small-image("") }
