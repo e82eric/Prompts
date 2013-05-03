@@ -10,7 +10,7 @@ var ChildItemsRequester = Class.extend({
         this.repository.get(
             this.childItemsRequest,
             function(result) {
-                var controllers = self.builder.build(result);
+                var controllers = self.builder.build(result.AvailableItems, {promptLevelInfo: result});
                 childAvailableItemsController.setItems(controllers);
                 promptItem.setChildren(controllers);
             }

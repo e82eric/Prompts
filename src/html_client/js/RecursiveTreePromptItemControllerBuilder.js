@@ -5,7 +5,9 @@ var RecursiveTreePromptItemControllerBuilder = Class.extend({
         this.filterParameterName = filterParameterName;
     },
 
-    build: function (model) {
+    build: function (params) {
+        var model = params.model;
+
         var childAvailableItemsController = new AsynchronousItemsController(function () {
             return new ItemsView(childAvailableItemsController, "childItems");
         });
@@ -14,7 +16,7 @@ var RecursiveTreePromptItemControllerBuilder = Class.extend({
             return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
         });
         
-        var childItemsBuilder = new RecursiveTreePromptItemControllersBuilder(this);
+        var childItemsBuilder = new ItemsBuilder(this);
         
         var repository = new Repository("/Prompts.Service/api/prompts/child_items/recursive", loadingPanel, "POST");
 
@@ -36,5 +38,9 @@ var RecursiveTreePromptItemControllerBuilder = Class.extend({
             loadingPanel);
 
         return controller;
-    }
+    },
+
+    setAvailableItemsController: function (val) {
+        this.rootAvailableItemsController = val;
+    }   
 });

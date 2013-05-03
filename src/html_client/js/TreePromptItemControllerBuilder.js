@@ -5,58 +5,65 @@ var TreePromptItemControllerBuilder = Class.extend({
         this.parentParameterValues = parentParameterValues;
     },
 
-    build: function (model, promptLevel){
-        var parameterValues = [];
+    build: function (params){
+      model = params.model;
+      promptLevel = params.promptLevelInfo;
 
-        _.each(
-           this.parentParameterValues,
-           function (parameterValue) {
-               parameterValues.push(parameterValue);
-           },
-           this
-        );
+      var parameterValues = [];
 
-        var parameterValue = {Name: promptLevel.ParameterName, Value: model.Value};
-        parameterValues.push(parameterValue);
+      _.each(
+         this.parentParameterValues,
+         function (parameterValue) {
+             parameterValues.push(parameterValue);
+         },
+         this
+      );
 
-        var childItemBuilder = new TreePromptItemControllerBuilder(
-            this.promptName,
-            this.rootAvailableItemsController,
-            parameterValues);
+      var parameterValue = {Name: promptLevel.ParameterName, Value: model.Value};
+      parameterValues.push(parameterValue);
 
-        var childItemsBuilder = new TreePromptItemControllersBuilder(childItemBuilder);
+      var childItemBuilder = new TreePromptItemControllerBuilder(
+          this.promptName,
+          this.rootAvailableItemsController,
+          parameterValues);
 
-        var loadingPanel = new LoadingPanelControllerBase(function (controller) {
-          return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
-        });
+      var childItemsBuilder = new ItemsBuilder(childItemBuilder);
 
-        var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
+      var loadingPanel = new LoadingPanelControllerBase(function (controller) {
+        return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
+      });
 
-        var childItemsRequest = {
-           PromptName: this.promptName,
-           ParameterName: promptLevel.ParameterName,
-           ParameterValues: parameterValues
-        };
+      var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
 
-        var childItemsRequester = new ChildItemsRequester(repository, childItemsBuilder, childItemsRequest);
-        var childAvailableItemsController = new AsynchronousItemsController(function () {
-          return new ItemsView(childAvailableItemsController, "childItems")
-        });
-        var controller = undefined;
+      var childItemsRequest = {
+         PromptName: this.promptName,
+         ParameterName: promptLevel.ParameterName,
+         ParameterValues: parameterValues
+      };
 
-        if(promptLevel.HasChildLevel) {
-           controller = new TreePromptItemController(
-               model,
-               this.rootAvailableItemsController,
-               childItemsRequester,
-               childAvailableItemsController,
-               loadingPanel);
-        } else {
-           controller = new LeafTreePromptItemController(
-               model,
-               this.rootAvailableItemsController);
-        }
+      var childItemsRequester = new ChildItemsRequester(repository, childItemsBuilder, childItemsRequest);
+      var childAvailableItemsController = new AsynchronousItemsController(function () {
+        return new ItemsView(childAvailableItemsController, "childItems")
+      });
+      var controller = undefined;
 
-        return controller;
+      if(promptLevel.HasChildLevel) {
+         controller = new TreePromptItemController(
+             model,
+             this.rootAvailableItemsController,
+             childItemsRequester,
+             childAvailableItemsController,
+             loadingPanel);
+      } else {
+         controller = new LeafTreePromptItemController(
+             model,
+             this.rootAvailableItemsController);
+      }
+
+      return controller;
+   },
+
+   setAvailableItemsController: function (val) {
+      this.rootAvailableItemsController = val;
    }
 });

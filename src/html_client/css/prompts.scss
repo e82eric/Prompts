@@ -59,6 +59,7 @@ $left-panel-start: $panel-spacing;
         background-image: url("../images/promptslogo.png");
         height: $header-height;
         width: $header-height;
+        background-repeat: no-repeat;
     }
 }
 
@@ -80,7 +81,7 @@ $right-panel-start: $left-panel-start + $report-catalog-width + $panel-spacing;
 
 #report-catalog {
     top: $content-top;
-    width: $report-catalog-width;
+    padding: 5px;
     bottom: $panel-spacing;
     position: absolute;
     left: $left-panel-start;
@@ -172,7 +173,13 @@ $itemHeight: 18px;
     background-repeat: no-repeat;
 }
 
-.spacer-image { @include small-image("") }
+.spacer-image {
+    margin-top: 0px;
+    display: inline-block;
+    height: $itemHeight;
+    width: $itemHeight;
+    vertical-align: top;
+}
 
 .collapsed-image { @include small-action-image("../images/tree_collapsed.png") }
 
@@ -185,6 +192,7 @@ $itemHeight: 18px;
 .dropdown {
     width: 400px;
     position:relative;
+    display: inline-block;
     .toggle {
         border: 1px solid #D4D4D4;
         height: 20px;
@@ -238,6 +246,7 @@ $itemHeight: 18px;
 }
 
 .shoppingcart {
+    .search-wrapper { width: 45% }
     .listbox {
         height: 400px;
         border: 1px solid black;
@@ -248,6 +257,7 @@ $itemHeight: 18px;
             overflow-y: scroll; 
         }
     }
+    table { width: 100%; }
     .shoppingcart-button { height:200px; }
     .select-button { vertical-align: bottom; }
     .unselect-button { vertical-align: top; }

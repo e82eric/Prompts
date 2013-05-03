@@ -31,7 +31,7 @@ var PromptController = Class.extend({
 	},
 
     createView: function () {
-        this.setView(this.createViewFunc());
+        this.setView(this.createViewFunc(this));
         return this.view;
     }
 });

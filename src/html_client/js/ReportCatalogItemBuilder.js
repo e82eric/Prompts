@@ -5,7 +5,9 @@ var ReportCatalogItemBuilder = Class.extend({
         this.rootItemsController = rootItemsController;
     },
 
-    build: function (model) {
+    build: function (buildParams) {
+        var model = buildParams.model;
+
         var controller = undefined;
         if (model.Type === "Report") {
             controller = new ReportCatalogItemController(model, this.promptsController, this.rootItemsController);

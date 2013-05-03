@@ -44,7 +44,7 @@ var TreePromptItemView = TemplateView.extend({
     },
 
     hideExpander: function () {
-        this.expandImage.attr("class", "expander");
+        this.expandImage.attr("class", "expander spacer-image");
     },
 
     onRetryClick: function () {

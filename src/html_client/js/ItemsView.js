@@ -2,11 +2,10 @@ var ItemsView = Class.extend({
     init: function(controller, listClass){
         this.controller = controller;
         this.listClass = listClass;
+        this.root = $("<ul></ul>");
     },
 
     render: function () {
-        this.root = $("<ul></ul>");
-
         _.each(
             this.controller.items,
             function (controller) {

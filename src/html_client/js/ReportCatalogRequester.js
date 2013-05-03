@@ -11,7 +11,6 @@ var ReportCatalogRequester = Class.extend({
                     function (models) {
                         var controllers = this.builder.build(models);
                         availableItemsController.setItems(controllers);
-
                     },
                     this));
     }

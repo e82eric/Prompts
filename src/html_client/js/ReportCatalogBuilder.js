@@ -13,7 +13,7 @@ var ReportCatalogBuilder = Class.extend({
             this.promptsController,
             rootItemsController);
 
-        var catalogItemsBuilder = new ReportCatalogItemsBuilder(catalogItemBuilder);
+        var catalogItemsBuilder = new ItemsBuilder(catalogItemBuilder);
         folderCatalogItemBuilder.setChildItemsBuilder(catalogItemsBuilder);
 
         var loadingPanel = new LoadingPanelControllerBase(function (controller) {

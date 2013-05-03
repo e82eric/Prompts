@@ -2,6 +2,7 @@ var LeafTreePromptItemView = TemplateView.extend({
     init: function (controller) {
         this._super(controller, "treePromptItemTemplate");
         this.selectWrap = this.root.find(".selectable");
+        this.root.find(".expander").attr("class", "expander spacer-image");
     },
 
     render: function () {

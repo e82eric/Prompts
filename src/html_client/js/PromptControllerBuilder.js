@@ -1,15 +1,14 @@
 var PromptControllerBuilder = Class.extend({
     init: function () {
         this.shoppingCartBuilder = new ShoppingCartBuilder();
-        this.treeDropDownBuilder = new TreeDropDownBuilder();
-        this.recursiveTreeDropDownBuilder = new RecursiveTreeDropDownBuilder();
         this.recursiveTreeShoppingCartBuilder = new RecursiveTreeShoppingCartBuilder();
         this.treeShoppingCartBuilder = new TreeShoppingCartBuilder();
         this.asynchronousSearchShoppingCartBuilder = new AsynchronousSearchShoppingCartBuilder();
-        this.dropDownBuilder = new DropDownBuilder();
     },
 
-    build: function (model) {
+    build: function (buildParams) {
+        var model = buildParams.model;
+
         if (model.PromptType == "ShoppingCart") {
             return this.shoppingCartBuilder.build(model, this.promptsController);
         }
@@ -47,5 +46,8 @@ var PromptControllerBuilder = Class.extend({
 
     setPromptingController: function(val) {
         this.promptsController = val;
+        this.dropDownBuilder = new DropDownBuilder(this.promptsController);
+        this.treeDropDownBuilder = new TreeDropDownBuilder(this.promptsController);
+        this.recursiveTreeDropDownBuilder = new RecursiveTreeDropDownBuilder(this.promptsController);
     }
 });

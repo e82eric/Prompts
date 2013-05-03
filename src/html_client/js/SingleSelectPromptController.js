@@ -1,7 +1,8 @@
 var SingleSelectPromptController = PromptController.extend({
-	init: function (model, availableItemsController, promptsController, createViewFunc) {
+	init: function (model, availableItemsController, defaultItem, promptsController, createViewFunc) {
         this._super(model, promptsController, createViewFunc);
         this.availableItemsController = availableItemsController;
+        this.defaultItem = defaultItem;
 	},
 
     closePopup: function () {
@@ -45,5 +46,9 @@ var SingleSelectPromptController = PromptController.extend({
     setView: function (val) {
     	this._super(val);
         this.closePopup();
+
+        if(this.defaultItem != undefined) {
+            this.onSelection(this.defaultItem);
+        }
     }
 });

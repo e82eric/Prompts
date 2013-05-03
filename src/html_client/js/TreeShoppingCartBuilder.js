@@ -1,40 +1,15 @@
-function TreeShoppingCartBuilder () {
-    this.build = function (model, promptsController) {
-        var singleSelector = new SingleSelector();
-        var rangeSelector = new RangeSelector();
-        var inverseSelector = new InverseSelector();
-        var multiSelector = new MultiSelector(
-            singleSelector,
-            rangeSelector,
-            inverseSelector
-        );
+var TreeShoppingCartBuilder = ShoppingCartBuilder.extend({
+    build: function (model, promptsController) {
         var hierarhcyFlattener = new HierarchyFlattener();
-        var treeShoppingCartSelector = new TreeShoppingCartSelector(multiSelector, hierarhcyFlattener);
 
-        var availableItemsController = new AvailableItemsController(treeShoppingCartSelector);
+        var itemBuilder = new TreePromptItemControllerBuilder(model.Name, undefined, []);
 
-        var itemBuilder = new TreePromptItemControllerBuilder(model.Name, availableItemsController, []);
-        var promptItemControllersProvider = new TreePromptItemControllersBuilder(itemBuilder);
-        var items = promptItemControllersProvider.build(model.PromptLevelInfo);
-
-        availableItemsController.setItems(items);
-
-        var selectedItemControllersProvider = new PromptItemControllersProvider();
-
-        var selectedItemsController = new SelectedItemsController(multiSelector, selectedItemControllersProvider);
-
-        selectedItemControllersProvider.setAvailableItemsController(selectedItemsController);
-
-        var shoppingCartController = new MultiSelectPromptController(
-            model, 
-            availableItemsController, 
-            selectedItemsController,
-            promptsController, 
-            function () {
-                return new ShoppingCartView(shoppingCartController, "treeShoppingCartTemplate");
-            }
-        );
-
-        return shoppingCartController;
+        return this._build(
+            model,
+            promptsController,
+            itemBuilder,
+            function (multiSelector) { return new TreeShoppingCartSelector(multiSelector, hierarhcyFlattener); },
+            function (controller) { return new ShoppingCartView(controller, "treeShoppingCartTemplate"); },
+            { promptLevelInfo: model.PromptLevelInfo });
     }
-}
+});

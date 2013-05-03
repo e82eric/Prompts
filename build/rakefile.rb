@@ -174,6 +174,16 @@ def build_project(projectFile)
 	msbuild.build_solution(projectFile)
 end
 
+class Index_Page
+	def initialize(jsFiles, templates)
+		@jsFiles = jsFiles
+		@templates = templates
+	end
+	def get_binding
+    	binding
+  	end
+end
+
 class Html_Client_Builder
 	def initialize(sourceDirectory, binariesDirectory)
 		@sourceDirectory = sourceDirectory
@@ -208,7 +218,9 @@ class Html_Client_Builder
 			"MultiSelectPromptController.js",
 			"SingleSelectPromptController.js",
 			"DropDownView.js",
-			"ShoppingCartView.js"]
+			"ShoppingCartView.js",
+			"DropDownBuilder.js",
+			"ShoppingCartBuilder.js"]
 		
 		Dir.chdir(@jsSourceDirectory) do
 			Dir.glob "*.js" do |fileName|
@@ -243,11 +255,13 @@ class Html_Client_Builder
 			Dir.glob "#{@jsSourceDirectory}/{*.js}" do |path|
 				copy path, jsOutDir
 			end
-			create_index_html "#{outDir}/html", @jsFiles
+			page_structure = Index_Page.new @jsFiles, @templates
+			create_index_html "#{outDir}/html", page_structure
 		else
 			outFile = File.new("#{jsOutDir}/prompts.js", "w+")
 			@jsFiles.each { |filePath| outFile.puts File.read("#{@jsSourceDirectory}/#{filePath}") }
-			create_index_html "#{outDir}/html", ["prompts.js"]
+			page_structure = Index_Page.new ["prompts.js"], @templates
+			create_index_html "#{outDir}/html", page_structure
 		end
 		
 		cssOutDir = "#{outDir}/css"
@@ -259,12 +273,12 @@ class Html_Client_Builder
 		end
 	end
 
-	def create_index_html(outputDirectory, jsFiles)
+	def create_index_html(outputDirectory, page_structure)
 		FileUtils.mkdir_p outputDirectory
 		template = ERB.new File.new("#{@htmlSourceDirectory}/index.html.erb").read, 0, ">"
 
 		File.open("#{outputDirectory}/index.html", "w+") do |file|
-		  file.puts template.result(binding)
+		  file.puts template.result(page_structure.get_binding)
 		end
 	end
 end

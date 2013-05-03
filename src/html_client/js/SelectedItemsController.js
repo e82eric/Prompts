@@ -1,9 +1,15 @@
-function SelectedItemsController (selector, promptItemsControllersProvider) {
-    this.selector = selector;
-    this.promptItemControllersProvider = promptItemsControllersProvider;
-    this.items = [];
+var SelectedItemsController = Class.extend({
+    init: function (selector, promptItemsControllersProvider) {
+        this.selector = selector;
+        this.promptItemControllersProvider = promptItemsControllersProvider;
+        this.items = [];
+    },   
 
-    this.addItems = function (models) {
+    setDefaults: function (val) {
+        this.items = this.promptItemControllersProvider.build(val);
+    },
+
+    addItems: function (models) {
         var itemsToAdd = [];
 
         _.each(
@@ -20,7 +26,7 @@ function SelectedItemsController (selector, promptItemsControllersProvider) {
             this
         );
 
-        var controllers = this.promptItemControllersProvider.get(itemsToAdd);
+        var controllers = this.promptItemControllersProvider.build(itemsToAdd);
 
         _.each(
             controllers,
@@ -31,23 +37,23 @@ function SelectedItemsController (selector, promptItemsControllersProvider) {
         );
 
         this.view.renderItems(controllers);
-    };
+    },
 
-    this.select = function (shiftKeyPressed, controlKeyPressed, item) {
+    select: function (shiftKeyPressed, controlKeyPressed, item) {
         this.selector.select(shiftKeyPressed, controlKeyPressed, this.items, item);
-    };
+    },
 
-    this.createView = function () {
+    createView: function () {
         var view = new ItemsView(this, "rootItems");
         this.setView(view);
         return view;
-    };
+    },
 
-    this.setView = function (val) {
+    setView: function (val) {
         this.view = val;
-    };
+    },
 
-    this.removeSelected = function() {
+    removeSelected: function() {
         var itemsToRemove = [];
 
         _.each(
@@ -67,5 +73,5 @@ function SelectedItemsController (selector, promptItemsControllersProvider) {
                 item.deleteItem();
             },
             this);
-    };
-}
+    }
+});

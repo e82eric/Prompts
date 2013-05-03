@@ -9,31 +9,45 @@ var AsynchronousSearchShoppingCartBuilder = Class.extend({
       inverseSelector
     );
 
-  var promptItemControllersProvider = new PromptItemControllersProvider();
-  var selectedItemsController = new SelectedItemsController(multiSelector, promptItemControllersProvider);
-  var availableItemsController = new AsynchronousSearchAvailableItemsController(multiSelector);
-  promptItemControllersProvider.setAvailableItemsController(selectedItemsController);
-  var searchStringParser = new AsynchronousSearchStringParser(
-  new SearchStringParser(),
-  model.Name,
-  model.PromptLevelInfo.ParameterName);
+    var selectedItemControllerBuilder = new PromptItemControllerBuilder();
+    var selectedItemControllersBuilder = new ItemsBuilder(selectedItemControllerBuilder);
+    var selectedItemsController = new SelectedItemsController(multiSelector, selectedItemControllersBuilder);
+    selectedItemControllerBuilder.setAvailableItemsController(selectedItemsController);
+    var availableItemsController = new AsynchronousSearchAvailableItemsController(multiSelector);
 
-  var loadingPanel = new LoadingPanelControllerBase(function (controller) { 
-    return new AsynchronousSearchLoadingPanelView(
-      controller, 
-      availableItemsController.createView(), 
-      selectedItemsController.createView()); 
-  });
-  
-  var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
-  var searchRequester = new AsynchronousSearchRequester(searchStringParser, repository);
+    var searchStringParser = new AsynchronousSearchStringParser(
+      new SearchStringParser(),
+      model.Name,
+      model.PromptLevelInfo.ParameterName);
 
-  return new AsynchronousSearchShoppingCartController(
-    model,
-    searchRequester,
-    availableItemsController,
-    selectedItemsController,
-    loadingPanel,
-    promptsController);
+    var loadingPanel = new LoadingPanelControllerBase(function (controller) { 
+      return new AsynchronousSearchLoadingPanelView(
+        controller, 
+        availableItemsController.createView(), 
+        selectedItemsController.createView()); 
+    });
+
+    var availableItemControllerBuilder = new PromptItemControllerBuilder();
+    var availableItemControllersBuilder = new ItemsBuilder(availableItemControllerBuilder);
+    availableItemControllerBuilder.setAvailableItemsController(availableItemsController);
+
+    var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
+    var searchRequester = new AsynchronousSearchRequester(searchStringParser, repository, availableItemControllersBuilder);
+
+    var controller = new AsynchronousSearchShoppingCartController(
+      model,
+      searchRequester,
+      availableItemsController,
+      selectedItemsController,
+      loadingPanel,
+      promptsController);
+
+    if(model.DefaultValues.length > 0) {
+      selectedItemsController.setDefaults(model.DefaultValues);
+      loadingPanel.setIsLoaded(true);
+      controller.onSearchStringSet(model.DefaultValues[0].Label);
+    }
+
+    return controller;
   }
 });
