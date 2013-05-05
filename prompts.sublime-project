@@ -2,7 +2,9 @@
 	"folders":
 	[
 		{
-			"path": "/C/Sources"
+			"path": "/C/Sources",
+			"folder_exclude_patterns": ["binaries"],
+			"file_exclude_patterns": ["*.zip"]
 		}
 	],
 	"build_systems":

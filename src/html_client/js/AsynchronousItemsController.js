@@ -9,8 +9,12 @@ var AsynchronousItemsController = Class.extend({
         this.view.renderItems(this.items);
     },
 
+    setView: function (val) {
+        this.view = val;
+    },
+
     createView: function () {
-    	this.view = this.createViewFunc(this);
+    	this.setView(this.createViewFunc(this));
     	return this.view;
     }
 });

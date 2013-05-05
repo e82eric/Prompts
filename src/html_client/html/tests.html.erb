@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+        <head>  
+                <meta charset="utf-8">  
+                <link rel="stylesheet" href="../css/qunit.css">
+                <script type="text/javascript" src="../js/jquery.js"></script>
+                <script type="text/javascript" src="../js/underscore.js"></script>
+                <script type="text/javascript" src="../js/Class.js"></script>
+                <script src="../js/qunit.js"></script> 
+                <script src="../js/sinon.js"></script>
+                
+                <% for @jsFile in @jsFiles %>
+                        <script type="text/javascript" src="../js/<%= html_escape(@jsFile) %>"></script>
+                <% end %>  
+
+                <% for @jsFile in @testJsFiles %>
+                        <script type="text/javascript" src="../tests/<%= html_escape(@jsFile) %>"></script>
+                <% end %>
+                  
+        </head>
+	<body>  
+        	<div id="qunit"></div> 
+	</body>	
+</html>

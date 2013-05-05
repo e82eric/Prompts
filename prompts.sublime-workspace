@@ -4,6 +4,138 @@
 		"selected_items":
 		[
 			[
+				"lo",
+				"LoadingPanelControllerBase"
+			],
+			[
+				"av",
+				"availableItem"
+			],
+			[
+				"d",
+				"defaultAvailableItems"
+			],
+			[
+				"m",
+				"matchingModel"
+			],
+			[
+				"selec",
+				"selectedItemsController"
+			],
+			[
+				"back",
+				"background-repeat"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"buil",
+				"buildParams"
+			],
+			[
+				"bu",
+				"buildParams"
+			],
+			[
+				"prom",
+				"promptItemControllerBuilder"
+			],
+			[
+				"PromptItem",
+				"promptItemControllerBuilder"
+			],
+			[
+				"ava",
+				"availableItemsController"
+			],
+			[
+				"Sh",
+				"TreeShoppingCartBuilder"
+			],
+			[
+				"Prompt",
+				"PromptItemControllerBuilder"
+			],
+			[
+				"prompt",
+				"PromptLevelInfo"
+			],
+			[
+				"items",
+				"ItemsBuilder"
+			],
+			[
+				"pro",
+				"promptLevelInfo"
+			],
+			[
+				"promp",
+				"promptLevel"
+			],
+			[
+				"b",
+				"buildItemArgs"
+			],
+			[
+				"item",
+				"itemBuilder"
+			],
+			[
+				"Items",
+				"itemsBuilder"
+			],
+			[
+				"dr",
+				"dropDownSelector"
+			],
+			[
+				"def",
+				"defaultModel"
+			],
+			[
+				"_",
+				"_getSelectedItem"
+			],
+			[
+				"de",
+				"defaultController"
+			],
+			[
+				"nor",
+				"no-repeat"
+			],
+			[
+				"Report",
+				"reportRenderer"
+			],
+			[
+				"ex",
+				"executionId"
+			],
+			[
+				"cont",
+				"contentType"
+			],
+			[
+				"exe",
+				"executeReportRepository"
+			],
+			[
+				"prompting",
+				"promptingController"
+			],
+			[
+				"sel",
+				"selectedItemsController"
+			],
+			[
+				"select",
+				"selectedItem"
+			],
+			[
 				"create",
 				"createViewFunc"
 			],
@@ -14,10 +146,6 @@
 			[
 				"set",
 				"setReadyIndicator"
-			],
-			[
-				"back",
-				"background-image"
 			],
 			[
 				"bac",
@@ -56,10 +184,6 @@
 				"templates"
 			],
 			[
-				"item",
-				"item-selected"
-			],
-			[
 				"chi",
 				"childItemsLoadingPanelController"
 			],
@@ -86,10 +210,6 @@
 			[
 				"di",
 				"display"
-			],
-			[
-				"bu",
-				"build_debug"
 			],
 			[
 				"bin",
@@ -119,67 +239,11 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/html_client/js/EmptyPromptController.js",
-			"settings":
-			{
-				"buffer_size": 472,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/html_client/js/RecursiveTreeShoppingCartBuilder.js",
-			"settings":
-			{
-				"buffer_size": 1678,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/html_client/js/PromptController.js",
-			"settings":
-			{
-				"buffer_size": 393,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/html_client/js/SingleSelectPromptController.js",
-			"settings":
-			{
-				"buffer_size": 1163,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/html_client/js/MultiSelectPromptController.js",
-			"settings":
-			{
-				"buffer_size": 954,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/html_client/js/EmptyPromptView.js",
-			"settings":
-			{
-				"buffer_size": 487,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/html_client/templates/emptyPromptTemplate.html",
-			"settings":
-			{
-				"buffer_size": 122,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "html",
 	"command_palette":
 	{
-		"height": 311.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -204,60 +268,95 @@
 	},
 	"file_history":
 	[
-		"/C/Sources/src/html_client/js/PromptControllerBuilder.js",
-		"/C/Sources/src/html_client/js/PromptController.js",
-		"/C/Sources/src/html_client/js/SingleSelectPromptController.js",
-		"/C/Sources/src/html_client/js/MultiSelectPromptController.js",
-		"/C/Sources/src/html_client/js/RecursiveTreeShoppingCartBuilder.js",
-		"/C/Sources/src/html_client/js/TreeShoppingCartBuilder.js",
+		"/C/Sources/src/html_client/html/tests.html.erb",
+		"/C/Sources/build/rakefile.rb",
+		"/C/Sources/src/html_client/css/prompts.scss",
+		"/C/Sources/src/html_client/templates/asynchronousSearchShoppingCartTemplate.html",
+		"/C/Sources/src/html_client/templates/shoppingCartTemplate.html",
+		"/C/Sources/src/html_client/js/ReportCatalogView.js",
+		"/C/Sources/src/html_client/js/FolderCatalogItemView.js",
+		"/C/Sources/src/html_client/js/ReportCatalogRequester.js",
+		"/C/Sources/src/html_client/js/Application.js",
+		"/C/Sources/src/html_client/js/PromptingLoadingPanelView.js",
 		"/C/Sources/src/html_client/js/ShoppingCartBuilder.js",
+		"/C/Sources/src/html_client/js/SelectedItemsController.js",
+		"/C/Sources/src/html_client/js/ItemsView.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartBuilder.js",
+		"/C/Sources/src/html_client/js/LoadingPanelControllerBase.js",
+		"/C/Sources/src/html_client/templates/treePromptItemTemplate.html",
+		"/C/Sources/src/html_client/js/TreePromptItemView.js",
+		"/C/Sources/src/html_client/js/LeafTreePromptItemView.js",
+		"/C/Sources/src/html_client/js/ShoppingCartView.js",
+		"/C/Sources/src/html_client/js/DropDownBuilder.js",
+		"/C/Sources/src/html_client/js/TreeDropDownBuilder.js",
+		"/C/Sources/src/html_client/js/RecursiveTreePromptItemControllerBuilder.js",
+		"/C/Sources/src/html_client/js/ReportCatalogItemBuilder.js",
+		"/C/Sources/src/html_client/js/ReportCatalogBuilder.js",
+		"/C/Sources/src/html_client/js/ItemsBuilder.js",
+		"/C/Sources/src/html_client/js/PromptControllerBuilder.js",
+		"/C/Sources/src/html_client/js/ControllersBuilder.js",
+		"/C/Sources/src/html_client/js/PromptItemControllersProvider.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchRequester.js",
+		"/C/Sources/src/html_client/js/RecursiveTreePromptItemControllersBuilder.js",
+		"/C/Sources/src/html_client/js/TreeShoppingCartBuilder.js",
+		"/C/Sources/src/html_client/js/RecursiveTreeShoppingCartBuilder.js",
 		"/C/Sources/src/html_client/js/RecursiveTreeDropDownBuilder.js",
+		"/C/Sources/src/html_client/js/TreePromptItemControllersBuilder.js",
+		"/C/Sources/src/html_client/js/PromptItemControllerBuilder.js",
+		"/C/Sources/src/html_client/js/TreePromptItemControllerBuilder.js",
+		"/C/Sources/src/html_client/js/PromptController.js",
+		"/C/Sources/src/html_client/js/ChildItemsRequester.js",
+		"/C/Sources/binaries/html_client_debug/js/TreeDropDownBuilder.js",
+		"/C/Sources/src/html_client/js/SingleSelectPromptController.js",
+		"/C/Sources/src/html_client/js/Repository.js",
+		"/C/Sources/src/html_client/js/ExecuteReportController.js",
+		"/C/Sources/src/html_client/js/ReportRenderer.js",
+		"/C/Sources/src/html_client/templates/promptsTemplate.html",
+		"/C/Sources/src/html_client/html/index.html.erb",
+		"/C/Sources/src/html_client/js/PromptsView.js",
+		"/C/Sources/src/html_client/js/PromptingView.js",
+		"/C/Sources/src/html_client/templates/executeReportTemplate.html",
+		"/C/Sources/src/html_client/js/ExecuteReportView.js",
+		"/C/Sources/src/html_client/js/PromptsController.js",
+		"/C/Sources/src/html_client/js/MultiSelectPromptController.js",
+		"/C/Sources/src/html_client/js/EmptyPromptController.js",
+		"/C/Sources/src/html_client/js/ExecutionIdRequester",
+		"/C/Sources/src/html_client/js/PromptsRequester.js",
+		"/C/Sources/src/html_client/js/PromptingController.js",
+		"/C/Sources/src/html_client/js/TemplateView.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartController.js",
+		"/C/Sources/src/html_client/js/SearchableShoppingCartView.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartView.js",
+		"/C/Sources/src/html_client/js/SearchableDropDownView.js",
 		"/C/Sources/src/html_client/js/DropDownView.js",
+		"/C/Sources/src/html_client/js/EmptyPromptView.js",
+		"/C/Sources/src/html_client/templates/emptyPromptTemplate.html",
+		"/C/Sources/src/html_client/js/PromptView.js",
+		"/C/Sources/src/html_client/js/TreeShoppingCartView.js",
+		"/C/Sources/src/html_client/js/TreeDropDownView.js",
 		"/C/Sources/src/html_client/templates/dropDownTemplate.html",
 		"/C/Sources/src/html_client/js/TreeDropDownController.js",
 		"/C/Sources/src/html_client/js/DropDownController.js",
-		"/C/Sources/src/html_client/js/TreeDropDownBuilder.js",
-		"/C/Sources/src/html_client/js/DropDownBuilder.js",
-		"/C/Sources/build/rakefile.rb",
-		"/C/Sources/src/html_client/js/ShoppingCartView.js",
-		"/C/Sources/src/html_client/templates/shoppingCartTemplate.html",
-		"/C/Sources/src/html_client/js/TreeShoppingCartView.js",
-		"/C/Sources/src/html_client/js/TreeDropDownView.js",
-		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartController.js",
-		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartView.js",
-		"/C/Sources/src/html_client/templates/asynchronousSearchShoppingCartTemplate.html",
-		"/C/Sources/src/html_client/js/PromptView.js",
 		"/C/Sources/src/html_client/js/TreeShoppingCartController.js",
 		"/C/Sources/src/html_client/js/ShoppingCartController.js",
 		"/C/Sources/src/html_client/templates/treeDropDownTemplate.html",
 		"/C/Sources/src/html_client/templates/treeShoppingCartTemplate.html",
-		"/C/Sources/src/html_client/templates/emptyPromptTemplate.html",
-		"/C/Sources/src/html_client/html/index.html.erb",
 		"/C/Sources/src/html_client/js/PromptItemView.js",
 		"/C/Sources/src/html_client/templates/promptItemTemplate.html",
-		"/C/Sources/src/html_client/js/PromptsView.js",
-		"/C/Sources/src/html_client/css/prompts.scss",
-		"/C/Sources/src/html_client/js/ItemsView.js",
-		"/C/Sources/src/html_client/js/PromptingLoadingPanelView.js",
 		"/C/Sources/src/html_client/templates/promptingLoadingPanelTemplate.html",
 		"/C/Sources/binaries/html_client_debug/js/DropDownView.js",
-		"/C/Sources/src/html_client/js/TreePromptItemView.js",
 		"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelView.js",
 		"/C/Sources/src/html_client/templates/childPromptItemsLoadingPanelTemplate.html",
 		"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelView.js",
 		"/C/Sources/src/html_client/templates/asynchronousSearchLoadingPanelTemplate.html",
-		"/C/Sources/src/html_client/js/FolderCatalogItemView.js",
 		"/C/Sources/src/html_client/templates/itemTemplate.html",
 		"/C/Sources/src/html_client/templates/folderItemTemplate.html",
-		"/C/Sources/src/html_client/templates/treePromptItemTemplate.html",
 		"/C/Sources/src/html_client/templates/emptyFolderItemTemplate.html",
-		"/C/Sources/src/html_client/js/ReportCatalogView.js",
 		"/C/Sources/src/html_client/js/AvailableItemsController.js",
 		"/C/Sources/src/html_client/css/test.css",
 		"/C/Sources/src/html_client/css/prompts.css",
 		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/Plain text.sublime-settings",
 		"/C/Sources/src/html_client/js/ReportCatalogItemView.js",
-		"/C/Sources/src/html_client/js/LeafTreePromptItemView.js",
 		"/C/Sources/binaries/html_client_debug/js/PromptItemView.js",
 		"/C/Sources/binaries/html_client_debug/js/LeafTreePromptItemView.js",
 		"/C/Sources/binaries/html_client_debug/js/TreePromptItemView.js",
@@ -266,7 +365,6 @@
 		"/C/Sources/src/html_client/js/LeafTreePromptItemController.js",
 		"/C/Sources/src/html_client/templates/availableItemsTemplate.html",
 		"/C/Sources/src/html_client/js/Templates.js",
-		"/C/Sources/src/html_client/js/TemplateView.js",
 		"/C/Sources/src/html_client/js/emptyFolderItem.html",
 		"/C/Sources/src/html_client/templates/folderItem.html",
 		"/C/Sources/src/html_client/templates/item.html",
@@ -280,20 +378,13 @@
 		"/C/temp/CreateDebug.rb",
 		"/C/temp/index.erb",
 		"/C/Sources/src/html_client/js/ChildItemsView.js",
-		"/C/Sources/src/html_client/js/TreePromptItemControllerBuilder.js",
 		"/C/Sources/src/html_client/js/TreePromptItemController.js",
-		"/C/Sources/src/html_client/js/LoadingPanelControllerBase.js",
 		"/C/Sources/binaries/html_client/css/prompts.css",
 		"/C/Sources/prompts.sublime-project",
 		"/C/Sources/src/html_client/js/ReportCatalogItemViewBase.js",
 		"/C/Sources/src/html_client/js/EmptyFolderCatalogItemController.js",
-		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartBuilder.js",
 		"/C/Sources/src/html_client/html/index.html",
-		"/C/Sources/src/html_client/js/SelectedItemsController.js",
-		"/C/Sources/src/html_client/js/EmptyPromptView.js",
-		"/C/Sources/src/html_client/js/RecursiveTreePromptItemControllerBuilder.js",
 		"/C/Sources/binaries/html_client/html/index.html",
-		"/C/Sources/src/html_client/js/EmptyPromptController.js",
 		"/C/Sources/binaries/html_client/js/prompts.js",
 		"/C/Sources/src/html_client/js/ReportCatalogItemsController.js",
 		"/C/Sources/src/html_client/js/AsynchronousItemsController.js",
@@ -303,18 +394,8 @@
 		"/C/Sources/src/html_client/js/ChildAvailableItemsController.js",
 		"/C/Sources/src/html_client/js/Search.js",
 		"/C/Sources/src/html_client/js/PromptingLoadingPanelController.js",
-		"/C/Sources/src/html_client/js/ReportCatalogBuilder.js",
-		"/C/Sources/src/html_client/js/Application.js",
 		"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelController.js",
-		"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelController.js",
-		"/C/Sources/prompts.sublime-workspace",
-		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/prompts_javascript.sublime-build",
-		"/C/Sources/src/Prompts.html/js/external/Class.js",
-		"/C/Sources/src/Prompts.html/html/Index.html",
-		"/C/Sources/src/Prompts.html/js/underscore.js",
-		"/C/temp/concatenateJS.rb",
-		"/C/Sources/src/Prompts.html/js/PromptsController.js",
-		"/C/Sources/src/Prompts.html/css/ReportCatalog.css"
+		"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelController.js"
 	],
 	"find":
 	{
@@ -322,7 +403,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"<open folders>,-prompts.js",
@@ -335,6 +416,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"class",
+			"binding",
+			"ReportCatalogItemsBuilder",
+			"ControllersBuilder",
+			"TreePromptItemControllersBuilder",
+			"PromptItemControllersProvider",
+			"PromptItemControllerBuilder",
+			"PromptControllerBuilder",
 			"PromptController",
 			"items",
 			"id",
@@ -410,197 +499,8 @@
 	"groups":
 	[
 		{
-			"selected": 5,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/html_client/js/EmptyPromptController.js",
-					"settings":
-					{
-						"buffer_size": 472,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								336,
-								336
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/html_client/js/RecursiveTreeShoppingCartBuilder.js",
-					"settings":
-					{
-						"buffer_size": 1678,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1468,
-								1468
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 42.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/html_client/js/PromptController.js",
-					"settings":
-					{
-						"buffer_size": 393,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								249,
-								249
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/html_client/js/SingleSelectPromptController.js",
-					"settings":
-					{
-						"buffer_size": 1163,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1153,
-								1153
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 210.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/html_client/js/MultiSelectPromptController.js",
-					"settings":
-					{
-						"buffer_size": 954,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								949,
-								949
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/html_client/js/EmptyPromptView.js",
-					"settings":
-					{
-						"buffer_size": 487,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								473,
-								473
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/html_client/templates/emptyPromptTemplate.html",
-					"settings":
-					{
-						"buffer_size": 122,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								114,
-								102
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -649,6 +549,54 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"recusivetree",
+				"src/html_client/js/RecursiveTreePromptItemControllerBuilder.js"
+			],
+			[
+				"treedro",
+				"src/html_client/js/TreeDropDownBuilder.js"
+			],
+			[
+				"dropdown",
+				"src/html_client/js/DropDownBuilder.js"
+			],
+			[
+				"controller",
+				"src/html_client/js/ControllersBuilder.js"
+			],
+			[
+				"treedrop",
+				"src/html_client/js/TreeDropDownBuilder.js"
+			],
+			[
+				"drop",
+				"src/html_client/js/DropDownBuilder.js"
+			],
+			[
+				"treeshopping",
+				"src/html_client/js/TreeShoppingCartBuilder.js"
+			],
+			[
+				"treepromptitembui",
+				"src/html_client/js/TreePromptItemControllerBuilder.js"
+			],
+			[
+				"promptitemsprovider",
+				"src/html_client/js/PromptItemControllersProvider.js"
+			],
+			[
+				"treedo",
+				"binaries/html_client_debug/js/TreeDropDownBuilder.js"
+			],
+			[
+				"loadin",
+				"src/html_client/js/LoadingPanelControllerBase.js"
+			],
+			[
+				"loading",
+				"src/html_client/js/LoadingPanelControllerBase.js"
+			],
 			[
 				"dropdownvi",
 				"src/html_client/js/DropDownView.js"
@@ -818,10 +766,6 @@
 				"src/html_client/js/AsynchronousSearchLoadingPanelController.js"
 			],
 			[
-				"loadin",
-				"src/html_client/js/LoadingPanelControllerBase.js"
-			],
-			[
 				"loadingpa",
 				"src/html_client/js/LoadingPanelControllerBase.js"
 			],
@@ -844,6 +788,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 345.0,
+	"side_bar_width": 366.0,
 	"status_bar_visible": false
 }

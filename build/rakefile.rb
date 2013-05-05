@@ -1,3 +1,4 @@
+require 'pathname'
 require 'albacore'
 require 'erb'
 include ERB::Util
@@ -5,7 +6,7 @@ include ERB::Util
 versionNumber = "1.0.0"
 buildNumber = ENV['buildNumber'] || "0"
 
-rootDirectory=".."
+rootDirectory= Pathname.getwd() + ".."
 trunkDirectory = "#{rootDirectory}"
 rootBuildDirectory = "#{trunkDirectory}/binaries"
 solutionRoot = "#{trunkDirectory}/src"
@@ -174,10 +175,11 @@ def build_project(projectFile)
 	msbuild.build_solution(projectFile)
 end
 
-class Index_Page
-	def initialize(jsFiles, templates)
+class Html_Client_Manifest
+	def initialize(jsFiles, testJsFiles, templates)
 		@jsFiles = jsFiles
 		@templates = templates
+		@testJsFiles = testJsFiles
 	end
 	def get_binding
     	binding
@@ -189,6 +191,7 @@ class Html_Client_Builder
 		@sourceDirectory = sourceDirectory
 		@binariesDirectory = binariesDirectory
 		@jsSourceDirectory = "#{@sourceDirectory}/js"
+		@testsSourceDirectory = "#{@sourceDirectory}/tests"
 		@htmlSourceDirectory = "#{@sourceDirectory}/html"
 
 		init_jsFiles
@@ -229,6 +232,10 @@ class Html_Client_Builder
 				end
 			end
 		end
+
+		Dir.chdir(@testsSourceDirectory) do
+			@testFiles = Dir.glob "*.js"
+		end
 	end
 
 	def init_templates
@@ -249,36 +256,62 @@ class Html_Client_Builder
 
 		jsOutDir = "#{outDir}/js"
 
+
 		FileUtils.mkdir_p jsOutDir
 		
 		if is_Debug
-			Dir.glob "#{@jsSourceDirectory}/{*.js}" do |path|
+			testsOutDir = "#{outDir}/tests"
+			FileUtils.mkdir_p testsOutDir
+
+			Dir.glob "#{@jsSourceDirectory}/*.js" do |path|
 				copy path, jsOutDir
 			end
-			page_structure = Index_Page.new @jsFiles, @templates
-			create_index_html "#{outDir}/html", page_structure
+
+			Dir.glob "#{@testsSourceDirectory}/*.js" do |path|
+				copy path, testsOutDir
+			end
+
+			build_html "#{outDir}/html", Html_Client_Manifest.new((@jsFiles - ["Application.js"]), @testFiles, @templates)
+			copy_external_js jsOutDir
+			build_css outDir, ["qunit.css"]
 		else
+			testFramwork = ["qunit.js", "sinon.js"]
 			outFile = File.new("#{jsOutDir}/prompts.js", "w+")
 			@jsFiles.each { |filePath| outFile.puts File.read("#{@jsSourceDirectory}/#{filePath}") }
-			page_structure = Index_Page.new ["prompts.js"], @templates
-			create_index_html "#{outDir}/html", page_structure
+			build_html "#{outDir}/html", Html_Client_Manifest.new(["prompts.js"], [], @templates), ["tests.html.erb"]
+			copy_external_js jsOutDir, ["qunit.js", "sinon.js"]
+			build_css outDir
 		end
 		
+		FileUtils.cp_r "#{@sourceDirectory}/images", "#{outDir}/images"
+	end
+
+	def build_css(outDir, externalFiles = [])
 		cssOutDir = "#{outDir}/css"
 		FileUtils.mkdir_p cssOutDir
-		system("sass '#{@sourceDirectory}/css/prompts.scss':'#{cssOutDir}/prompts.css' --no-cache")
-		FileUtils.cp_r "#{@sourceDirectory}/images", "#{outDir}/images"
-		Dir.glob "#{@jsSourceDirectory}/external/{*}" do |path|
-			copy path, jsOutDir
+		Dir.chdir "#{@sourceDirectory}/css" do
+			system("sass 'prompts.scss':'#{cssOutDir}/prompts.css' --no-cache")
+			externalFiles.each { |fileName| copy fileName, cssOutDir }
 		end
 	end
 
-	def create_index_html(outputDirectory, page_structure)
-		FileUtils.mkdir_p outputDirectory
-		template = ERB.new File.new("#{@htmlSourceDirectory}/index.html.erb").read, 0, ">"
+	def copy_external_js(jsOutDir, excludeFiles = [])
+		Dir.chdir("#{@jsSourceDirectory}/external") do
+			((Dir.glob "*.js") - excludeFiles).each { |fileName| copy fileName, jsOutDir }
+		end
+	end
 
-		File.open("#{outputDirectory}/index.html", "w+") do |file|
-		  file.puts template.result(page_structure.get_binding)
+	def build_html(outputDirectory, page_structure, excludeFiles = [])
+		FileUtils.mkdir_p outputDirectory
+
+		Dir.chdir @htmlSourceDirectory do
+			((Dir.glob "*.erb") - excludeFiles).each { |fileName|
+				template = ERB.new File.new("#{@htmlSourceDirectory}/#{fileName}").read, 0, ">"
+
+				File.open("#{outputDirectory}/#{fileName[0..-5]}", "w+") do |file|
+				  file.puts template.result(page_structure.get_binding)
+				end
+			}
 		end
 	end
 end
