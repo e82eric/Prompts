@@ -13,12 +13,11 @@ var PromptController = Class.extend({
         if(this.evaluateReadyForExecution()) {
         	this.readyForExecution = true;
             this.view.setExecutionIndicatorReady();
-            this.promptsController.evaluateReadyForExecution();
         } else {
             this.view.setExecutionIndicatorNotReady();
             this.readyForExecution = false;
-            this.promptsController.evaluateReadyForExecution();
         }
+        this.promptsController.evaluateReadyForExecution();
     },
 
     selectionInfo: function () {
@@ -28,10 +27,10 @@ var PromptController = Class.extend({
 	setView: function(val) {
 		this.view = val;
 		this.setReadyForExecution();
+        return this.view;
 	},
 
     createView: function () {
-        this.setView(this.createViewFunc(this));
-        return this.view;
+        return this.setView(this.createViewFunc(this));
     }
 });

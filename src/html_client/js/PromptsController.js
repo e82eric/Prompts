@@ -11,7 +11,6 @@ var PromptsController = AsynchronousItemsController.extend({
     },
 
     createView: function () {
-        this.view = new PromptsView(this);
-        return this.view;
+        return this.setView(PromptsView(this));
     }
 });

@@ -180,6 +180,7 @@ class Html_Client_Manifest
 		@jsFiles = jsFiles
 		@templates = templates
 		@testJsFiles = testJsFiles
+		@jsFilesToTest = @jsFiles - ["Application.js"]
 	end
 	def get_binding
     	binding
@@ -271,7 +272,7 @@ class Html_Client_Builder
 				copy path, testsOutDir
 			end
 
-			build_html "#{outDir}/html", Html_Client_Manifest.new((@jsFiles - ["Application.js"]), @testFiles, @templates)
+			build_html "#{outDir}/html", Html_Client_Manifest.new(@jsFiles, @testFiles, @templates)
 			copy_external_js jsOutDir
 			build_css outDir, ["qunit.css"]
 		else

@@ -2,11 +2,11 @@ var AsynchronousSearchAvailableItemsController = AsynchronousItemsController.ext
     init: function(selector) {
         this.selector = selector;
         this._super();
+        this.selectedItems = [];
     },
 
     createView: function () {
-        this.view = new ItemsView(this, "rootItems");
-        return this.view;
+        return this.setView(new ItemsView(this, "rootItems"));
     },
 
     select: function (shiftKeyPressed, controlKeyPressed, item) {

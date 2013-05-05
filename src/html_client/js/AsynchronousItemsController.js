@@ -11,6 +11,7 @@ var AsynchronousItemsController = Class.extend({
 
     setView: function (val) {
         this.view = val;
+        return this.view;
     },
 
     createView: function () {
