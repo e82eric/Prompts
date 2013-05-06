@@ -44,11 +44,13 @@ var SingleSelectPromptController = PromptController.extend({
     },
 
     setView: function (val) {
-    	this._super(val);
+    	var result = this._super(val);
         this.closePopup();
 
         if(this.defaultItem != undefined) {
-            this.onSelection(this.defaultItem);
+            this.defaultItem.clicked(false, false);
         }
+
+        return result;
     }
 });
