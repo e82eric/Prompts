@@ -8,13 +8,13 @@ var ExecuteReportController = LoadingPanelControllerBase.extend({
     },
 
     setRepository: function (val) {
-        this._repository = val;
+        this._excutionIdRepository = val;
     },
 
     execute: function () {
         var self = this;
 
-        this._repository.get(
+        this._excutionIdRepository.get(
             this._promptingController.getExecuteRequest(),
             function(result) {
                 self._reportRenderer.execute(result);
