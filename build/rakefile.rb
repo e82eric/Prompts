@@ -158,6 +158,12 @@ task :build_html_clients => ['Clean'] do
 	builder.build_debug
 end
 
+desc "Run Javascript Unit Tests"
+exec :run_javascript_tests => ['Clean', 'build_html_clients'] do |cmd|
+	cmd.command = "#{trunkDirectory}/tools/phantomjs/phantomjs.exe"
+	cmd.parameters = ["\"#{trunkDirectory}/tools/phantomjs/run-qunit.js\"", "\"#{rootBuildDirectory}/html_client_debug/html/tests.html\"" ]
+end
+
 def publish_web_project(projectDirectory, projectName, buildDirectory)
 	build_project("#{projectDirectory}/#{projectName}.csproj") 
 
@@ -188,6 +194,7 @@ class Html_Client_Manifest
 end
 
 class Html_Client_Builder
+	include Rake::DSL
 	def initialize(sourceDirectory, binariesDirectory)
 		@sourceDirectory = sourceDirectory
 		@binariesDirectory = binariesDirectory

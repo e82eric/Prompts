@@ -11,7 +11,7 @@
     [
         {
         	"name": "html",
-		    "cmd": ["rake.bat", "build_html_clients"],
+		    "cmd": ["rake.bat", "run_javascript_tests"],
 		    "working_dir": "${project_path:${folder}}\\build"
         }
     ]

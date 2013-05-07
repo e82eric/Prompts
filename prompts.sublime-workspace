@@ -4,6 +4,102 @@
 		"selected_items":
 		[
 			[
+				"set",
+				"setView"
+			],
+			[
+				"cl",
+				"clickedCalled"
+			],
+			[
+				"cli",
+				"clickedCalled"
+			],
+			[
+				"on",
+				"onSelection"
+			],
+			[
+				"mode",
+				"model1"
+			],
+			[
+				"select",
+				"selectedItemsController"
+			],
+			[
+				"mod",
+				"model1"
+			],
+			[
+				"remo",
+				"removeSelected"
+			],
+			[
+				"sl",
+				"selectedItemsController"
+			],
+			[
+				"add",
+				"addItems"
+			],
+			[
+				"get",
+				"getSelectedItems"
+			],
+			[
+				"re",
+				"returns"
+			],
+			[
+				"is",
+				"isViewSet"
+			],
+			[
+				"Prompt",
+				"PromptController"
+			],
+			[
+				"prompts",
+				"promptsController"
+			],
+			[
+				"call",
+				"callCount"
+			],
+			[
+				"ready",
+				"readyForExecution"
+			],
+			[
+				"ev",
+				"evaluateReadyForExecution"
+			],
+			[
+				"ca",
+				"callCount"
+			],
+			[
+				"de",
+				"delete"
+			],
+			[
+				"ol",
+				"oldItem1"
+			],
+			[
+				"Asy",
+				"AsynchronousItemsController"
+			],
+			[
+				"excl",
+				"excludeFiles"
+			],
+			[
+				"css",
+				"cssOutDir"
+			],
+			[
 				"lo",
 				"LoadingPanelControllerBase"
 			],
@@ -56,10 +152,6 @@
 				"TreeShoppingCartBuilder"
 			],
 			[
-				"Prompt",
-				"PromptItemControllerBuilder"
-			],
-			[
 				"prompt",
 				"PromptLevelInfo"
 			],
@@ -100,10 +192,6 @@
 				"_getSelectedItem"
 			],
 			[
-				"de",
-				"defaultController"
-			],
-			[
 				"nor",
 				"no-repeat"
 			],
@@ -132,20 +220,12 @@
 				"selectedItemsController"
 			],
 			[
-				"select",
-				"selectedItem"
-			],
-			[
 				"create",
 				"createViewFunc"
 			],
 			[
 				"creat",
 				"createViewFunc"
-			],
-			[
-				"set",
-				"setReadyIndicator"
 			],
 			[
 				"bac",
@@ -230,15 +310,100 @@
 			[
 				"ch",
 				"childAvailableItemsController"
-			],
-			[
-				"re",
-				"return"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "src/html_client/tests/EndsWithSearch.tests.js",
+			"settings":
+			{
+				"buffer_size": 1914,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/EqualsSearch.tests.js",
+			"settings":
+			{
+				"buffer_size": 1909,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/HierarchyFlattener.tests.js",
+			"settings":
+			{
+				"buffer_size": 2597,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/InverseSelector.tests.js",
+			"settings":
+			{
+				"buffer_size": 1938,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/MultiSelector.tests.js",
+			"settings":
+			{
+				"buffer_size": 3165,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/NullSearch.tests.js",
+			"settings":
+			{
+				"buffer_size": 1855,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/RangeSelector.tests.js",
+			"settings":
+			{
+				"buffer_size": 4711,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/SearchStringParser.tests.js",
+			"settings":
+			{
+				"buffer_size": 1616,
+				"line_ending": "Windows",
+				"name": "module(\"Search String parser\");"
+			}
+		},
+		{
+			"file": "src/html_client/tests/SingleSelector.tests.js",
+			"settings":
+			{
+				"buffer_size": 2047,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/StartsWithSearch.tests.js",
+			"settings":
+			{
+				"buffer_size": 1928,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/html_client/tests/Search.tests.js",
+			"settings":
+			{
+				"buffer_size": 922,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "html",
 	"command_palette":
@@ -246,6 +411,18 @@
 		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Build: Build"
+			],
 			[
 				"Package Control: ",
 				"Package Control: Install Package"
@@ -268,8 +445,22 @@
 	},
 	"file_history":
 	[
+		"/C/Sources/src/html_client/tests/ContainsSearch.tests.js",
+		"/C/Sources/src/html_client/tests/SingleSelectPromptController.tests.js",
+		"/C/Sources/src/html_client/js/SingleSelectPromptController.js",
+		"/C/Sources/src/html_client/js/PromptsController.js",
+		"/C/Sources/src/html_client/tests/MultiSelectPromptController.tests.js",
+		"/C/Sources/src/html_client/js/DropDownView.js",
+		"/C/Sources/src/html_client/js/PromptController.js",
+		"/C/Sources/src/html_client/js/MultiSelectPromptController.js",
+		"/C/Sources/src/html_client/tests/PromptController.tests.js",
+		"/C/Sources/src/html_client/js/AsynchronousSearchAvailableItemsController.js",
+		"/C/Sources/src/html_client/tests/AsynchronousSearchAvailableItemsController.tests.js",
 		"/C/Sources/src/html_client/html/tests.html.erb",
 		"/C/Sources/build/rakefile.rb",
+		"/C/Sources/src/html_client/tests/AsynchronousItemsController.tests.js",
+		"/C/Sources/src/html_client/js/AsynchronousItemsController.js",
+		"/C/Sources/prompts.sublime-project",
 		"/C/Sources/src/html_client/css/prompts.scss",
 		"/C/Sources/src/html_client/templates/asynchronousSearchShoppingCartTemplate.html",
 		"/C/Sources/src/html_client/templates/shoppingCartTemplate.html",
@@ -304,10 +495,8 @@
 		"/C/Sources/src/html_client/js/TreePromptItemControllersBuilder.js",
 		"/C/Sources/src/html_client/js/PromptItemControllerBuilder.js",
 		"/C/Sources/src/html_client/js/TreePromptItemControllerBuilder.js",
-		"/C/Sources/src/html_client/js/PromptController.js",
 		"/C/Sources/src/html_client/js/ChildItemsRequester.js",
 		"/C/Sources/binaries/html_client_debug/js/TreeDropDownBuilder.js",
-		"/C/Sources/src/html_client/js/SingleSelectPromptController.js",
 		"/C/Sources/src/html_client/js/Repository.js",
 		"/C/Sources/src/html_client/js/ExecuteReportController.js",
 		"/C/Sources/src/html_client/js/ReportRenderer.js",
@@ -317,8 +506,6 @@
 		"/C/Sources/src/html_client/js/PromptingView.js",
 		"/C/Sources/src/html_client/templates/executeReportTemplate.html",
 		"/C/Sources/src/html_client/js/ExecuteReportView.js",
-		"/C/Sources/src/html_client/js/PromptsController.js",
-		"/C/Sources/src/html_client/js/MultiSelectPromptController.js",
 		"/C/Sources/src/html_client/js/EmptyPromptController.js",
 		"/C/Sources/src/html_client/js/ExecutionIdRequester",
 		"/C/Sources/src/html_client/js/PromptsRequester.js",
@@ -328,7 +515,6 @@
 		"/C/Sources/src/html_client/js/SearchableShoppingCartView.js",
 		"/C/Sources/src/html_client/js/AsynchronousSearchShoppingCartView.js",
 		"/C/Sources/src/html_client/js/SearchableDropDownView.js",
-		"/C/Sources/src/html_client/js/DropDownView.js",
 		"/C/Sources/src/html_client/js/EmptyPromptView.js",
 		"/C/Sources/src/html_client/templates/emptyPromptTemplate.html",
 		"/C/Sources/src/html_client/js/PromptView.js",
@@ -380,22 +566,13 @@
 		"/C/Sources/src/html_client/js/ChildItemsView.js",
 		"/C/Sources/src/html_client/js/TreePromptItemController.js",
 		"/C/Sources/binaries/html_client/css/prompts.css",
-		"/C/Sources/prompts.sublime-project",
 		"/C/Sources/src/html_client/js/ReportCatalogItemViewBase.js",
 		"/C/Sources/src/html_client/js/EmptyFolderCatalogItemController.js",
 		"/C/Sources/src/html_client/html/index.html",
 		"/C/Sources/binaries/html_client/html/index.html",
 		"/C/Sources/binaries/html_client/js/prompts.js",
 		"/C/Sources/src/html_client/js/ReportCatalogItemsController.js",
-		"/C/Sources/src/html_client/js/AsynchronousItemsController.js",
-		"/C/Sources/src/html_client/js/RootReportCatalogItemsController.js",
-		"/C/Sources/src/html_client/js/RootItemsView.js",
-		"/C/Sources/src/html_client/js/AsynchronousSearchAvailableItemsController.js",
-		"/C/Sources/src/html_client/js/ChildAvailableItemsController.js",
-		"/C/Sources/src/html_client/js/Search.js",
-		"/C/Sources/src/html_client/js/PromptingLoadingPanelController.js",
-		"/C/Sources/src/html_client/js/ChildPromptItemsLoadingPanelController.js",
-		"/C/Sources/src/html_client/js/AsynchronousSearchLoadingPanelController.js"
+		"/C/Sources/src/html_client/js/RootReportCatalogItemsController.js"
 	],
 	"find":
 	{
@@ -413,9 +590,16 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			".UnSelect",
+			".Select",
+			".UnSelect",
+			".Select",
+			".UnSelect",
+			".Select",
+			"promptsController",
 			"class",
 			"binding",
 			"ReportCatalogItemsBuilder",
@@ -488,6 +672,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			".unSelect",
+			".select",
+			".unSelect",
+			".select",
+			".unSelect",
+			".select",
 			""
 		],
 		"reverse": false,
@@ -501,6 +691,315 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/html_client/tests/EndsWithSearch.tests.js",
+					"settings":
+					{
+						"buffer_size": 1914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1914,
+								1914
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/html_client/tests/EqualsSearch.tests.js",
+					"settings":
+					{
+						"buffer_size": 1909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1909,
+								1909
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/html_client/tests/HierarchyFlattener.tests.js",
+					"settings":
+					{
+						"buffer_size": 2597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2597,
+								2597
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 622.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/html_client/tests/InverseSelector.tests.js",
+					"settings":
+					{
+						"buffer_size": 1938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								773,
+								773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/html_client/tests/MultiSelector.tests.js",
+					"settings":
+					{
+						"buffer_size": 3165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3165,
+								3165
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 804.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/html_client/tests/NullSearch.tests.js",
+					"settings":
+					{
+						"buffer_size": 1855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1564,
+								1564
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/html_client/tests/RangeSelector.tests.js",
+					"settings":
+					{
+						"buffer_size": 4711,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4524,
+								4524
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1638.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/html_client/tests/SearchStringParser.tests.js",
+					"settings":
+					{
+						"buffer_size": 1616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1616,
+								1616
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module(\"Search String parser\");",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/html_client/tests/SingleSelector.tests.js",
+					"settings":
+					{
+						"buffer_size": 2047,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1272,
+								1272
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/html_client/tests/StartsWithSearch.tests.js",
+					"settings":
+					{
+						"buffer_size": 1928,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1928,
+								1928
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/html_client/tests/Search.tests.js",
+					"settings":
+					{
+						"buffer_size": 922,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								922,
+								922
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -537,7 +1036,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 201.0
+		"height": 214.0
 	},
 	"replace":
 	{
@@ -549,6 +1048,58 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"singles",
+				"src/html_client/js/SingleSelectPromptController.js"
+			],
+			[
+				"dropdownview",
+				"src/html_client/js/DropDownView.js"
+			],
+			[
+				"promptcont",
+				"src/html_client/js/PromptController.js"
+			],
+			[
+				"multiselectprompt.test",
+				"src/html_client/tests/MultiSelectPromptController.tests.js"
+			],
+			[
+				"singleselect",
+				"src/html_client/js/SingleSelectPromptController.js"
+			],
+			[
+				"multiselectpr",
+				"src/html_client/js/MultiSelectPromptController.js"
+			],
+			[
+				"promptcon",
+				"src/html_client/js/PromptController.js"
+			],
+			[
+				"asyavail",
+				"src/html_client/tests/AsynchronousSearchAvailableItemsController.tests.js"
+			],
+			[
+				"rake",
+				"build/rakefile.rb"
+			],
+			[
+				"erb",
+				"src/html_client/html/tests.html.erb"
+			],
+			[
+				"tests",
+				"src/html_client/tests/AsynchronousItemsController.tests.js"
+			],
+			[
+				"asy",
+				"src/html_client/js/AsynchronousSearchAvailableItemsController.js"
+			],
+			[
+				"availa",
+				"src/html_client/tests/AsynchronousSearchAvailableItemsController.tests.js"
+			],
 			[
 				"recusivetree",
 				"src/html_client/js/RecursiveTreePromptItemControllerBuilder.js"
@@ -762,10 +1313,6 @@
 				"src/html_client/js/Application.js"
 			],
 			[
-				"asy",
-				"src/html_client/js/AsynchronousSearchLoadingPanelController.js"
-			],
-			[
 				"loadingpa",
 				"src/html_client/js/LoadingPanelControllerBase.js"
 			],
@@ -788,6 +1335,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 366.0,
+	"side_bar_width": 314.0,
 	"status_bar_visible": false
 }
