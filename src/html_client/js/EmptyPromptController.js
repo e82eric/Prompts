@@ -9,10 +9,10 @@ var EmptyPromptController = PromptController.extend({
     },
 
     selections: function () {
-        return [];
+        return [{ PromptName: this.model.Name, Value: this.text }];
     },
 
     evaluateReadyForExecution: function () {
-        return this.text == null || this.text === '';
+        return !this.text == undefined || !this.text === '';
     }
 });
