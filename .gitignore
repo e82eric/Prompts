@@ -6,6 +6,7 @@ _ReSharper.*
 *.resharper
 .idea
 *.xap
+!tools/statlight/*.xap
 [Bb]inaries
 prompts*.zip
 TestResults.xml
