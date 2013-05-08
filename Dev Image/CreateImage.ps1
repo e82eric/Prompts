@@ -338,6 +338,7 @@ function InstallRuby {
 	RunCMD $script:installers.get_item("Ruby") "/Silent" 0
 	AddToPath $rubyBin
 	RunCMD "Ruby" "$rubyBin\gem","install","albacore" 0
+	RunCMD "Ruby" "$rubyBin\gem","install","sass" 0
 }
 
 function GetSource {
