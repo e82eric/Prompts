@@ -14,7 +14,7 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="AdventureWorksOLAP">
       <DataSourceReference>Adventure Works OLAP</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>14cdd75a-7270-48ee-bcb4-a4056cf55803</rd:DataSourceID>
@@ -23,7 +23,7 @@
   <DataSets>
     <DataSet Name="All">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <CommandText>WITH
 MEMBER
 	[Measures].[Value]
@@ -106,7 +106,7 @@ FROM
     </DataSet>
     <DataSet Name="Category">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="AllMember">
             <Value>=Parameters!AllMember.Value</Value>
@@ -227,7 +227,7 @@ FROM
     </DataSet>
     <DataSet Name="Type">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="Category">
             <Value>=Parameters!Category.Value</Value>
@@ -362,7 +362,7 @@ FROM
     </DataSet>
     <DataSet Name="Promotion">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="TypeMember">
             <Value>=Parameters!Type.Value</Value>

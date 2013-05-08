@@ -14,7 +14,7 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="AdventureWorksOLAP">
       <DataSourceReference>Adventure Works OLAP</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>8469399d-e979-4f3f-bc85-160845bd77d0</rd:DataSourceID>
@@ -23,7 +23,7 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <CommandText>WITH
 MEMBER
 	[Measures].[Value]

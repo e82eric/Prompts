@@ -29,7 +29,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Left>0in</Left>
           <Height>0.26041in</Height>
           <Width>3.45833in</Width>
           <Style>
@@ -73,7 +72,6 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.28819in</Top>
-          <Left>0in</Left>
           <Height>0.19792in</Height>
           <Width>3.45833in</Width>
           <ZIndex>1</ZIndex>
@@ -118,7 +116,6 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.52777in</Top>
-          <Left>0in</Left>
           <Height>0.19792in</Height>
           <Width>3.45833in</Width>
           <ZIndex>2</ZIndex>
@@ -234,6 +231,13 @@
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="AdventureWorksOLAP">
+      <DataSourceReference>Adventure Works OLAP</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>f8434b0a-d81c-402b-8be6-ffa2c897550e</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
   <ReportParameters>
     <ReportParameter Name="Calendar2">
       <DataType>String</DataType>

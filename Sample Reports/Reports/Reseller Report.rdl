@@ -176,7 +176,7 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="AdventureWorksOLAP">
       <DataSourceReference>Adventure Works OLAP</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>a520996e-2a41-4d6b-b939-882ffc944d29</rd:DataSourceID>
@@ -185,7 +185,7 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <CommandText> SELECT NON EMPTY { } ON COLUMNS FROM [Adventure Works] CELL PROPERTIES VALUE</CommandText>
         <rd:DesignerState>
           <QueryDefinition xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">

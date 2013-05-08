@@ -2,7 +2,7 @@
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="Adventure_Works_OLAP">
+    <DataSource Name="AdventureWorksOLAP">
       <DataSourceReference>Adventure Works OLAP</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>07ef88d1-de61-4c4b-8619-a7cd01509a82</rd:DataSourceID>
@@ -11,7 +11,7 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>Adventure_Works_OLAP</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="Calendar">
             <Value>=Parameters!Calendar2.Value</Value>

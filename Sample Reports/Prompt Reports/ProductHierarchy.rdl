@@ -14,7 +14,7 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="AdventureWorksOLAP">
       <DataSourceReference>Adventure Works OLAP</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>52900946-2faa-40ad-902b-0605ab0f9ddd</rd:DataSourceID>
@@ -23,7 +23,7 @@
   <DataSets>
     <DataSet Name="Category">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="AllMember">
             <Value>=Parameters!All.Value</Value>
@@ -144,7 +144,7 @@ FROM
     </DataSet>
     <DataSet Name="All">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <CommandText>WITH
 MEMBER
 	[Measures].[Value]
@@ -227,7 +227,7 @@ FROM
     </DataSet>
     <DataSet Name="Subcategory">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="Category">
             <Value>=Parameters!Category.Value</Value>
@@ -362,7 +362,7 @@ FROM
     </DataSet>
     <DataSet Name="Product">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="Subcategory">
             <Value>=Parameters!Subcategory.Value</Value>

@@ -14,7 +14,7 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="AdventureWorksOLAP">
       <DataSourceReference>Adventure Works OLAP</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>f73d97e3-4058-499f-abd7-2cdb49107b24</rd:DataSourceID>
@@ -23,7 +23,7 @@
   <DataSets>
     <DataSet Name="Groups">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="AllMember">
             <Value>=Parameters!All.Value</Value>
@@ -144,7 +144,7 @@ FROM
     </DataSet>
     <DataSet Name="Countries">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="GroupMember">
             <Value>=Parameters!Groups.Value</Value>
@@ -279,7 +279,7 @@ FROM
     </DataSet>
     <DataSet Name="Regions">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="Country">
             <Value>=Parameters!Countries.Value</Value>
@@ -428,7 +428,7 @@ FROM
     </DataSet>
     <DataSet Name="All">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>AdventureWorksOLAP</DataSourceName>
         <CommandText>WITH
 MEMBER
 	[Measures].[Value]
