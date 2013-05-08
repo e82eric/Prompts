@@ -126,15 +126,6 @@
 						DiskId='1'/>
 				</Component>
 				<Directory Id='PromptsServiceBin' Name='bin'>
-					<Component Id='ReportViewerCommonAssembly' Guid='{BB35C10B-5BC4-43B3-902B-1E7FD1B558D0}'>
-						<File
-							Id='ReportViewerCommonAssembly'
-							Name='Microsoft.ReportViewer.Common.dll'
-							KeyPath='yes'
-							Source='..\..\Binaries\Prompts.Service\bin\Microsoft.ReportViewer.Common.dll'
-							Checksum='yes'
-							DiskId='1'/>
-					</Component>
 					<Component Id='ReportViewerWebAssembly' Guid='{8B9A3E3E-AA5A-4ABF-856A-CD04E2FCD978}'>
 						<File
 							Id='ReportViewerWebAssembly'
@@ -219,7 +210,6 @@
 			<ComponentRef Id="PromptsXAP"/>
 			<ComponentRef Id="ServiceWebConfig"/>
 			<ComponentRef Id="ReportViewerASPX"/>
-			<ComponentRef Id="ReportViewerCommonAssembly"/>
 			<ComponentRef Id="ReportViewerWebAssembly"/>
 			<ComponentRef Id="PromptsServiceAssembly"/>
 			<ComponentRef Id="ServiceStackAssembly"/>
