@@ -4,14 +4,13 @@ var ReportCatalogRequester = Class.extend({
         this.builder = builder;
     },
     execute: function (availableItemsController) {
-
-            this.repository.get(
-                {},
-                $.proxy(
-                    function (models) {
-                        var controllers = this.builder.build(models);
-                        availableItemsController.setItems(controllers);
-                    },
-                    this));
+        this.repository.get(
+            {},
+            $.proxy(
+                function (models) {
+                    var controllers = this.builder.build(models);
+                    availableItemsController.setItems(controllers);
+            },
+            this));
     }
 });

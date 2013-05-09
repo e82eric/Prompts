@@ -11,5 +11,10 @@ var SelectableItemController = Class.extend({
     unSelect: function () {
         this.view.onUnSelected();
         this.isSelected = false;
+    },
+
+    setView: function (val) {
+        this.view = val;
+        return this.view;
     }
 });
