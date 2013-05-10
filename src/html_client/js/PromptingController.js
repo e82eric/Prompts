@@ -27,8 +27,7 @@ var PromptingController = Class.extend({
     },
 
     createView: function () {
-        var itemsView = this.itemsController.createView();
-        var loadingPanelView = this.loadingPanelController.createView(itemsView, "");
+        var loadingPanelView = this.loadingPanelController.createView();
         var executeReportView = this._executeCommand.createView();
         this.view = new PromptingView(this, loadingPanelView, executeReportView);
         return this.view;

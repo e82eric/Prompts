@@ -4,7 +4,7 @@ var PromptView = TemplateView.extend({
         this.readyIndicator = this.root.find(".ready-indicator");
 	},
 
-    delete: function () {
+    deleteItem: function () {
         this.root.remove();
     },
 

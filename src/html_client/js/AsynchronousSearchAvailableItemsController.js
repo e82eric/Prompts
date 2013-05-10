@@ -1,12 +1,8 @@
-var AsynchronousSearchAvailableItemsController = AsynchronousItemsController.extend({
+var AsynchronousSearchAvailableItemsController = DisposableItemsController.extend({
     init: function(selector) {
         this.selector = selector;
         this._super();
         this.selectedItems = [];
-    },
-
-    createView: function () {
-        return this.setView(new ItemsView(this, "rootItems"));
     },
 
     select: function (shiftKeyPressed, controlKeyPressed, item) {
@@ -15,17 +11,5 @@ var AsynchronousSearchAvailableItemsController = AsynchronousItemsController.ext
 
     getSelectedItems: function () {
         return this.selectedItems;
-    },
-
-    setItems: function (items) {
-        _.each(
-            this.items,
-            function (item) {
-                item.deleteItem();
-            },
-            this
-        );
-
-        this._super(items);
     }
 });

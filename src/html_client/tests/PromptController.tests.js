@@ -5,7 +5,7 @@ module("Prompt Controller", {
 		this.view = { 
 			setExecutionIndicatorReady: sinon.spy(), 
 			setExecutionIndicatorNotReady: sinon.spy(),
-			delete: sinon.spy() 
+			deleteItem: sinon.spy() 
 		};
 		this.controller = new PromptController(model, this.promptsController);
 		this.controller.evaluateReadyForExecution = sinon.stub();
@@ -14,9 +14,9 @@ module("Prompt Controller", {
 });
 
 test("It calls delete on the view when deleted", function () {
-	ok(this.view.delete.callCount === 0);
-	this.controller.delete();
-	ok(this.view.delete.callCount === 1);
+	ok(this.view.deleteItem.callCount === 0);
+	this.controller.deleteItem();
+	ok(this.view.deleteItem.callCount === 1);
 });
 
 test("It sets ready for execution to true when sub class evaluate method is true", function () {

@@ -23,7 +23,7 @@ var AsynchronousSearchShoppingCartBuilder = Class.extend({
     var loadingPanel = new LoadingPanelControllerBase(function (controller) { 
       return new AsynchronousSearchLoadingPanelView(
         controller, 
-        availableItemsController.createView(), 
+        availableItemsController.createView(function (controller) { return new ItemsView(controller, "rootItems"); } ), 
         selectedItemsController.createView()); 
     });
 

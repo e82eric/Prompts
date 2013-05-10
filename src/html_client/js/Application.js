@@ -1,9 +1,11 @@
 $(function () {
-    var promptsController = new PromptsController();
+    var promptsController = new DisposableItemsController();
     var promptBuilder = new PromptControllerBuilder();
     var promptsBuilder = new ItemsBuilder(promptBuilder);
     var promptingLoadingPanel = new LoadingPanelControllerBase(function (controller){
-        return new PromptingLoadingPanelView(promptingLoadingPanel, promptsController.createView())
+        return new PromptingLoadingPanelView(
+            promptingLoadingPanel, 
+            promptsController.createView(function (pController) { return new PromptsView(pController) }));
     });
     var promptsRepository = new Repository("/prompts.service/api/prompts", promptingLoadingPanel, "POST");
     var promptsRequester = new PromptsRequester(promptsRepository, promptsBuilder);

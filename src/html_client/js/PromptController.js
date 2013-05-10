@@ -5,8 +5,8 @@ var PromptController = Class.extend({
 		this.createViewFunc = createViewFunc;
 	},
 
-	delete: function () {
-		this.view.delete();
+	deleteItem: function () {
+		this.view.deleteItem();
 	},
 
 	setReadyForExecution: function () {
