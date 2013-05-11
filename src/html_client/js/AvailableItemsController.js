@@ -1,19 +1,11 @@
-var AvailableItemsController = Class.extend({
+var AvailableItemsController = AsynchronousSearchAvailableItemsController.extend({
     init: function(selector) {
-        this.selector = selector;
+        this._super(selector);
     },
 
     createView: function () {
         this.view = new ItemsView(this, "rootItems");
         return this.view;
-    },
-
-    select: function (shiftKeyPressed, controlKeyPressed, item) {
-        this.selectedItems = this.selector.select(shiftKeyPressed, controlKeyPressed, this.displayItems, item);
-    },
-
-    getSelectedItems: function () {
-        return this.selectedItems;
     },
 
     search: function (searchString) {
