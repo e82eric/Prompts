@@ -7,7 +7,8 @@ var DropDownView = PromptView.extend({
         this.popup = this.root.find(".popup");
         this.toggle = this.root.find(".toggle");
         this.selectedItemText = this.root.find(".selection");
-        this.popup.prepend(this.controller.availableItemsController.createView().render());
+        this.popup.prepend(this.controller.availableItemsController.createView(
+            function (controller) { return new ItemsView(controller, "rootItems"); } ).render());
     },
 
     render: function (){

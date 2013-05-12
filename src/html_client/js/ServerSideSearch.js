@@ -1,4 +1,4 @@
-var AsynchronousSearchRequester = Class.extend({
+var ServerSideSearch = Class.extend({
     init: function (searchStringParser, repository, promptItemControllersBuilder) {
         this.searchStringParser = searchStringParser;
         this.repository = repository;
@@ -13,7 +13,7 @@ var AsynchronousSearchRequester = Class.extend({
         this.repository.get(search.childItemsRequest, function (model) {
             var controllers = self._promptItemControllersBuilder.build(model.AvailableItems);
             var searchResults = new Search(search).execute(controllers);
-            availableItemsController.setItems(searchResults);
+            availableItemsController.setDisplayItems(searchResults);
         });
     },
 

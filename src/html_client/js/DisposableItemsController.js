@@ -1,12 +1,12 @@
 var DisposableItemsController = AsynchronousItemsController.extend({
-    setItems: function (val) {
-        _.each(
-            this.items,
-            function (item) {
-                item.deleteItem();
-            }
-        );
+	init: function (itemsDisposer) {
+		this.itemsDisposer = itemsDisposer;
+	},
 
+    setItems: function (val) {
+		if(this.items != undefined) {
+       		this.itemsDisposer.dispose(this.items); 
+		}
         this._super(val);
     },
 

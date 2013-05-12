@@ -232,8 +232,7 @@ class Html_Client_Builder
 			"ShoppingCartView.js",
 			"DropDownBuilder.js",
 			"ShoppingCartBuilder.js",
-			"DisposableItemsController.js",
-			"AsynchronousSearchAvailableItemsController.js"]
+			"DisposableItemsController.js"]
 		
 		Dir.chdir(@jsSourceDirectory) do
 			Dir.glob "*.js" do |fileName|

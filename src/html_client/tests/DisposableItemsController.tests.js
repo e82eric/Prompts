@@ -1,6 +1,7 @@
 module("Disposable Items Controller", {
-	setup: function () {		
-		this.controller = new DisposableItemsController();
+	setup: function () {
+		this.disposer = { dispose: sinon.spy() };		
+		this.controller = new DisposableItemsController(this.disposer);
 		
 	}
 });
@@ -18,22 +19,16 @@ test("It correctly sets the items on the super class", function () {
 	ok(numberOfSuperCalls === 1);
 });
 
-test("It calls delete on all of the previous items", function (){
+test("It diposes the old items", function () {
 	AsynchronousItemsController.prototype.setItems = function (superItems) { this.items = superItems; }
 	
-	var previousItem1 = { deleteItem: sinon.spy() };
-	var previousItem2 = { deleteItem: sinon.spy() };
-	var previousItem3 = { deleteItem: sinon.spy() };
+	var previousItems = [1, 2, 3];
 
-	this.controller.setItems([previousItem1, previousItem2, previousItem3]);
+	this.controller.setItems(previousItems);
 
-	ok(previousItem1.deleteItem.callCount === 0);
-	ok(previousItem2.deleteItem.callCount === 0);
-	ok(previousItem3.deleteItem.callCount === 0);
+	ok(this.disposer.dispose.callCount === 0);
 
-	this.controller.setItems([1,2,3]);
+	this.controller.setItems([4, 5, 6]);
 
-	ok(previousItem1.deleteItem.callCount === 1);
-	ok(previousItem2.deleteItem.callCount === 1);
-	ok(previousItem3.deleteItem.callCount === 1);
+	ok(this.disposer.dispose.callCount === 1);
 });

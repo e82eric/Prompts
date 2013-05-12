@@ -51,6 +51,7 @@ var SelectedItemsController = Class.extend({
 
     setView: function (val) {
         this.view = val;
+        this.view.renderItems(this.items);
     },
 
     removeSelected: function() {

@@ -6,15 +6,6 @@ var ItemsView = Class.extend({
     },
 
     render: function () {
-        _.each(
-            this.controller.items,
-            function (controller) {
-                var itemView = controller.createView();
-                this.root.append(itemView.render());
-            },
-            this
-        );
-
         return this.root;
     },
 

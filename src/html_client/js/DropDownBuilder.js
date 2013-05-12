@@ -14,7 +14,12 @@ var DropDownBuilder = Class.extend({
     },
 
     _build: function (model, selector, itemBuilder, createViewFunc, buildItemParams) {
-        var availableItemsController = new AvailableItemsController(selector);
+        var availableItemsController = new AvailableItemsController(
+            selector,
+            new ClientSideSearch(new SearchStringParser()),
+            new ItemsDisposer()
+        );
+        
         itemBuilder.setAvailableItemsController(availableItemsController);
         var itemsBuilder = new ItemsBuilder(itemBuilder);
         var items = itemsBuilder.build(model.PromptLevelInfo.AvailableItems, buildItemParams);

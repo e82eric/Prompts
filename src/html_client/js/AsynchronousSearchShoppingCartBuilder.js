@@ -9,16 +9,8 @@ var AsynchronousSearchShoppingCartBuilder = Class.extend({
       inverseSelector
     );
 
-    var selectedItemControllerBuilder = new PromptItemControllerBuilder();
-    var selectedItemControllersBuilder = new ItemsBuilder(selectedItemControllerBuilder);
-    var selectedItemsController = new SelectedItemsController(multiSelector, selectedItemControllersBuilder);
-    selectedItemControllerBuilder.setAvailableItemsController(selectedItemsController);
-    var availableItemsController = new AsynchronousSearchAvailableItemsController(multiSelector);
-
-    var searchStringParser = new AsynchronousSearchStringParser(
-      new SearchStringParser(),
-      model.Name,
-      model.PromptLevelInfo.ParameterName);
+    var availableItemControllerBuilder = new PromptItemControllerBuilder();
+    var availableItemControllersBuilder = new ItemsBuilder(availableItemControllerBuilder);
 
     var loadingPanel = new LoadingPanelControllerBase(function (controller) { 
       return new AsynchronousSearchLoadingPanelView(
@@ -27,20 +19,34 @@ var AsynchronousSearchShoppingCartBuilder = Class.extend({
         selectedItemsController.createView()); 
     });
 
-    var availableItemControllerBuilder = new PromptItemControllerBuilder();
-    var availableItemControllersBuilder = new ItemsBuilder(availableItemControllerBuilder);
-    availableItemControllerBuilder.setAvailableItemsController(availableItemsController);
+    var searchStringParser = new AsynchronousSearchStringParser(
+      new SearchStringParser(),
+      model.Name,
+      model.PromptLevelInfo.ParameterName);
 
     var repository = new Repository("/Prompts.Service/api/prompts/child_items", loadingPanel, "POST");
-    var searchRequester = new AsynchronousSearchRequester(searchStringParser, repository, availableItemControllersBuilder);
+    var searchRequester = new ServerSideSearch(searchStringParser, repository, availableItemControllersBuilder);
 
-    var controller = new AsynchronousSearchShoppingCartController(
-      model,
+    var availableItemsController = new AvailableItemsController(
+      multiSelector,
       searchRequester,
+      new ItemsDisposer());
+
+    var selectedItemControllerBuilder = new PromptItemControllerBuilder();
+    var selectedItemControllersBuilder = new ItemsBuilder(selectedItemControllerBuilder);
+    var selectedItemsController = new SelectedItemsController(multiSelector, selectedItemControllersBuilder);
+    selectedItemControllerBuilder.setAvailableItemsController(selectedItemsController);
+
+    availableItemControllerBuilder.setAvailableItemsController(availableItemsController);
+
+    var controller = new MultiSelectPromptController(
+      model,
       availableItemsController,
       selectedItemsController,
-      loadingPanel,
-      promptsController);
+      promptsController,
+      function (controller) {
+        return new AsynchronousSearchShoppingCartView(controller, loadingPanel.createView());
+      });
 
     if(model.DefaultValues.length > 0) {
       selectedItemsController.setDefaults(model.DefaultValues);

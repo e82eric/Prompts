@@ -5,7 +5,8 @@ var ShoppingCartView = PromptView.extend({
         this.selectedItems = this.root.find(".selected-items:first");
         this.selectButton = this.root.find(".select-button > button");
         this.unSelectButton = this.root.find(".unselect-button > button");
-        this.availableItems.append(this.controller.availableItemsController.createView().render());
+        this.availableItems.append(this.controller.availableItemsController.createView(
+            function (controller) { return new ItemsView(controller, "rootItems"); } ).render());
         this.selectedItems.append(this.controller.selectedItemsController.createView().render());
     },
     render: function (){

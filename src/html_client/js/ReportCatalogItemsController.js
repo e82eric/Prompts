@@ -5,6 +5,7 @@ var ReportCatalogItemsController = Class.extend({
 
     setView: function(val) {
         this.view = val;
+        this.view.renderItems(this.items);
     },
 
     createView: function () {

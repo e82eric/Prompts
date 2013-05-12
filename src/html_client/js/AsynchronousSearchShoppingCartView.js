@@ -30,11 +30,11 @@ var AsynchronousSearchShoppingCartView = PromptView.extend({
     },
 
     onSearch: function () {
-        this.controller.onSearchButtonClicked();
+        this.controller.availableItemsController.search();
     },
 
     onSearchStringChange: function () {
-        this.controller.onSearchStringSet(this.searchStringInput.val());
+        this.controller.availableItemsController.setSearchString(this.searchStringInput.val());
     },
 
     onRetryClick: function () {

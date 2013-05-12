@@ -26,7 +26,12 @@ var ShoppingCartBuilder = Class.extend({
         selectedItemBuilder.setAvailableItemsController(selectedItemsController);
 
         var availableItemsBuilder = new ItemsBuilder(availableItemBuilder);
-        var availableItemsController = new AvailableItemsController(selector);
+        var availableItemsController = new AvailableItemsController(
+            selector,
+            new ClientSideSearch(new SearchStringParser()),
+            new ItemsDisposer()
+        );
+
         availableItemBuilder.setAvailableItemsController(availableItemsController);
 
         availableItemBuilder.setAvailableItemsController(availableItemsController);
