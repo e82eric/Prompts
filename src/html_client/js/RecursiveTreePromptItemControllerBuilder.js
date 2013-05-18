@@ -12,7 +12,7 @@ var RecursiveTreePromptItemControllerBuilder = Class.extend({
             return new ItemsView(childAvailableItemsController, "childItems");
         });
 
-        var loadingPanel = new LoadingPanelControllerBase(function (controller) {
+        var loadingPanel = new LoadingPanelController(function (controller) {
             return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
         });
         

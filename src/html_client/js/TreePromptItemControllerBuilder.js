@@ -29,7 +29,7 @@ var TreePromptItemControllerBuilder = Class.extend({
 
       var childItemsBuilder = new ItemsBuilder(childItemBuilder);
 
-      var loadingPanel = new LoadingPanelControllerBase(function (controller) {
+      var loadingPanel = new LoadingPanelController(function (controller) {
         return new ChildPromptItemsLoadingPanelView(controller, childAvailableItemsController.createView());
       });
 

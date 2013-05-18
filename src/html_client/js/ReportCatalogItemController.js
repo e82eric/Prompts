@@ -12,7 +12,7 @@ var ReportCatalogItemController = SelectableItemController.extend({
     },
 
     changeSelect: function() {
-        this.rootItemsController.select(this);
+        this.rootItemsController.select(false, false, this);
     },
 
     createView: function() {

@@ -81,13 +81,20 @@ test("It sets the display items when the items are set", function () {
 
 test("It asks the view to render the items when the display items are set", function () {
 	var items = [1, 2, 3];
+	var displayItems = [4, 5, 6];
 
 	ok(this.controller.displayItems === undefined);
 	
 	this.controller.setItems(items);
 	this.controller.setView(this.view);
 
-	ok(this.controller.displayItems === items);
+	ok(this.view.renderItems.callCount === 1);
+	ok(this.view.renderItems.withArgs(displayItems).callCount === 0);
+
+	this.controller.setDisplayItems(displayItems);
+
+	ok(this.view.renderItems.callCount === 2);
+	ok(this.view.renderItems.withArgs(displayItems).callCount === 1);
 });
 
 test("It disposes the old display items", function () {

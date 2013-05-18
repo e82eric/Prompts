@@ -1,14 +1,14 @@
-function TreeDropDownSelector (singleSelector, hierarchyFlattener) {
-    this.singleSelector = singleSelector;
-    this.hierarchyFlattener = hierarchyFlattener;
-    this.select = function (shiftKeyPressed, controlKeyPressed, items, item) {
-        var flattenedItems = this.hierarchyFlattener.Flatten(items);
+var TreeDropDownSelector = TreeSingleSelector.extend({
+    init: function (singleSelector, hierarchyFlattener) {
+        this._super(singleSelector, hierarchyFlattener);
+    },
 
-        this.singleSelector.select(flattenedItems, item);
+    select: function (shiftKeyPressed, controlKeyPressed, items, item) {
+        this._super(shiftKeyPressed, controlKeyPressed, items, item);
         this.promptController.onSelection(item);
-    };
+    },
 
-    this.setPromptController = function (val) {
+    setPromptController: function (val) {
         this.promptController = val;
     }
-}
+});

@@ -25,6 +25,7 @@ test("It diposes the old items", function () {
 	var previousItems = [1, 2, 3];
 
 	this.controller.setItems(previousItems);
+	this.controller.setView({ renderItems: sinon.spy() });
 
 	ok(this.disposer.dispose.callCount === 0);
 

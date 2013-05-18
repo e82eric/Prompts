@@ -1,4 +1,4 @@
-var LeafTreePromptItemController = SelectableItemController.extend ({
+var LeafTreePromptItemController = PromptItemController.extend ({
     init: function (model, availableItemsController ) {
         this.model = model;
         this.availableItemsController = availableItemsController;
@@ -6,17 +6,9 @@ var LeafTreePromptItemController = SelectableItemController.extend ({
         this.Children = [];
     },
 
-    clicked: function (shiftKeyPressed, controlKeyPressed) {
-        this.availableItemsController.select(shiftKeyPressed, controlKeyPressed, this);
-    },
-
     createView: function () {
         var view = new LeafTreePromptItemView(this);
         this.setView(view);
         return this.view;
-    },
-
-    setView: function (val) {
-        this.view = val;
     }
 });

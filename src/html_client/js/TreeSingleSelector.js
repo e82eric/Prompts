@@ -4,8 +4,8 @@ var TreeSingleSelector = Class.extend({
         this.hierarchyFlatner = hierarchyFlatner;
     },
 
-    select: function (items, itemToSelect) {
+    select: function (shiftKeyPressed, controlKeyPressed, items, item) {
         var flattenedItems = this.hierarchyFlatner.Flatten(items);
-        this.singleSelector.select(flattenedItems, itemToSelect);
+        this.singleSelector.select(flattenedItems, item);
     }
 });

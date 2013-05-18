@@ -6,12 +6,17 @@ var AsynchronousItemsController = Class.extend({
 
     setItems: function (items) {
         this.items = items;
-        this.view.renderItems(this.items);
+		if(this.view != undefined) {
+        	this.view.renderItems(this.items);
+		}
     },
 
     setView: function (val) {
         this.view = val;
-        return this.view;
+		if(this.items.length != 0) {
+			this.view.renderItems(this.items);
+		}
+		return this.view;
     },
 
     createView: function () {

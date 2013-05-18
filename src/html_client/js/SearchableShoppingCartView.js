@@ -6,11 +6,16 @@ var SearchableShoppingCartView = ShoppingCartView.extend({
     },
 
     render: function (){
-        this.searchButton.click($.proxy(this.onSearch, this));
+        this.searchStringInput.change($.proxy(this.onSearchStringChange, this));
+		this.searchButton.click($.proxy(this.onSearch, this));
         return this._super();
     },
 
     onSearch: function () {
         this.controller.availableItemsController.search(this.searchStringInput.val());
-    }
+    },
+
+	onSearchStringChange: function (val) {
+		this.controller.availableItemsController.setSearchString(this.searchStringInput.val());
+	}
 });

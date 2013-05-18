@@ -2,7 +2,7 @@ $(function () {
     var promptsController = new DisposableItemsController(new ItemsDisposer());
     var promptBuilder = new PromptControllerBuilder();
     var promptsBuilder = new ItemsBuilder(promptBuilder);
-    var promptingLoadingPanel = new LoadingPanelControllerBase(function (controller){
+    var promptingLoadingPanel = new LoadingPanelController(function (controller){
         return new PromptingLoadingPanelView(
             promptingLoadingPanel, 
             promptsController.createView(function (pController) { return new PromptsView(pController) }));

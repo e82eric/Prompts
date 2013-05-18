@@ -1,11 +1,11 @@
 var ItemsDisposer = Class.extend({
 	dispose: function (items) {
-		 _.each(
-		    items,
-		    function (item) {
-			item.deleteItem();
-		    },
-		    this
+		_.each(
+			items,
+			function (item) {
+				item.deleteItem();
+			},
+			this
 		);
 	}
 });

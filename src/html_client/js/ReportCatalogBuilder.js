@@ -5,8 +5,7 @@ var ReportCatalogBuilder = Class.extend({
 
     build: function() {
         var selector = new TreeSingleSelector(new SingleSelector(), new HierarchyFlattener());
-        var rootItemsController = new RootReportCatalogItemsController(selector);
-
+        var rootItemsController = new SelectableItemsController(selector, new ItemsDisposer());
         var folderCatalogItemBuilder = new FolderCatalogItemBuilder();
         var catalogItemBuilder = new ReportCatalogItemBuilder(
             folderCatalogItemBuilder,
@@ -16,8 +15,10 @@ var ReportCatalogBuilder = Class.extend({
         var catalogItemsBuilder = new ItemsBuilder(catalogItemBuilder);
         folderCatalogItemBuilder.setChildItemsBuilder(catalogItemsBuilder);
 
-        var loadingPanel = new LoadingPanelControllerBase(function (controller) {
-            return new PromptingLoadingPanelView(loadingPanel, rootItemsController.createView())
+        var loadingPanel = new LoadingPanelController(function (controller) {
+            return new PromptingLoadingPanelView(
+                loadingPanel, 
+                rootItemsController.createView(function (controller) { return new ItemsView(this, "rootItems") ;}));
         });
 
         var repository = new Repository("/Prompts.Service/api/reports", loadingPanel, "GET");

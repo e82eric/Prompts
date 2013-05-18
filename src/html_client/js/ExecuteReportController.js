@@ -1,4 +1,4 @@
-var ExecuteReportController = LoadingPanelControllerBase.extend({
+var ExecuteReportController = LoadingPanelController.extend({
     init: function (reportRenderer) {
         this._reportRenderer = reportRenderer;
     },

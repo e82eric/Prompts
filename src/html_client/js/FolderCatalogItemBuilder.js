@@ -7,7 +7,8 @@ var FolderCatalogItemBuilder = Class.extend({
 
         if (model.Children.length != 0) {
             var childItems = this.childItemsBuilder.build(model.Children);
-            var childItemsController = new ReportCatalogItemsController(childItems);
+            var childItemsController = new AsynchronousItemsController(function (controller) { return new ItemsView(this, "childItems"); });
+            childItemsController.setItems(childItems);
             controller = new FolderCatalogItemController(model, childItemsController);
             controller.setChildren(childItems);
         } else {
