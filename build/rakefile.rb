@@ -220,7 +220,7 @@ class Html_Client_Builder
 		@jsFiles = [
 			"TemplateView.js",
 			"AsynchronousItemsController.js", 
-			"LoadingPanelControllerBase.js", 
+			"LoadingPanelController.js", 
 			"PromptController.js", 
 			"PromptView.js", 
 			"ItemsView.js", 

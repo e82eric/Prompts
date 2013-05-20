@@ -88,7 +88,9 @@ $right-panel-start: $left-panel-start + $report-catalog-width + $panel-spacing;
     @include panel-border
 }
 
-$execute-report-height: 25px;
+$buttons-height: 25px;
+$small-prompts-width: 200px;
+
 
 #prompts {
     top: $content-top;
@@ -102,10 +104,27 @@ $execute-report-height: 25px;
 #prompts-list {
     top: 0;
     left: 0;
-    right: 0;
+    right: $small-prompts-width;
     position: absolute;
     overflow-y: auto;
-    bottom: $execute-report-height;
+    bottom: $buttons-height * 2;
+}
+
+#prompts-list2 {
+	top: 0;
+	right: 0;
+	width: $small-prompts-width;
+	bottom: $buttons-height;
+	position: absolute;
+	border-left: 1px solid #000000;
+}
+
+#movement-buttons {
+	left: 0;
+	right: 0;
+	height: $buttons-height;
+	bottom: $buttons-height;
+	position: absolute;
     border-bottom: 1px solid #000000;
 }
 
@@ -113,7 +132,7 @@ $execute-report-height: 25px;
     left: 0;
     right: 0;
     bottom: 0;
-    height: $execute-report-height;
+    height: $buttons-height;
     position: absolute;
     .ready{ color: green; }
     .not-ready{ color: red; }

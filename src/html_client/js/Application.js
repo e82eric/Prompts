@@ -1,5 +1,5 @@
 $(function () {
-    var promptsController = new DisposableItemsController(new ItemsDisposer());
+    var promptsController = new PromptsController(new ItemsDisposer());
     var promptBuilder = new PromptControllerBuilder();
     var promptsBuilder = new ItemsBuilder(promptBuilder);
     var promptingLoadingPanel = new LoadingPanelController(function (controller){
