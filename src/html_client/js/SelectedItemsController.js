@@ -36,7 +36,7 @@ var SelectedItemsController = Class.extend({
             this
         );
 
-        this.view.renderItems(controllers);
+        this.view.addItems(controllers);
     },
 
     select: function (shiftKeyPressed, controlKeyPressed, item) {

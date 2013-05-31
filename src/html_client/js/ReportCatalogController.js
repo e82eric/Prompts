@@ -15,7 +15,7 @@ var ReportCatalogController = Class.extend({
     },
 
     createView: function () {
-        var itemsView = this.itemsController.createView(function (controller) { return new ItemsView(this, "rootItems") ;} );
+        var itemsView = this.itemsController.createView(function (controller) { return new ItemsView(controller, "rootItems") ;} );
         var loadingPanelView = this.loadingPanelController.createView(itemsView);
         this.setView(new ReportCatalogView(this, loadingPanelView));
         return this.view;

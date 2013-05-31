@@ -26,6 +26,10 @@ var PromptingController = Class.extend({
         return { Path: this.path, PromptSelections: selections };
     },
 
+	moveToPrompt: function (val) {
+		this.itemsController.moveToPrompt(val);
+	},
+
     createView: function () {
         var loadingPanelView = this.loadingPanelController.createView();
         var executeReportView = this._executeCommand.createView();

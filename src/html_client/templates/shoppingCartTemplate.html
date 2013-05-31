@@ -1,24 +1,16 @@
-<li class="prompt shoppingcart">
-    <div><%- model.Name %></div>
-    <div class="ready-indicator"></div>
-    <table>
-        <tr>
-            <td class = "search-wrapper"><input class="search-input"></td>
-            <td><button class="search-button">Search</button></td>
-        </tr>
-        <tr>
-            <td rowspan="2" class="listbox available-items">
-            </td>
-            <td class="shoppingcart-button select-button">
-                <button>Select</button>
-            </td>
-            <td rowspan="2" class="listbox selected-items">
-            </td>
-        </tr>
-        <tr>
-            <td class="shoppingcart-button unselect-button">
-                <button>De-Select</button>
-            </td>
-        </tr>
-    </table>
-<li>
+<div class="prompt-header"><%- model.Name %></div>
+<div class="prompt shopping-cart">
+	<div class="shopping-cart-left-column listbox available-items">
+	<input class="search-input">
+	</div>
+	<div class="shopping-cart-middle-column">
+		<button class="search-button">Search</button>
+		<div class="shopping-cart-button select-button">
+			<button>Select</button>
+		</div>
+		<div class="shopping-cart-button unselect-button">
+			<button>De-Select</button>
+		</div>
+	</div>
+	<div class="shopping-cart-right-column listbox selected-items"></div>
+</div>

@@ -3,12 +3,12 @@ var TreePromptItemView = TemplateView.extend({
         this._super(controller, "treePromptItemTemplate");
 
         this.childItemsLoadingPanelView = childItemsLoadingPanelView;
-        this.root.append(this.childItemsLoadingPanelView.render());
         this.expandImage = this.root.find(".expander");
         this.selectElement = this.root.find(".selectable");
     },
     render: function () {
         this.expandImage.click($.proxy(this.onExpandClick,this));
+        this.root.append(this.childItemsLoadingPanelView.render());
         this.selectElement.click($.proxy(this.onClick,this));
         this.childItemsLoadingPanelView.root.find(".retry").click($.proxy(this.onRetryClick, this));
 

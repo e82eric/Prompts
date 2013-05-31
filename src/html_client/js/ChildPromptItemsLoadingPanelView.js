@@ -1,11 +1,12 @@
 var ChildPromptItemsLoadingPanelView = TemplateView.extend({
     init: function (controller, availableItemsView) {
         this._super(controller, "childPromptItemsLoadingPanelTemplate");
+		this.availableItemsView = availableItemsView;
+
         this.loadingElement = this.root.filter(".loading");
         this.loadedElement = this.root.filter(".loaded");
         this.retryElement = this.root.filter(".retry");
         this.errorElement = this.root.filter(".errorMessage");
-        this.loadedElement.html(availableItemsView.render());
     },
 
     showLoading: function () {
@@ -45,6 +46,7 @@ var ChildPromptItemsLoadingPanelView = TemplateView.extend({
     },
 
     render: function(){
+        this.loadedElement.append(this.availableItemsView.render());
         return this.root;
     }
 });

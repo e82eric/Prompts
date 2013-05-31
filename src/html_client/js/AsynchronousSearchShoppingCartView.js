@@ -6,7 +6,7 @@ var AsynchronousSearchShoppingCartView = PromptView.extend({
         this.unSelectButton = this.loadingPanelView.root.find(".unselect-button");
         this.searchStringInput = this.root.find(".search-input");
         this.searchButton = this.root.find(".search-button");
-        this.content = this.root.find(".content");
+        this.content = this.root.filter(".shopping-cart");
 
         this.content.append(loadingPanelView.render());
     },

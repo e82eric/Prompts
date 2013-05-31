@@ -23,8 +23,14 @@ button {
     width: 100px;
 }
 
+@mixin border-style {
+	border: 1px solid #d3d3d3;
+}
+
 @mixin panel-border {
-    border: 1px solid #000000;
+	@include border-style;
+	border-radius: 10px;
+	moz-border-radius: 10px;
 }
 
 $panel-spacing: 5px;
@@ -79,61 +85,149 @@ $content-top: $show-hide-top + $show-hide-height + $panel-spacing;
 $report-catalog-width: 250px;
 $right-panel-start: $left-panel-start + $report-catalog-width + $panel-spacing;
 
+#application {
+	position: absolute;
+	top: $content-top;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 10px;
+}
+
+#application-left-column {
+	height: 100%;
+	float: left;
+	margin-right: 10px;
+	overflow: auto;
+	@include panel-border;
+}
+
+#application-right-column {
+	overflow: hidden;
+	height: 100%;
+	border: 1px solid;
+	position:relative;
+	@include panel-border;
+}
+
 #report-catalog {
-    top: $content-top;
-    padding: 5px;
-    bottom: $panel-spacing;
-    position: absolute;
-    left: $left-panel-start;
-    @include panel-border
+	margin: 10px;
+}
+
+#prompts {
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	right: 10px;
+	left: 10px;
 }
 
 $buttons-height: 25px;
-$small-prompts-width: 200px;
-
-
-#prompts {
-    top: $content-top;
-    left: $right-panel-start;
-    right: $panel-spacing;
-    position: absolute;
-    bottom: $panel-spacing;
-    @include panel-border
-}
+$small-prompts-width: 225px;
 
 #prompts-list {
-    top: 0;
-    left: 0;
-    right: $small-prompts-width;
-    position: absolute;
-    overflow-y: auto;
-    bottom: $buttons-height * 2;
+	position: absolute;
+	top: 0px;
+	bottom: 30px;
+	right: $small-prompts-width;
+	left: 0px;
+	@include border-style;
 }
 
-#prompts-list2 {
+#small-prompts-list {
 	top: 0;
 	right: 0;
-	width: $small-prompts-width;
-	bottom: $buttons-height;
+	width: $small-prompts-width - 5px;
+	bottom: 0;
 	position: absolute;
-	border-left: 1px solid #000000;
+	table {
+		border-spacing: 0px 0px;
+		height: 100%;
+		width: 100%;
+	};
+	tr {
+		vertical-align: top;	
+	}
+	td {
+		-webkit-border-radius: 3px 3px 0px 0px;
+		border: 1px solid #d3d3d3;
+		cursor: pointer;
+		margin-bottom:5px;
+	}
 }
 
-#movement-buttons {
+.small-prompt {
+	position: absolute;
+	top: 0;
+	bottom: 2px;
 	left: 0;
 	right: 0;
-	height: $buttons-height;
-	bottom: $buttons-height;
+	@include border-style;
+}
+
+.small-prompt-row {
+	position: relative;
+}
+
+.small-prompt-content {
 	position: absolute;
-    border-bottom: 1px solid #000000;
+	top: 20px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: auto;
+}
+
+.prompt {
+	margin: 5px;
+}
+
+@mixin header-gradient ($stop) {
+	background-image: linear-gradient(top, #FFFFFF 0%, $stop 100%);
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, $stop 100%);
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, $stop 100%);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, $stop 100%);
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, $stop 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr = '#{$stop}'); 
+	background-image: -webkit-gradient(linear,left top, left bottom, color-stop(0, #FFFFFF), color-stop(1,$stop));
+
+}
+
+.prompt-header { 
+	text-align: center;
+   	font-size:14px;
+   	font-weight: bold; 
+	-webkit-border-radius: 3px 3px 0px 0px;
+
+	@include header-gradient(#d3d3d3);
+	cursor: pointer;
+	&:hover { 
+		@include header-gradient(#b3b3b3); 
+	}
+}
+.execution-ready { color: green }
+.not-execution-ready { color: red }
+
+#movement-buttons {
+	position: absolute;
+	bottom: 0;
+	button { display: inline; height: 25px; vertical-align: top; }
+	button[disabled=disabled] { opacity: .5 }
+	#next-button {
+	   	background-image: url("../images/forward.png");
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	#previous-button {
+	   	background-image: url("../images/back.png");
+		background-position: center;
+		background-repeat: no-repeat;
+	}
 }
 
 #execute-report {
-    left: 0;
-    right: 0;
-    bottom: 0;
     height: $buttons-height;
-    position: absolute;
+	display: inline;
     .ready{ color: green; }
     .not-ready{ color: red; }
 }
@@ -208,8 +302,11 @@ $itemHeight: 18px;
 
 .folder-image { @include small-image("../images/folder.png") }
 
+.prompt.dropdown {
+	width: 50%;
+}
+
 .dropdown {
-    width: 400px;
     position:relative;
     display: inline-block;
     .toggle {
@@ -230,9 +327,11 @@ $itemHeight: 18px;
     .popup {
         margin: 3px 0px 0px 0px;
         position:absolute;
+		top: 22px;
+		left: 0;
+		right: 0;
         background: white;
         border: 1px solid #D4D4D4;
-        width:398px;
         border-radius: 3px;
         box-shadow: 2px 2px 1px #888888;
         max-height: 400px;
@@ -244,9 +343,24 @@ $itemHeight: 18px;
         }
     }
     .search {
+		input { width: 100% } 
         padding: 0 5px 0 2px; 
         overflow: hidden;
     }
+}
+
+.small.dropdown {
+	position: absolute;
+	top: 25px;
+	bottom: 2px;
+	left: 2px;
+	right: 2px;
+	.toggle {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
 }
 
 .promptItem {
@@ -267,22 +381,111 @@ $itemHeight: 18px;
 .shoppingcart {
     .search-wrapper { width: 45% }
     .listbox {
-        height: 400px;
         border: 1px solid black;
         width:45%;
         vertical-align: top;
+		height:100%;
         > ul {
-            height: 400px;
+            height: 100%;
             overflow-y: scroll; 
         }
     }
-    table { width: 100%; }
-    .shoppingcart-button { height:200px; }
+	table { height: 100%; width: 100% }
+	position:absolute;
+	top:25px;
+	left: 0px;
+	right: 0px;
+	bottom:0px;
+    .shoppingcart-button { text-align: center; } 
     .select-button { vertical-align: bottom; }
     .unselect-button { vertical-align: top; }
 }
 
-.search-input { width: 100%; }
+.shopping-cart-left-column {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	> ul {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 55px;
+		@include border-style;
+		overflow: auto;
+	}
+}
 
-.prompt { padding: 7px; }
+.shopping-cart-right-column {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 50%;
+	> ul {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 55px;
+		@include border-style;
+		overflow: auto;
+	}
+}
 
+.shopping-cart-middle-column {
+	width: 100px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -50px;
+	z-index: 3;
+	button { margin: 0; }
+	.shopping-cart-button { position: absolute; top: 50%; }
+	.select-button { margin-top: -12.5px }
+	.unselect-button { margin-top: 12.5px }
+}
+
+.prompt {
+	position: absolute;
+	top: 30px;
+	bottom: 10px;
+	right: 10px;
+	left: 10px;
+}
+
+.shopping-cart {
+	.shopping-cart-left-column, .shopping-cart-right-column {
+		> ul { top: 30px; }
+	}
+	.search-input { 
+		position: absolute;
+		top: 0px;
+		height: 20px;
+		right: 55px;
+		left: 0px;
+	}
+	.loading {
+		position: absolute;
+		top: 30px;
+	}
+}
+
+.tree-shopping-cart {
+	.shopping-cart-left-column, .shopping-cart-right-column {
+		> ul { top: 0px; }
+	}
+}
+
+.empty-prompt {
+	width: 100%;
+	height: 20px;
+}
+
+.small-empty-prompt {
+	position: absolute;
+	left: 2px;
+	right:2px;
+	top: 2px;
+}

@@ -9,6 +9,10 @@ var PromptController = Class.extend({
 		this.view.deleteItem();
 	},
 
+	onSmallHeaderClick: function () {
+		this.promptsController.moveToPrompt(this);		
+	},
+
 	setReadyForExecution: function () {
         if(this.evaluateReadyForExecution()) {
         	this.readyForExecution = true;
@@ -32,5 +36,13 @@ var PromptController = Class.extend({
 
     createView: function () {
         return this.setView(this.createViewFunc(this));
-    }
+    },
+
+	showSmall: function () {
+		this.view.showSmall();
+	},
+
+	hideSmall: function () {
+		this.view.hideSmall();
+	}
 });

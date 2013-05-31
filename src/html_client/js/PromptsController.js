@@ -4,7 +4,7 @@ var PromptsController = DisposableItemsController.extend({
 	},
 
 	moveNext: function () {
-		var index = _.indexOf(this.items, this.currentItem);
+		var index = _.indexOf(this.items, this.currentItem); 
 		this._setDisplayItem(this.items[index + 1]);
 		this._evaluateMoveNextAndPrevious();
 	},
@@ -12,6 +12,11 @@ var PromptsController = DisposableItemsController.extend({
 	movePrevious: function () {
 		var index = _.indexOf(this.items, this.currentItem);
 		this._setDisplayItem(this.items[index - 1]);
+		this._evaluateMoveNextAndPrevious();
+	},
+
+	moveToPrompt: function (val) {
+		this._setDisplayItem(val);
 		this._evaluateMoveNextAndPrevious();
 	},
 
@@ -45,12 +50,17 @@ var PromptsController = DisposableItemsController.extend({
 	},
 
 	_setDisplayItem: function (val) {
+		if(this.currentItem != undefined) {
+			this.currentItem.showSmall();
+		}
+		val.hideSmall();
 		this.currentItem = val;
 		this.view.displayPrompt(val);
 	},
 
 	setItems: function (val) {
 		this.items = val;
+		this.view.setSmallItems(val);
 		this._setDisplayItem(this.items[0]);
 		this._evaluateMoveNextAndPrevious();
 	}

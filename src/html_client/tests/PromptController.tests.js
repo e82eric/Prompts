@@ -1,11 +1,11 @@
 module("Prompt Controller", {
 	setup: function () {
 		var model = {name: "model"};
-		this.promptsController = {evaluateReadyForExecution: sinon.spy()};
+		this.promptsController = { evaluateReadyForExecution: sinon.spy(), moveToPrompt: sinon.spy() };
 		this.view = { 
 			setExecutionIndicatorReady: sinon.spy(), 
 			setExecutionIndicatorNotReady: sinon.spy(),
-			deleteItem: sinon.spy() 
+			deleteItem: sinon.spy()
 		};
 		this.controller = new PromptController(model, this.promptsController);
 		this.controller.evaluateReadyForExecution = sinon.stub();
@@ -130,3 +130,11 @@ test("It uses the sub classes selections for the selection info's Selections", f
 	ok(controller.selectionInfo().Selections === expected);
 });
 
+test("It asks the prompting controller to move to its self when the header is clicked", function () {
+	ok(this.promptsController.moveToPrompt.callCount === 0);
+
+	this.controller.onSmallHeaderClick();
+
+	ok(this.promptsController.moveToPrompt.callCount === 1);
+	ok(this.promptsController.moveToPrompt.withArgs(this.controller).callCount === 1);
+});

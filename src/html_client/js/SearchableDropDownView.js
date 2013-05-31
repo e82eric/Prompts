@@ -6,11 +6,16 @@ var SearchableDropDownView = DropDownView.extend({
     },
 
     render: function (){
+        this.searchInput.keyup($.proxy(this.onSearchStringChange, this));
         this.searchButton.click($.proxy(this.onSearch, this));
         return this._super();
     },
 
     onSearch: function () {
         this.controller.availableItemsController.search(this.searchInput.val());
-    }
+    },
+
+	onSearchStringChange: function (val) {
+		this.controller.availableItemsController.setSearchString(this.searchInput.val());
+	}
 });
