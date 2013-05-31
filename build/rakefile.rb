@@ -164,6 +164,10 @@ exec :run_javascript_tests => ['Clean', 'build_html_clients'] do |cmd|
 	cmd.parameters = ["\"#{trunkDirectory}/tools/phantomjs/run-qunit.js\"", "\"#{rootBuildDirectory}/html_client_debug/html/tests.html\"" ]
 end
 
+desc "Build HTML Clients Full"
+task :build_html_clients_full => ['run_javascript_tests', 'run_service_unit_tests', 'build_service' ] do
+end
+
 def publish_web_project(projectDirectory, projectName, buildDirectory)
 	build_project("#{projectDirectory}/#{projectName}.csproj") 
 
