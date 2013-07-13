@@ -48,7 +48,7 @@ nunit :run_service_unit_tests do |nunit|
 	build_project("#{testServiceProjectDirectory}/#{testServiceName}.csproj")
 	
 	nunit.command = "#{trunkDirectory}/tools/nunit/nunit-console.exe"
-	nunit.options "/xml=#{testServiceProjectDirectory}/TestResults.xml"
+	nunit.options "/xml=\"#{testServiceProjectDirectory}/TestResults.xml\""
 	nunit.assemblies << "#{solutionRoot}/#{testServiceName}/bin/Release/#{testServiceName}.dll"
 end
 
