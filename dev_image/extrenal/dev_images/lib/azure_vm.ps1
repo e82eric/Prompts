@@ -183,7 +183,7 @@ function new_azure_vm ($name, $adminUser, $workingDirectory, $installersDirector
 	}
 	$obj | Add-Member -Type ScriptMethod _downloadInstallers -Value {
 		$this.RemoteSession({ param($session)
-			$session.AddScript("$($this.LibDir)\external\azure_remote_powershell\lib\StorageClient.ps1")
+			$session.AddScript("$($this.LibDir)\external\azure_rest_powershell\lib\StorageClient.ps1")
 			$session.Execute({ param($context, $storageAccount, $storageAccountKey, $installersContainer)
 				Write-Host $storageAccountKey
 				Write-Host $storageAccount
