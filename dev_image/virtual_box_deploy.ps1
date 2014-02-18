@@ -23,7 +23,7 @@ $vm = new_virtualbox_vm `
 	-Memory $memory `
 	-CpuCores $cpuCores
 
-& "$workingDirectory\deploy_base.ps1" `
+& "$workingDirectory\deploy.ps1" `
 	-Vm $vm `
 	-AdminUserName "administrator" `
 	-AdminPassword "pass@word1" `
