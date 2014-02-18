@@ -12,7 +12,7 @@
 param($subscriptionId, $thumbprint, $networkName, $affinityGroup, $networkAddressSpace, $subnetAddressPrefix, $gatewaySubnetAddressPrefix, $vpnAddressPrefix, $clientCertificatePassword, $workingDir = (Resolve-Path .\).Path, $toolsDir = (Resolve-Path "$workingDir\..\tools").Path, $outDir = "$workingDir\vpn")
 $ErrorActionPreference = "Stop"
 
-. "$workingDir\external\azure_remote_powershell\lib\azure_rest_client.ps1"
+. "$workingDir\external\azure_rest_powershell\lib\azure_rest_client.ps1"
 
 $cert = Get-Item Cert:\CurrentUser\My\$thumbprint
 $restClient = new_azure_rest_client $subscriptionId $cert
