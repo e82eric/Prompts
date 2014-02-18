@@ -10,3 +10,5 @@ _ReSharper.*
 [Bb]inaries
 prompts*.zip
 TestResults.xml
+floppy.img
+floppy
